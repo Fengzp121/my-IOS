@@ -63,6 +63,11 @@
 		467D3F3423026CB800986B0B /* YTKBatchRequestAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F2A23026CB800986B0B /* YTKBatchRequestAgent.m */; };
 		467D3F3523026CB900986B0B /* YTKRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F2C23026CB800986B0B /* YTKRequest.m */; };
 		467D3F3A2302ABF200986B0B /* getApiTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F392302ABF200986B0B /* getApiTest.m */; };
+		467D3F622302BA9200986B0B /* YTKAnimatingRequestAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F5E2302BA9200986B0B /* YTKAnimatingRequestAccessory.m */; };
+		467D3F632302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F5F2302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m */; };
+		467D3F642302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F602302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m */; };
+		467D3F652302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F612302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m */; };
+		467D3F682302BAD000986B0B /* urlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F672302BAD000986B0B /* urlArgumentsFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -183,6 +188,16 @@
 		467D3F2C23026CB800986B0B /* YTKRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKRequest.m; sourceTree = "<group>"; };
 		467D3F382302ABF200986B0B /* getApiTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getApiTest.h; sourceTree = "<group>"; };
 		467D3F392302ABF200986B0B /* getApiTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = getApiTest.m; sourceTree = "<group>"; };
+		467D3F5A2302BA9200986B0B /* YTKAnimatingRequestAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YTKAnimatingRequestAccessory.h; sourceTree = "<group>"; };
+		467D3F5B2302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKBatchRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		467D3F5C2302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKChainRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		467D3F5D2302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "YTKBaseRequest+AnimatingAccessory.h"; sourceTree = "<group>"; };
+		467D3F5E2302BA9200986B0B /* YTKAnimatingRequestAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YTKAnimatingRequestAccessory.m; sourceTree = "<group>"; };
+		467D3F5F2302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBatchRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		467D3F602302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKChainRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		467D3F612302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
+		467D3F662302BAD000986B0B /* urlArgumentsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = urlArgumentsFilter.h; sourceTree = "<group>"; };
+		467D3F672302BAD000986B0B /* urlArgumentsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = urlArgumentsFilter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -631,24 +646,25 @@
 		467D3F1923026CB800986B0B /* YTKNetwork */ = {
 			isa = PBXGroup;
 			children = (
-				467D3F1A23026CB800986B0B /* YTKNetworkConfig.m */,
+				467D3F592302BA9200986B0B /* Accessory */,
 				467D3F1B23026CB800986B0B /* YTKBaseRequest.h */,
-				467D3F1C23026CB800986B0B /* YTKChainRequest.m */,
-				467D3F1D23026CB800986B0B /* YTKNetwork.h */,
+				467D3F2423026CB800986B0B /* YTKBaseRequest.m */,
 				467D3F1E23026CB800986B0B /* YTKBatchRequest.h */,
+				467D3F2723026CB800986B0B /* YTKBatchRequest.m */,
+				467D3F2223026CB800986B0B /* YTKBatchRequestAgent.h */,
+				467D3F2A23026CB800986B0B /* YTKBatchRequestAgent.m */,
+				467D3F2623026CB800986B0B /* YTKChainRequest.h */,
+				467D3F1C23026CB800986B0B /* YTKChainRequest.m */,
+				467D3F2323026CB800986B0B /* YTKChainRequestAgent.h */,
+				467D3F2923026CB800986B0B /* YTKChainRequestAgent.m */,
+				467D3F1D23026CB800986B0B /* YTKNetwork.h */,
 				467D3F1F23026CB800986B0B /* YTKNetworkAgent.h */,
+				467D3F2823026CB800986B0B /* YTKNetworkAgent.m */,
+				467D3F2523026CB800986B0B /* YTKNetworkConfig.h */,
+				467D3F1A23026CB800986B0B /* YTKNetworkConfig.m */,
+				467D3F2B23026CB800986B0B /* YTKNetworkPrivate.h */,
 				467D3F2023026CB800986B0B /* YTKNetworkPrivate.m */,
 				467D3F2123026CB800986B0B /* YTKRequest.h */,
-				467D3F2223026CB800986B0B /* YTKBatchRequestAgent.h */,
-				467D3F2323026CB800986B0B /* YTKChainRequestAgent.h */,
-				467D3F2423026CB800986B0B /* YTKBaseRequest.m */,
-				467D3F2523026CB800986B0B /* YTKNetworkConfig.h */,
-				467D3F2623026CB800986B0B /* YTKChainRequest.h */,
-				467D3F2723026CB800986B0B /* YTKBatchRequest.m */,
-				467D3F2823026CB800986B0B /* YTKNetworkAgent.m */,
-				467D3F2923026CB800986B0B /* YTKChainRequestAgent.m */,
-				467D3F2A23026CB800986B0B /* YTKBatchRequestAgent.m */,
-				467D3F2B23026CB800986B0B /* YTKNetworkPrivate.h */,
 				467D3F2C23026CB800986B0B /* YTKRequest.m */,
 			);
 			path = YTKNetwork;
@@ -657,6 +673,8 @@
 		467D3F362302AB9F00986B0B /* HttpApi */ = {
 			isa = PBXGroup;
 			children = (
+				467D3F662302BAD000986B0B /* urlArgumentsFilter.h */,
+				467D3F672302BAD000986B0B /* urlArgumentsFilter.m */,
 				467D3F372302ABAC00986B0B /* testApi */,
 			);
 			path = HttpApi;
@@ -669,6 +687,21 @@
 				467D3F392302ABF200986B0B /* getApiTest.m */,
 			);
 			path = testApi;
+			sourceTree = "<group>";
+		};
+		467D3F592302BA9200986B0B /* Accessory */ = {
+			isa = PBXGroup;
+			children = (
+				467D3F5A2302BA9200986B0B /* YTKAnimatingRequestAccessory.h */,
+				467D3F5E2302BA9200986B0B /* YTKAnimatingRequestAccessory.m */,
+				467D3F5D2302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.h */,
+				467D3F612302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m */,
+				467D3F5B2302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.h */,
+				467D3F5F2302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m */,
+				467D3F5C2302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.h */,
+				467D3F602302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m */,
+			);
+			path = Accessory;
 			sourceTree = "<group>";
 		};
 		F9CFF989BD79C9BCF1F82D3F /* Pods */ = {
@@ -801,6 +834,7 @@
 				467D3EA52302637900986B0B /* NSObject+FFCancelRequest.m in Sources */,
 				467D3E9A2302637900986B0B /* FFdataEngine.m in Sources */,
 				467D3E9F2302637900986B0B /* FFBaseEngine.m in Sources */,
+				467D3F652302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				467D3EA12302637900986B0B /* FFServerSetting.m in Sources */,
 				467D3F0F2302642D00986B0B /* LoginingViewController.m in Sources */,
 				467D3EE22302640E00986B0B /* FFTableViewListData.m in Sources */,
@@ -811,10 +845,13 @@
 				467D3F142302642D00986B0B /* FFphoneNum.m in Sources */,
 				467D3EC5230263C200986B0B /* FFRefreshHeader.m in Sources */,
 				467D3EA42302637900986B0B /* FFBusinessTier.m in Sources */,
+				467D3F642302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m in Sources */,
 				467D3EA82302637900986B0B /* FFRequestModel.m in Sources */,
 				467D3F152302642D00986B0B /* getPhoneNumViewController.m in Sources */,
+				467D3F622302BA9200986B0B /* YTKAnimatingRequestAccessory.m in Sources */,
 				467D3EDC2302640E00986B0B /* FFBlockTest.m in Sources */,
 				467D3E9D2302637900986B0B /* UIButton+FF.m in Sources */,
+				467D3F632302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				467D3F122302642D00986B0B /* LoginViewController.m in Sources */,
 				467D3F2E23026CB800986B0B /* YTKChainRequest.m in Sources */,
 				467D3F3523026CB900986B0B /* YTKRequest.m in Sources */,
@@ -839,6 +876,7 @@
 				467D3EA72302637900986B0B /* FFRequestErrorHandle.m in Sources */,
 				467D3F3A2302ABF200986B0B /* getApiTest.m in Sources */,
 				467D3F3223026CB800986B0B /* YTKNetworkAgent.m in Sources */,
+				467D3F682302BAD000986B0B /* urlArgumentsFilter.m in Sources */,
 				467D3EE12302640E00986B0B /* FFTabBarView.m in Sources */,
 				467D3F3323026CB800986B0B /* YTKChainRequestAgent.m in Sources */,
 				467D3F2F23026CB800986B0B /* YTKNetworkPrivate.m in Sources */,

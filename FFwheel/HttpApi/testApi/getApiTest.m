@@ -11,7 +11,7 @@
 @implementation getApiTest
 
 -(NSString *)requestUrl{
-    return @"";
+    return @"/app/notToken";
 }
 
 @end
