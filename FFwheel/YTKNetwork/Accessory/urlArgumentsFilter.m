@@ -32,8 +32,8 @@
 }
 
 - (NSString *)urlStringWithOriginUrlString:(NSString *)originUrlString appendParameters:(NSDictionary *)parameters {
-    NSString *paraUrlString = AFQueryStringFromParameters(parameters);
     
+    NSString *paraUrlString = AFQueryStringFromParameters(parameters);
     if (!(paraUrlString.length > 0)) {
         return originUrlString;
     }

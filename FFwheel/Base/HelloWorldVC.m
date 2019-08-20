@@ -13,6 +13,13 @@
 #import "FFTabBarController.h"
 #import "ImageApiTestViewController.h"
 
+
+#import "getApiTest.h"
+#import "getDynamicApi.h"
+#import "YTKBatchRequest.h"
+#import "YTKChainRequest.h"
+#import "YTKBaseRequest+AnimatingAccessory.h"
+
 @interface HelloWorldVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIVideoEditorControllerDelegate>
 
 //选择按钮
@@ -35,6 +42,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
+    NSLog(@"self:%@",self);
+    HelloWorldVC *vc = [[HelloWorldVC alloc] init];
+    Class class = [HelloWorldVC class];
+    Class superClass = class_getSuperclass(class);
+    Class supersuperClass = class_getSuperclass(superClass);
+    Class metasupersuperClass = class_getSuperclass(object_getClass(superClass));
+
+    NSLog(@"vc:%@",vc);
+    NSLog(@"class:%@",class);
+    NSLog(@"superClass:%@",superClass);
+    NSLog(@"supersuperClass:%@",supersuperClass);
+    NSLog(@"metasupersuperClass:%@",metasupersuperClass);
+    
+    Class metaclass = object_getClass(class);
+    Class metametaclass = object_getClass(metaclass);
+    Class rootmetametaclass = object_getClass(metametaclass);
+    NSLog(@"metaclass:%@",metaclass);
+    NSLog(@"metametaclass:%@",metametaclass);
+    NSLog(@"rootmetametaclass:%@",rootmetametaclass);
+    
 }
 
 
@@ -102,16 +129,45 @@
 }
 
 -(void)ClickHttpApiTestBtn{
-    [[FFdataEngine sharedInstance] TestDataAPI:self content:@"138" requestBlock:^(id data, int code, NSString *message) {
-        if(code == CorrectCode){
-            NSLog(@"----------成功---------");
-        }
-        else{
-            NSLog(@"----------失败---------");
-        }
-    } errorBlock:^(NSError *error) {
-        NSLog(@"-------请求失败--------");
+//    [[FFdataEngine sharedInstance] TestDataAPI:self content:@"138" requestBlock:^(id data, int code, NSString *message) {
+//        if(code == CorrectCode){
+//            NSLog(@"----------成功---------");
+//        }
+//        else{
+//            NSLog(@"----------失败---------");
+//        }
+//    } errorBlock:^(NSError *error) {
+//        NSLog(@"-------请求失败--------");
+//    }];
+    getApiTest *testApi = [[getApiTest alloc] initWithUserId:@"138"];
+    getDynamicApi *testdynmaicapi = [[getDynamicApi alloc] initWithPage:@"1"];
+    YTKBatchRequest *batchRequest = [[YTKBatchRequest alloc] initWithRequestArray:@[testApi,testdynmaicapi]];
+    //YTKChainRequest *chainRequest = [[YTKChainRequest alloc] init];
+//    [chainRequest addRequest:testApi callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
+//        getApiTest *result =(getApiTest*)baseRequest;
+//        NSLog(@"result:%@",result);
+//    }];
+    [batchRequest startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
+        NSArray *requests = batchRequest.requestArray;
+        getApiTest *a = (getApiTest *)requests[0];
+        getDynamicApi *b = (getDynamicApi *)requests[1];
+        NSLog(@"a:%@ , b:%@",a.responseJSONObject,b.responseJSONObject);
+    } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
+        NSArray *requests = batchRequest.requestArray;
+        getApiTest *a = (getApiTest *)requests[0];
+        getDynamicApi *b = (getDynamicApi *)requests[1];
+        NSLog(@"a:%@ , b:%@",a.error,b.error);
     }];
+    
+    
+//    [testApi startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        getApiTest *result =(getApiTest*)request;
+//
+//        NSLog(@"result:%@",[result.responseJSONObject[@"data"] mj_JSONString]);
+//    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+//        NSLog(@"error:%@",request.error);
+//    }];
+    
 }
 
 -(void)ClickloginVcBtn{

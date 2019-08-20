@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455380230A4254008CADF6 /* FFZPMVVMViewController.m */; };
+		46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455383230A4268008CADF6 /* FFZPMVVMmodel.m */; };
+		46455387230A4290008CADF6 /* FFZPMVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455386230A4290008CADF6 /* FFZPMVVMView.m */; };
 		467D3E542302635600986B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 467D3E532302635600986B0B /* Assets.xcassets */; };
 		467D3E572302635600986B0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467D3E552302635600986B0B /* LaunchScreen.storyboard */; };
 		467D3E9A2302637900986B0B /* FFdataEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3E682302637900986B0B /* FFdataEngine.m */; };
@@ -68,11 +71,19 @@
 		467D3F642302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F602302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m */; };
 		467D3F652302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F612302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m */; };
 		467D3F682302BAD000986B0B /* urlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F672302BAD000986B0B /* urlArgumentsFilter.m */; };
+		469BDB772305014400D16020 /* getDynamicApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 469BDB762305014400D16020 /* getDynamicApi.m */; };
+		469BDB7A230507B600D16020 /* XXFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469BDB79230507B600D16020 /* XXFRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1070F74918DD23F80E6E188C /* Pods-FFwheel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.debug.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.debug.xcconfig"; sourceTree = "<group>"; };
 		2DBCA9EBD90BF2D1AF61DE88 /* Pods-FFwheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.release.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.release.xcconfig"; sourceTree = "<group>"; };
+		4645537F230A4254008CADF6 /* FFZPMVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMViewController.h; sourceTree = "<group>"; };
+		46455380230A4254008CADF6 /* FFZPMVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFZPMVVMViewController.m; sourceTree = "<group>"; };
+		46455382230A4268008CADF6 /* FFZPMVVMmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMmodel.h; sourceTree = "<group>"; };
+		46455383230A4268008CADF6 /* FFZPMVVMmodel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFZPMVVMmodel.m; sourceTree = "<group>"; };
+		46455385230A4290008CADF6 /* FFZPMVVMView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMView.h; sourceTree = "<group>"; };
+		46455386230A4290008CADF6 /* FFZPMVVMView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFZPMVVMView.m; sourceTree = "<group>"; };
 		467D3E472302635400986B0B /* FFwheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFwheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D3E532302635600986B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		467D3E562302635600986B0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -198,6 +209,10 @@
 		467D3F612302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "YTKBaseRequest+AnimatingAccessory.m"; sourceTree = "<group>"; };
 		467D3F662302BAD000986B0B /* urlArgumentsFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = urlArgumentsFilter.h; sourceTree = "<group>"; };
 		467D3F672302BAD000986B0B /* urlArgumentsFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = urlArgumentsFilter.m; sourceTree = "<group>"; };
+		469BDB752305014400D16020 /* getDynamicApi.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = getDynamicApi.h; sourceTree = "<group>"; };
+		469BDB762305014400D16020 /* getDynamicApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = getDynamicApi.m; sourceTree = "<group>"; };
+		469BDB78230507B600D16020 /* XXFRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXFRequest.h; sourceTree = "<group>"; };
+		469BDB79230507B600D16020 /* XXFRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXFRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +227,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4645537E230A421A008CADF6 /* MVVMtest */ = {
+			isa = PBXGroup;
+			children = (
+				4645537F230A4254008CADF6 /* FFZPMVVMViewController.h */,
+				46455380230A4254008CADF6 /* FFZPMVVMViewController.m */,
+				46455382230A4268008CADF6 /* FFZPMVVMmodel.h */,
+				46455383230A4268008CADF6 /* FFZPMVVMmodel.m */,
+				46455385230A4290008CADF6 /* FFZPMVVMView.h */,
+				46455386230A4290008CADF6 /* FFZPMVVMView.m */,
+			);
+			path = MVVMtest;
+			sourceTree = "<group>";
+		};
 		467D3E3E2302635400986B0B = {
 			isa = PBXGroup;
 			children = (
@@ -233,6 +261,7 @@
 		467D3E492302635400986B0B /* FFwheel */ = {
 			isa = PBXGroup;
 			children = (
+				4645537E230A421A008CADF6 /* MVVMtest */,
 				467D3F362302AB9F00986B0B /* HttpApi */,
 				467D3F1923026CB800986B0B /* YTKNetwork */,
 				467D3EEE2302642D00986B0B /* imageApiTestVC */,
@@ -673,8 +702,6 @@
 		467D3F362302AB9F00986B0B /* HttpApi */ = {
 			isa = PBXGroup;
 			children = (
-				467D3F662302BAD000986B0B /* urlArgumentsFilter.h */,
-				467D3F672302BAD000986B0B /* urlArgumentsFilter.m */,
 				467D3F372302ABAC00986B0B /* testApi */,
 			);
 			path = HttpApi;
@@ -685,6 +712,10 @@
 			children = (
 				467D3F382302ABF200986B0B /* getApiTest.h */,
 				467D3F392302ABF200986B0B /* getApiTest.m */,
+				469BDB752305014400D16020 /* getDynamicApi.h */,
+				469BDB762305014400D16020 /* getDynamicApi.m */,
+				469BDB78230507B600D16020 /* XXFRequest.h */,
+				469BDB79230507B600D16020 /* XXFRequest.m */,
 			);
 			path = testApi;
 			sourceTree = "<group>";
@@ -692,6 +723,8 @@
 		467D3F592302BA9200986B0B /* Accessory */ = {
 			isa = PBXGroup;
 			children = (
+				467D3F662302BAD000986B0B /* urlArgumentsFilter.h */,
+				467D3F672302BAD000986B0B /* urlArgumentsFilter.m */,
 				467D3F5A2302BA9200986B0B /* YTKAnimatingRequestAccessory.h */,
 				467D3F5E2302BA9200986B0B /* YTKAnimatingRequestAccessory.m */,
 				467D3F5D2302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.h */,
@@ -833,8 +866,10 @@
 				467D3F3023026CB800986B0B /* YTKBaseRequest.m in Sources */,
 				467D3EA52302637900986B0B /* NSObject+FFCancelRequest.m in Sources */,
 				467D3E9A2302637900986B0B /* FFdataEngine.m in Sources */,
+				46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */,
 				467D3E9F2302637900986B0B /* FFBaseEngine.m in Sources */,
 				467D3F652302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
+				46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */,
 				467D3EA12302637900986B0B /* FFServerSetting.m in Sources */,
 				467D3F0F2302642D00986B0B /* LoginingViewController.m in Sources */,
 				467D3EE22302640E00986B0B /* FFTableViewListData.m in Sources */,
@@ -848,12 +883,14 @@
 				467D3F642302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m in Sources */,
 				467D3EA82302637900986B0B /* FFRequestModel.m in Sources */,
 				467D3F152302642D00986B0B /* getPhoneNumViewController.m in Sources */,
+				469BDB7A230507B600D16020 /* XXFRequest.m in Sources */,
 				467D3F622302BA9200986B0B /* YTKAnimatingRequestAccessory.m in Sources */,
 				467D3EDC2302640E00986B0B /* FFBlockTest.m in Sources */,
 				467D3E9D2302637900986B0B /* UIButton+FF.m in Sources */,
 				467D3F632302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				467D3F122302642D00986B0B /* LoginViewController.m in Sources */,
 				467D3F2E23026CB800986B0B /* YTKChainRequest.m in Sources */,
+				469BDB772305014400D16020 /* getDynamicApi.m in Sources */,
 				467D3F3523026CB900986B0B /* YTKRequest.m in Sources */,
 				467D3E9C2302637900986B0B /* NSString+tojson.m in Sources */,
 				467D3EDD2302640E00986B0B /* FFTableCellModel.m in Sources */,
@@ -877,6 +914,7 @@
 				467D3F3A2302ABF200986B0B /* getApiTest.m in Sources */,
 				467D3F3223026CB800986B0B /* YTKNetworkAgent.m in Sources */,
 				467D3F682302BAD000986B0B /* urlArgumentsFilter.m in Sources */,
+				46455387230A4290008CADF6 /* FFZPMVVMView.m in Sources */,
 				467D3EE12302640E00986B0B /* FFTabBarView.m in Sources */,
 				467D3F3323026CB800986B0B /* YTKChainRequestAgent.m in Sources */,
 				467D3F2F23026CB800986B0B /* YTKNetworkPrivate.m in Sources */,

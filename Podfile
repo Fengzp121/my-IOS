@@ -21,4 +21,6 @@ pod 'YYCache'
 
 #GCDSocket异步socket
 pod 'CocoaAsyncSocket'
+
+pod 'ReactiveObjC'
 end

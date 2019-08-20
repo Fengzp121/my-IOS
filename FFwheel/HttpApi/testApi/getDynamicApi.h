@@ -1,8 +1,8 @@
 //
-//  getApiTest.h
+//  getDynamicApi.h
 //  FFwheel
 //
-//  Created by ffzp on 2019/8/13.
+//  Created by ffzp on 2019/8/15.
 //  Copyright © 2019 ffzp. All rights reserved.
 //
 
@@ -10,10 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface getApiTest : YTKRequest
+@interface getDynamicApi : YTKRequest
 
--(id)initWithUserId:(NSString *)userId;
-
+-(id)initWithPage:(NSString *)page;
 
 @end
 

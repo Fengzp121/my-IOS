@@ -155,6 +155,9 @@
 
     // If api needs to add custom value to HTTPHeaderField
     NSDictionary<NSString *, NSString *> *headerFieldValueDictionary = [request requestHeaderFieldValueDictionary];
+    //业务需求默认添加一个token，如果token存在的话。
+    [requestSerializer setValue:@"" forHTTPHeaderField:@"token"];
+    
     if (headerFieldValueDictionary != nil) {
         for (NSString *httpHeaderField in headerFieldValueDictionary.allKeys) {
             NSString *value = headerFieldValueDictionary[httpHeaderField];
@@ -199,9 +202,12 @@
     NSURLRequest *customUrlRequest= [request buildCustomUrlRequest];
     if (customUrlRequest) {
         __block NSURLSessionDataTask *dataTask = nil;
-        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        dataTask = [_manager dataTaskWithRequest:customUrlRequest uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
             [self handleRequestResult:dataTask responseObject:responseObject error:error];
         }];
+//        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+//            [self handleRequestResult:dataTask responseObject:responseObject error:error];
+//        }];
         request.requestTask = dataTask;
     } else {
         request.requestTask = [self sessionTaskForRequest:request error:&requestSerializationError];
@@ -453,10 +459,13 @@
     }
 
     __block NSURLSessionDataTask *dataTask = nil;
-    dataTask = [_manager dataTaskWithRequest:request
-                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
-                               [self handleRequestResult:dataTask responseObject:responseObject error:_error];
-                           }];
+    dataTask = [_manager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        [self handleRequestResult:dataTask responseObject:responseObject error:error];
+    }];
+//    dataTask = [_manager dataTaskWithRequest:request
+//                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
+//                               [self handleRequestResult:dataTask responseObject:responseObject error:_error];
+//                           }];
 
     return dataTask;
 }
