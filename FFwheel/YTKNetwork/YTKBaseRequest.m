@@ -46,6 +46,11 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 
 @implementation YTKBaseRequest
 
+
+-(void)dealloc{
+    [self stop];
+    [self clearCompletionBlock];
+}
 #pragma mark - Request and Response Information
 
 - (NSHTTPURLResponse *)response {
@@ -178,8 +183,12 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 }
 
 - (NSDictionary *)requestHeaderFieldValueDictionary {
-    return nil;
+    return _userInfo;
+     //return @{@"token":@"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiIxNiIsImlhdCI6MTU2NTgzNzY4MSwiZXhwIjoxNTY2NDQyNDgxfQ.B2v9M0NnziJOjEEaoXg8U8GgCJkZDm1RT760gvUyRZ07vK8F1Cgpvth4kkB-yFYaIGs9asXMmSzRAcrj7Mq-Vg"};
+    //return nil;
 }
+
+
 
 - (NSURLRequest *)buildCustomUrlRequest {
     return nil;
@@ -194,7 +203,11 @@ NSString *const YTKRequestValidationErrorDomain = @"com.yuantiku.request.validat
 }
 
 - (id)jsonValidator {
-    return nil;
+    return @{
+             @"code": [NSNumber class],
+             @"data": [NSString class],
+             @"msg" : [NSString class]
+             };
 }
 
 - (BOOL)statusCodeValidator {

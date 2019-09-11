@@ -28,6 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const YTKRequestValidationErrorDomain;
 
 NS_ENUM(NSInteger) {
+    YTKRequestValidationErrorInvalidCustomCode = -7,
     YTKRequestValidationErrorInvalidStatusCode = -8,
     YTKRequestValidationErrorInvalidJSONFormat = -9,
 };

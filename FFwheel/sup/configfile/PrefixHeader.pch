@@ -40,3 +40,6 @@
 #import "FFNavigationViewController.h"
 
 #import <ReactiveObjC/ReactiveObjC.h>
+
+#import "MBProgressHUD+FF.h"
+

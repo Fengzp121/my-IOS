@@ -8,6 +8,8 @@
 
 #import "ImageApiTestViewController.h"
 #import "TZImagePickerController.h"
+#import "uploadImg.h"
+#import "YTKBaseRequest+AnimatingAccessory.h"
 @interface ImageApiTestViewController ()<TZImagePickerControllerDelegate>
 @property (nonatomic,weak)UIButton *APIcheckBtn;            //测试借口
 @property (nonatomic,weak)UIButton *PickImageBtn;           //进入picker界面
@@ -42,14 +44,27 @@
 }
 
 -(void)APICheckBtnClick{
-        [[FFdataEngine sharedInstance] ImageUploadApi:self imageArray:self.dataArr requesBlock:^(id data, int code, NSString *message) {
-            if(code == CorrectCode){
-                NSLog(@"-----上传成功-----message:%@",message);
-                NSLog(@"code:%@",[data mj_JSONString]);
-            }
-        } errorBlock:^(NSError *error) {
-            NSLog(@"-----上传失败-----error:%@",error);
-        }];
+//        [[FFdataEngine sharedInstance] ImageUploadApi:self imageArray:self.dataArr requesBlock:^(id data, int code, NSString *message) {
+//            if(code == CorrectCode){
+//                NSLog(@"-----上传成功-----message:%@",message);
+//                NSLog(@"code:%@",[data mj_JSONString]);
+//            }
+//        } errorBlock:^(NSError *error) {
+//            NSLog(@"-----上传失败-----error:%@",error);
+//        }];
+//
+    uploadImg *api = [[uploadImg alloc] initWithImage:self.dataArr[0]];
+    api.animatingText = @"正在上传";
+    api.animatingView = self.view;
+    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int32_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            NSLog(@"-----上传成功-----message:%@",request.responseObject[@"message"]);
+        });
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"-----上传失败-----error:%@",request.error);
+    }];
+    
+ 
 }
 
 -(void)PickIamgeBtnClick{
@@ -62,14 +77,15 @@
 }
 
 -(void)MixAPICheckBtnClick{
-    [[FFdataEngine sharedInstance] Image_Content_uploadApi:self content:@"fuck you!" imageArray:self.dataArr requesBlock:^(id data, int code, NSString *message) {
-        if(code == CorrectCode){
-            NSLog(@"-----上传成功-----message:%@",message);
-            NSLog(@"code:%@",[data mj_JSONString]);
-        }
-    } errorBlock:^(NSError *error) {
-        NSLog(@"-----上传失败-----error:%@",error);
-    }];
+//    [[FFdataEngine sharedInstance] Image_Content_uploadApi:self content:@"fuck you!" imageArray:self.dataArr requesBlock:^(id data, int code, NSString *message) {
+//        if(code == CorrectCode){
+//            NSLog(@"-----上传成功-----message:%@",message);
+//            NSLog(@"code:%@",[data mj_JSONString]);
+//        }
+//    } errorBlock:^(NSError *error) {
+//        NSLog(@"-----上传失败-----error:%@",error);
+//    }];
+
 }
 
 -(void)DownLoadAPICheckBtnClick{

@@ -42,25 +42,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
-    NSLog(@"self:%@",self);
-    HelloWorldVC *vc = [[HelloWorldVC alloc] init];
-    Class class = [HelloWorldVC class];
-    Class superClass = class_getSuperclass(class);
-    Class supersuperClass = class_getSuperclass(superClass);
-    Class metasupersuperClass = class_getSuperclass(object_getClass(superClass));
-
-    NSLog(@"vc:%@",vc);
-    NSLog(@"class:%@",class);
-    NSLog(@"superClass:%@",superClass);
-    NSLog(@"supersuperClass:%@",supersuperClass);
-    NSLog(@"metasupersuperClass:%@",metasupersuperClass);
-    
-    Class metaclass = object_getClass(class);
-    Class metametaclass = object_getClass(metaclass);
-    Class rootmetametaclass = object_getClass(metametaclass);
-    NSLog(@"metaclass:%@",metaclass);
-    NSLog(@"metametaclass:%@",metametaclass);
-    NSLog(@"rootmetametaclass:%@",rootmetametaclass);
+//    NSLog(@"self:%@",self);
+//    HelloWorldVC *vc = [[HelloWorldVC alloc] init];
+//    Class class = [HelloWorldVC class];
+//    Class superClass = class_getSuperclass(class);
+//    Class supersuperClass = class_getSuperclass(superClass);
+//    Class metasupersuperClass = class_getSuperclass(object_getClass(superClass));
+//
+//    NSLog(@"vc:%@",vc);
+//    NSLog(@"class:%@",class);
+//    NSLog(@"superClass:%@",superClass);
+//    NSLog(@"supersuperClass:%@",supersuperClass);
+//    NSLog(@"metasupersuperClass:%@",metasupersuperClass);
+//
+//    Class metaclass = object_getClass(class);
+//    Class metametaclass = object_getClass(metaclass);
+//    Class rootmetametaclass = object_getClass(metametaclass);
+//    NSLog(@"metaclass:%@",metaclass);
+//    NSLog(@"metametaclass:%@",metametaclass);
+//    NSLog(@"rootmetametaclass:%@",rootmetametaclass);
     
 }
 
@@ -140,8 +140,8 @@
 //        NSLog(@"-------请求失败--------");
 //    }];
     getApiTest *testApi = [[getApiTest alloc] initWithUserId:@"138"];
-    getDynamicApi *testdynmaicapi = [[getDynamicApi alloc] initWithPage:@"1"];
-    YTKBatchRequest *batchRequest = [[YTKBatchRequest alloc] initWithRequestArray:@[testApi,testdynmaicapi]];
+    //getDynamicApi *testdynmaicapi = [[getDynamicApi alloc] initWithPage:@"1"];
+    YTKBatchRequest *batchRequest = [[YTKBatchRequest alloc] initWithRequestArray:@[testApi]];
     //YTKChainRequest *chainRequest = [[YTKChainRequest alloc] init];
 //    [chainRequest addRequest:testApi callback:^(YTKChainRequest * _Nonnull chainRequest, YTKBaseRequest * _Nonnull baseRequest) {
 //        getApiTest *result =(getApiTest*)baseRequest;
@@ -150,13 +150,15 @@
     [batchRequest startWithCompletionBlockWithSuccess:^(YTKBatchRequest * _Nonnull batchRequest) {
         NSArray *requests = batchRequest.requestArray;
         getApiTest *a = (getApiTest *)requests[0];
-        getDynamicApi *b = (getDynamicApi *)requests[1];
-        NSLog(@"a:%@ , b:%@",a.responseJSONObject,b.responseJSONObject);
+        //getDynamicApi *b = (getDynamicApi *)requests[1];
+        //,b.responseJSONObject
+        NSLog(@"a:%@",a.responseJSONObject);
     } failure:^(YTKBatchRequest * _Nonnull batchRequest) {
         NSArray *requests = batchRequest.requestArray;
         getApiTest *a = (getApiTest *)requests[0];
-        getDynamicApi *b = (getDynamicApi *)requests[1];
-        NSLog(@"a:%@ , b:%@",a.error,b.error);
+        //getDynamicApi *b = (getDynamicApi *)requests[1];
+        //,b.error
+        NSLog(@"a:%@",a.error);
     }];
     
     

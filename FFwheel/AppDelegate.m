@@ -23,11 +23,16 @@
     //urlArgumentsFilter *urlFilter = [urlArgumentsFilter filterWithArguments:@{@"version": appVersion}];
     //[config addUrlFilter:urlFilter];
     config.baseUrl = @"http://39.108.188.145:8077";
-    config.cdnUrl = @"hf";
+    //config.cdnUrl = @"hf";
+}
+
+-(void)log{
+    NSLog(@"token-expire");
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [self setupRequestFilters];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(log) name:@"token_expire" object:nil];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
     UINavigationController *nav = [[FFNavigationViewController alloc]initWithRootViewController:[[HelloWorldVC alloc]init]];
     self.window.rootViewController = nav;

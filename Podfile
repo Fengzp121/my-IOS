@@ -23,4 +23,6 @@ pod 'YYCache'
 pod 'CocoaAsyncSocket'
 
 pod 'ReactiveObjC'
+
+pod 'MBProgressHUD'
 end

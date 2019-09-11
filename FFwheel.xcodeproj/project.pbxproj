@@ -73,6 +73,8 @@
 		467D3F682302BAD000986B0B /* urlArgumentsFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3F672302BAD000986B0B /* urlArgumentsFilter.m */; };
 		469BDB772305014400D16020 /* getDynamicApi.m in Sources */ = {isa = PBXBuildFile; fileRef = 469BDB762305014400D16020 /* getDynamicApi.m */; };
 		469BDB7A230507B600D16020 /* XXFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469BDB79230507B600D16020 /* XXFRequest.m */; };
+		46AB75412328B04200B731D3 /* uploadImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AB75402328B04200B731D3 /* uploadImg.m */; };
+		46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -213,6 +215,10 @@
 		469BDB762305014400D16020 /* getDynamicApi.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = getDynamicApi.m; sourceTree = "<group>"; };
 		469BDB78230507B600D16020 /* XXFRequest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XXFRequest.h; sourceTree = "<group>"; };
 		469BDB79230507B600D16020 /* XXFRequest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XXFRequest.m; sourceTree = "<group>"; };
+		46AB753F2328B04200B731D3 /* uploadImg.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = uploadImg.h; sourceTree = "<group>"; };
+		46AB75402328B04200B731D3 /* uploadImg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uploadImg.m; sourceTree = "<group>"; };
+		46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+FF.m"; sourceTree = "<group>"; };
+		46AB75442328DBA200B731D3 /* MBProgressHUD+FF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+FF.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +288,7 @@
 		467D3E602302637900986B0B /* lib */ = {
 			isa = PBXGroup;
 			children = (
+				46AB75422328DB8D00B731D3 /* categroy */,
 				467D3E612302637900986B0B /* FFDataEngine */,
 				467D3E6A2302637900986B0B /* smallTool */,
 				467D3E762302637900986B0B /* serviceEngine */,
@@ -448,12 +455,12 @@
 		467D3EAD230263C200986B0B /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				467D3EAE230263C200986B0B /* FFTableRefreshViewController.h */,
-				467D3EAF230263C200986B0B /* FFNavigationViewController.m */,
-				467D3EB0230263C200986B0B /* FFTableViewController.m */,
-				467D3EB1230263C200986B0B /* FFTableRefreshViewController.m */,
 				467D3EB2230263C200986B0B /* FFNavigationViewController.h */,
+				467D3EAF230263C200986B0B /* FFNavigationViewController.m */,
+				467D3EAE230263C200986B0B /* FFTableRefreshViewController.h */,
+				467D3EB1230263C200986B0B /* FFTableRefreshViewController.m */,
 				467D3EB3230263C200986B0B /* FFTableViewController.h */,
+				467D3EB0230263C200986B0B /* FFTableViewController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -557,8 +564,8 @@
 		467D3EEE2302642D00986B0B /* imageApiTestVC */ = {
 			isa = PBXGroup;
 			children = (
-				467D3EEF2302642D00986B0B /* ImageApiTestViewController.m */,
 				467D3EF02302642D00986B0B /* ImageApiTestViewController.h */,
+				467D3EEF2302642D00986B0B /* ImageApiTestViewController.m */,
 			);
 			path = imageApiTestVC;
 			sourceTree = "<group>";
@@ -702,6 +709,8 @@
 		467D3F362302AB9F00986B0B /* HttpApi */ = {
 			isa = PBXGroup;
 			children = (
+				469BDB78230507B600D16020 /* XXFRequest.h */,
+				469BDB79230507B600D16020 /* XXFRequest.m */,
 				467D3F372302ABAC00986B0B /* testApi */,
 			);
 			path = HttpApi;
@@ -714,8 +723,8 @@
 				467D3F392302ABF200986B0B /* getApiTest.m */,
 				469BDB752305014400D16020 /* getDynamicApi.h */,
 				469BDB762305014400D16020 /* getDynamicApi.m */,
-				469BDB78230507B600D16020 /* XXFRequest.h */,
-				469BDB79230507B600D16020 /* XXFRequest.m */,
+				46AB753F2328B04200B731D3 /* uploadImg.h */,
+				46AB75402328B04200B731D3 /* uploadImg.m */,
 			);
 			path = testApi;
 			sourceTree = "<group>";
@@ -735,6 +744,15 @@
 				467D3F602302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m */,
 			);
 			path = Accessory;
+			sourceTree = "<group>";
+		};
+		46AB75422328DB8D00B731D3 /* categroy */ = {
+			isa = PBXGroup;
+			children = (
+				46AB75442328DBA200B731D3 /* MBProgressHUD+FF.h */,
+				46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */,
+			);
+			path = categroy;
 			sourceTree = "<group>";
 		};
 		F9CFF989BD79C9BCF1F82D3F /* Pods */ = {
@@ -867,6 +885,7 @@
 				467D3EA52302637900986B0B /* NSObject+FFCancelRequest.m in Sources */,
 				467D3E9A2302637900986B0B /* FFdataEngine.m in Sources */,
 				46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */,
+				46AB75412328B04200B731D3 /* uploadImg.m in Sources */,
 				467D3E9F2302637900986B0B /* FFBaseEngine.m in Sources */,
 				467D3F652302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */,
@@ -889,6 +908,7 @@
 				467D3E9D2302637900986B0B /* UIButton+FF.m in Sources */,
 				467D3F632302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				467D3F122302642D00986B0B /* LoginViewController.m in Sources */,
+				46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */,
 				467D3F2E23026CB800986B0B /* YTKChainRequest.m in Sources */,
 				469BDB772305014400D16020 /* getDynamicApi.m in Sources */,
 				467D3F3523026CB900986B0B /* YTKRequest.m in Sources */,

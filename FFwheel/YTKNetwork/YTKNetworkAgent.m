@@ -205,9 +205,6 @@
         dataTask = [_manager dataTaskWithRequest:customUrlRequest uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
             [self handleRequestResult:dataTask responseObject:responseObject error:error];
         }];
-//        dataTask = [_manager dataTaskWithRequest:customUrlRequest completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//            [self handleRequestResult:dataTask responseObject:responseObject error:error];
-//        }];
         request.requestTask = dataTask;
     } else {
         request.requestTask = [self sessionTaskForRequest:request error:&requestSerializationError];
@@ -280,12 +277,16 @@
 
 - (BOOL)validateResult:(YTKBaseRequest *)request error:(NSError * _Nullable __autoreleasing *)error {
     BOOL result = [request statusCodeValidator];
+    //这里应该是返回自状态码错误
     if (!result) {
         if (error) {
+            //这里还要验证一些正确返回了但夹杂在 @"com.alamofire.serialization.response.error.data" 的错误
+            //但是不能从这个error中取值。。。
             *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidStatusCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid status code"}];
         }
         return result;
     }
+    //验证json合法
     id json = [request responseJSONObject];
     id validator = [request jsonValidator];
     if (json && validator) {
@@ -293,6 +294,17 @@
         if (!result) {
             if (error) {
                 *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidJSONFormat userInfo:@{NSLocalizedDescriptionKey:@"Invalid JSON format"}];
+            }
+            return result;
+        }
+    }
+    //验证自定义错误
+    int code = [request.responseObject[@"code"] intValue];
+    if(code){
+        result = [YTKNetworkUtils validateCustomCode:code];
+        if (!result) {
+            if (error) {
+                *error = [NSError errorWithDomain:YTKRequestValidationErrorDomain code:YTKRequestValidationErrorInvalidCustomCode userInfo:@{NSLocalizedDescriptionKey:@"Invalid Custom Error"}];
             }
             return result;
         }
@@ -347,7 +359,7 @@
         succeed = NO;
         requestError = serializationError;
     } else {
-        succeed = [self validateResult:request error:&validationError];
+        succeed = [self validateResult:request error:&validationError]; //验证返回的东西
         requestError = validationError;
     }
 
@@ -462,11 +474,7 @@
     dataTask = [_manager dataTaskWithRequest:request uploadProgress:nil downloadProgress:nil completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
         [self handleRequestResult:dataTask responseObject:responseObject error:error];
     }];
-//    dataTask = [_manager dataTaskWithRequest:request
-//                           completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *_error) {
-//                               [self handleRequestResult:dataTask responseObject:responseObject error:_error];
-//                           }];
-
+    
     return dataTask;
 }
 

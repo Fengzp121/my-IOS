@@ -91,6 +91,18 @@ void YTKLog(NSString *format, ...) {
     }
 }
 
++ (BOOL)validateCustomCode:(int)code{
+    switch (code) {
+        case 200:case 10001:case 10000:
+            return YES;
+        case 10086:
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"token_expire" object:nil];
+            return NO;
+        default:
+            return NO;
+    }
+}
+
 + (void)addDoNotBackupAttribute:(NSString *)path {
     NSURL *url = [NSURL fileURLWithPath:path];
     NSError *error = nil;
