@@ -25,4 +25,5 @@ pod 'CocoaAsyncSocket'
 pod 'ReactiveObjC'
 
 pod 'MBProgressHUD'
+#pod 'Alamofire'
 end

@@ -31,6 +31,12 @@
 @property (nonatomic,strong)UIButton *loginVcBtn;
 @property (nonatomic,strong)UIButton *SocketTestBtn;
 
+@property (nonatomic,strong)UIView *oneView;
+@property (nonatomic,strong)UIView *twoView;
+@property (nonatomic,strong)UIButton *Button1,*Button2;
+@property (nonatomic,strong)UIButton *Buuton3,*Button4;
+
+
 //fuck you
 
 @end
