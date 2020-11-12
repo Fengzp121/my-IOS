@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C78DDE6255D2FB900A083C3 /* FFViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE5255D2FB900A083C3 /* FFViewModel.m */; };
+		3C78DDEA255D307200A083C3 /* FFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE9255D307200A083C3 /* FFViewController.m */; };
 		46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455380230A4254008CADF6 /* FFZPMVVMViewController.m */; };
 		46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455383230A4268008CADF6 /* FFZPMVVMmodel.m */; };
 		46455387230A4290008CADF6 /* FFZPMVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455386230A4290008CADF6 /* FFZPMVVMView.m */; };
@@ -102,6 +104,12 @@
 /* Begin PBXFileReference section */
 		1070F74918DD23F80E6E188C /* Pods-FFwheel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.debug.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.debug.xcconfig"; sourceTree = "<group>"; };
 		2DBCA9EBD90BF2D1AF61DE88 /* Pods-FFwheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.release.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.release.xcconfig"; sourceTree = "<group>"; };
+		3C78DDE0255D2DA000A083C3 /* FFViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewControllerProtocol.h; sourceTree = "<group>"; };
+		3C78DDE1255D2E6C00A083C3 /* FFViewModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewModelProtocol.h; sourceTree = "<group>"; };
+		3C78DDE4255D2FB900A083C3 /* FFViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewModel.h; sourceTree = "<group>"; };
+		3C78DDE5255D2FB900A083C3 /* FFViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewModel.m; sourceTree = "<group>"; };
+		3C78DDE8255D307200A083C3 /* FFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewController.h; sourceTree = "<group>"; };
+		3C78DDE9255D307200A083C3 /* FFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewController.m; sourceTree = "<group>"; };
 		4645537F230A4254008CADF6 /* FFZPMVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMViewController.h; sourceTree = "<group>"; };
 		46455380230A4254008CADF6 /* FFZPMVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFZPMVVMViewController.m; sourceTree = "<group>"; };
 		46455382230A4268008CADF6 /* FFZPMVVMmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMmodel.h; sourceTree = "<group>"; };
@@ -295,9 +303,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C78DDDD255D2D5000A083C3 /* baseController */ = {
+			isa = PBXGroup;
+			children = (
+				3C78DDE0255D2DA000A083C3 /* FFViewControllerProtocol.h */,
+				3C78DDE8255D307200A083C3 /* FFViewController.h */,
+				3C78DDE9255D307200A083C3 /* FFViewController.m */,
+			);
+			path = baseController;
+			sourceTree = "<group>";
+		};
+		3C78DDDE255D2D6500A083C3 /* baseViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				3C78DDE1255D2E6C00A083C3 /* FFViewModelProtocol.h */,
+				3C78DDE4255D2FB900A083C3 /* FFViewModel.h */,
+				3C78DDE5255D2FB900A083C3 /* FFViewModel.m */,
+			);
+			path = baseViewModel;
+			sourceTree = "<group>";
+		};
+		3C78DDDF255D2D6C00A083C3 /* baseView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = baseView;
+			sourceTree = "<group>";
+		};
+		3C78DDE2255D2F5B00A083C3 /* baseModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = baseModel;
+			sourceTree = "<group>";
+		};
 		4645537E230A421A008CADF6 /* MVVMtest */ = {
 			isa = PBXGroup;
 			children = (
+				3C78DDE2255D2F5B00A083C3 /* baseModel */,
+				3C78DDDF255D2D6C00A083C3 /* baseView */,
+				3C78DDDE255D2D6500A083C3 /* baseViewModel */,
+				3C78DDDD255D2D5000A083C3 /* baseController */,
 				4645537F230A4254008CADF6 /* FFZPMVVMViewController.h */,
 				46455380230A4254008CADF6 /* FFZPMVVMViewController.m */,
 				46455382230A4268008CADF6 /* FFZPMVVMmodel.h */,
@@ -1055,6 +1101,7 @@
 				467D3EA92302637900986B0B /* FFCancelRequest.m in Sources */,
 				467D3F2D23026CB800986B0B /* YTKNetworkConfig.m in Sources */,
 				467D3F142302642D00986B0B /* FFphoneNum.m in Sources */,
+				3C78DDEA255D307200A083C3 /* FFViewController.m in Sources */,
 				467D3EC5230263C200986B0B /* FFRefreshHeader.m in Sources */,
 				464AC23F25314903001C319C /* ClientWKWeb.m in Sources */,
 				464AC24E25314903001C319C /* SQLManager.m in Sources */,
@@ -1083,6 +1130,7 @@
 				467D3EC4230263C200986B0B /* AppDelegate.m in Sources */,
 				467D3EA22302637900986B0B /* FFBaseServer.m in Sources */,
 				467D3F112302642D00986B0B /* ForgetPasswordViewController.m in Sources */,
+				3C78DDE6255D2FB900A083C3 /* FFViewModel.m in Sources */,
 				467D3F3123026CB800986B0B /* YTKBatchRequest.m in Sources */,
 				467D3EC1230263C200986B0B /* FFTableRefreshViewController.m in Sources */,
 				467D3EDF2302640E00986B0B /* FFTableCellToolBar.m in Sources */,
