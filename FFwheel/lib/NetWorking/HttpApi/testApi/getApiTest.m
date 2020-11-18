@@ -12,6 +12,8 @@
 {
     NSString *_userId;
 }
+
+
 -(id)initWithUserId:(NSString *)userId{
     self = [super init];
     if (self) {
@@ -21,12 +23,15 @@
 }
 
 -(NSString *)requestUrl{
-    return [NSString stringWithFormat:@"/app/userInfo"];
+    return [NSString stringWithFormat:@"/user/login"];
 }
 
--(NSDictionary *)userInfo{
-    return @{@"token":@"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiIxNiIsImlhdCI6MTU2NTgzNzY4MSwiZXhwIjoxNTY2NDQyNDgxfQ.B2v9M0NnziJOjEEaoXg8U8GgCJkZDm1RT760gvUyRZ07vK8F1Cgpvth4kkB-yFYaIGs9asXMmSzRAcrj7Mq-Vg"};
+-(id)jsonValidator{
+    return NULL;
 }
+//-(NSDictionary *)userInfo{
+//    return @{@"token":@"eyJ0eXBlIjoiSldUIiwiYWxnIjoiSFM1MTIifQ.eyJzdWIiOiIxNiIsImlhdCI6MTU2NTgzNzY4MSwiZXhwIjoxNTY2NDQyNDgxfQ.B2v9M0NnziJOjEEaoXg8U8GgCJkZDm1RT760gvUyRZ07vK8F1Cgpvth4kkB-yFYaIGs9asXMmSzRAcrj7Mq-Vg"};
+//}
 
 
 

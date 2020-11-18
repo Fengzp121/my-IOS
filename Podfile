@@ -15,9 +15,10 @@ pod 'TZImagePickerController'
 #常用的第三方
 pod 'AFNetworking'
 pod 'SDWebImage'
+pod 'FMDB'
 
 #YY控件
-pod 'YYCache'
+pod 'YYKit'
 
 #GCDSocket异步socket
 pod 'CocoaAsyncSocket'

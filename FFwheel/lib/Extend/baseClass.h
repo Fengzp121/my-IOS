@@ -6,11 +6,11 @@
 //  Copyright © 2020 ffzp. All rights reserved.
 //
 
-#import "ViewController.h"
+
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface baseClass : ViewController
+@interface baseClass : UIViewController
 
 @end
 

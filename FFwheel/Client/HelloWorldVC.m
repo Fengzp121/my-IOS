@@ -184,6 +184,16 @@
 }
 
 -(void)ClickSocketTestBtn{
+    getApiTest *api = [getApiTest new];
+    [api startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        if(request.responseObject){
+            
+        }
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        if(request.error){
+            
+        }
+    }];
     //SocketTestVc * vc = [SocketTestVc new];
     //[self.navigationController pushViewController:vc animated:YES];
 }

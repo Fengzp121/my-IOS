@@ -22,7 +22,7 @@
     YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
     //urlArgumentsFilter *urlFilter = [urlArgumentsFilter filterWithArguments:@{@"version": appVersion}];
     //[config addUrlFilter:urlFilter];
-    config.baseUrl = @"http://39.108.188.145:8077";
+    config.baseUrl = @"http://192.168.199.204:8888";
     //config.cdnUrl = @"hf";
 }
 
