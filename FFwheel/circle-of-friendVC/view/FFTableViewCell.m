@@ -178,6 +178,21 @@ static const CGFloat margin = 8.0;
     return _textPostLabel;
 }
 
+-(UIView *)testView{
+    if(!_testView){
+        _testView = [[UIView alloc] init];
+        [self.contentView addSubview:_testView];
+        _testView.backgroundColor = UIColor.redColor;
+        [_testView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.offset(margin);
+            make.right.offset(-margin);
+            make.top.mas_equalTo(self.textPostLabel.mas_bottom).offset(8);
+            make.height.mas_equalTo(20);
+        }];
+    }
+    return _testView;
+}
+
 
 
 #pragma mark - init

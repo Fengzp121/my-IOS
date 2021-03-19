@@ -1,0 +1,21 @@
+//
+//  DmKItemProtocol.h
+//  FFwheel
+//
+//  Created by 你吗 on 2021/3/19.
+//  Copyright © 2021 ffzp. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+@protocol DmKItemProtocol <NSObject>
+
+@optional
+-(void)updateData;
+
+@required
+-(void)prepareForReuse;
+-(void)configureWithParams:(NSDictionary *)params;
+
+@end
+

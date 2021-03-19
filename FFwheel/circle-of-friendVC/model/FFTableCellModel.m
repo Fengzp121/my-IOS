@@ -35,6 +35,7 @@
         _cellHeight += 58;
         _cellHeight += self.postlabelHeight;
         _cellHeight += self.imageArrayHeight;
+        _cellHeight += 20;
     }
     return _cellHeight;
 }

@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:LCOver/LCOver.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:FFwheel.xcodeproj">
    </FileRef>
    <FileRef

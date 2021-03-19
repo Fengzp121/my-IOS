@@ -50,6 +50,9 @@
     FFTableViewCell *cell = [FFTableViewCell FFtableViewCellWithTableView:tableView];
     FFTableCellModel *newModel = [FFTableCellModel setModelValue];
     cell.model = newModel;
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 40, 20)];
+    view.backgroundColor = UIColor.greenColor;
+    [cell.testView addSubview:view];
     return cell;
 }
 

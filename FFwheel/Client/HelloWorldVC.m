@@ -12,7 +12,7 @@
 #import "LoginViewController.h"
 #import "FFTabBarController.h"
 #import "ImageApiTestViewController.h"
-
+#import "BulletScreenVC.h"
 
 #import "getApiTest.h"
 #import "getDynamicApi.h"
@@ -30,6 +30,7 @@
 @property (nonatomic,strong)UIButton *HttpApiTestBtn;
 @property (nonatomic,strong)UIButton *loginVcBtn;
 @property (nonatomic,strong)UIButton *SocketTestBtn;
+@property (nonatomic,strong)UIButton *bulletScreenBtn;
 
 @property (nonatomic,strong)UIView *oneView;
 @property (nonatomic,strong)UIView *twoView;
@@ -80,6 +81,7 @@
     [self.view addSubview:self.HttpApiTestBtn];
     [self.view addSubview:self.loginVcBtn];
     [self.view addSubview:self.SocketTestBtn];
+    [self.view addSubview:self.bulletScreenBtn];    
     self.title = @"😄Hello shit😄";
     //test code 
 }
@@ -198,6 +200,11 @@
     //[self.navigationController pushViewController:vc animated:YES];
 }
 
+-(void)ClickBulletScreenBtn{
+    BulletScreenVC *vc = [[BulletScreenVC alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 #pragma mark -lazy load
 -(UIButton *)selectAsset{
     if(_selectAsset==nil){
@@ -268,6 +275,18 @@
     }
     return _SocketTestBtn;
 }
+
+-(UIButton *)bulletScreenBtn{
+    if(_bulletScreenBtn==nil){
+        _bulletScreenBtn = [[UIButton alloc]initWithFrame:CGRectMake(10,250, 80, 40)];
+        _bulletScreenBtn.backgroundColor = [UIColor redColor];
+        _bulletScreenBtn.layer.cornerRadius = 10;
+        [_bulletScreenBtn setTitle:@"bullet" forState:UIControlStateNormal];
+        [self.bulletScreenBtn addTarget:self action:@selector(ClickBulletScreenBtn) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _bulletScreenBtn;
+}
+
 
 //-(UILabel *)BackLabelBtn{
 //    if (_BackLabelBtn == nil) {

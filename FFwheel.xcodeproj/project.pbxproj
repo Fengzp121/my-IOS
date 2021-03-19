@@ -7,8 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C32D14225F0AEBC00082260 /* VideoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */; };
+		3C3ACEA12602E9E900E90072 /* BulletScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEA02602E9E900E90072 /* BulletScreen.m */; };
+		3C3ACEAB26032E6D00E90072 /* TextToImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */; };
+		3C3ACEB026032FCB00E90072 /* BulletScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */; };
+		3C47DFBC2601F96600B6CB3D /* FirstSwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47DFBB2601F96600B6CB3D /* FirstSwiftView.swift */; };
+		3C5E45F32600A685008150A8 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5E45F22600A685008150A8 /* WidgetKit.framework */; };
+		3C5E45F52600A685008150A8 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C5E45F42600A685008150A8 /* SwiftUI.framework */; };
+		3C5E45F82600A685008150A8 /* firstWidgetDemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E45F72600A685008150A8 /* firstWidgetDemo.swift */; };
+		3C5E45FB2600A688008150A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C5E45FA2600A688008150A8 /* Assets.xcassets */; };
+		3C5E45FD2600A688008150A8 /* firstWidgetDemo.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E45F92600A685008150A8 /* firstWidgetDemo.intentdefinition */; };
+		3C5E45FE2600A688008150A8 /* firstWidgetDemo.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 3C5E45F92600A685008150A8 /* firstWidgetDemo.intentdefinition */; };
+		3C5E46012600A688008150A8 /* firstWidgetDemoExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3C5E45F12600A685008150A8 /* firstWidgetDemoExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3C78DDE6255D2FB900A083C3 /* FFViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE5255D2FB900A083C3 /* FFViewModel.m */; };
 		3C78DDEA255D307200A083C3 /* FFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE9255D307200A083C3 /* FFViewController.m */; };
+		3CBB20952601F74D003B0014 /* SwiftFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */; };
+		3CFE785026043C2A00010813 /* DmKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE784F26043C2A00010813 /* DmKItem.m */; };
+		3CFE785E26044C0700010813 /* DmkCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE785D26044C0700010813 /* DmkCanvas.m */; };
+		3CFE786A26044CF100010813 /* DmkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE786926044CF100010813 /* DmkEngine.m */; };
+		3CFE7870260450CA00010813 /* DmKItemPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE786F260450CA00010813 /* DmKItemPool.m */; };
 		46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455380230A4254008CADF6 /* FFZPMVVMViewController.m */; };
 		46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455383230A4268008CADF6 /* FFZPMVVMmodel.m */; };
 		46455387230A4290008CADF6 /* FFZPMVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455386230A4290008CADF6 /* FFZPMVVMView.m */; };
@@ -101,15 +118,76 @@
 		46D9928C250EF989009CB123 /* RequestMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D9928B250EF989009CB123 /* RequestMaker.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3C5E45FF2600A688008150A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 467D3E3F2302635400986B0B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3C5E45F02600A685008150A8;
+			remoteInfo = firstWidgetDemoExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		3C5E46022600A688008150A8 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				3C5E46012600A688008150A8 /* firstWidgetDemoExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C749AC9260426750001D700 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1070F74918DD23F80E6E188C /* Pods-FFwheel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.debug.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.debug.xcconfig"; sourceTree = "<group>"; };
 		2DBCA9EBD90BF2D1AF61DE88 /* Pods-FFwheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.release.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.release.xcconfig"; sourceTree = "<group>"; };
+		3C32D14025F0AEBC00082260 /* VideoEditorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEditorViewController.h; sourceTree = "<group>"; };
+		3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEditorViewController.m; sourceTree = "<group>"; };
+		3C3ACE9F2602E9E900E90072 /* BulletScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulletScreen.h; sourceTree = "<group>"; };
+		3C3ACEA02602E9E900E90072 /* BulletScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulletScreen.m; sourceTree = "<group>"; };
+		3C3ACEA926032E6D00E90072 /* TextToImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToImageTool.h; sourceTree = "<group>"; };
+		3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToImageTool.m; sourceTree = "<group>"; };
+		3C3ACEAE26032FCB00E90072 /* BulletScreenVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulletScreenVC.h; sourceTree = "<group>"; };
+		3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulletScreenVC.m; sourceTree = "<group>"; };
+		3C47DFBB2601F96600B6CB3D /* FirstSwiftView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstSwiftView.swift; sourceTree = "<group>"; };
+		3C5E45F12600A685008150A8 /* firstWidgetDemoExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = firstWidgetDemoExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C5E45F22600A685008150A8 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		3C5E45F42600A685008150A8 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3C5E45F72600A685008150A8 /* firstWidgetDemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firstWidgetDemo.swift; sourceTree = "<group>"; };
+		3C5E45F92600A685008150A8 /* firstWidgetDemo.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = firstWidgetDemo.intentdefinition; sourceTree = "<group>"; };
+		3C5E45FA2600A688008150A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3C5E45FC2600A688008150A8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3C749ACB260426750001D700 /* LCOver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LCOver; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C78DDE0255D2DA000A083C3 /* FFViewControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewControllerProtocol.h; sourceTree = "<group>"; };
 		3C78DDE1255D2E6C00A083C3 /* FFViewModelProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewModelProtocol.h; sourceTree = "<group>"; };
 		3C78DDE4255D2FB900A083C3 /* FFViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewModel.h; sourceTree = "<group>"; };
 		3C78DDE5255D2FB900A083C3 /* FFViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewModel.m; sourceTree = "<group>"; };
 		3C78DDE8255D307200A083C3 /* FFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewController.h; sourceTree = "<group>"; };
 		3C78DDE9255D307200A083C3 /* FFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewController.m; sourceTree = "<group>"; };
+		3CBB20932601F74C003B0014 /* FFwheel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFwheel-Bridging-Header.h"; sourceTree = "<group>"; };
+		3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFirstVC.swift; sourceTree = "<group>"; };
+		3CFE784E26043C2A00010813 /* DmKItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItem.h; sourceTree = "<group>"; };
+		3CFE784F26043C2A00010813 /* DmKItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKItem.m; sourceTree = "<group>"; };
+		3CFE785C26044C0700010813 /* DmkCanvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmkCanvas.h; sourceTree = "<group>"; };
+		3CFE785D26044C0700010813 /* DmkCanvas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmkCanvas.m; sourceTree = "<group>"; };
+		3CFE786826044CF100010813 /* DmkEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmkEngine.h; sourceTree = "<group>"; };
+		3CFE786926044CF100010813 /* DmkEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmkEngine.m; sourceTree = "<group>"; };
+		3CFE786E260450CA00010813 /* DmKItemPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItemPool.h; sourceTree = "<group>"; };
+		3CFE786F260450CA00010813 /* DmKItemPool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKItemPool.m; sourceTree = "<group>"; };
+		3CFE787526047C5A00010813 /* DmKItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItemProtocol.h; sourceTree = "<group>"; };
 		4645537F230A4254008CADF6 /* FFZPMVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMViewController.h; sourceTree = "<group>"; };
 		46455380230A4254008CADF6 /* FFZPMVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFZPMVVMViewController.m; sourceTree = "<group>"; };
 		46455382230A4268008CADF6 /* FFZPMVVMmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMmodel.h; sourceTree = "<group>"; };
@@ -292,6 +370,22 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3C5E45EE2600A685008150A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C5E45F52600A685008150A8 /* SwiftUI.framework in Frameworks */,
+				3C5E45F32600A685008150A8 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C749AC8260426750001D700 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		467D3E442302635400986B0B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -303,6 +397,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C32D13F25F0AE6A00082260 /* VideoEditor */ = {
+			isa = PBXGroup;
+			children = (
+				3C32D14025F0AEBC00082260 /* VideoEditorViewController.h */,
+				3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */,
+			);
+			path = VideoEditor;
+			sourceTree = "<group>";
+		};
+		3C3ACE9E2602E99500E90072 /* bulletScreen */ = {
+			isa = PBXGroup;
+			children = (
+				3C3ACE9F2602E9E900E90072 /* BulletScreen.h */,
+				3C3ACEA02602E9E900E90072 /* BulletScreen.m */,
+				3C3ACEA926032E6D00E90072 /* TextToImageTool.h */,
+				3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */,
+				3C3ACEAE26032FCB00E90072 /* BulletScreenVC.h */,
+				3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */,
+				3CFE784E26043C2A00010813 /* DmKItem.h */,
+				3CFE784F26043C2A00010813 /* DmKItem.m */,
+				3CFE787526047C5A00010813 /* DmKItemProtocol.h */,
+				3CFE785C26044C0700010813 /* DmkCanvas.h */,
+				3CFE785D26044C0700010813 /* DmkCanvas.m */,
+				3CFE786826044CF100010813 /* DmkEngine.h */,
+				3CFE786926044CF100010813 /* DmkEngine.m */,
+				3CFE786E260450CA00010813 /* DmKItemPool.h */,
+				3CFE786F260450CA00010813 /* DmKItemPool.m */,
+			);
+			path = bulletScreen;
+			sourceTree = "<group>";
+		};
+		3C5E45F62600A685008150A8 /* firstWidgetDemo */ = {
+			isa = PBXGroup;
+			children = (
+				3C5E45F72600A685008150A8 /* firstWidgetDemo.swift */,
+				3C5E45F92600A685008150A8 /* firstWidgetDemo.intentdefinition */,
+				3C5E45FA2600A688008150A8 /* Assets.xcassets */,
+				3C5E45FC2600A688008150A8 /* Info.plist */,
+			);
+			path = firstWidgetDemo;
+			sourceTree = "<group>";
+		};
 		3C78DDDD255D2D5000A083C3 /* baseController */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,6 +471,15 @@
 			children = (
 			);
 			path = baseModel;
+			sourceTree = "<group>";
+		};
+		3CBB20922601F725003B0014 /* swift */ = {
+			isa = PBXGroup;
+			children = (
+				3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */,
+				3C47DFBB2601F96600B6CB3D /* FirstSwiftView.swift */,
+			);
+			path = swift;
 			sourceTree = "<group>";
 		};
 		4645537E230A421A008CADF6 /* MVVMtest */ = {
@@ -440,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				467D3E492302635400986B0B /* FFwheel */,
+				3C5E45F62600A685008150A8 /* firstWidgetDemo */,
 				467D3E482302635400986B0B /* Products */,
 				467D3F162302688D00986B0B /* Frameworks */,
 				F9CFF989BD79C9BCF1F82D3F /* Pods */,
@@ -450,6 +596,8 @@
 			isa = PBXGroup;
 			children = (
 				467D3E472302635400986B0B /* FFwheel.app */,
+				3C5E45F12600A685008150A8 /* firstWidgetDemoExtension.appex */,
+				3C749ACB260426750001D700 /* LCOver */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -457,6 +605,8 @@
 		467D3E492302635400986B0B /* FFwheel */ = {
 			isa = PBXGroup;
 			children = (
+				3C3ACE9E2602E99500E90072 /* bulletScreen */,
+				3CBB20922601F725003B0014 /* swift */,
 				467D3E602302637900986B0B /* lib */,
 				464AC21825314903001C319C /* bitmapVCDemo */,
 				464AC21D25314903001C319C /* Utility */,
@@ -465,10 +615,12 @@
 				467D3EF12302642D00986B0B /* loginVC */,
 				467D3EEE2302642D00986B0B /* imageApiTestVC */,
 				467D3EC62302640E00986B0B /* circle-of-friendVC */,
+				3C32D13F25F0AE6A00082260 /* VideoEditor */,
 				467D3EAB230263C200986B0B /* Client */,
 				467D3EE32302642D00986B0B /* Config */,
 				467D3EB5230263C200986B0B /* AppDelegate.h */,
 				467D3EBA230263C200986B0B /* AppDelegate.m */,
+				3CBB20932601F74C003B0014 /* FFwheel-Bridging-Header.h */,
 				467D3E532302635600986B0B /* Assets.xcassets */,
 				467D3E552302635600986B0B /* LaunchScreen.storyboard */,
 			);
@@ -673,10 +825,10 @@
 		467D3EC72302640E00986B0B /* controller */ = {
 			isa = PBXGroup;
 			children = (
-				467D3EC82302640E00986B0B /* FFTabBarController.m */,
-				467D3EC92302640E00986B0B /* FFBlockTest.m */,
 				467D3ECA2302640E00986B0B /* FFBlockTest.h */,
+				467D3EC92302640E00986B0B /* FFBlockTest.m */,
 				467D3ECB2302640E00986B0B /* FFTabBarController.h */,
+				467D3EC82302640E00986B0B /* FFTabBarController.m */,
 			);
 			path = controller;
 			sourceTree = "<group>";
@@ -693,14 +845,14 @@
 		467D3ECF2302640E00986B0B /* view */ = {
 			isa = PBXGroup;
 			children = (
-				467D3ED02302640E00986B0B /* FFTableViewCellImageView.h */,
-				467D3ED12302640E00986B0B /* FFTableCellToolBar.h */,
 				467D3ED22302640E00986B0B /* FFTabBarView.h */,
-				467D3ED32302640E00986B0B /* FFTableViewCell.m */,
-				467D3ED42302640E00986B0B /* FFTableCellToolBar.m */,
-				467D3ED52302640E00986B0B /* FFTableViewCellImageView.m */,
 				467D3ED62302640E00986B0B /* FFTabBarView.m */,
+				467D3ED12302640E00986B0B /* FFTableCellToolBar.h */,
+				467D3ED42302640E00986B0B /* FFTableCellToolBar.m */,
 				467D3ED72302640E00986B0B /* FFTableViewCell.h */,
+				467D3ED32302640E00986B0B /* FFTableViewCell.m */,
+				467D3ED02302640E00986B0B /* FFTableViewCellImageView.h */,
+				467D3ED52302640E00986B0B /* FFTableViewCellImageView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -858,6 +1010,8 @@
 			isa = PBXGroup;
 			children = (
 				467D3F172302688D00986B0B /* libPods-FFwheel.a */,
+				3C5E45F22600A685008150A8 /* WidgetKit.framework */,
+				3C5E45F42600A685008150A8 /* SwiftUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -963,6 +1117,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		3C5E45F02600A685008150A8 /* firstWidgetDemoExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C5E46052600A688008150A8 /* Build configuration list for PBXNativeTarget "firstWidgetDemoExtension" */;
+			buildPhases = (
+				3C5E45ED2600A685008150A8 /* Sources */,
+				3C5E45EE2600A685008150A8 /* Frameworks */,
+				3C5E45EF2600A685008150A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = firstWidgetDemoExtension;
+			productName = firstWidgetDemoExtension;
+			productReference = 3C5E45F12600A685008150A8 /* firstWidgetDemoExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		3C749ACA260426750001D700 /* LCOver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3C749AD1260426750001D700 /* Build configuration list for PBXNativeTarget "LCOver" */;
+			buildPhases = (
+				3C749AC7260426750001D700 /* Sources */,
+				3C749AC8260426750001D700 /* Frameworks */,
+				3C749AC9260426750001D700 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LCOver;
+			productName = LCOver;
+			productReference = 3C749ACB260426750001D700 /* LCOver */;
+			productType = "com.apple.product-type.tool";
+		};
 		467D3E462302635400986B0B /* FFwheel */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 467D3E5D2302635600986B0B /* Build configuration list for PBXNativeTarget "FFwheel" */;
@@ -972,10 +1160,12 @@
 				467D3E442302635400986B0B /* Frameworks */,
 				467D3E452302635400986B0B /* Resources */,
 				4FF20FED6C50089772285D80 /* [CP] Copy Pods Resources */,
+				3C5E46022600A688008150A8 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				3C5E46002600A688008150A8 /* PBXTargetDependency */,
 			);
 			name = FFwheel;
 			productName = FFwheel;
@@ -988,11 +1178,19 @@
 		467D3E3F2302635400986B0B /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1230;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = ffzp;
 				TargetAttributes = {
+					3C5E45F02600A685008150A8 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					3C749ACA260426750001D700 = {
+						CreatedOnToolsVersion = 12.3;
+					};
 					467D3E462302635400986B0B = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1230;
 					};
 				};
 			};
@@ -1010,11 +1208,21 @@
 			projectRoot = "";
 			targets = (
 				467D3E462302635400986B0B /* FFwheel */,
+				3C5E45F02600A685008150A8 /* firstWidgetDemoExtension */,
+				3C749ACA260426750001D700 /* LCOver */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3C5E45EF2600A685008150A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C5E45FB2600A688008150A8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		467D3E452302635400986B0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1073,6 +1281,22 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3C5E45ED2600A685008150A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3C5E45FD2600A688008150A8 /* firstWidgetDemo.intentdefinition in Sources */,
+				3C5E45F82600A685008150A8 /* firstWidgetDemo.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3C749AC7260426750001D700 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		467D3E432302635400986B0B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -1085,9 +1309,12 @@
 				467D3EC0230263C200986B0B /* FFTableViewController.m in Sources */,
 				467D3F3023026CB800986B0B /* YTKBaseRequest.m in Sources */,
 				467D3EA52302637900986B0B /* NSObject+FFCancelRequest.m in Sources */,
+				3C3ACEB026032FCB00E90072 /* BulletScreenVC.m in Sources */,
+				3C3ACEAB26032E6D00E90072 /* TextToImageTool.m in Sources */,
 				467D3E9A2302637900986B0B /* FFdataEngine.m in Sources */,
 				46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */,
 				46AB75412328B04200B731D3 /* uploadImg.m in Sources */,
+				3CFE7870260450CA00010813 /* DmKItemPool.m in Sources */,
 				467D3E9F2302637900986B0B /* FFBaseEngine.m in Sources */,
 				467D3F652302BA9200986B0B /* YTKBaseRequest+AnimatingAccessory.m in Sources */,
 				46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */,
@@ -1107,15 +1334,20 @@
 				464AC24E25314903001C319C /* SQLManager.m in Sources */,
 				467D3EA42302637900986B0B /* FFBusinessTier.m in Sources */,
 				467D3F642302BA9200986B0B /* YTKChainRequest+AnimatingAccessory.m in Sources */,
+				3CFE785026043C2A00010813 /* DmKItem.m in Sources */,
 				464AC24C25314903001C319C /* demoTableViewCell.m in Sources */,
+				3C47DFBC2601F96600B6CB3D /* FirstSwiftView.swift in Sources */,
 				467D3EA82302637900986B0B /* FFRequestModel.m in Sources */,
 				467D3F152302642D00986B0B /* getPhoneNumViewController.m in Sources */,
 				469BDB7A230507B600D16020 /* XXFRequest.m in Sources */,
+				3C3ACEA12602E9E900E90072 /* BulletScreen.m in Sources */,
 				467D3F622302BA9200986B0B /* YTKAnimatingRequestAccessory.m in Sources */,
+				3C32D14225F0AEBC00082260 /* VideoEditorViewController.m in Sources */,
 				467D3EDC2302640E00986B0B /* FFBlockTest.m in Sources */,
 				467D3E9D2302637900986B0B /* UIButton+FF.m in Sources */,
 				467D3F632302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				467D3F122302642D00986B0B /* LoginViewController.m in Sources */,
+				3CFE785E26044C0700010813 /* DmkCanvas.m in Sources */,
 				464AC24F25314903001C319C /* baseClass.m in Sources */,
 				464AC24225314903001C319C /* BMDemoTableViewCell.m in Sources */,
 				46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */,
@@ -1126,7 +1358,9 @@
 				467D3EDD2302640E00986B0B /* FFTableCellModel.m in Sources */,
 				467D3F3423026CB800986B0B /* YTKBatchRequestAgent.m in Sources */,
 				467D3EDB2302640E00986B0B /* FFTabBarController.m in Sources */,
+				3CFE786A26044CF100010813 /* DmkEngine.m in Sources */,
 				467D3EBE230263C200986B0B /* HelloWorldVC.m in Sources */,
+				3CBB20952601F74D003B0014 /* SwiftFirstVC.swift in Sources */,
 				467D3EC4230263C200986B0B /* AppDelegate.m in Sources */,
 				467D3EA22302637900986B0B /* FFBaseServer.m in Sources */,
 				467D3F112302642D00986B0B /* ForgetPasswordViewController.m in Sources */,
@@ -1142,6 +1376,7 @@
 				467D3E9B2302637900986B0B /* NSString+FFstring.m in Sources */,
 				46D9928C250EF989009CB123 /* RequestMaker.m in Sources */,
 				464AC25225314903001C319C /* PeopleClass.m in Sources */,
+				3C5E45FE2600A688008150A8 /* firstWidgetDemo.intentdefinition in Sources */,
 				467D3F102302642D00986B0B /* verificationcodeViewController.m in Sources */,
 				467D3EA72302637900986B0B /* FFRequestErrorHandle.m in Sources */,
 				467D3F3A2302ABF200986B0B /* getApiTest.m in Sources */,
@@ -1167,6 +1402,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3C5E46002600A688008150A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3C5E45F02600A685008150A8 /* firstWidgetDemoExtension */;
+			targetProxy = 3C5E45FF2600A688008150A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		467D3E552302635600986B0B /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -1179,6 +1422,82 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		3C5E46032600A688008150A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3T9X9D9CZV;
+				INFOPLIST_FILE = firstWidgetDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ffzp.FFwheel.firstWidgetDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3C5E46042600A688008150A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3T9X9D9CZV;
+				INFOPLIST_FILE = firstWidgetDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ffzp.FFwheel.firstWidgetDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3C749ACF260426750001D700 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3T9X9D9CZV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		3C749AD0260426750001D700 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3T9X9D9CZV;
+				ENABLE_HARDENED_RUNTIME = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 		467D3E5B2302635600986B0B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1295,18 +1614,23 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1070F74918DD23F80E6E188C /* Pods-FFwheel.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T9X9D9CZV;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FFwheel/Config/configfile/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FFwheel/Config/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ffzp.FFwheel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FFwheel/FFwheel-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1315,18 +1639,22 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 2DBCA9EBD90BF2D1AF61DE88 /* Pods-FFwheel.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T9X9D9CZV;
 				GCC_PREFIX_HEADER = "$(PROJECT_DIR)/FFwheel/Config/configfile/PrefixHeader.pch";
 				INFOPLIST_FILE = "$(SRCROOT)/FFwheel/Config/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = ffzp.FFwheel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FFwheel/FFwheel-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -1334,6 +1662,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3C5E46052600A688008150A8 /* Build configuration list for PBXNativeTarget "firstWidgetDemoExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C5E46032600A688008150A8 /* Debug */,
+				3C5E46042600A688008150A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3C749AD1260426750001D700 /* Build configuration list for PBXNativeTarget "LCOver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3C749ACF260426750001D700 /* Debug */,
+				3C749AD0260426750001D700 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		467D3E422302635400986B0B /* Build configuration list for PBXProject "FFwheel" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
