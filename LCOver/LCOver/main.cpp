@@ -633,6 +633,19 @@ public:
         }
     }
     
+    ListNode* reverseList(ListNode* head) {
+        ListNode *ans = nullptr;
+        ListNode *temp = nullptr;
+        while(head){
+            *temp = ListNode(head->val);
+            temp->next = ans;
+            ans = temp;
+            head = head->next;
+            ans->next = ans;
+        }
+        return ans;
+    }
+    
 };
 
 class SortAlgorithms{
@@ -829,15 +842,19 @@ public:
 
 int main(int argc, const char * argv[]) {
     //---------------leet---------------
-//    ListNode first = ListNode(1);
-//    ListNode second = ListNode(2);
-//    first.next = &second;
+    ListNode first = ListNode(1);
+    ListNode second = ListNode(2);
+    ListNode thrid = ListNode(3);
+    ListNode fourth = ListNode(4);
+    first.next = &second;
+    second.next = &thrid;
+    thrid.next = &fourth;
 //    string s = "{{{]()}}}";
     vector<int> vvc = {1,-2,-5,-4,-3,3,3,5};
     vector<int> vvcc = {0,1,0,3,12,0};
 
     LeetCode leetCode = LeetCode();
-    leetCode.moveZeroes(vvcc);
+    leetCode.reverseList(&first);
     p("结果", vvcc);
     
     //---------------排序---------------
