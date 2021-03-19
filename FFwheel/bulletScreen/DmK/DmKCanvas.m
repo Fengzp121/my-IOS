@@ -6,9 +6,9 @@
 //  Copyright © 2021 ffzp. All rights reserved.
 //
 
-#import "DmkCanvas.h"
+#import "DmKCanvas.h"
 
-@implementation DmkCanvas
+@implementation DmKCanvas
 
 /*
 // Only override drawRect: if you perform custom drawing.

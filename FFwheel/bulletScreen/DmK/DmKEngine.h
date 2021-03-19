@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@class DmkEngine;
-@protocol DmkEngineDelegate <NSObject>
+@class DmKEngine;
+@protocol DmKEngineDelegate <NSObject>
 
 
 @end
 
 
-@interface DmkEngine : NSObject
+@interface DmKEngine : NSObject
 
 //opearte
 ///开始
@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 //config
 
-@property (nonatomic,weak)id<DmkEngineDelegate> delegate;
+@property (nonatomic,weak)id<DmKEngineDelegate> delegate;
 
 @end
 

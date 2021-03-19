@@ -1,5 +1,5 @@
 //
-//  DmKItemPool.h
+//  DmKItemFactory.h
 //  FFwheel
 //
 //  Created by 你吗 on 2021/3/19.
@@ -7,17 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-
+//生成item的工厂
 NS_ASSUME_NONNULL_BEGIN
-@class DmKItem;
 
-@interface DmKItemPool : NSObject
+@interface DmKItemFactory : NSObject
 
-+(instancetype)shareInstance;
 
--(void)pushItem:(DmKItem *)item;
-
--(void)popItem:(DmKItem *)item;
 
 @end
 

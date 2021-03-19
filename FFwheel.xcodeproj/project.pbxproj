@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3C32D14225F0AEBC00082260 /* VideoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */; };
-		3C3ACEA12602E9E900E90072 /* BulletScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEA02602E9E900E90072 /* BulletScreen.m */; };
 		3C3ACEAB26032E6D00E90072 /* TextToImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */; };
 		3C3ACEB026032FCB00E90072 /* BulletScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */; };
 		3C47DFBC2601F96600B6CB3D /* FirstSwiftView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C47DFBB2601F96600B6CB3D /* FirstSwiftView.swift */; };
@@ -23,9 +22,10 @@
 		3C78DDEA255D307200A083C3 /* FFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE9255D307200A083C3 /* FFViewController.m */; };
 		3CBB20952601F74D003B0014 /* SwiftFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */; };
 		3CFE785026043C2A00010813 /* DmKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE784F26043C2A00010813 /* DmKItem.m */; };
-		3CFE785E26044C0700010813 /* DmkCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE785D26044C0700010813 /* DmkCanvas.m */; };
-		3CFE786A26044CF100010813 /* DmkEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE786926044CF100010813 /* DmkEngine.m */; };
+		3CFE785E26044C0700010813 /* DmKCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE785D26044C0700010813 /* DmKCanvas.m */; };
+		3CFE786A26044CF100010813 /* DmKEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE786926044CF100010813 /* DmKEngine.m */; };
 		3CFE7870260450CA00010813 /* DmKItemPool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE786F260450CA00010813 /* DmKItemPool.m */; };
+		3CFE79012604919100010813 /* DmKItemFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE79002604919100010813 /* DmKItemFactory.m */; };
 		46455381230A4254008CADF6 /* FFZPMVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455380230A4254008CADF6 /* FFZPMVVMViewController.m */; };
 		46455384230A4268008CADF6 /* FFZPMVVMmodel.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455383230A4268008CADF6 /* FFZPMVVMmodel.m */; };
 		46455387230A4290008CADF6 /* FFZPMVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 46455386230A4290008CADF6 /* FFZPMVVMView.m */; };
@@ -156,8 +156,6 @@
 		2DBCA9EBD90BF2D1AF61DE88 /* Pods-FFwheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FFwheel.release.xcconfig"; path = "Target Support Files/Pods-FFwheel/Pods-FFwheel.release.xcconfig"; sourceTree = "<group>"; };
 		3C32D14025F0AEBC00082260 /* VideoEditorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEditorViewController.h; sourceTree = "<group>"; };
 		3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEditorViewController.m; sourceTree = "<group>"; };
-		3C3ACE9F2602E9E900E90072 /* BulletScreen.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulletScreen.h; sourceTree = "<group>"; };
-		3C3ACEA02602E9E900E90072 /* BulletScreen.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BulletScreen.m; sourceTree = "<group>"; };
 		3C3ACEA926032E6D00E90072 /* TextToImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToImageTool.h; sourceTree = "<group>"; };
 		3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TextToImageTool.m; sourceTree = "<group>"; };
 		3C3ACEAE26032FCB00E90072 /* BulletScreenVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BulletScreenVC.h; sourceTree = "<group>"; };
@@ -181,13 +179,15 @@
 		3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFirstVC.swift; sourceTree = "<group>"; };
 		3CFE784E26043C2A00010813 /* DmKItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItem.h; sourceTree = "<group>"; };
 		3CFE784F26043C2A00010813 /* DmKItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKItem.m; sourceTree = "<group>"; };
-		3CFE785C26044C0700010813 /* DmkCanvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmkCanvas.h; sourceTree = "<group>"; };
-		3CFE785D26044C0700010813 /* DmkCanvas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmkCanvas.m; sourceTree = "<group>"; };
-		3CFE786826044CF100010813 /* DmkEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmkEngine.h; sourceTree = "<group>"; };
-		3CFE786926044CF100010813 /* DmkEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmkEngine.m; sourceTree = "<group>"; };
+		3CFE785C26044C0700010813 /* DmKCanvas.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKCanvas.h; sourceTree = "<group>"; };
+		3CFE785D26044C0700010813 /* DmKCanvas.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKCanvas.m; sourceTree = "<group>"; };
+		3CFE786826044CF100010813 /* DmKEngine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKEngine.h; sourceTree = "<group>"; };
+		3CFE786926044CF100010813 /* DmKEngine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKEngine.m; sourceTree = "<group>"; };
 		3CFE786E260450CA00010813 /* DmKItemPool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItemPool.h; sourceTree = "<group>"; };
 		3CFE786F260450CA00010813 /* DmKItemPool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKItemPool.m; sourceTree = "<group>"; };
 		3CFE787526047C5A00010813 /* DmKItemProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItemProtocol.h; sourceTree = "<group>"; };
+		3CFE78FF2604919100010813 /* DmKItemFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItemFactory.h; sourceTree = "<group>"; };
+		3CFE79002604919100010813 /* DmKItemFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DmKItemFactory.m; sourceTree = "<group>"; };
 		4645537F230A4254008CADF6 /* FFZPMVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMViewController.h; sourceTree = "<group>"; };
 		46455380230A4254008CADF6 /* FFZPMVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFZPMVVMViewController.m; sourceTree = "<group>"; };
 		46455382230A4268008CADF6 /* FFZPMVVMmodel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFZPMVVMmodel.h; sourceTree = "<group>"; };
@@ -409,21 +409,11 @@
 		3C3ACE9E2602E99500E90072 /* bulletScreen */ = {
 			isa = PBXGroup;
 			children = (
-				3C3ACE9F2602E9E900E90072 /* BulletScreen.h */,
-				3C3ACEA02602E9E900E90072 /* BulletScreen.m */,
+				3CFE7905260492F100010813 /* DmK */,
 				3C3ACEA926032E6D00E90072 /* TextToImageTool.h */,
 				3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */,
 				3C3ACEAE26032FCB00E90072 /* BulletScreenVC.h */,
 				3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */,
-				3CFE784E26043C2A00010813 /* DmKItem.h */,
-				3CFE784F26043C2A00010813 /* DmKItem.m */,
-				3CFE787526047C5A00010813 /* DmKItemProtocol.h */,
-				3CFE785C26044C0700010813 /* DmkCanvas.h */,
-				3CFE785D26044C0700010813 /* DmkCanvas.m */,
-				3CFE786826044CF100010813 /* DmkEngine.h */,
-				3CFE786926044CF100010813 /* DmkEngine.m */,
-				3CFE786E260450CA00010813 /* DmKItemPool.h */,
-				3CFE786F260450CA00010813 /* DmKItemPool.m */,
 			);
 			path = bulletScreen;
 			sourceTree = "<group>";
@@ -480,6 +470,24 @@
 				3C47DFBB2601F96600B6CB3D /* FirstSwiftView.swift */,
 			);
 			path = swift;
+			sourceTree = "<group>";
+		};
+		3CFE7905260492F100010813 /* DmK */ = {
+			isa = PBXGroup;
+			children = (
+				3CFE784E26043C2A00010813 /* DmKItem.h */,
+				3CFE784F26043C2A00010813 /* DmKItem.m */,
+				3CFE787526047C5A00010813 /* DmKItemProtocol.h */,
+				3CFE785C26044C0700010813 /* DmKCanvas.h */,
+				3CFE785D26044C0700010813 /* DmKCanvas.m */,
+				3CFE78FF2604919100010813 /* DmKItemFactory.h */,
+				3CFE79002604919100010813 /* DmKItemFactory.m */,
+				3CFE786826044CF100010813 /* DmKEngine.h */,
+				3CFE786926044CF100010813 /* DmKEngine.m */,
+				3CFE786E260450CA00010813 /* DmKItemPool.h */,
+				3CFE786F260450CA00010813 /* DmKItemPool.m */,
+			);
+			path = DmK;
 			sourceTree = "<group>";
 		};
 		4645537E230A421A008CADF6 /* MVVMtest */ = {
@@ -1340,17 +1348,17 @@
 				467D3EA82302637900986B0B /* FFRequestModel.m in Sources */,
 				467D3F152302642D00986B0B /* getPhoneNumViewController.m in Sources */,
 				469BDB7A230507B600D16020 /* XXFRequest.m in Sources */,
-				3C3ACEA12602E9E900E90072 /* BulletScreen.m in Sources */,
 				467D3F622302BA9200986B0B /* YTKAnimatingRequestAccessory.m in Sources */,
 				3C32D14225F0AEBC00082260 /* VideoEditorViewController.m in Sources */,
 				467D3EDC2302640E00986B0B /* FFBlockTest.m in Sources */,
 				467D3E9D2302637900986B0B /* UIButton+FF.m in Sources */,
 				467D3F632302BA9200986B0B /* YTKBatchRequest+AnimatingAccessory.m in Sources */,
 				467D3F122302642D00986B0B /* LoginViewController.m in Sources */,
-				3CFE785E26044C0700010813 /* DmkCanvas.m in Sources */,
+				3CFE785E26044C0700010813 /* DmKCanvas.m in Sources */,
 				464AC24F25314903001C319C /* baseClass.m in Sources */,
 				464AC24225314903001C319C /* BMDemoTableViewCell.m in Sources */,
 				46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */,
+				3CFE79012604919100010813 /* DmKItemFactory.m in Sources */,
 				467D3F2E23026CB800986B0B /* YTKChainRequest.m in Sources */,
 				469BDB772305014400D16020 /* getDynamicApi.m in Sources */,
 				467D3F3523026CB900986B0B /* YTKRequest.m in Sources */,
@@ -1358,7 +1366,7 @@
 				467D3EDD2302640E00986B0B /* FFTableCellModel.m in Sources */,
 				467D3F3423026CB800986B0B /* YTKBatchRequestAgent.m in Sources */,
 				467D3EDB2302640E00986B0B /* FFTabBarController.m in Sources */,
-				3CFE786A26044CF100010813 /* DmkEngine.m in Sources */,
+				3CFE786A26044CF100010813 /* DmKEngine.m in Sources */,
 				467D3EBE230263C200986B0B /* HelloWorldVC.m in Sources */,
 				3CBB20952601F74D003B0014 /* SwiftFirstVC.swift in Sources */,
 				467D3EC4230263C200986B0B /* AppDelegate.m in Sources */,

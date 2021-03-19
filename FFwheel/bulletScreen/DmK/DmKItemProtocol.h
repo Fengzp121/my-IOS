@@ -11,10 +11,13 @@
 @protocol DmKItemProtocol <NSObject>
 
 @optional
+//更新数据
 -(void)updateData;
 
 @required
+//预热准备
 -(void)prepareForReuse;
+//配置或设置参数
 -(void)configureWithParams:(NSDictionary *)params;
 
 @end

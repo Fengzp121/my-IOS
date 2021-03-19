@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 ///背景板，用于承载弹幕，透明，可穿透手势，但要拦截弹幕的点击
-@interface DmkCanvas : UIView
+@interface DmKCanvas : UIView
 
 @end
 

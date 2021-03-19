@@ -6,18 +6,18 @@
 //  Copyright © 2021 ffzp. All rights reserved.
 //
 
-#import "DmkEngine.h"
+#import "DmKEngine.h"
 #import "DmKItem.h"
-#import "DmkCanvas.h"
-@interface DmkEngine()
-@property (nonatomic,strong)DmkCanvas *canvas;
+#import "DmKCanvas.h"
+@interface DmKEngine()
+@property (nonatomic,strong)DmKCanvas *canvas;
 @end
 
-@implementation DmkEngine
+@implementation DmKEngine
 
 -(instancetype)init{
     if(self = [super init]){
-        _canvas = [[DmkCanvas alloc] init];
+        _canvas = [[DmKCanvas alloc] init];
         
     }
     return self;
