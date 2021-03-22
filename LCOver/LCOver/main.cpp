@@ -634,16 +634,51 @@ public:
     }
     
     ListNode* reverseList(ListNode* head) {
-        ListNode *ans = nullptr;
-        ListNode *temp = nullptr;
-        while(head){
-            *temp = ListNode(head->val);
-            temp->next = ans;
-            ans = temp;
-            head = head->next;
-            ans->next = ans;
+        
+        //magic,魔法罢了，就看看，这种代码会被人打死
+//        for (ans = NULL; head; swap(head, ans)) {
+//            swap(ans, head->next);
+//        }
+        
+        //比较好理解的
+//        ListNode *curr = head;
+//        while (curr) {
+//            ListNode *next = curr->next;
+//            curr->next = ans;
+//            ans = curr;
+//            curr = next;
+//        }
+        
+        //递归的方法。。。慢点再理解
+        if(!head || !head->next){
+            return head;
+        }
+        ListNode *ans = reverseList(head->next);
+        head->next->next = head;
+        head->next = nullptr;
+        return ans;
+    }
+    
+    int hammingWeight(uint32_t n){
+        int ans = 0;
+        while(n){
+            //这里n&1是为了看n最后一位是否为1，1与1==1，所以ans+1了。
+            ans += n&1;
+            //n向右移一位
+            n >>= 1;
         }
         return ans;
+       // return __builtin_popcount(n);
+        
+    }
+    
+    int hammingDistance(int x, int y) {
+        int ans_x = 0, ans_y = 0;
+        while(x || y){
+            if(x){x/=2; ans_x++;}
+            if(y){y/=2; ans_y++;}
+        }
+        return ans_x > ans_y? ans_x - ans_y: ans_y - ans_x;
     }
     
 };
@@ -854,8 +889,12 @@ int main(int argc, const char * argv[]) {
     vector<int> vvcc = {0,1,0,3,12,0};
 
     LeetCode leetCode = LeetCode();
-    leetCode.reverseList(&first);
+//    leetCode.reverseList(&first);
+    leetCode.hammingDistance(1, 4);
     p("结果", vvcc);
+    
+
+    
     
     //---------------排序---------------
 //    vector<int> a = {3,5,2,4,1,6,7};
