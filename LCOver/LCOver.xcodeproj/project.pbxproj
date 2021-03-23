@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C6E88AF260997B5005DB2A0 /* LeetCode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E88AD260997B5005DB2A0 /* LeetCode.cpp */; };
+		3C6E88B3260997D6005DB2A0 /* FFAlgorithm.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E88B1260997D6005DB2A0 /* FFAlgorithm.cpp */; };
+		3C6E88B726099835005DB2A0 /* HelloWorld.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C6E88B526099835005DB2A0 /* HelloWorld.cpp */; };
 		3C749AE5260426C60001D700 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3C749AE4260426C60001D700 /* main.cpp */; };
 /* End PBXBuildFile section */
 
@@ -23,6 +26,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3C6E88AD260997B5005DB2A0 /* LeetCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = LeetCode.cpp; sourceTree = "<group>"; };
+		3C6E88AE260997B5005DB2A0 /* LeetCode.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = LeetCode.hpp; sourceTree = "<group>"; };
+		3C6E88B1260997D6005DB2A0 /* FFAlgorithm.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FFAlgorithm.cpp; sourceTree = "<group>"; };
+		3C6E88B2260997D6005DB2A0 /* FFAlgorithm.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FFAlgorithm.hpp; sourceTree = "<group>"; };
+		3C6E88B526099835005DB2A0 /* HelloWorld.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = HelloWorld.cpp; sourceTree = "<group>"; };
+		3C6E88B626099835005DB2A0 /* HelloWorld.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = HelloWorld.hpp; sourceTree = "<group>"; };
+		3C6E88B92609A310005DB2A0 /* Struts.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Struts.hpp; sourceTree = "<group>"; };
 		3C749AE1260426C60001D700 /* LCOver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LCOver; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C749AE4260426C60001D700 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -57,6 +67,13 @@
 		3C749AE3260426C60001D700 /* LCOver */ = {
 			isa = PBXGroup;
 			children = (
+				3C6E88B92609A310005DB2A0 /* Struts.hpp */,
+				3C6E88B2260997D6005DB2A0 /* FFAlgorithm.hpp */,
+				3C6E88B1260997D6005DB2A0 /* FFAlgorithm.cpp */,
+				3C6E88AE260997B5005DB2A0 /* LeetCode.hpp */,
+				3C6E88AD260997B5005DB2A0 /* LeetCode.cpp */,
+				3C6E88B626099835005DB2A0 /* HelloWorld.hpp */,
+				3C6E88B526099835005DB2A0 /* HelloWorld.cpp */,
 				3C749AE4260426C60001D700 /* main.cpp */,
 			);
 			path = LCOver;
@@ -118,7 +135,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C6E88B3260997D6005DB2A0 /* FFAlgorithm.cpp in Sources */,
+				3C6E88AF260997B5005DB2A0 /* LeetCode.cpp in Sources */,
 				3C749AE5260426C60001D700 /* main.cpp in Sources */,
+				3C6E88B726099835005DB2A0 /* HelloWorld.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
