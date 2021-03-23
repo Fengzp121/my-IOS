@@ -649,4 +649,23 @@ TreeNode* LeetCode::mergeTrees(TreeNode* root1, TreeNode* root2) {
     return root1;
 }
 
+vector<int> LeetCode::findDisappearedNumbers(vector<int>& nums){
+    vector<int> ans;
+    int len = (int)nums.size();
+    for (int i = 0; i < len; i++) {
+        //把nums[i] % len 是为了把数组中下标为nums[i]位置的数字变更大。
+        //就比如 nums[0] = 4 的时候，3 % 7 = 3，下标位3的位置是已经被占用了，所以不是缺失的
+        int n = (nums[i] - 1) % len;
+        //让下标位3的位置加多一个 len的大小，让循环 mod 到这位置的时候也不影响到该数字的占位情况。
+        nums[n] += len;
+    }
+    for (int i = 0; i < len; i++) {
+        if(nums[i] <= len){
+            ans.push_back(i+1);
+        }
+    }
+    
+    return ans;
+}
+
 
