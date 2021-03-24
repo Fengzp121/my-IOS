@@ -52,9 +52,9 @@ int main(int argc, const char * argv[]) {
 //    thrid.next = &fourth;
     
     /* 二叉树 */
-    int a[] = {1,2,NULL,3};
+    int a[] = {1,2,3};
     int b[] = {1,NULL,2,NULL,3};
-    TreeNode *tree1 = Tree::creatBTree(a, 0, 4);
+    TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
     TreeNode *tree2 = Tree::creatBTree(b, 0, 7);
     
     /* 字符串 */
@@ -66,8 +66,10 @@ int main(int argc, const char * argv[]) {
 
     LeetCode leetCode = LeetCode();
     
-    Tree::pTree(leetCode.mergeTrees(tree1, tree2));
-    
+    //Tree::pTree();
+    if(leetCode.isSymmetric(tree1)){
+        cout << "yes" << endl;
+    }
 //    p("结果", vvcc);
     
 

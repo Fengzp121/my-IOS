@@ -668,4 +668,46 @@ vector<int> LeetCode::findDisappearedNumbers(vector<int>& nums){
     return ans;
 }
 
+bool checkSymmetric(TreeNode *left, TreeNode *right){
+    //先检查两个节点是否都为空
+    if(!left && !right)return true;
+    //其中一个为空就不是对称
+    if(!left || !right)return false;
+    //如果两个变量一样，然后继续递归，按照对称性进行递归，就是从最左最右，逐渐向内内敛
+    return left->val == right->val&&checkSymmetric(left->left, right->right)&&checkSymmetric(left->right, right->left);
+}
+
+bool LeetCode::isSymmetric(TreeNode* root){
+    if(!root) return false;
+    //这是递归的方法
+    return checkSymmetric(root->left, root->right);
+    
+    //这是遍历的方法
+//    queue<TreeNode *> queue;
+//    queue.push(root->left);
+//    queue.push(root->right);
+//    TreeNode *lcnt,*rcnt;
+//    while (!queue.empty()) {
+//            lcnt = queue.front();
+//            queue.pop();
+//            rcnt = queue.front();
+//            queue.pop();
+//
+//            if(!lcnt && !rcnt){
+//                continue;
+//            }
+//            if((!lcnt || !rcnt)|| lcnt->val != rcnt->val){
+//                return false;
+//            }
+//        //每次先插入最左和最右节点，按照对称性来插入
+//            queue.push(lcnt->left);
+//            queue.push(rcnt->right);
+//            queue.push(lcnt->right);
+//            queue.push(rcnt->left);
+//    }
+//    return true;
+}
+
+
+
 

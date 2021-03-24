@@ -47,6 +47,7 @@ public:
     int totalHammingDistance(vector<int>& nums);
     TreeNode* mergeTrees(TreeNode* root1, TreeNode* root2);
     vector<int> findDisappearedNumbers(vector<int>& nums);
+    bool isSymmetric(TreeNode* root);
 };
 
 #endif /* LeetCode_hpp */
