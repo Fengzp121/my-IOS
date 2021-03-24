@@ -12,12 +12,15 @@
 #include <iostream>
 #include <algorithm>
 #include <list>
-
+#include <vector>
+#include <map>
+#include <string>
 using namespace std;
 
 class MotherFxxker{
 public:
     void sixsixsixsixsixsix(int x);
+    void check(vector<int> a,vector<vector<int>> b);
 };
 
 #endif /* HelloWorld_hpp */
