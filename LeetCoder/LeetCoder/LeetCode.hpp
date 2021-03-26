@@ -7,18 +7,18 @@
 
 #ifndef LeetCode_hpp
 #define LeetCode_hpp
-#include <iostream>
-#include <stdio.h>
-#include <vector>
-#include <map>
-#include <algorithm>
-#include <list>
-#include <queue>
-#include <stack>
+//#include <iostream>
+//#include <stdio.h>
+//#include <vector>
+//#include <map>
+//#include <algorithm>
+//#include <list>
+//#include <queue>
+//#include <stack>
 
-#include "Struts.hpp"
+#include "Struts.h"
 
-using namespace std;
+//using namespace std;
 
 class LeetCode {
 public:
