@@ -55,6 +55,8 @@ public:
     uint32_t reverseBits(uint32_t n);
     void flatten(TreeNode* root);
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
+    int climbStairs(int n);
+    int sumNums(int n);
 };
 
 #endif /* LeetCode_hpp */

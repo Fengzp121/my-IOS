@@ -417,8 +417,25 @@ bool LeetCode::hasCycle(ListNode *head) {
 
 //TODO:股票最大收益
 int LeetCode::maxProfit(vector<int>& prices) {
+    int len = (int)prices.size();
+    vector<int> nums;
+    int ans = 0;
+    int count = 0;
+    //只能买卖一次
+    for (int i = 1; i < len; i++) {
+        nums.push_back(prices[i] - prices[i-1]);
+        count += nums[i-1];
+    }
+    if(count <= 0) return 0;
+    int l = 0,r = (int)nums.size() - 1;
+    while (l < r) {
+        if(nums[l] > 0){
+            
+        }
+        int x = nums[l] > 0 ? count - nums[l] : count + nums[l];
+    }
     
-    return 0;
+    return ans;
 }
 
 void LeetCode::rotate(vector<vector<int>>& matrix) {
@@ -823,6 +840,7 @@ uint32_t LeetCode::reverseBits(uint32_t n) {
 //    int k = 32;
 //    while (n) {
 //        if(n&1){
+//            //取第k位加1
 //            ans |= (1<<(k-1));
 //        }
 //        k--;
@@ -858,6 +876,10 @@ void LeetCode::flatten(TreeNode* root) {
 //首先，先序遍历数组中第一个数肯定是根结点
 //但是不知道左子树中会有多少个结点，所以需要用中序遍历数组来决定有多少个结点
 //所以需要在中序数组中找到根结点的位置
+//l1
+//3, 9, 20, 15, 7
+//l2 i          r2
+//9, 3, 15, 20, 7
 unordered_map<int, int> buildTree_index;
 TreeNode* createTree(vector<int> numsA, vector<int> numsB,int l1,int r1,int l2,int r2){
     if(l1 > r1) return NULL;
@@ -870,9 +892,45 @@ TreeNode* createTree(vector<int> numsA, vector<int> numsB,int l1,int r1,int l2,i
 
 TreeNode* LeetCode::buildTree(vector<int>& preorder, vector<int>& inorder) {
     int len = (int)preorder.size();
+    //将中序数组存在hash_map中，方便寻找某节点的位置
     for(int i = 0; i < len; i++){
         buildTree_index[inorder[i]] = i;
     }
     return createTree(preorder, inorder, 0, len - 1, 0, len - 1);
 }
 
+int LeetCode::climbStairs(int n) {
+        if(n == 1 || n == 2){
+            return n;
+        }
+        // 用递归的方式
+        // return climbStairs(n-1) + climbStairs(n-2);
+
+        // 用dp，滑动数组
+        // int a[n+1];
+        // a[0] = 1;
+        // a[1] = 2;
+        // for(int i = 2; i < n; i++){
+        //     a[i] = a[i-1] + a[i-2];
+        // }
+        // return a[n-1];
+
+        //这里甚至只需要记录前两个状态就好了，数组都不需要了
+        int first = 1, second = 2;
+        int third = 0;
+        for(int i = 2; i < n; i++){
+            third = first + second;
+            first = second;
+            second = third;
+        }
+        return third;
+    }
+
+// 建议直接拉黑这种题目
+int LeetCode::sumNums(int n) {
+    // 实质就是 n*(n + 1) / 2 的换一种写法
+    // 这里使用bool 数组也可以
+   char arr[n][n+1];
+   return (int)sizeof(arr)>>1;
+
+}
