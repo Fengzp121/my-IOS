@@ -53,9 +53,9 @@ int main(int argc, const char * argv[]) {
 //    thrid.next = &fourth;
     
     /* 二叉树 */
-//    int a[] = {1,2,3};
+    int a[] = {1,2,5,3,4,NULL,6};
 //    int b[] = {1,NULL,2,NULL,3};
-//    TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
+    TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, 7);
     
     /* 字符串 */
@@ -65,10 +65,9 @@ int main(int argc, const char * argv[]) {
 //    vector<int> vvc = {2,1};
 //    vector<int> vvcc = {0,1,0,3,12,0};
 
-//    LeetCode leetCode = LeetCode();
+    LeetCode leetCode = LeetCode();
     
-//    int ans = leetCode.findKthLargest(vvc, 1);
-//    cout << ans << endl;
+    leetCode.flatten(tree1);
 //    p("结果", vvcc);
     
 

@@ -764,3 +764,115 @@ int LeetCode::findKthLargest(vector<int>& nums, int k){
     return nums[len - k];
 }
 
+vector<int> LeetCode::reversePrint(ListNode *head){
+    // 这是用栈或者数组的方式存
+//    vector<int> ans, temps;
+//    while (head) {
+//        temps.push_back(head->val);
+//        head = head->next;
+//    }
+//    int len = (int)temps.size();
+//    for (int i = len - 1; i >= 0; i--) {
+//        ans.push_back(temps[i]);
+//    }
+//    return ans;
+    
+    // 这是用倒置链表的方式
+    ListNode *p = NULL, *q = head;
+    vector<int> ans;
+    while (q) {
+        ListNode *temp = q->next;
+        q->next = p;
+        p = q;
+        q = temp;
+    }
+    while (p) {
+        ans.push_back(p->val);
+        p = p->next;
+    }
+    return ans;
+}
+
+string LeetCode::replaceSpace(string s){
+    string ans = "";
+    for (char c : s) {
+        if(c == ' '){
+            ans.append("%20");
+        }else{
+            ans.push_back(c);
+        }
+    }
+    return ans;
+}
+
+uint32_t LeetCode::reverseBits(uint32_t n) {
+    // 建议这一段背下来。有点变态
+    const uint32_t M1 = 0x55555555; // 01010101010101010101010101010101
+    const uint32_t M2 = 0x33333333; // 00110011001100110011001100110011
+    const uint32_t M4 = 0x0f0f0f0f; // 00001111000011110000111100001111
+    const uint32_t M8 = 0x00ff00ff; // 00000000111111110000000011111111
+    n = n >> 1 & M1 | (n & M1) << 1;
+    n = n >> 2 & M2 | (n & M2) << 2;
+    n = n >> 4 & M4 | (n & M4) << 4;
+    n = n >> 8 & M8 | (n & M8) << 8;
+    return n >> 16 | n << 16;
+
+
+    
+//    uint32_t ans = 0;
+//    int k = 32;
+//    while (n) {
+//        if(n&1){
+//            ans |= (1<<(k-1));
+//        }
+//        k--;
+//        n >>= 1;
+//    }
+//    return ans;
+}
+
+
+
+void LeetCode::flatten(TreeNode* root) {
+    if(!root) return;
+    // 先后序遍历二叉树
+    //这里不需要判空是因为当前是从底递归回来的，所以空的节点已经直接返回
+    flatten(root->left);
+    flatten(root->right);
+    //然后进行交换两个左右节点
+    //并且记录下当前右子树的根节点
+    TreeNode *temp = root->right;
+    root->right = root->left;
+    root->left = NULL;
+    //这时候这个子树已经被接长过
+    //所以要找到这个子树的最后一个节点
+    while (root->right) {
+        root = root->right;
+    }
+    //将记录的右子树的根节点拼接上去
+    root->right = temp;
+}
+
+
+
+//首先，先序遍历数组中第一个数肯定是根结点
+//但是不知道左子树中会有多少个结点，所以需要用中序遍历数组来决定有多少个结点
+//所以需要在中序数组中找到根结点的位置
+unordered_map<int, int> buildTree_index;
+TreeNode* createTree(vector<int> numsA, vector<int> numsB,int l1,int r1,int l2,int r2){
+    if(l1 > r1) return NULL;
+    int i = buildTree_index[numsA[l1]];
+    TreeNode *root = new TreeNode(numsA[i]);
+    root->left = createTree(numsA, numsB, l1+1, l1+i-l2, l2, i-1);
+    root->right= createTree(numsA, numsB, l1+i-l2+1, r1, i+1, r2);
+    return root;
+}
+
+TreeNode* LeetCode::buildTree(vector<int>& preorder, vector<int>& inorder) {
+    int len = (int)preorder.size();
+    for(int i = 0; i < len; i++){
+        buildTree_index[inorder[i]] = i;
+    }
+    return createTree(preorder, inorder, 0, len - 1, 0, len - 1);
+}
+

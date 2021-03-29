@@ -15,7 +15,7 @@
 #include <list>
 #include <queue>
 #include <stack>
-
+#include <unordered_map>
 #include "Struts.hpp"
 
 using namespace std;
@@ -50,6 +50,11 @@ public:
     bool isSymmetric(TreeNode* root);
     ListNode *getIntersectionNode(ListNode *headA, ListNode *headB);
     int findKthLargest(vector<int>& nums, int k);
+    vector<int> reversePrint(ListNode* head);
+    string replaceSpace(string s);
+    uint32_t reverseBits(uint32_t n);
+    void flatten(TreeNode* root);
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
 };
 
 #endif /* LeetCode_hpp */
