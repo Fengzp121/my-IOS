@@ -13,7 +13,6 @@
 		3C21BDD426130B2A00234EFC /* FICImageFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C21BDCD26130B2A00234EFC /* FICImageFormat.m */; };
 		3C21BDD526130B2A00234EFC /* FICUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C21BDCE26130B2A00234EFC /* FICUtilities.m */; };
 		3C21BDD626130B2A00234EFC /* FICImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C21BDCF26130B2A00234EFC /* FICImageCache.m */; };
-		3C21BDD726130B2A00234EFC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3C21BDD026130B2A00234EFC /* Info.plist */; };
 		3C32D14225F0AEBC00082260 /* VideoEditorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */; };
 		3C3ACEAB26032E6D00E90072 /* TextToImageTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEAA26032E6D00E90072 /* TextToImageTool.m */; };
 		3C3ACEB026032FCB00E90072 /* BulletScreenVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */; };
@@ -57,6 +56,7 @@
 		464AC25125314903001C319C /* MemoryCheck.m in Sources */ = {isa = PBXBuildFile; fileRef = 464AC23825314903001C319C /* MemoryCheck.m */; };
 		464AC25225314903001C319C /* PeopleClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 464AC23D25314903001C319C /* PeopleClass.m */; };
 		464AC25325314903001C319C /* PeopleClass+Action.m in Sources */ = {isa = PBXBuildFile; fileRef = 464AC23E25314903001C319C /* PeopleClass+Action.m */; };
+		4668B0E52613481000326415 /* GUIImageDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 4668B0E42613481000326415 /* GUIImageDemoVC.m */; };
 		467D3E542302635600986B0B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 467D3E532302635600986B0B /* Assets.xcassets */; };
 		467D3E572302635600986B0B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 467D3E552302635600986B0B /* LaunchScreen.storyboard */; };
 		467D3E9A2302637900986B0B /* FFdataEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 467D3E682302637900986B0B /* FFdataEngine.m */; };
@@ -177,7 +177,6 @@
 		3C21BDCD26130B2A00234EFC /* FICImageFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FICImageFormat.m; sourceTree = "<group>"; };
 		3C21BDCE26130B2A00234EFC /* FICUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FICUtilities.m; sourceTree = "<group>"; };
 		3C21BDCF26130B2A00234EFC /* FICImageCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FICImageCache.m; sourceTree = "<group>"; };
-		3C21BDD026130B2A00234EFC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C32D14025F0AEBC00082260 /* VideoEditorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoEditorViewController.h; sourceTree = "<group>"; };
 		3C32D14125F0AEBC00082260 /* VideoEditorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoEditorViewController.m; sourceTree = "<group>"; };
 		3C3ACEA926032E6D00E90072 /* TextToImageTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextToImageTool.h; sourceTree = "<group>"; };
@@ -256,6 +255,8 @@
 		464AC23C25314903001C319C /* PeopleClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PeopleClass.h; sourceTree = "<group>"; };
 		464AC23D25314903001C319C /* PeopleClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PeopleClass.m; sourceTree = "<group>"; };
 		464AC23E25314903001C319C /* PeopleClass+Action.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PeopleClass+Action.m"; sourceTree = "<group>"; };
+		4668B0E32613481000326415 /* GUIImageDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GUIImageDemoVC.h; sourceTree = "<group>"; };
+		4668B0E42613481000326415 /* GUIImageDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GUIImageDemoVC.m; sourceTree = "<group>"; };
 		467D3E472302635400986B0B /* FFwheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FFwheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		467D3E532302635600986B0B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		467D3E562302635600986B0B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -434,7 +435,6 @@
 			children = (
 				3C21BDBF26130B2900234EFC /* FastImageCache.h */,
 				3C21BDC026130B2900234EFC /* FastImageCache */,
-				3C21BDD026130B2A00234EFC /* Info.plist */,
 			);
 			path = FastImageCache;
 			sourceTree = "<group>";
@@ -585,9 +585,9 @@
 		464AC21825314903001C319C /* bitmapVCDemo */ = {
 			isa = PBXGroup;
 			children = (
+				464AC21B25314903001C319C /* BitmapDemoVC.h */,
 				464AC21925314903001C319C /* BitmapDemoVC.m */,
 				464AC21A25314903001C319C /* BMDemoTableViewCell.h */,
-				464AC21B25314903001C319C /* BitmapDemoVC.h */,
 				464AC21C25314903001C319C /* BMDemoTableViewCell.m */,
 			);
 			path = bitmapVCDemo;
@@ -653,6 +653,15 @@
 			path = NetWorking;
 			sourceTree = "<group>";
 		};
+		4668B0E2261347E900326415 /* GPUImageDemo */ = {
+			isa = PBXGroup;
+			children = (
+				4668B0E32613481000326415 /* GUIImageDemoVC.h */,
+				4668B0E42613481000326415 /* GUIImageDemoVC.m */,
+			);
+			path = GPUImageDemo;
+			sourceTree = "<group>";
+		};
 		467D3E3E2302635400986B0B = {
 			isa = PBXGroup;
 			children = (
@@ -677,6 +686,7 @@
 		467D3E492302635400986B0B /* FFwheel */ = {
 			isa = PBXGroup;
 			children = (
+				4668B0E2261347E900326415 /* GPUImageDemo */,
 				3C21BD9D261304C600234EFC /* FrameworkManager */,
 				3C3ACE9E2602E99500E90072 /* bulletScreen */,
 				3CBB20922601F725003B0014 /* swift */,
@@ -1306,7 +1316,6 @@
 				464AC24625314903001C319C /* demoTableViewCell.xib in Resources */,
 				467D3E542302635600986B0B /* Assets.xcassets in Resources */,
 				464AC24725314903001C319C /* DemoViewController.xib in Resources */,
-				3C21BDD726130B2A00234EFC /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1405,6 +1414,7 @@
 				467D3F142302642D00986B0B /* FFphoneNum.m in Sources */,
 				3C78DDEA255D307200A083C3 /* FFViewController.m in Sources */,
 				467D3EC5230263C200986B0B /* FFRefreshHeader.m in Sources */,
+				4668B0E52613481000326415 /* GUIImageDemoVC.m in Sources */,
 				464AC23F25314903001C319C /* ClientWKWeb.m in Sources */,
 				464AC24E25314903001C319C /* SQLManager.m in Sources */,
 				467D3EA42302637900986B0B /* FFBusinessTier.m in Sources */,

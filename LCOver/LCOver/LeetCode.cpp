@@ -500,25 +500,27 @@ vector<string> LeetCode::generateParenthesis(int n) {
     return {};
 }
 
-//TODO:子集、回溯算法
 vector<vector<int>> LeetCode::subsets(vector<int>& nums) {
     vector<vector<int>> ans;
-    int size = (int)nums.size();
-    ans.push_back({});
-    for(int i = 0; i < size; ++i){
-        ans.push_back({nums[i]});
-    }
-    for (int i = 0; i < size; ++i) {
-        ans.push_back({nums[i],nums[i+1]});
-    }
-    
-    for (int i = 0; i < size; ++i) {
-        vector<int> temp;
-        for (int j = i; j < size - 1; ++j) {
-            temp.push_back(nums[j]);
+    int len = (int)nums.size();
+    vector<int> temp;
+//    for (int i = 0; i < len; i++) {
+//        int ansLen = (int)ans.size();
+//        for(int j = 0; j < ansLen; j++){
+//            temp = ans[j];
+//            temp.push_back(nums[i]);
+//            ans.push_back(temp);
+//        }
+//    }
+//    return ans;
+    //总共有 2^n -1 种组合,有 len 种类型的组合长度 , 这个是用来做位运算的那种
+    int size = 1<<len;
+    for (int i = 0; i < size; i++) {
+        temp.clear();
+        for (int j = 0; j < size; j++) {
+            if(i & (1<<j)) temp.push_back(nums[j]);
         }
-        if(temp.size() > 0)
-            ans.push_back(temp);
+        ans.push_back(temp);
     }
     return ans;
 }
