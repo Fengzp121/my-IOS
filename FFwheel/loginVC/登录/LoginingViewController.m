@@ -9,6 +9,7 @@
 #import "LoginingViewController.h"
 #import "FFphoneNum.h"
 #import "getPhoneNumViewController.h"
+#import <ImageIO/ImageIO.h>
 @interface LoginingViewController ()
 
 @property (nonatomic,weak)FFphoneNum *getNumView;

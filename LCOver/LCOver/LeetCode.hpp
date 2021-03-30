@@ -36,7 +36,6 @@ public:
     bool hasCycle(ListNode *head);
     int maxProfit(vector<int>& prices);
     void rotate(vector<vector<int>>& matrix);
-    vector<vector<int>> levelOrder(TreeNode* root);
     int maxDepth(TreeNode* root);
     vector<string> generateParenthesis(int n);
     vector<vector<int>> subsets(vector<int>& nums);
@@ -57,6 +56,9 @@ public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder);
     int climbStairs(int n);
     int sumNums(int n);
+    vector<int> levelOrder(TreeNode* root);
+    vector<vector<int>> levelOrderI(TreeNode* root);
+    vector<vector<int>> levelOrderII(TreeNode* root);
 };
 
 #endif /* LeetCode_hpp */

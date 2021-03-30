@@ -453,32 +453,6 @@ void LeetCode::rotate(vector<vector<int>>& matrix) {
     }
 }
 
-vector<vector<int>> LeetCode::levelOrder(TreeNode* root) {
-    vector<vector<int>> vvec;
-    if(!root) return vvec;
-    queue<TreeNode *> tqueue;
-    tqueue.push(root);
-    vvec.push_back({root->val});
-    while (!tqueue.empty()) {
-        int size = (int)tqueue.size();
-        vector<int> temp;
-        for (int i = 0; i < size; ++i) {
-            TreeNode *node = tqueue.front();
-            if(node->left != NULL){
-                tqueue.push(node->left);
-                temp.push_back(node->left->val);
-            }
-            if(node->right != NULL){
-                tqueue.push(node->right);
-                temp.push_back(node->right->val);
-            }
-            tqueue.pop();
-        }
-        if(tqueue.size() > 0)
-            vvec.push_back(temp);
-    }
-    return vvec;
-}
 
 
 int LeetCode::maxDepth(TreeNode* root) {
@@ -884,7 +858,7 @@ unordered_map<int, int> buildTree_index;
 TreeNode* createTree(vector<int> numsA, vector<int> numsB,int l1,int r1,int l2,int r2){
     if(l1 > r1) return NULL;
     int i = buildTree_index[numsA[l1]];
-    TreeNode *root = new TreeNode(numsA[i]);
+    TreeNode *root = new TreeNode(numsB[i]);
     root->left = createTree(numsA, numsB, l1+1, l1+i-l2, l2, i-1);
     root->right= createTree(numsA, numsB, l1+i-l2+1, r1, i+1, r2);
     return root;
@@ -932,5 +906,86 @@ int LeetCode::sumNums(int n) {
     // 这里使用bool 数组也可以
    char arr[n][n+1];
    return (int)sizeof(arr)>>1;
-
 }
+
+vector<int> LeetCode::levelOrder(TreeNode *root){
+    vector<int> ans;
+    if(!root) return ans;
+    queue<TreeNode *> queue;
+    queue.push(root);
+    ans.push_back(root->val);
+    TreeNode * temp;
+    int size = 0;
+    while(!queue.empty()){
+        size = (int)queue.size();
+        for (int i = 0; i < size; i++) {
+            temp = queue.front();
+            if(temp->left){
+                queue.push(temp->left);
+                ans.push_back(temp->left->val);
+            }
+            if(temp->right){
+                queue.push(temp->right);
+                ans.push_back(temp->right->val);
+            }
+            queue.pop();
+        }
+    }
+    return ans;
+}
+
+vector<vector<int>> LeetCode::levelOrderI(TreeNode* root) {
+    vector<vector<int>> vvec;
+    if(!root) return vvec;
+    queue<TreeNode *> tqueue;
+    tqueue.push(root);
+    vvec.push_back({root->val});
+    while (!tqueue.empty()) {
+        int size = (int)tqueue.size();
+        vector<int> temp;
+        for (int i = 0; i < size; ++i) {
+            TreeNode *node = tqueue.front();
+            if(node->left != NULL){
+                tqueue.push(node->left);
+                temp.push_back(node->left->val);
+            }
+            if(node->right != NULL){
+                tqueue.push(node->right);
+                temp.push_back(node->right->val);
+            }
+            tqueue.pop();
+        }
+        if(tqueue.size() > 0)
+            vvec.push_back(temp);
+    }
+    return vvec;
+}
+
+
+vector<vector<int>> levelOrderII(TreeNode* root) {
+    vector<vector<int>> vvec;
+    if(!root) return vvec;
+    queue<TreeNode *> tqueue;
+    tqueue.push(root);
+    vvec.push_back({root->val});
+    while (!tqueue.empty()) {
+        int size = (int)tqueue.size();
+        vector<int> temp;
+        for (int i = 0; i < size; ++i) {
+            TreeNode *node = tqueue.front();
+            if(node->left != NULL){
+                tqueue.push(node->left);
+                temp.push_back(node->left->val);
+            }
+            if(node->right != NULL){
+                tqueue.push(node->right);
+                temp.push_back(node->right->val);
+            }
+            tqueue.pop();
+        }
+        if(tqueue.size() > 0)
+            vvec.push_back(temp);
+    }
+    return vvec;
+}
+
