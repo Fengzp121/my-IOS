@@ -51,7 +51,7 @@ static const CGFloat margin = 8.0;
         FFTableCellToolBar *toolBar = [[FFTableCellToolBar alloc] init];
         [self.contentView addSubview:toolBar];
         _toolBar = toolBar;
-        toolBar.backgroundColor = UIColor.groupTableViewBackgroundColor;
+        toolBar.backgroundColor = UIColor.systemGroupedBackgroundColor;
         [toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.right.offset(0);
             make.bottom.mas_equalTo(self.bottomLine.mas_top);

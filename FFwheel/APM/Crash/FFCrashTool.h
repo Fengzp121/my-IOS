@@ -9,6 +9,7 @@
 #ifndef FFCrashTool_h
 #define FFCrashTool_h
 #import <objc/runtime.h>
+#import "FFCrashHandle.h"
 /*交换实例方法*/
 static inline void FF_ExchangeInstanceMethod(Class _originalClass ,SEL _originalSel, Class _targetClass, SEL _targetSel){
     //此处获得的方法可能是父类对象的

@@ -127,6 +127,8 @@
 		46AB75412328B04200B731D3 /* uploadImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AB75402328B04200B731D3 /* uploadImg.m */; };
 		46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */; };
 		46D9928C250EF989009CB123 /* RequestMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D9928B250EF989009CB123 /* RequestMaker.m */; };
+		46FA8C3526149D43008460AB /* NSMutableArray+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA8C3426149D43008460AB /* NSMutableArray+FFCrash.m */; };
+		46FA8C3E2614AB8F008460AB /* NSDictionary+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA8C3D2614AB8F008460AB /* NSDictionary+FFCrash.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -405,6 +407,10 @@
 		46AB75442328DBA200B731D3 /* MBProgressHUD+FF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+FF.h"; sourceTree = "<group>"; };
 		46D9928A250EF989009CB123 /* RequestMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestMaker.h; sourceTree = "<group>"; };
 		46D9928B250EF989009CB123 /* RequestMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestMaker.m; sourceTree = "<group>"; };
+		46FA8C3326149D43008460AB /* NSMutableArray+FFCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FFCrash.h"; sourceTree = "<group>"; };
+		46FA8C3426149D43008460AB /* NSMutableArray+FFCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+FFCrash.m"; sourceTree = "<group>"; };
+		46FA8C3C2614AB8F008460AB /* NSDictionary+FFCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+FFCrash.h"; sourceTree = "<group>"; };
+		46FA8C3D2614AB8F008460AB /* NSDictionary+FFCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+FFCrash.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,6 +565,10 @@
 				3CA6DDC426141BAB00D66BA4 /* FFCrashHandle.m */,
 				3CA6DDBD2614197D00D66BA4 /* NSArray+FFCrash.h */,
 				3CA6DDBE2614197D00D66BA4 /* NSArray+FFCrash.m */,
+				46FA8C3326149D43008460AB /* NSMutableArray+FFCrash.h */,
+				46FA8C3426149D43008460AB /* NSMutableArray+FFCrash.m */,
+				46FA8C3C2614AB8F008460AB /* NSDictionary+FFCrash.h */,
+				46FA8C3D2614AB8F008460AB /* NSDictionary+FFCrash.m */,
 			);
 			path = Crash;
 			sourceTree = "<group>";
@@ -1486,6 +1496,7 @@
 				464AC24225314903001C319C /* BMDemoTableViewCell.m in Sources */,
 				46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */,
 				3CFE79012604919100010813 /* DmKItemFactory.m in Sources */,
+				46FA8C3E2614AB8F008460AB /* NSDictionary+FFCrash.m in Sources */,
 				467D3F2E23026CB800986B0B /* YTKChainRequest.m in Sources */,
 				469BDB772305014400D16020 /* getDynamicApi.m in Sources */,
 				467D3F3523026CB900986B0B /* YTKRequest.m in Sources */,
@@ -1507,6 +1518,7 @@
 				3C21BDD126130B2A00234EFC /* FICImageTable.m in Sources */,
 				467D3EA32302637900986B0B /* FFServer.m in Sources */,
 				467D3EAA2302637900986B0B /* FFRequestGenerator.m in Sources */,
+				46FA8C3526149D43008460AB /* NSMutableArray+FFCrash.m in Sources */,
 				467D3EA62302637900986B0B /* NSDictionary+toString.m in Sources */,
 				467D3F0E2302642D00986B0B /* ImageApiTestViewController.m in Sources */,
 				467D3F132302642D00986B0B /* VerificationView.m in Sources */,

@@ -132,7 +132,7 @@
 //    [self presentViewController:vc animated:YES completion:nil];
     FFCrashDemoVC * vc = [[FFCrashDemoVC alloc] init];
 //    vc.modalPresentationStyle = 0;
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)ClickPushImageVC{

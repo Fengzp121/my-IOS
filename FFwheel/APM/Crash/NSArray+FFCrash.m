@@ -8,7 +8,7 @@
 
 #import "NSArray+FFCrash.h"
 #import "FFCrashTool.h"
-#import "FFCrashHandle.h"
+
 @implementation NSArray (FFCrash)
 +(void)load{
     static dispatch_once_t onceToken;
@@ -26,6 +26,7 @@
         } @catch (NSException *exception) {
             FFCrashError *error = [FFCrashError errorWithType:FFCrashErrorTypeArray errorDesc:[NSString stringWithFormat:@"info:objectAtIndex数组越界 %@",exception.reason] e:exception callStack:[NSThread callStackSymbols]];
             [[FFCrashHandle defaultCrashHandler].delegate crashHandleDidOutputCrashError:error];
+            return self.lastObject;
         }
     }else{
         return [self ff_objectAtIndex:index];
@@ -39,6 +40,7 @@
         } @catch (NSException *exception) {
             FFCrashError *error = [FFCrashError errorWithType:FFCrashErrorTypeArray errorDesc:[NSString stringWithFormat:@"info:arr[index]数组越界 %@",exception.reason] e:exception callStack:[NSThread callStackSymbols]];
             [[FFCrashHandle defaultCrashHandler].delegate crashHandleDidOutputCrashError:error];
+            return self.lastObject;
         }
     }else{
         return [self ff_objectAtIndexedSubscript:index];

@@ -549,6 +549,29 @@ vector<vector<int>> LeetCode::subsetsWithDup(vector<int>& nums){
     return subsetsWithDup_ans;
 }
 
+vector<vector<int>> subsetsWithDup2(vector<int>& nums){
+    sort(nums.begin(), nums.end());
+    vector<vector<int>> ans;
+    vector<int> temp;
+    int len = (int)nums.size();
+    int size = 1<<len;
+    for (int i = 0; i < size; i++) {
+        temp.clear();
+        bool flag = true;
+        for (int j = 0; j < len; j++) {
+            if(i & (1<<j)){
+                if(j>0 && nums[j] == nums[j-1] && (i >> (j-1)) & 1 == 0 ){
+                    flag = false;
+                    break;
+                }
+                temp.push_back(nums[j]);
+            }
+        }
+        if(flag) ans.push_back(temp);
+    }
+    return ans;
+}
+
 
 
 void LeetCode::moveZeroes(vector<int>& nums){

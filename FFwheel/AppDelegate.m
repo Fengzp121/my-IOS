@@ -36,7 +36,7 @@
     [self setupRequestFilters];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(log) name:@"token_expire" object:nil];
     self.window = [[UIWindow alloc]initWithFrame:[[UIScreen mainScreen]bounds]];
-    UINavigationController *nav = [[FFNavigationViewController alloc]initWithRootViewController:[[HelloWorldVC alloc]init]];
+    UINavigationController *nav = [[UINavigationController alloc]initWithRootViewController:[[HelloWorldVC alloc]init]];
     self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     return YES;
