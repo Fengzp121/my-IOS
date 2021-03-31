@@ -26,6 +26,10 @@
 		3C5E46012600A688008150A8 /* firstWidgetDemoExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3C5E45F12600A685008150A8 /* firstWidgetDemoExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		3C78DDE6255D2FB900A083C3 /* FFViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE5255D2FB900A083C3 /* FFViewModel.m */; };
 		3C78DDEA255D307200A083C3 /* FFViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE9255D307200A083C3 /* FFViewController.m */; };
+		3CA6DDBF2614197D00D66BA4 /* NSArray+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDBE2614197D00D66BA4 /* NSArray+FFCrash.m */; };
+		3CA6DDC526141BAB00D66BA4 /* FFCrashHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDC426141BAB00D66BA4 /* FFCrashHandle.m */; };
+		3CA6DDCC26144CA500D66BA4 /* BSBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDCB26144CA500D66BA4 /* BSBacktraceLogger.m */; };
+		3CA6DDDD2614507300D66BA4 /* FFCrashDemoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDDC2614507300D66BA4 /* FFCrashDemoVC.m */; };
 		3CBB20952601F74D003B0014 /* SwiftFirstVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */; };
 		3CFE785026043C2A00010813 /* DmKItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE784F26043C2A00010813 /* DmKItem.m */; };
 		3CFE785E26044C0700010813 /* DmKCanvas.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CFE785D26044C0700010813 /* DmKCanvas.m */; };
@@ -198,6 +202,15 @@
 		3C78DDE5255D2FB900A083C3 /* FFViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewModel.m; sourceTree = "<group>"; };
 		3C78DDE8255D307200A083C3 /* FFViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFViewController.h; sourceTree = "<group>"; };
 		3C78DDE9255D307200A083C3 /* FFViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFViewController.m; sourceTree = "<group>"; };
+		3CA6DDB8261416CA00D66BA4 /* FFCrashTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFCrashTool.h; sourceTree = "<group>"; };
+		3CA6DDBD2614197D00D66BA4 /* NSArray+FFCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+FFCrash.h"; sourceTree = "<group>"; };
+		3CA6DDBE2614197D00D66BA4 /* NSArray+FFCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FFCrash.m"; sourceTree = "<group>"; };
+		3CA6DDC326141BAB00D66BA4 /* FFCrashHandle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFCrashHandle.h; sourceTree = "<group>"; };
+		3CA6DDC426141BAB00D66BA4 /* FFCrashHandle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFCrashHandle.m; sourceTree = "<group>"; };
+		3CA6DDCA26144CA500D66BA4 /* BSBacktraceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BSBacktraceLogger.h; sourceTree = "<group>"; };
+		3CA6DDCB26144CA500D66BA4 /* BSBacktraceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BSBacktraceLogger.m; sourceTree = "<group>"; };
+		3CA6DDDB2614507300D66BA4 /* FFCrashDemoVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFCrashDemoVC.h; sourceTree = "<group>"; };
+		3CA6DDDC2614507300D66BA4 /* FFCrashDemoVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FFCrashDemoVC.m; sourceTree = "<group>"; };
 		3CBB20932601F74C003B0014 /* FFwheel-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FFwheel-Bridging-Header.h"; sourceTree = "<group>"; };
 		3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFirstVC.swift; sourceTree = "<group>"; };
 		3CFE784E26043C2A00010813 /* DmKItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DmKItem.h; sourceTree = "<group>"; };
@@ -425,6 +438,7 @@
 		3C21BD9D261304C600234EFC /* FrameworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				3CA6DDC926144CA500D66BA4 /* BSBacktraceLogger */,
 				3C21BDBE26130B2900234EFC /* FastImageCache */,
 			);
 			path = FrameworkManager;
@@ -525,6 +539,37 @@
 			children = (
 			);
 			path = baseModel;
+			sourceTree = "<group>";
+		};
+		3CA6DDB6261414D100D66BA4 /* APM */ = {
+			isa = PBXGroup;
+			children = (
+				3CA6DDB7261414DA00D66BA4 /* Crash */,
+				3CA6DDDB2614507300D66BA4 /* FFCrashDemoVC.h */,
+				3CA6DDDC2614507300D66BA4 /* FFCrashDemoVC.m */,
+			);
+			path = APM;
+			sourceTree = "<group>";
+		};
+		3CA6DDB7261414DA00D66BA4 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				3CA6DDB8261416CA00D66BA4 /* FFCrashTool.h */,
+				3CA6DDC326141BAB00D66BA4 /* FFCrashHandle.h */,
+				3CA6DDC426141BAB00D66BA4 /* FFCrashHandle.m */,
+				3CA6DDBD2614197D00D66BA4 /* NSArray+FFCrash.h */,
+				3CA6DDBE2614197D00D66BA4 /* NSArray+FFCrash.m */,
+			);
+			path = Crash;
+			sourceTree = "<group>";
+		};
+		3CA6DDC926144CA500D66BA4 /* BSBacktraceLogger */ = {
+			isa = PBXGroup;
+			children = (
+				3CA6DDCA26144CA500D66BA4 /* BSBacktraceLogger.h */,
+				3CA6DDCB26144CA500D66BA4 /* BSBacktraceLogger.m */,
+			);
+			path = BSBacktraceLogger;
 			sourceTree = "<group>";
 		};
 		3CBB20922601F725003B0014 /* swift */ = {
@@ -686,6 +731,7 @@
 		467D3E492302635400986B0B /* FFwheel */ = {
 			isa = PBXGroup;
 			children = (
+				3CA6DDB6261414D100D66BA4 /* APM */,
 				4668B0E2261347E900326415 /* GPUImageDemo */,
 				3C21BD9D261304C600234EFC /* FrameworkManager */,
 				3C3ACE9E2602E99500E90072 /* bulletScreen */,
@@ -1407,6 +1453,7 @@
 				467D3F0F2302642D00986B0B /* LoginingViewController.m in Sources */,
 				467D3EE22302640E00986B0B /* FFTableViewListData.m in Sources */,
 				467D3F0D2302642D00986B0B /* sdddsdViewController.m in Sources */,
+				3CA6DDDD2614507300D66BA4 /* FFCrashDemoVC.m in Sources */,
 				467D3F0C2302642D00986B0B /* FFSocketTest.m in Sources */,
 				464AC25025314903001C319C /* test1.m in Sources */,
 				467D3EA92302637900986B0B /* FFCancelRequest.m in Sources */,
@@ -1466,6 +1513,8 @@
 				467D3E9B2302637900986B0B /* NSString+FFstring.m in Sources */,
 				46D9928C250EF989009CB123 /* RequestMaker.m in Sources */,
 				464AC25225314903001C319C /* PeopleClass.m in Sources */,
+				3CA6DDC526141BAB00D66BA4 /* FFCrashHandle.m in Sources */,
+				3CA6DDCC26144CA500D66BA4 /* BSBacktraceLogger.m in Sources */,
 				3C5E45FE2600A688008150A8 /* firstWidgetDemo.intentdefinition in Sources */,
 				467D3F102302642D00986B0B /* verificationcodeViewController.m in Sources */,
 				467D3EA72302637900986B0B /* FFRequestErrorHandle.m in Sources */,
@@ -1484,6 +1533,7 @@
 				467D3EC2230263C200986B0B /* FFRefreshAutoFooter.m in Sources */,
 				464AC24925314903001C319C /* testModel.m in Sources */,
 				467D3EDE2302640E00986B0B /* FFTableViewCell.m in Sources */,
+				3CA6DDBF2614197D00D66BA4 /* NSArray+FFCrash.m in Sources */,
 				467D3F0A2302642D00986B0B /* main.m in Sources */,
 				464AC24425314903001C319C /* privateView.m in Sources */,
 				467D3E9E2302637900986B0B /* VTGeneralTool.m in Sources */,

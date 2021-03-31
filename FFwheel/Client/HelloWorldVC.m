@@ -13,6 +13,7 @@
 #import "FFTabBarController.h"
 #import "ImageApiTestViewController.h"
 #import "BulletScreenVC.h"
+#import "FFCrashDemoVC.h"
 
 #import "getApiTest.h"
 #import "getDynamicApi.h"
@@ -127,7 +128,10 @@
 }
 
 -(void)ClickpushtableVC{
-    FFTabBarController * vc = [[FFTabBarController alloc] init];
+//    FFTabBarController * vc = [[FFTabBarController alloc] init];
+//    [self presentViewController:vc animated:YES completion:nil];
+    FFCrashDemoVC * vc = [[FFCrashDemoVC alloc] init];
+//    vc.modalPresentationStyle = 0;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

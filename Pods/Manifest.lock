@@ -47,7 +47,7 @@ DEPENDENCIES:
   - YYKit
 
 SPEC REPOS:
-  https://gitee.com/mirrors/CocoaPods-Specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - AFNetworking
     - CocoaAsyncSocket
     - Masonry

@@ -504,6 +504,7 @@ vector<vector<int>> LeetCode::subsets(vector<int>& nums) {
     vector<vector<int>> ans;
     int len = (int)nums.size();
     vector<int> temp;
+//    ans.push_back({});
 //    for (int i = 0; i < len; i++) {
 //        int ansLen = (int)ans.size();
 //        for(int j = 0; j < ansLen; j++){
@@ -524,6 +525,31 @@ vector<vector<int>> LeetCode::subsets(vector<int>& nums) {
     }
     return ans;
 }
+
+//THINGKING
+vector<int> subsetsWithDup_t;           //中间数组
+vector<vector<int>> subsetsWithDup_ans; //存储答案的数组
+void subsetsWithDup_dfs(int depth,vector<int> &nums){
+    subsetsWithDup_ans.push_back(subsetsWithDup_t);
+    for (int i = depth; i < nums.size(); i++) {
+        //感觉做了很多重复操
+        if(i > depth && nums[i] == nums[i-1]){
+            continue;
+        }
+        subsetsWithDup_t.push_back(nums[i]);
+        subsetsWithDup_dfs(i + 1, nums);
+        subsetsWithDup_t.pop_back();
+    }
+}
+
+vector<vector<int>> LeetCode::subsetsWithDup(vector<int>& nums){
+    if(nums.empty()) return {};
+    sort(nums.begin(),nums.end());
+    subsetsWithDup_dfs(0, nums);
+    return subsetsWithDup_ans;
+}
+
+
 
 void LeetCode::moveZeroes(vector<int>& nums){
     int size = (int)nums.size();

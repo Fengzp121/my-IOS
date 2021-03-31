@@ -39,6 +39,7 @@ public:
     int maxDepth(TreeNode* root);
     vector<string> generateParenthesis(int n);
     vector<vector<int>> subsets(vector<int>& nums);
+    vector<vector<int>> subsetsWithDup(vector<int>& nums);
     void moveZeroes(vector<int>& nums);
     ListNode* reverseList(ListNode* head);
     int hammingWeight(uint32_t n);

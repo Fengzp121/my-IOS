@@ -53,24 +53,24 @@ int main(int argc, const char * argv[]) {
 //    thrid.next = &fourth;
     
     /* 二叉树 */
-    int a[] = {1,2,5,3,4,NULL,6};
+    //int a[] = {1,2,5,3,4,NULL,6};
 //    int b[] = {1,NULL,2,NULL,3};
-    TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
+    //TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, 7);
     
     /* 字符串 */
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-//    vector<int> vvc = {2,1};
+    vector<int> vvc = {1,4,4,4,4};
 //    vector<int> vvcc = {0,1,0,3,12,0};
 
     LeetCode leetCode = LeetCode();
     
-    leetCode.flatten(tree1);
+    leetCode.subsetsWithDup(vvc);
 //    p("结果", vvcc);
     
-    cout << "1 << 3:" << (1 << 3) << endl;
+    cout << "1 << 0:" << (1 << 0) << endl;
     
     
     //---------------排序---------------
