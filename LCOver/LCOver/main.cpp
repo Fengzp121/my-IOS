@@ -62,15 +62,15 @@ int main(int argc, const char * argv[]) {
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-    vector<int> vvc = {1,4,4,4,4};
+    vector<int> vvc = {11,9,3,7,16,4,2,0};
 //    vector<int> vvcc = {0,1,0,3,12,0};
 
     LeetCode leetCode = LeetCode();
     
-    leetCode.subsetsWithDup(vvc);
+    leetCode.exchange(vvc);
 //    p("结果", vvcc);
     
-    cout << "1 << 0:" << (1 << 0) << endl;
+    //cout << "1 << 0:" << leetCode.clumsy(4) << endl;
     
     
     //---------------排序---------------

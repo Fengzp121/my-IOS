@@ -1040,3 +1040,94 @@ vector<vector<int>> levelOrderII(TreeNode* root) {
     return vvec;
 }
 
+
+int LeetCode::clumsy(int N){
+//    int ans = 0;
+//    int temp = N;
+//    N--;
+//    int count = (N / 4)+ 1;
+//    for (int j = 0; j < count; j++) {
+//        int i = 0;
+//        if(i == 0 && N>=1){
+//            temp *= N;
+//            N--;
+//            i++;
+//        }
+//        if(i == 1 && N>=1) {
+//            temp /= N;
+//            N--;
+//            i++;
+//        }
+//        if(i == 2 && N>=1){
+//            ans += N;
+//            N--;
+//            i++;
+//        }
+//        if(j >= 1){
+//            ans -= temp;
+//        }else{
+//            ans += temp;
+//        }
+//        temp = N;
+//        if(i == 3 && N>=1){
+//            N--;
+//        }
+//    }
+//    return ans;
+    
+    //分类找规律
+    if(N == 1) return 1;
+    else if(N == 2) return 2;
+    else if(N == 3) return 6;
+    else if(N == 4) return 7;
+    
+    if(N % 4 == 0)return N;
+    else if (N % 4 <= 2) return N + 2;
+    else return N-1;
+
+}
+//
+vector<int> LeetCode::exchange(vector<int>& nums) {
+    if (nums.size() <= 1) {
+        return nums;
+    }
+    // 从左右开始遍历？
+    int i = 0 , j = (int)nums.size() - 1;
+    while(i<j){
+        if(i < j && nums[j] % 2 == 0){
+            j--;
+        }
+        if(i < j && nums[i] % 2) {
+            i++;
+        }
+        if(nums[i] % 2 == 0 && nums[j] % 2){
+            swap(nums[i], nums[j]);
+            i++;
+            j--;
+        }
+    }
+    
+    return nums;
+}
+
+TreeNode* LeetCode::mirrorTree(TreeNode* root) {
+    if(!root) return NULL;
+    mirrorTree(root->left);
+    mirrorTree(root->right);
+    swap(root->left, root->right);
+    return root;
+}
+
+
+bool LeetCode::verifyPostorder(vector<int>& postorder) {
+    for(int i = 0; i < postorder.size(); i++){
+        
+    }
+    
+    return false;
+}
+
+//1,6,3,2,5
+
+
+//1,3,2,6,5

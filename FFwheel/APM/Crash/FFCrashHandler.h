@@ -1,5 +1,5 @@
 //
-//  FFCrashHandle.h
+//  FFCrashHandler.h
 //  FFwheel
 //
 //  Created by 你吗 on 2021/3/31.
@@ -40,16 +40,16 @@ typedef NS_ENUM(NSInteger, FFCrashErrorType){
 
 @end
 
-@class FFCrashHandle;
-@protocol FFCrashHandleDelegate <NSObject>
+@class FFCrashHandler;
+@protocol FFCrashHandlerDelegate <NSObject>
 ///将异常信息抛出去给别人做收集处理
 -(void)crashHandleDidOutputCrashError:(FFCrashError *)crashError;
 
 @end
 
-@interface FFCrashHandle : NSObject
+@interface FFCrashHandler : NSObject
 
-@property(nonatomic, weak)id<FFCrashHandleDelegate> delegate;
+@property(nonatomic, weak)id<FFCrashHandlerDelegate> delegate;
 
 + (instancetype)defaultCrashHandler;
 @end

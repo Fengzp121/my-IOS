@@ -1,12 +1,12 @@
 //
-//  FFCrashHandle.m
+//  FFCrashHandler.m
 //  FFwheel
 //
 //  Created by 你吗 on 2021/3/31.
 //  Copyright © 2021 ffzp. All rights reserved.
 //
 
-#import "FFCrashHandle.h"
+#import "FFCrashHandler.h"
 
 #import <mach/mach.h>
 #import <mach/exc.h>
@@ -25,13 +25,13 @@
 
 @end
 
-@implementation FFCrashHandle
+@implementation FFCrashHandler
 
 +(instancetype)defaultCrashHandler{
-    static FFCrashHandle *crashHandle;
+    static FFCrashHandler *crashHandle;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        crashHandle = [[FFCrashHandle alloc] init];
+        crashHandle = [[FFCrashHandler alloc] init];
         [crashHandle setCaughtCrashHandler];
     });
     return crashHandle;
@@ -93,7 +93,7 @@
             }
             
             /// 打印监听信息
-            NSLog(@"FFCrashHandler Receive a mach message:[%d] , remote_port:%d, local_port:%d, exception code:%d",
+            NSLog(@"FFCrashHandlerr Receive a mach message:[%d] , remote_port:%d, local_port:%d, exception code:%d",
                   mach_message.Head.msgh_id,
                   mach_message.Head.msgh_remote_port,
                   mach_message.Head.msgh_local_port,
@@ -102,7 +102,7 @@
             NSString *callStack = [BSBacktraceLogger bs_backtraceOfAllThread];
             NSString *exceptionInfo = [NSString stringWithFormat:@"mach异常: %@",callStack];
             FFCrashError *crashError = [FFCrashError errorWithType:FFCrashErrorTypeUnknow errorDesc:exceptionInfo e:nil callStack:@[callStack]];
-            [[FFCrashHandle defaultCrashHandler].delegate crashHandleDidOutputCrashError:crashError];
+            [[FFCrashHandler defaultCrashHandler].delegate crashHandleDidOutputCrashError:crashError];
             //
             //abort();
         }

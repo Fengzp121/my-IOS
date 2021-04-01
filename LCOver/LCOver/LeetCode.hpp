@@ -60,6 +60,10 @@ public:
     vector<int> levelOrder(TreeNode* root);
     vector<vector<int>> levelOrderI(TreeNode* root);
     vector<vector<int>> levelOrderII(TreeNode* root);
+    int clumsy(int N);
+    vector<int> exchange(vector<int>& nums);
+    TreeNode* mirrorTree(TreeNode* root);
+    bool verifyPostorder(vector<int>& postorder);
 };
 
 #endif /* LeetCode_hpp */
