@@ -63,7 +63,8 @@ public:
     int clumsy(int N);
     vector<int> exchange(vector<int>& nums);
     TreeNode* mirrorTree(TreeNode* root);
-    bool verifyPostorder(vector<int>& postorder);
+    ListNode* reverseKGroup(ListNode* head, int k);
+    ListNode* getKthFromEnd(ListNode* head, int k);
 };
 
 #endif /* LeetCode_hpp */

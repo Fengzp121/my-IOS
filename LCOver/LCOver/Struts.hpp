@@ -25,6 +25,20 @@ struct TreeNode {
     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
+class List {
+public:
+    static ListNode *createList(std::vector<int> data){
+        ListNode *head = new ListNode(-1);
+        ListNode *tail = head;
+        for (int i = 0; i < data.size(); i++) {
+            ListNode* t = new ListNode(data[i]);
+            tail->next = t;
+            tail = t;
+        }
+        return head->next;
+    }
+};
+
 class Tree {
 public:
     static TreeNode * creatBTree(int data[], int index, int n)

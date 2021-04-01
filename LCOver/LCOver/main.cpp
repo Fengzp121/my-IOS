@@ -44,13 +44,12 @@ int main(int argc, const char * argv[]) {
     
     //---------------leet---------------
     /* 链表 */
-//    ListNode first = ListNode(1);
-//    ListNode second = ListNode(2);
-//    ListNode thrid = ListNode(3);
-//    ListNode fourth = ListNode(4);
-//    first.next = &second;
-//    second.next = &thrid;
-//    thrid.next = &fourth;
+    ListNode* first = new ListNode(1);
+    ListNode* second = new ListNode(2);
+    ListNode* thrid = new ListNode(3);
+    ListNode* fourth = new ListNode(4);
+    ListNode* five = new ListNode(5);
+    ListNode* list = List::createList({1,2,3,4,5});
     
     /* 二叉树 */
     //int a[] = {1,2,5,3,4,NULL,6};
@@ -64,10 +63,10 @@ int main(int argc, const char * argv[]) {
     /* 数组 */
     vector<int> vvc = {11,9,3,7,16,4,2,0};
 //    vector<int> vvcc = {0,1,0,3,12,0};
-
+    
     LeetCode leetCode = LeetCode();
     
-    leetCode.exchange(vvc);
+    leetCode.reverseKGroup(list, 2);
 //    p("结果", vvcc);
     
     //cout << "1 << 0:" << leetCode.clumsy(4) << endl;

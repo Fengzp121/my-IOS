@@ -1042,38 +1042,38 @@ vector<vector<int>> levelOrderII(TreeNode* root) {
 
 
 int LeetCode::clumsy(int N){
-//    int ans = 0;
-//    int temp = N;
-//    N--;
-//    int count = (N / 4)+ 1;
-//    for (int j = 0; j < count; j++) {
-//        int i = 0;
-//        if(i == 0 && N>=1){
-//            temp *= N;
-//            N--;
-//            i++;
-//        }
-//        if(i == 1 && N>=1) {
-//            temp /= N;
-//            N--;
-//            i++;
-//        }
-//        if(i == 2 && N>=1){
-//            ans += N;
-//            N--;
-//            i++;
-//        }
-//        if(j >= 1){
-//            ans -= temp;
-//        }else{
-//            ans += temp;
-//        }
-//        temp = N;
-//        if(i == 3 && N>=1){
-//            N--;
-//        }
-//    }
-//    return ans;
+    int ans = 0;
+    int temp = N;
+    N--;
+    int count = (N / 4)+ 1;
+    for (int j = 0; j < count; j++) {
+        int i = 0;
+        if(i == 0 && N>=1){
+            temp *= N;
+            N--;
+            i++;
+        }
+        if(i == 1 && N>=1) {
+            temp /= N;
+            N--;
+            i++;
+        }
+        if(i == 2 && N>=1){
+            ans += N;
+            N--;
+            i++;
+        }
+        if(j >= 1){
+            ans -= temp;
+        }else{
+            ans += temp;
+        }
+        temp = N;
+        if(i == 3 && N>=1){
+            N--;
+        }
+    }
+    return ans;
     
     //分类找规律
     if(N == 1) return 1;
@@ -1119,15 +1119,46 @@ TreeNode* LeetCode::mirrorTree(TreeNode* root) {
 }
 
 
-bool LeetCode::verifyPostorder(vector<int>& postorder) {
-    for(int i = 0; i < postorder.size(); i++){
-        
+ListNode* LeetCode::reverseKGroup(ListNode* head, int k) {
+    if (k == 1 || !head) {
+        return head;
     }
-    
-    return false;
+    //统计当前节点是否还够k个，不够就立刻返回
+    ListNode*q = head;
+    int count = 0;
+    while (q) {
+        count++;
+        q = q->next;
+    }
+    if(count < k) return head;
+    //反转链表的k个节点
+    ListNode *p = head;
+    ListNode *ans = NULL;
+    int index = k;
+    while(index-- && p){
+        ListNode *t = p->next;
+        p->next = ans;
+        ans = p;
+        p = t;
+    }
+    //获取到ans的末指针
+    ListNode *s = ans;
+    while (s->next) {
+        s = s->next;
+    }
+    //递归完成剩余的链表
+    s->next = reverseKGroup(p, k);
+    return ans;
 }
 
-//1,6,3,2,5
-
-
-//1,3,2,6,5
+ListNode* LeetCode::getKthFromEnd(ListNode* head, int k) {
+    ListNode* q = head;
+    for(int i = 0; i < k; i++)
+    q = q->next;
+    if(!q) return head;
+    while(q){
+        q = q->next;
+        head = head->next;
+    }
+    return head;
+}
