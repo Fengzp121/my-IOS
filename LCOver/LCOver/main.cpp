@@ -40,16 +40,11 @@ void p(string s,int a[],int len){
 
 
 int main(int argc, const char * argv[]) {
-    
+    LeetCode leetCode = LeetCode();
     
     //---------------leet---------------
     /* 链表 */
-    ListNode* first = new ListNode(1);
-    ListNode* second = new ListNode(2);
-    ListNode* thrid = new ListNode(3);
-    ListNode* fourth = new ListNode(4);
-    ListNode* five = new ListNode(5);
-    ListNode* list = List::createList({1,2,3,4,5});
+//    ListNode* list = List::createList({1});
     
     /* 二叉树 */
     //int a[] = {1,2,5,3,4,NULL,6};
@@ -61,15 +56,12 @@ int main(int argc, const char * argv[]) {
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-    vector<int> vvc = {11,9,3,7,16,4,2,0};
+    vector<int> vvc = {2,3,6,7};
 //    vector<int> vvcc = {0,1,0,3,12,0};
     
-    LeetCode leetCode = LeetCode();
     
-    leetCode.reverseKGroup(list, 2);
 //    p("结果", vvcc);
-    
-    //cout << "1 << 0:" << leetCode.clumsy(4) << endl;
+
     
     
     //---------------排序---------------

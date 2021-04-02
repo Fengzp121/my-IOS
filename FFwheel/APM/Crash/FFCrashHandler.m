@@ -39,8 +39,11 @@
 
 - (void)setCaughtCrashHandler{
     [self setMachHandler];
+    [self setSignalHandler];
+    [self setExceptionHandler];
 }
 
+#pragma mark - mach_port crash catch
 - (void)setMachHandler{
     mach_port_t server_port;
     
@@ -108,5 +111,66 @@
         }
     });
 }
+
+#pragma mark - unix signal crash catch
+- (void)setSignalHandler{
+    signal(SIGABRT, FF_UncaughtSignalHandler);
+    signal(SIGILL, FF_UncaughtSignalHandler);
+    signal(SIGSEGV, FF_UncaughtSignalHandler);
+    signal(SIGFPE, FF_UncaughtSignalHandler);
+    signal(SIGBUS, FF_UncaughtSignalHandler);
+    signal(SIGPIPE, FF_UncaughtSignalHandler);
+    signal(SIGKILL, FF_UncaughtSignalHandler);
+    signal(SIGTRAP, FF_UncaughtSignalHandler);
+}
+
+void FF_UncaughtSignalHandler(int signal){
+    NNString *exceptionInfo = [NSString stringWithFormat:@"异常信号:%@ Crash",signalName(signal)];
+    FFCrashError *error = [FFCrashError errorWithType:FFCrashErrorTypeUnknow errorDesc:exceptionInfo e:nil callStack:[NSThread callStackSymbols]];
+    [[FFCrashHandler defaultCrashHandler].delegate crashHandleDidOutputCrashError:error];
+}
+
+NSString *signalName(int signal){
+    switch (signal) {
+        case SIGABRT:
+            return @"SIGBRT";
+        case SIGILL:
+            return @"SIGILL";
+        case SIGSEGV:
+            return @"SIGSEGV";
+        case SIGFPE:
+            return @"SIGFPE";
+        case SIGBUS:
+            return @"SIGBUS";
+        case SIGPIPE:
+            return @"SIGPIPE";
+        case SIGKILL:
+            return @"SIGKILL";
+        case SIGTRAP:
+            return @"SIGTRAP";
+        default:
+            return "UNKOWN";
+    }
+}
+
+#pragma mark - NSException catch
+static NSUncaughtExceptionHandler *otherUncaughtExceptionHandler = NULL;
+
+-(void)setExceptionHandler{
+    //先获取别人捕获异常的handler
+    otherUncaughtExceptionHandler = NSGetUncaughtExceptionHandler();
+    //然后注册自己的handler
+    NSSetUncaughtExceptionHandler(NSSetUncaughtExceptionHandler);
+}
+
+void NSSetUncaughtExceptionHandler(NSException *e){
+    if(otherUncaughtExceptionHandler){
+        otherUncaughtExceptionHandler(e);
+    }
+    NNString *exceptionInfo = [NSString stringWithFormat:@"捕获异常:%@",e.reason];
+    FFCrashError *error = [FFCrashError errorWithType:FFCrashErrorTypeUnknow errorDesc:exceptionInfo e:e callStack:[NSThread callStackSymbols]];
+    [[FFCrashHandler defaultCrashHandler].delegate crashHandleDidOutputCrashError:error];
+}
+
 
 @end

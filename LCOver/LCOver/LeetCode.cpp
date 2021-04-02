@@ -1162,3 +1162,46 @@ ListNode* LeetCode::getKthFromEnd(ListNode* head, int k) {
     }
     return head;
 }
+
+//TODO
+//int LeetCode::trap(vector<int>& height) {
+//    if(height.empty()) return 0;
+//    int sum = *height.begin(); int curIndex = 0;
+//    stack<int> stack;
+//    for (int i = 1; i < height.size(); i++) {
+//        if(height[curIndex] > height[i]){
+//            sum = sum + height[curIndex] - height[i];
+//        }else{
+//            //sum = sum + height[curIndex] - height[i - 1];
+//            stack.push(sum);
+//            sum = 0;
+//            curIndex = i;
+//        }
+//    }
+//    int ans = 0;
+//    for (int i = 0; i < stack.size(); i++) {
+//        ans += stack.top();
+//        stack.pop();
+//    }
+//    
+//    int i = 0; j = (int)height.size()-1;
+//    while (i<j) {
+//        
+//    }
+//    return ans;
+//}
+
+ListNode* LeetCode::swapPairs(ListNode* head) {
+    if(!head || !head->next) return head;
+    ListNode *ans = NULL,*p = head;
+    int len = 2;
+    while (len-- && p){
+        ListNode *t = p->next;
+        p->next = ans;
+        ans = p;
+        p = t;
+    }
+    ans->next->next = swapPairs(p);
+    return ans;
+}
+

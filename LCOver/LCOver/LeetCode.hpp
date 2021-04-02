@@ -65,6 +65,8 @@ public:
     TreeNode* mirrorTree(TreeNode* root);
     ListNode* reverseKGroup(ListNode* head, int k);
     ListNode* getKthFromEnd(ListNode* head, int k);
+    //int trap(vector<int>& height);
+    ListNode* swapPairs(ListNode* head);
 };
 
 #endif /* LeetCode_hpp */
