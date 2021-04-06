@@ -1205,3 +1205,18 @@ ListNode* LeetCode::swapPairs(ListNode* head) {
     return ans;
 }
 
+int LeetCode::removeDuplicates(vector<int>& nums){
+    int len = (int)nums.size();
+    if(len < 2) return len;
+    //双指针指向
+    int slow = 2;
+    int fast = 2;
+    while (fast < len) {
+        if(nums[fast] != nums[slow - 2]){
+            nums[slow] = nums[fast];
+            slow++;
+        }
+        fast++;
+    }
+    return slow;
+}

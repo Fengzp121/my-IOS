@@ -67,6 +67,7 @@ public:
     ListNode* getKthFromEnd(ListNode* head, int k);
     //int trap(vector<int>& height);
     ListNode* swapPairs(ListNode* head);
+    int removeDuplicates(vector<int>& nums);
 };
 
 #endif /* LeetCode_hpp */
