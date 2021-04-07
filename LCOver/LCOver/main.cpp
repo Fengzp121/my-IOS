@@ -56,12 +56,11 @@ int main(int argc, const char * argv[]) {
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-    vector<int> vvc = {0,0,1,1,1,1,2,3,3};
+    vector<int> vvc = {3,5,1};
 //    vector<int> vvcc = {0,1,0,3,12,0};
     
-    
 //    p("结果", vvcc);
-    cout<< "ans:" << leetCode.removeDuplicates(vvc) << endl;
+    cout<< "ans:" << leetCode.searchI(vvc,3) << endl;
     
     
     //---------------排序---------------

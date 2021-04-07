@@ -15,6 +15,7 @@
 
 #define SafeAreaBottom (IS_IPHONE_X ? 34 : 0)
 #define SafeAreaTop    (IS_IPHONE_X ? 44 : 20)
+#define SafeNavigatorTop   (IS_IPHONE_X ? 88 : 64)
 
 #define FFScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define FFScreenWidth  [[UIScreen mainScreen] bounds].size.width

@@ -1220,3 +1220,49 @@ int LeetCode::removeDuplicates(vector<int>& nums){
     }
     return slow;
 }
+
+//这只能用在生序排序数组中，这种旋转数组还得加工一下
+//如果能找到一某段被旋转后的序列，就可以直接用这段
+//但是怎么找到旋转的序列呢
+int quickSearch(vector<int>&nums,int target,int low,int high){
+    int maxL = high;
+    while (low <= high) {
+        int middle = (low + high) / 2;
+        if(target == nums[middle]){
+            return middle;
+        }
+        // 先看看是否夹杂旋转段？
+        if(nums[0] <= nums[middle]){
+            //然后看target的位置决定取左边段还是右边段
+            //如果target比mid小并且target比起初位置大，就代表target在mid左段
+            if(target < nums[middle] && nums[0] <= target)
+                high = middle - 1;
+            else
+                low = middle + 1;
+        }else{
+            if(target > nums[middle] && nums[maxL] >= target)
+                low = middle + 1;
+            else
+                high = middle - 1;
+        }
+    }
+    return -1;
+}
+
+int LeetCode::searchI(vector<int>& nums, int target){
+//    for (int i = 0; i < nums.size(); i++) {
+//        if(nums[i] == target){
+//            return i;
+//        }
+//    }
+    return quickSearch(nums, target, 0,(int)nums.size() - 1);
+}
+
+bool LeetCode::searchII(vector<int>& nums, int target){
+    for (int i = 0; i < nums.size(); i++) {
+        if(nums[i] == target){
+            return true;
+        }
+    }
+    return false;
+}

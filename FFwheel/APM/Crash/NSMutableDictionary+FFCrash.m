@@ -48,16 +48,16 @@
     }
 }
 
--(void)ff_setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key{
-    if(!obj || !aKey){
+-(void)ff_setObject:(id)anObject forKeyedSubscript:(id<NSCopying>)key{
+    if(!anObject || !key){
         @try {
-            [self setObject:obj forKeyedSubscript:key];
+            [self ff_setObject:anObject forKeyedSubscript:key];
         } @catch (NSException *exception) {
             FFCrashError *error = [FFCrashError errorWithType:FFCrashErrorTypeMDictionary errorDesc:[NSString stringWithFormat:@"object or key is nil %@",exception.reason] e:exception callStack:[NSThread callStackSymbols]];
             [[FFCrashHandler defaultCrashHandler].delegate crashHandleDidOutputCrashError:error];
         }
     }else{
-        [self setObject:obj forKeyedSubscript:key];
+        [self ff_setObject:anObject forKeyedSubscript:key];
     }
 }
 

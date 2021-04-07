@@ -39,7 +39,7 @@
     CGSize size = CGSizeMake(self.view.mj_w/4.0, 65);
     int i = 0;
     for(NSString *title in titles){
-        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i%4*size.width, 88+ i/4*size.height + 10, size.width, size.height)];
+        UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(i%4*size.width, SafeNavigatorTop + i/4*size.height + 10, size.width, size.height)];
         [btn setTitle:title forState:UIControlStateNormal];
         btn.backgroundColor = UIColor.greenColor;
         btn.titleLabel.numberOfLines = 0;
@@ -52,7 +52,7 @@
         i++;
     }
     
-    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, 88+ i%4*size.height + 10, self.view.mj_w, self.view.mj_h - (88+ i%4*size.height + 10))];
+    self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0, SafeNavigatorTop+ i%4*size.height + 10, self.view.mj_w, self.view.mj_h - (SafeNavigatorTop+ i%4*size.height + 10))];
     self.textView.editable = NO;
     self.textView.text = @"输出结果";
     [self.view addSubview:self.textView];

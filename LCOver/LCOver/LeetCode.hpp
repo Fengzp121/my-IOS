@@ -68,6 +68,8 @@ public:
     //int trap(vector<int>& height);
     ListNode* swapPairs(ListNode* head);
     int removeDuplicates(vector<int>& nums);
+    int searchI(vector<int>& nums, int target);
+    bool searchII(vector<int>& nums, int target);
 };
 
 #endif /* LeetCode_hpp */
