@@ -488,6 +488,13 @@
 		469BDB7A230507B600D16020 /* XXFRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 469BDB79230507B600D16020 /* XXFRequest.m */; };
 		46AB75412328B04200B731D3 /* uploadImg.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AB75402328B04200B731D3 /* uploadImg.m */; };
 		46AB75452328DBA200B731D3 /* MBProgressHUD+FF.m in Sources */ = {isa = PBXBuildFile; fileRef = 46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */; };
+		46D4FA6B261F5AED005D0FB2 /* LinkedFramesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA64261F5AED005D0FB2 /* LinkedFramesList.swift */; };
+		46D4FA6C261F5AED005D0FB2 /* WindowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA65261F5AED005D0FB2 /* WindowViewController.swift */; };
+		46D4FA6D261F5AED005D0FB2 /* MarginLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA66261F5AED005D0FB2 /* MarginLabel.swift */; };
+		46D4FA6E261F5AED005D0FB2 /* PerformanceMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA67261F5AED005D0FB2 /* PerformanceMonitor.swift */; };
+		46D4FA6F261F5AED005D0FB2 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA68261F5AED005D0FB2 /* Protocols.swift */; };
+		46D4FA70261F5AED005D0FB2 /* PerformanceСalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA69261F5AED005D0FB2 /* PerformanceСalculator.swift */; };
+		46D4FA71261F5AED005D0FB2 /* PerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46D4FA6A261F5AED005D0FB2 /* PerformanceView.swift */; };
 		46D9928C250EF989009CB123 /* RequestMaker.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D9928B250EF989009CB123 /* RequestMaker.m */; };
 		46FA8C3526149D43008460AB /* NSMutableArray+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA8C3426149D43008460AB /* NSMutableArray+FFCrash.m */; };
 		46FA8C3E2614AB8F008460AB /* NSDictionary+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 46FA8C3D2614AB8F008460AB /* NSDictionary+FFCrash.m */; };
@@ -1174,6 +1181,13 @@
 		46AB75402328B04200B731D3 /* uploadImg.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = uploadImg.m; sourceTree = "<group>"; };
 		46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+FF.m"; sourceTree = "<group>"; };
 		46AB75442328DBA200B731D3 /* MBProgressHUD+FF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+FF.h"; sourceTree = "<group>"; };
+		46D4FA64261F5AED005D0FB2 /* LinkedFramesList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkedFramesList.swift; sourceTree = "<group>"; };
+		46D4FA65261F5AED005D0FB2 /* WindowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WindowViewController.swift; sourceTree = "<group>"; };
+		46D4FA66261F5AED005D0FB2 /* MarginLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MarginLabel.swift; sourceTree = "<group>"; };
+		46D4FA67261F5AED005D0FB2 /* PerformanceMonitor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceMonitor.swift; sourceTree = "<group>"; };
+		46D4FA68261F5AED005D0FB2 /* Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		46D4FA69261F5AED005D0FB2 /* PerformanceСalculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PerformanceСalculator.swift"; sourceTree = "<group>"; };
+		46D4FA6A261F5AED005D0FB2 /* PerformanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PerformanceView.swift; sourceTree = "<group>"; };
 		46D9928A250EF989009CB123 /* RequestMaker.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RequestMaker.h; sourceTree = "<group>"; };
 		46D9928B250EF989009CB123 /* RequestMaker.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RequestMaker.m; sourceTree = "<group>"; };
 		46FA8C3326149D43008460AB /* NSMutableArray+FFCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+FFCrash.h"; sourceTree = "<group>"; };
@@ -2088,6 +2102,7 @@
 		467D3E6A2302637900986B0B /* smallTool */ = {
 			isa = PBXGroup;
 			children = (
+				46D4FA63261F5AED005D0FB2 /* GDPerformanceMonitoring */,
 				467D3E6B2302637900986B0B /* ToolHeader.h */,
 				467D3E6C2302637900986B0B /* categories */,
 				467D3E732302637900986B0B /* Tool */,
@@ -2523,6 +2538,20 @@
 				46AB75432328DBA200B731D3 /* MBProgressHUD+FF.m */,
 			);
 			path = Categroy;
+			sourceTree = "<group>";
+		};
+		46D4FA63261F5AED005D0FB2 /* GDPerformanceMonitoring */ = {
+			isa = PBXGroup;
+			children = (
+				46D4FA64261F5AED005D0FB2 /* LinkedFramesList.swift */,
+				46D4FA65261F5AED005D0FB2 /* WindowViewController.swift */,
+				46D4FA66261F5AED005D0FB2 /* MarginLabel.swift */,
+				46D4FA67261F5AED005D0FB2 /* PerformanceMonitor.swift */,
+				46D4FA68261F5AED005D0FB2 /* Protocols.swift */,
+				46D4FA69261F5AED005D0FB2 /* PerformanceСalculator.swift */,
+				46D4FA6A261F5AED005D0FB2 /* PerformanceView.swift */,
+			);
+			path = GDPerformanceMonitoring;
 			sourceTree = "<group>";
 		};
 		46D99289250EF946009CB123 /* NetworkDemo */ = {
@@ -3086,10 +3115,12 @@
 				467D3EA12302637900986B0B /* FFServerSetting.m in Sources */,
 				464AC24025314903001C319C /* BaseWKWeb.m in Sources */,
 				467D3F0F2302642D00986B0B /* LoginingViewController.m in Sources */,
+				46D4FA70261F5AED005D0FB2 /* PerformanceСalculator.swift in Sources */,
 				467D3EE22302640E00986B0B /* FFTableViewListData.m in Sources */,
 				467D3F0D2302642D00986B0B /* sdddsdViewController.m in Sources */,
 				3CA6DDDD2614507300D66BA4 /* FFCrashDemoVC.m in Sources */,
 				467D3F0C2302642D00986B0B /* FFSocketTest.m in Sources */,
+				46D4FA6B261F5AED005D0FB2 /* LinkedFramesList.swift in Sources */,
 				464AC25025314903001C319C /* test1.m in Sources */,
 				467D3EA92302637900986B0B /* FFCancelRequest.m in Sources */,
 				467D3F2D23026CB800986B0B /* YTKNetworkConfig.m in Sources */,
@@ -3113,6 +3144,7 @@
 				3C21BDD626130B2A00234EFC /* FICImageCache.m in Sources */,
 				467D3F152302642D00986B0B /* getPhoneNumViewController.m in Sources */,
 				469BDB7A230507B600D16020 /* XXFRequest.m in Sources */,
+				46D4FA6D261F5AED005D0FB2 /* MarginLabel.swift in Sources */,
 				467D3F622302BA9200986B0B /* YTKAnimatingRequestAccessory.m in Sources */,
 				3C65E3D9261EAA2700E397AF /* facedet.cpp in Sources */,
 				3C21BDD426130B2A00234EFC /* FICImageFormat.m in Sources */,
@@ -3154,6 +3186,7 @@
 				467D3EA22302637900986B0B /* FFBaseServer.m in Sources */,
 				467D3F112302642D00986B0B /* ForgetPasswordViewController.m in Sources */,
 				3C78DDE6255D2FB900A083C3 /* FFViewModel.m in Sources */,
+				46D4FA71261F5AED005D0FB2 /* PerformanceView.swift in Sources */,
 				467D3F3123026CB800986B0B /* YTKBatchRequest.m in Sources */,
 				467D3EC1230263C200986B0B /* FFTableRefreshViewController.m in Sources */,
 				467D3EDF2302640E00986B0B /* FFTableCellToolBar.m in Sources */,
@@ -3169,6 +3202,7 @@
 				3C65E2A0261EAA2600E397AF /* stasm_lib.cpp in Sources */,
 				467D3E9B2302637900986B0B /* NSString+FFstring.m in Sources */,
 				46D9928C250EF989009CB123 /* RequestMaker.m in Sources */,
+				46D4FA6F261F5AED005D0FB2 /* Protocols.swift in Sources */,
 				464AC25225314903001C319C /* PeopleClass.m in Sources */,
 				3CA6DDC526141BAB00D66BA4 /* FFCrashHandler.m in Sources */,
 				3CA6DDCC26144CA500D66BA4 /* BSBacktraceLogger.m in Sources */,
@@ -3183,6 +3217,7 @@
 				464AC24A25314903001C319C /* demoTableView.m in Sources */,
 				464AC24B25314903001C319C /* DemoViewController.m in Sources */,
 				3C65E292261EAA2600E397AF /* err.cpp in Sources */,
+				46D4FA6C261F5AED005D0FB2 /* WindowViewController.swift in Sources */,
 				46455387230A4290008CADF6 /* FFZPMVVMView.m in Sources */,
 				3C65E290261EAA2600E397AF /* startshape.cpp in Sources */,
 				464AC24D25314903001C319C /* Demo2Controller.m in Sources */,
@@ -3197,6 +3232,7 @@
 				3CA6DDBF2614197D00D66BA4 /* NSArray+FFCrash.m in Sources */,
 				467D3F0A2302642D00986B0B /* main.m in Sources */,
 				464AC24425314903001C319C /* privateView.m in Sources */,
+				46D4FA6E261F5AED005D0FB2 /* PerformanceMonitor.swift in Sources */,
 				3C65E29C261EAA2600E397AF /* shapehacks.cpp in Sources */,
 				467D3E9E2302637900986B0B /* VTGeneralTool.m in Sources */,
 			);

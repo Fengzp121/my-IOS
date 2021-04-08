@@ -13,3 +13,9 @@ struct fxxk {
         print("your mother fxxker!")
     }
 }
+
+open class TestSwift : NSObject {
+    @objc func p(){
+        print("i am swift function!")
+    }
+}

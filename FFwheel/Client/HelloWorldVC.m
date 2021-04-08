@@ -22,6 +22,9 @@
 #import "YTKChainRequest.h"
 #import "YTKBaseRequest+AnimatingAccessory.h"
 
+#import "FFwheel-Swift.h"
+
+
 @interface HelloWorldVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIVideoEditorControllerDelegate>
 
 @property (nonatomic,strong)UIView *oneView;
@@ -41,6 +44,15 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setUI];
+    
+    //swift 混编
+    TestSwift *s = [TestSwift new];
+    [s p];
+    
+    //这是帧数展示
+    PerformanceMonitor *p = [PerformanceMonitor shared];
+    [p start];
+    
 //    NSLog(@"self:%@",self);
 //    HelloWorldVC *vc = [[HelloWorldVC alloc] init];
 //    Class class = [HelloWorldVC class];
