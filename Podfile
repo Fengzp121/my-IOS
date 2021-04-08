@@ -28,6 +28,8 @@ pod 'ReactiveObjC'
 pod 'MBProgressHUD'
 #pod 'Alamofire'
 
-pod 'GPUImage'
+pod 'GDPerformanceView-Swift', '~> 2.1.1'
 
+pod 'GPUImage'
+pod 'OpenCV2-contrib'
 end

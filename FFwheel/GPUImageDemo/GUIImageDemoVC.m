@@ -9,27 +9,41 @@
 #import "GUIImageDemoVC.h"
 
 #import <GPUImage/GPUImage.h>
-#import "BeautifyFaceFilter.h"
+#import "FFFaceDetect.h"
 
-@interface GUIImageDemoVC ()
+#import "BeautifyFaceFilter.h"
+#import "FaceDetectPointFilter.h"
+
+@interface GUIImageDemoVC ()<GPUImageVideoCameraDelegate>
 @property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
 @property (nonatomic, strong) GPUImageView *filterView;
 @property (nonatomic, strong) UIButton *beautifyButton;
 @end
 
 @implementation GUIImageDemoVC
-
+{
+    FaceDetectPointFilter *faceFilter;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionBack];
+    //授权face
+    [[FFFaceDetect defaultInstance] licenseFacepp];
+    
+    self.videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionFront];
     self.videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-//    self.videoCamera.horizontallyMirrorRearFacingCamera = YES;
+    self.videoCamera.delegate = self;
+    //self.videoCamera.horizontallyMirrorRearFacingCamera = YES;
     self.filterView = [[GPUImageView alloc] initWithFrame:self.view.frame];
     self.filterView.center = self.view.center;
     
     [self.view addSubview:self.filterView];
     [self.videoCamera addTarget:self.filterView];
     [self.videoCamera startCameraCapture];
+    
+    
+    faceFilter = [[FaceDetectPointFilter alloc] init];
+    [self.videoCamera addTarget:faceFilter];
+    [faceFilter addTarget:self.filterView];
     
     self.beautifyButton = [UIButton buttonWithType:UIButtonTypeCustom];
     self.beautifyButton.backgroundColor = UIColor.whiteColor;
@@ -59,6 +73,13 @@
         [self.videoCamera addTarget:filter];
         [filter addTarget:self.filterView];
     }
+}
+
+-(void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
+    int facePointCount = 0;
+    float * facePoint = [[FFFaceDetect defaultInstance] detectWithSampleBuffer:sampleBuffer facePointCount:&facePointCount isMirror:NO];
+    faceFilter.facesPoints = facePoint;
+    faceFilter.facesPointCount = facePointCount;
 }
 
 @end

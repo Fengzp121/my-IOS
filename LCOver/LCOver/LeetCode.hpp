@@ -70,6 +70,7 @@ public:
     int removeDuplicates(vector<int>& nums);
     int searchI(vector<int>& nums, int target);
     bool searchII(vector<int>& nums, int target);
+    int findMin(vector<int>& nums);
 };
 
 #endif /* LeetCode_hpp */
