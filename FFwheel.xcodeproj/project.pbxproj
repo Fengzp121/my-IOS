@@ -1229,6 +1229,7 @@
 		3C21BD9D261304C600234EFC /* FrameworkManager */ = {
 			isa = PBXGroup;
 			children = (
+				467D3E602302637900986B0B /* SQLandNETandTOOL */,
 				3C65E40B261EEB3B00E397AF /* Facepp */,
 				3C65E10E261EA9D100E397AF /* Stasm */,
 				3CA6DDC926144CA500D66BA4 /* BSBacktraceLogger */,
@@ -1277,7 +1278,7 @@
 			path = VideoEditor;
 			sourceTree = "<group>";
 		};
-		3C3ACE9E2602E99500E90072 /* bulletScreen */ = {
+		3C3ACE9E2602E99500E90072 /* DMK */ = {
 			isa = PBXGroup;
 			children = (
 				3CFE7905260492F100010813 /* DmK */,
@@ -1286,7 +1287,7 @@
 				3C3ACEAE26032FCB00E90072 /* BulletScreenVC.h */,
 				3C3ACEAF26032FCB00E90072 /* BulletScreenVC.m */,
 			);
-			path = bulletScreen;
+			path = DMK;
 			sourceTree = "<group>";
 		};
 		3C5E45F62600A685008150A8 /* firstWidgetDemo */ = {
@@ -1884,13 +1885,14 @@
 			path = BSBacktraceLogger;
 			sourceTree = "<group>";
 		};
-		3CBB20922601F725003B0014 /* swift */ = {
+		3CBB20922601F725003B0014 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
+				46D4FA63261F5AED005D0FB2 /* GDPerformanceMonitoring */,
 				3CBB20942601F74D003B0014 /* SwiftFirstVC.swift */,
 				3C47DFBB2601F96600B6CB3D /* FirstSwiftView.swift */,
 			);
-			path = swift;
+			path = Swift;
 			sourceTree = "<group>";
 		};
 		3CFE7905260492F100010813 /* DmK */ = {
@@ -2048,9 +2050,8 @@
 				3CA6DDB6261414D100D66BA4 /* APM */,
 				4668B0E2261347E900326415 /* GPUImageDemo */,
 				3C21BD9D261304C600234EFC /* FrameworkManager */,
-				3C3ACE9E2602E99500E90072 /* bulletScreen */,
-				3CBB20922601F725003B0014 /* swift */,
-				467D3E602302637900986B0B /* lib */,
+				3C3ACE9E2602E99500E90072 /* DMK */,
+				3CBB20922601F725003B0014 /* Swift */,
 				464AC21825314903001C319C /* bitmapVCDemo */,
 				464AC21D25314903001C319C /* Utility */,
 				464AC21325314903001C319C /* wkdemo */,
@@ -2059,10 +2060,12 @@
 				467D3EEE2302642D00986B0B /* imageApiTestVC */,
 				467D3EC62302640E00986B0B /* circle-of-friendVC */,
 				3C32D13F25F0AE6A00082260 /* VideoEditor */,
-				467D3EAB230263C200986B0B /* Client */,
+				467D3EAB230263C200986B0B /* BaseClass */,
 				467D3EE32302642D00986B0B /* Config */,
 				467D3EB5230263C200986B0B /* AppDelegate.h */,
 				467D3EBA230263C200986B0B /* AppDelegate.m */,
+				467D3EBD230263C200986B0B /* HelloWorldVC.h */,
+				467D3EAC230263C200986B0B /* HelloWorldVC.m */,
 				3CBB20932601F74C003B0014 /* FFwheel-Bridging-Header.h */,
 				467D3E532302635600986B0B /* Assets.xcassets */,
 				467D3E552302635600986B0B /* LaunchScreen.storyboard */,
@@ -2070,7 +2073,7 @@
 			path = FFwheel;
 			sourceTree = "<group>";
 		};
-		467D3E602302637900986B0B /* lib */ = {
+		467D3E602302637900986B0B /* SQLandNETandTOOL */ = {
 			isa = PBXGroup;
 			children = (
 				464AC23025314903001C319C /* sqldemo */,
@@ -2079,7 +2082,7 @@
 				46AB75422328DB8D00B731D3 /* Categroy */,
 				467D3E6A2302637900986B0B /* smallTool */,
 			);
-			path = lib;
+			path = SQLandNETandTOOL;
 			sourceTree = "<group>";
 		};
 		467D3E612302637900986B0B /* FFDataEngine */ = {
@@ -2102,7 +2105,6 @@
 		467D3E6A2302637900986B0B /* smallTool */ = {
 			isa = PBXGroup;
 			children = (
-				46D4FA63261F5AED005D0FB2 /* GDPerformanceMonitoring */,
 				467D3E6B2302637900986B0B /* ToolHeader.h */,
 				467D3E6C2302637900986B0B /* categories */,
 				467D3E732302637900986B0B /* Tool */,
@@ -2220,15 +2222,13 @@
 			path = tool;
 			sourceTree = "<group>";
 		};
-		467D3EAB230263C200986B0B /* Client */ = {
+		467D3EAB230263C200986B0B /* BaseClass */ = {
 			isa = PBXGroup;
 			children = (
-				467D3EBD230263C200986B0B /* HelloWorldVC.h */,
-				467D3EAC230263C200986B0B /* HelloWorldVC.m */,
 				467D3EAD230263C200986B0B /* controller */,
 				467D3EB4230263C200986B0B /* view */,
 			);
-			path = Client;
+			path = BaseClass;
 			sourceTree = "<group>";
 		};
 		467D3EAD230263C200986B0B /* controller */ = {
