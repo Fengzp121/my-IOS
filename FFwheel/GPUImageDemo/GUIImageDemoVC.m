@@ -8,78 +8,63 @@
 
 #import "GUIImageDemoVC.h"
 
-#import <GPUImage/GPUImage.h>
-#import "FFFaceDetect.h"
+#import "FaceDetectCameraVC.h"
+#import "BeautyCameraVC.h"
 
-#import "BeautifyFaceFilter.h"
-#import "FaceDetectPointFilter.h"
+@interface GUIImageDemoVC ()<UITableViewDelegate,UITableViewDataSource>
 
-@interface GUIImageDemoVC ()<GPUImageVideoCameraDelegate>
-@property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
-@property (nonatomic, strong) GPUImageView *filterView;
-@property (nonatomic, strong) UIButton *beautifyButton;
+@property (nonatomic, strong)UITableView *tableView;
+@property (nonatomic, copy) NSArray *dataSource;
 @end
 
+//TODO:然后就看看opencv和face++读取出来的点是什么情况
+//TODO:如果不行就用face++的作为基准去做美颜了
+
 @implementation GUIImageDemoVC
-{
-    FaceDetectPointFilter *faceFilter;
-}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    //授权face
-    [[FFFaceDetect defaultInstance] licenseFacepp];
-    
-    self.videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionFront];
-    self.videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-    self.videoCamera.delegate = self;
-    //self.videoCamera.horizontallyMirrorRearFacingCamera = YES;
-    self.filterView = [[GPUImageView alloc] initWithFrame:self.view.frame];
-    self.filterView.center = self.view.center;
-    
-    [self.view addSubview:self.filterView];
-    [self.videoCamera addTarget:self.filterView];
-    [self.videoCamera startCameraCapture];
-    
-    
-    faceFilter = [[FaceDetectPointFilter alloc] init];
-    [self.videoCamera addTarget:faceFilter];
-    [faceFilter addTarget:self.filterView];
-    
-    self.beautifyButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    self.beautifyButton.backgroundColor = UIColor.whiteColor;
-    [self.beautifyButton setTitle:@"开启" forState:UIControlStateNormal];
-    [self.beautifyButton setTitle:@"关闭" forState:UIControlStateSelected];
-    [self.beautifyButton setTitleColor:UIColor.blueColor forState:UIControlStateNormal];
-    [self.beautifyButton addTarget:self action:@selector(beautifyButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:self.beautifyButton];
-    [self.beautifyButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-20);
-        make.width.offset(100);
-        make.height.offset(50);
-        make.centerX.equalTo(self.view);
+    self.dataSource = @[@{@"title":@"人脸特征点检测",@"func":@"faceDetect"},
+                        @{@"title":@"美颜",@"func":@"beautyCamera"}];
+    self.tableView = [[UITableView alloc] init];
+    self.tableView.delegate = self;
+    self.tableView.dataSource = self;
+    [self.view addSubview:self.tableView];
+    [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.right.bottom.equalTo(self.view);
+        make.top.offset(SafeNavigatorTop);
     }];
 }
 
-
-- (void)beautifyButtonAction:(UIButton *)sender{
-    if(sender.selected){
-        sender.selected = NO;
-        [self.videoCamera removeAllTargets];
-        [self.videoCamera addTarget:self.filterView];
-    }else{
-        sender.selected = YES;
-        [self.videoCamera removeAllTargets];
-        BeautifyFaceFilter *filter = [[BeautifyFaceFilter alloc] init];
-        [self.videoCamera addTarget:filter];
-        [filter addTarget:self.filterView];
-    }
+#pragma mark - Actions
+- (void)faceDetect{
+    [self.navigationController pushViewController:[FaceDetectCameraVC new] animated:YES];
 }
 
--(void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
-    int facePointCount = 0;
-    float * facePoint = [[FFFaceDetect defaultInstance] detectWithSampleBuffer:sampleBuffer facePointCount:&facePointCount isMirror:NO];
-    faceFilter.facesPoints = facePoint;
-    faceFilter.facesPointCount = facePointCount;
+- (void)beautyCamera{
+    [self.navigationController pushViewController:[BeautyCameraVC new] animated:YES];
+}
+
+
+#pragma mark - TableView Delegate/DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UITableViewCell"];
+    if(!cell){
+        cell = [[UITableViewCell alloc] init];
+        cell.textLabel.text = self.dataSource[indexPath.row][@"title"];
+    }
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self.tableView deselectRowAtIndexPath:indexPath animated:YES];
+    NSString *funcStr = self.dataSource[indexPath.row][@"func"];
+    SEL selector = NSSelectorFromString(funcStr);
+    [self performSelector:selector];
 }
 
 @end

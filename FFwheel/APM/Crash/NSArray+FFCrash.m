@@ -13,12 +13,12 @@
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        //设置方法交换
-        Class nsArrayI = NSClassFromString(@"__NSArrayI");
-        FF_ExchangeInstanceMethod(nsArrayI, @selector(objectAtIndex:),nsArrayI, @selector(ff_objectAtIndex:));
-        FF_ExchangeInstanceMethod(nsArrayI, @selector(objectAtIndexedSubscript:), nsArrayI, @selector(ff_objectAtIndexedSubscript:));
-        FF_ExchangeInstanceMethod(NSClassFromString(@"__NSSingleObjectArrayI"), @selector(objectAtIndex:), NSClassFromString(@"__NSSingleObjectArrayI"), @selector(ff_singleObjectAtIndex:));
-        FF_ExchangeInstanceMethod(NSClassFromString(@"__NSPlaceholderArray"), @selector(initWithObjects:count:), NSClassFromString(@"__NSPlaceholderArray"), @selector(ff_initWithObjects:count:));
+//        //设置方法交换
+//        Class nsArrayI = NSClassFromString(@"__NSArrayI");
+//        FF_ExchangeInstanceMethod(nsArrayI, @selector(objectAtIndex:),nsArrayI, @selector(ff_objectAtIndex:));
+//        FF_ExchangeInstanceMethod(nsArrayI, @selector(objectAtIndexedSubscript:), nsArrayI, @selector(ff_objectAtIndexedSubscript:));
+//        FF_ExchangeInstanceMethod(NSClassFromString(@"__NSSingleObjectArrayI"), @selector(objectAtIndex:), NSClassFromString(@"__NSSingleObjectArrayI"), @selector(ff_singleObjectAtIndex:));
+//        FF_ExchangeInstanceMethod(NSClassFromString(@"__NSPlaceholderArray"), @selector(initWithObjects:count:), NSClassFromString(@"__NSPlaceholderArray"), @selector(ff_initWithObjects:count:));
     });
 }
 

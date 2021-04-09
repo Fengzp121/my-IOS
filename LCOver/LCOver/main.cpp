@@ -56,11 +56,12 @@ int main(int argc, const char * argv[]) {
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-    vector<int> vvc = {3,2,1};
+    vector<int> vvc = {2,0,2,2,2,2};
+    //{2,2,2,0,2,2},{1,2,3,0},{1,2,3,4},{1,2,3},{2,1,2},{2,2,1,2},{1,2,1}
 //    vector<int> vvcc = {0,1,0,3,12,0};
     
 //    p("结果", vvcc);
-    cout<< "ans:" << leetCode.findMin(vvc) << endl;
+    cout<< "ans:" << leetCode.findMinII(vvc) << endl;
     
     
     //---------------排序---------------
@@ -81,11 +82,10 @@ int main(int argc, const char * argv[]) {
     //---------------运气游戏---------------
 //    MotherFxxker fxxker;
 //    int x = 5;
-//    int m = 10;
+//    int m = 5;
 //    while(--m){
 //        fxxker.sixsixsixsixsixsix(x);
 //    }
-    //fxxker.check({4,7,9,22,30,31,13}, {{4,7,9,22,30,31,13},{5,7,12,15,16,31,11},{1,3,7,9,12,29,4},{1,7,10,23,24,29,6},{8,15,23,24,25,28,15}});
-    return 0;
+//    return 0;
 }
 

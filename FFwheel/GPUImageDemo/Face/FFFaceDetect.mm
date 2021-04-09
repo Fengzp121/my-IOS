@@ -14,12 +14,15 @@
 
 #import "MGFacepp.h"
 #import "MGFaceLicenseHandle.h"
-
 #define kFaceppPointCount 106
+
+#import <Vision/Vision.h>
+#import <CoreML/CoreML.h>
 
 #import "FFFaceDetect.h"
 @interface FFFaceDetect()
 @property (nonatomic, strong) MGFacepp *markManager;
+@property (nonatomic, assign) BOOL kaiguan;
 @end
 
 
@@ -29,6 +32,7 @@
     if(self = [super init]){
         _sampleBufferSize = CGSizeMake(720, 1280);
         _faceDetectType = FFFaceDetectType_OPENCV;
+        _kaiguan = NO; //默认关闭
     }
     return self;
 }
@@ -41,6 +45,15 @@
     });
     return instance;
 }
+
+-(void)start{
+    self.kaiguan = YES;
+}
+
+-(void)stop{
+    self.kaiguan = NO;
+}
+
 
 - (void)licenseFacepp{
     @weakify(self);
@@ -59,12 +72,19 @@
 }
 
 - (float *)detectWithSampleBuffer:(CMSampleBufferRef)sampleBuffer facePointCount:(int *)facePointCount isMirror:(BOOL)isMirror{
+    if(!self.kaiguan) return nil;
     if(self.faceDetectType == FFFaceDetectType_OPENCV){
         return [self detectOpenCVWithSampleBuffer:sampleBuffer facePointCount:facePointCount isMirror:isMirror];
     }else if(self.faceDetectType == FFFaceDetectType_FACEPP){
         return [self detectFaceppWithSampleBuffer:sampleBuffer facePointCount:facePointCount isMirror:isMirror];
+    }else if(self.faceDetectType == FFFaceDetectType_VISION){
+        [self detectVisionWithSampleBuffer:sampleBuffer facePointCount:nil isMirror:NO];
     }
     return nil;
+}
+
+- (void)visionDetectWithSampleBuffer:(CMSampleBufferRef)sampleBuffer completHandler:(void (^)())completHandler{
+    
 }
 
 #pragma mark - face++
@@ -206,6 +226,19 @@
 }
 
 #pragma mark - VISION
+- (void)detectVisionWithSampleBuffer:(CMSampleBufferRef)sampleBuffer facePointCount:(int *)facePointCount isMirror:(BOOL)isMirror{
+    if(@available(iOS 14, *)){
+        VNImageRequestHandler *faceRequestHandler = [[VNImageRequestHandler alloc] initWithCMSampleBuffer:sampleBuffer options:@{}];
+        VNImageBasedRequest *detectRequest = [[VNImageBasedRequest alloc] init];
+        detectRequest = [[VNDetectFaceLandmarksRequest alloc] init];
+        [faceRequestHandler performRequests:@[detectRequest] error:nil];
+        
+        NSLog(@"vision detect result:%@",[detectRequest results]);
+        for(VNFaceObservation *observation in detectRequest.results){
+            NSLog(@"vision detect point:%@",observation.landmarks.allPoints);
+        }
+    }
 
+}
 
 @end

@@ -14,15 +14,15 @@
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class nsArrayM = NSClassFromString(@"__NSArrayM");
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(objectAtIndex:), nsArrayM, @selector(ff_mObjectAtIndex:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(objectAtIndexedSubscript:), nsArrayM, @selector(ff_mobjectAtIndexedSubscript:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(removeObjectsInRange:), nsArrayM, @selector(ff_removeObjectsInRange:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(replaceObjectAtIndex:withObject:), nsArrayM, @selector(ff_replaceObjectAtIndex:withObject:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(replaceObjectsInRange:withObjectsFromArray:), nsArrayM, @selector(ff_replaceObjectsInRange:withObjectsFromArray:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(insertObject:atIndex:), nsArrayM, @selector(ff_insertObject:atIndex:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(insertObjects:atIndexes:), nsArrayM, @selector(ff_insertObjects:atIndexes:));
-        FF_ExchangeInstanceMethod(nsArrayM, @selector(initWithObjects:count:), nsArrayM, @selector(ff_initWithObjects:count:));
+//        Class nsArrayM = NSClassFromString(@"__NSArrayM");
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(objectAtIndex:), nsArrayM, @selector(ff_mObjectAtIndex:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(objectAtIndexedSubscript:), nsArrayM, @selector(ff_mobjectAtIndexedSubscript:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(removeObjectsInRange:), nsArrayM, @selector(ff_removeObjectsInRange:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(replaceObjectAtIndex:withObject:), nsArrayM, @selector(ff_replaceObjectAtIndex:withObject:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(replaceObjectsInRange:withObjectsFromArray:), nsArrayM, @selector(ff_replaceObjectsInRange:withObjectsFromArray:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(insertObject:atIndex:), nsArrayM, @selector(ff_insertObject:atIndex:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(insertObjects:atIndexes:), nsArrayM, @selector(ff_insertObjects:atIndexes:));
+//        FF_ExchangeInstanceMethod(nsArrayM, @selector(initWithObjects:count:), nsArrayM, @selector(ff_initWithObjects:count:));
     });
 }
 

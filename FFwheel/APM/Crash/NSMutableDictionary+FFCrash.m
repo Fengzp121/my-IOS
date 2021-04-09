@@ -13,11 +13,11 @@
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class mDict = NSClassFromString(@"__NSDictionaryM");
-        FF_ExchangeInstanceMethod(mDict, @selector(setObject:forKey:), mDict, @selector(ff_setObject:forKey:));
-        FF_ExchangeInstanceMethod(mDict, @selector(removeObjectForKey:), mDict, @selector(ff_removeObjectForKey:));
-        FF_ExchangeInstanceMethod(mDict, @selector(setObject:forKeyedSubscript:), mDict, @selector(ff_setObject:forKeyedSubscript:));
-        FF_ExchangeInstanceMethod(mDict, @selector(initWithObjects:forKeys:count:), mDict, @selector(ff_initWithObjects:forKeys:count:));
+//        Class mDict = NSClassFromString(@"__NSDictionaryM");
+//        FF_ExchangeInstanceMethod(mDict, @selector(setObject:forKey:), mDict, @selector(ff_setObject:forKey:));
+//        FF_ExchangeInstanceMethod(mDict, @selector(removeObjectForKey:), mDict, @selector(ff_removeObjectForKey:));
+//        FF_ExchangeInstanceMethod(mDict, @selector(setObject:forKeyedSubscript:), mDict, @selector(ff_setObject:forKeyedSubscript:));
+//        FF_ExchangeInstanceMethod(mDict, @selector(initWithObjects:forKeys:count:), mDict, @selector(ff_initWithObjects:forKeys:count:));
     });
 }
 

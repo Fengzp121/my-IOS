@@ -13,11 +13,11 @@
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class stringClass = NSClassFromString(@"__NSCFConstantString");
-        FF_ExchangeInstanceMethod(stringClass, @selector(characterAtIndex:), stringClass, @selector(characterAtIndex:));
-        FF_ExchangeInstanceMethod(stringClass, @selector(substringFromIndex:), stringClass, @selector(ff_substringFromIndex:));
-        FF_ExchangeInstanceMethod(stringClass, @selector(substringToIndex:), stringClass, @selector(ff_substringToIndex:));
-        FF_ExchangeInstanceMethod(stringClass, @selector(substringWithRange:), stringClass, @selector(ff_substringWithRange:));
+//        Class stringClass = NSClassFromString(@"__NSCFConstantString");
+//        FF_ExchangeInstanceMethod(stringClass, @selector(characterAtIndex:), stringClass, @selector(characterAtIndex:));
+//        FF_ExchangeInstanceMethod(stringClass, @selector(substringFromIndex:), stringClass, @selector(ff_substringFromIndex:));
+//        FF_ExchangeInstanceMethod(stringClass, @selector(substringToIndex:), stringClass, @selector(ff_substringToIndex:));
+//        FF_ExchangeInstanceMethod(stringClass, @selector(substringWithRange:), stringClass, @selector(ff_substringWithRange:));
     });
 }
 

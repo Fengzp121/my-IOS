@@ -12,9 +12,9 @@
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class mStringClass = NSClassFromString(@"");
-        FF_ExchangeInstanceMethod(mStringClass, @selector(insertString:atIndex:), mStringClass, @selector(ff_insertString:atIndex:));
-        FF_ExchangeInstanceMethod(mStringClass, @selector(deleteCharactersInRange:), mStringClass, @selector(ff_deleteCharactersInRange:));
+//        Class mStringClass = NSClassFromString(@"");
+//        FF_ExchangeInstanceMethod(mStringClass, @selector(insertString:atIndex:), mStringClass, @selector(ff_insertString:atIndex:));
+//        FF_ExchangeInstanceMethod(mStringClass, @selector(deleteCharactersInRange:), mStringClass, @selector(ff_deleteCharactersInRange:));
     });
 }
 

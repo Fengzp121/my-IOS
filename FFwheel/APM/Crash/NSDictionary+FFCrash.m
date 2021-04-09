@@ -13,11 +13,11 @@
 +(void)load{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        Class dictionary = NSClassFromString(@"NSDictionary");
-        FF_ExchangeInstanceMethod(dictionary, @selector(initWithObjects:forKeys:), dictionary, @selector(ff_initWithObjects:forKeys:));
-        
-        Class __NSPlaceholderDictionaryClass = NSClassFromString(@"__NSPlaceholderDictionary");
-        FF_ExchangeInstanceMethod(__NSPlaceholderDictionaryClass, @selector(initWithObjects:forKeys:count:), __NSPlaceholderDictionaryClass, @selector(ff_initWithObjects:forKeys:count:));
+//        Class dictionary = NSClassFromString(@"NSDictionary");
+//        FF_ExchangeInstanceMethod(dictionary, @selector(initWithObjects:forKeys:), dictionary, @selector(ff_initWithObjects:forKeys:));
+//        
+//        Class __NSPlaceholderDictionaryClass = NSClassFromString(@"__NSPlaceholderDictionary");
+//        FF_ExchangeInstanceMethod(__NSPlaceholderDictionaryClass, @selector(initWithObjects:forKeys:count:), __NSPlaceholderDictionaryClass, @selector(ff_initWithObjects:forKeys:count:));
     });
 }
 
