@@ -15,6 +15,7 @@
 #include <list>
 #include <queue>
 #include <stack>
+#include <deque>
 #include <unordered_map>
 #include "Struts.hpp"
 
@@ -60,6 +61,7 @@ public:
     vector<int> levelOrder(TreeNode* root);
     vector<vector<int>> levelOrderI(TreeNode* root);
     vector<vector<int>> levelOrderII(TreeNode* root);
+    vector<vector<int>> levelOrderIII(TreeNode* root);
     int clumsy(int N);
     vector<int> exchange(vector<int>& nums);
     TreeNode* mirrorTree(TreeNode* root);
@@ -72,6 +74,8 @@ public:
     bool searchII(vector<int>& nums, int target);
     int findMinI(vector<int>& nums);
     int findMinII(vector<int>& nums);
+    bool isUgly(int n);
+    int nthUglyNumber(int n);
 };
 
 #endif /* LeetCode_hpp */

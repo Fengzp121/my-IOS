@@ -38,30 +38,61 @@ void p(string s,int a[],int len){
     cout << endl;
 }
 
+ListNode* copyRandomList(ListNode* head) {
+    unordered_map<ListNode *, ListNode *> hashmap;
+    
+    ListNode *ans = new ListNode(-1);
+    ListNode *temp = ans;
+    //创建普通链表
+    while (head) {
+        ListNode *t = new ListNode(head->val);
+        cout << head << endl;
+        hashmap[t] = head;
+        temp->next = t;
+        temp = t;
+        head = head->next;
+    }
+    
+    temp = ans->next;
+    while (temp) {
+        ListNode *t = NULL;
+        if(hashmap[temp]){
+            t = new ListNode(hashmap[temp]->val);
+        }
+        temp->random = t;
+        temp = temp->next;
+    }
+    
+    return ans->next;
+}
 
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
     
     //---------------leet---------------
     /* 链表 */
-//    ListNode* list = List::createList({1});
-    
+    ListNode* list = List::createList({0,1,0,3,12,0});
+    ListNode* list1 = copyRandomList(list);
+    while (list1) {
+        cout << list1 << endl;
+        list1 = list1->next;
+    }
     /* 二叉树 */
-    //int a[] = {1,2,5,3,4,NULL,6};
+//    int a[] = {1,2,3,4,NULL,NULL,5};
 //    int b[] = {1,NULL,2,NULL,3};
-    //TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
+//    TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, 7);
     
     /* 字符串 */
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-    vector<int> vvc = {2,0,2,2,2,2};
-    //{2,2,2,0,2,2},{1,2,3,0},{1,2,3,4},{1,2,3},{2,1,2},{2,2,1,2},{1,2,1}
+//    vector<int> vvc = {2,0,2,2,2,2};
 //    vector<int> vvcc = {0,1,0,3,12,0};
     
 //    p("结果", vvcc);
-    cout<< "ans:" << leetCode.findMinII(vvc) << endl;
+    int a = leetCode.nthUglyNumber(10);
+    cout<< "ans:" << a << endl;
     
     
     //---------------排序---------------

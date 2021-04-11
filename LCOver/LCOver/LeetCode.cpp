@@ -1040,6 +1040,39 @@ vector<vector<int>> levelOrderII(TreeNode* root) {
     return vvec;
 }
 
+vector<vector<int>> LeetCode::levelOrderIII(TreeNode* root) {
+    vector<vector<int>> ans;
+    if(!root) return ans;
+    vector<int> temp;
+    deque<TreeNode *> deque;
+    deque.push_back(root);
+    bool flag = false;
+    while (!deque.empty()) {
+        int size = (int)deque.size();
+        for (int i = 0; i < size; i++) {
+            if(flag){
+                TreeNode *tempNode = deque.front();
+                if(tempNode->right){deque.push_back(tempNode->right);}
+                if(tempNode->left){deque.push_back(tempNode->left);}
+                temp.push_back(tempNode->val);
+                deque.pop_front();
+            }else{
+                TreeNode *tempNode = deque.back();
+                if(tempNode->left){ deque.push_front(tempNode->left);}
+                if(tempNode->right){deque.push_front(tempNode->right);}
+                temp.push_back(tempNode->val);
+                deque.pop_back();
+            }
+        }
+        flag = !flag;
+        ans.push_back(temp);
+        temp.clear();
+    }
+    
+    return ans;
+}
+
+
 
 int LeetCode::clumsy(int N){
     int ans = 0;
@@ -1334,4 +1367,102 @@ int LeetCode::findMinII(vector<int>& nums){
         }
     }
     return nums[l];
+}
+
+bool LeetCode::isUgly(int n) {
+    if(n <= 0) return false;
+    while (n != 1) {
+        if(n % 2 == 0 || n % 3 == 0 || n % 5 == 0){
+            if (n % 2 == 0) {
+                n /= 2;
+            }
+            if (n % 3 == 0){
+                n /= 3;
+            }
+            if (n % 5 == 0){
+                n /= 5;
+            }
+        }else{
+            return false;
+        }
+    }
+    return true;
+}
+
+int LeetCode::nthUglyNumber(int n) {
+//    int ans = 1;
+//    int count = 1;
+//    vector<int> uglyFather = {2,3,5};
+//    queue<int> uqueue;//是用队列，但是要用优先队列。这波啊，这波是对stl不够熟悉
+//    for(int i = 0; i < n; i++){
+//        for (int j = 0; j < uglyFather.size(); j++) {
+//
+//        }
+//    }
+//    return 1;
+    
+    vector<int> dp(n + 1);
+    dp[1] = 1;
+    int p2 = 1, p3 = 1, p5 = 1;
+    for (int i = 2; i <= n; i++) {
+        int num2 = dp[p2] * 2, num3 = dp[p3] * 3, num5 = dp[p5] * 5;
+        dp[i] = min(min(num2, num3), num5);
+        if (dp[i] == num2) {
+            p2++;
+        }
+        if (dp[i] == num3) {
+            p3++;
+        }
+        if (dp[i] == num5) {
+            p5++;
+        }
+    }
+    return dp[n];
+}
+
+class Node {
+public:
+    int val;
+    Node* next;
+    Node* random;
+    
+    Node(int _val) {
+        val = _val;
+        next = NULL;
+        random = NULL;
+    }
+};
+
+Node* copyRandomList(Node* head) {
+    unordered_map<Node *, Node *> hashmap;
+    vector<Node *> vec;
+    int index = 0;
+    Node *ans = new Node(-1);
+    Node *temp = ans;
+    //创建普通链表
+    while (head) {
+        Node *t = new Node(head->val);
+        hashmap[index] = head->random;
+        
+        vec.push_back(t);
+        temp->next = t;
+        temp = t;
+        head = head->next;
+    }
+    //赋值随机index
+    temp = ans->next;
+    while (temp) {
+        Node *r = nullptr;
+        if(hashmap[temp]){
+            r = new Node(hashmap[temp]->val);
+        }
+        temp->random = r;
+        temp = temp->next;
+    }
+    return ans->next;
+}
+
+Node *makeRandomNode(vector<int> a,vector<int> b){
+    Node *ans = NULL;
+    return ans;
 }
