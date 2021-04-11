@@ -8,6 +8,7 @@
 #ifndef LeetCode_hpp
 #define LeetCode_hpp
 #include <iostream>
+
 #include <stdio.h>
 #include <vector>
 #include <map>
@@ -76,6 +77,8 @@ public:
     int findMinII(vector<int>& nums);
     bool isUgly(int n);
     int nthUglyNumber(int n);
+    int nthUglyNumber(int n, int a, int b, int c);
+    string largestNumber(vector<int>& nums);
 };
 
 #endif /* LeetCode_hpp */

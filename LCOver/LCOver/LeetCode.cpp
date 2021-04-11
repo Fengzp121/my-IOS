@@ -1420,49 +1420,42 @@ int LeetCode::nthUglyNumber(int n) {
     return dp[n];
 }
 
-class Node {
-public:
-    int val;
-    Node* next;
-    Node* random;
-    
-    Node(int _val) {
-        val = _val;
-        next = NULL;
-        random = NULL;
-    }
-};
-
-Node* copyRandomList(Node* head) {
-    unordered_map<Node *, Node *> hashmap;
-    vector<Node *> vec;
-    int index = 0;
-    Node *ans = new Node(-1);
-    Node *temp = ans;
-    //创建普通链表
-    while (head) {
-        Node *t = new Node(head->val);
-        hashmap[index] = head->random;
-        
-        vec.push_back(t);
-        temp->next = t;
-        temp = t;
-        head = head->next;
-    }
-    //赋值随机index
-    temp = ans->next;
-    while (temp) {
-        Node *r = nullptr;
-        if(hashmap[temp]){
-            r = new Node(hashmap[temp]->val);
+//TODO,这个比丑数2复杂
+int LeetCode::nthUglyNumber(int n, int a, int b, int c) {
+    vector<int> dp(n+1);
+    dp[0] = 1;
+    int pa = 0, pb = 0, pc = 0;
+    for (int i = 1; i <= n; i++) {
+        int numa = dp[pa] * a, numb = dp[pb] * b, numc = dp[pc] * c;
+        int numaa = dp[pa] + a, numbb = dp[pb] + b, numcc = dp[pc] + c;
+        dp[i] = min(min(min(numa, numb), numc),min(min(numaa, numbb), numcc));
+        if (dp[i] == numa || dp[i] == numaa) {
+            pa++;
         }
-        temp->random = r;
-        temp = temp->next;
+        if (dp[i] == numb || dp[i] == numbb) {
+            pb++;
+        }
+        if (dp[i] == numc || dp[i] == numcc) {
+            pc++;
+        }
     }
-    return ans->next;
+    return dp[n];
 }
 
-Node *makeRandomNode(vector<int> a,vector<int> b){
-    Node *ans = NULL;
+string LeetCode::largestNumber(vector<int>& nums) {
+    string ans = "";
+    for (int i = 0; i < nums.size(); i++) {
+        for (int j = i + 1; j < nums.size(); j++) {
+            string a = to_string(nums[i]) + to_string(nums[j]);
+            string b = to_string(nums[j]) + to_string(nums[i]);
+            if (stol(a) < stol(b)) {
+                swap(nums[j], nums[i]);
+            }
+        }
+    }
+    for (int i = 0; i < nums.size(); i++) {
+        if(nums[0] == 0) return "0";
+        ans.append(to_string(nums[i]));
+    }
     return ans;
 }

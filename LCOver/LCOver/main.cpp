@@ -38,45 +38,13 @@ void p(string s,int a[],int len){
     cout << endl;
 }
 
-ListNode* copyRandomList(ListNode* head) {
-    unordered_map<ListNode *, ListNode *> hashmap;
-    
-    ListNode *ans = new ListNode(-1);
-    ListNode *temp = ans;
-    //创建普通链表
-    while (head) {
-        ListNode *t = new ListNode(head->val);
-        cout << head << endl;
-        hashmap[t] = head;
-        temp->next = t;
-        temp = t;
-        head = head->next;
-    }
-    
-    temp = ans->next;
-    while (temp) {
-        ListNode *t = NULL;
-        if(hashmap[temp]){
-            t = new ListNode(hashmap[temp]->val);
-        }
-        temp->random = t;
-        temp = temp->next;
-    }
-    
-    return ans->next;
-}
-
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
     
     //---------------leet---------------
     /* 链表 */
-    ListNode* list = List::createList({0,1,0,3,12,0});
-    ListNode* list1 = copyRandomList(list);
-    while (list1) {
-        cout << list1 << endl;
-        list1 = list1->next;
-    }
+//    ListNode* list = List::createList({0,1,0,3,12,0});
+
     /* 二叉树 */
 //    int a[] = {1,2,3,4,NULL,NULL,5};
 //    int b[] = {1,NULL,2,NULL,3};
@@ -87,11 +55,11 @@ int main(int argc, const char * argv[]) {
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-//    vector<int> vvc = {2,0,2,2,2,2};
+    vector<int> vvc = {0};
 //    vector<int> vvcc = {0,1,0,3,12,0};
     
 //    p("结果", vvcc);
-    int a = leetCode.nthUglyNumber(10);
+    string a = leetCode.largestNumber(vvc);
     cout<< "ans:" << a << endl;
     
     
