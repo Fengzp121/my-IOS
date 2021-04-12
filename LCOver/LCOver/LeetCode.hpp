@@ -79,6 +79,7 @@ public:
     int nthUglyNumber(int n);
     int nthUglyNumber(int n, int a, int b, int c);
     string largestNumber(vector<int>& nums);
+    int minDiffInBST(TreeNode* root);
 };
 
 #endif /* LeetCode_hpp */

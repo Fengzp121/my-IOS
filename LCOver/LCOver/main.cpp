@@ -18,6 +18,7 @@
 #include "LeetCode.hpp"
 #include "FFAlgorithm.hpp"
 
+#define null NULL
 
 using namespace std;
 
@@ -46,21 +47,21 @@ int main(int argc, const char * argv[]) {
 //    ListNode* list = List::createList({0,1,0,3,12,0});
 
     /* 二叉树 */
-//    int a[] = {1,2,3,4,NULL,NULL,5};
+    int a[] = {96,12,null,null,13,null,52,29};
 //    int b[] = {1,NULL,2,NULL,3};
-//    TreeNode *tree1 = Tree::creatBTree(a, 0, 7);
+    TreeNode *tree1 = Tree::creatBTree(a, 0,8);
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, 7);
     
     /* 字符串 */
 //    string s = "{{{]()}}}";
     
     /* 数组 */
-    vector<int> vvc = {0};
+//    vector<int> vvc = {0};
 //    vector<int> vvcc = {0,1,0,3,12,0};
     
 //    p("结果", vvcc);
-    string a = leetCode.largestNumber(vvc);
-    cout<< "ans:" << a << endl;
+    int ans = leetCode.minDiffInBST(tree1);
+    cout<< "ans:" << ans << endl;
     
     
     //---------------排序---------------
