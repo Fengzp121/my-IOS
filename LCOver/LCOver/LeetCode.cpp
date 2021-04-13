@@ -1459,3 +1459,27 @@ string LeetCode::largestNumber(vector<int>& nums) {
     }
     return ans;
 }
+
+int minDiffInBST_ans = INT32_MAX;
+int minDiffInBST_root_temp = 0;
+int minDiffInBST_dfs(TreeNode *root){
+    if(!root->left && !root->right) return root->val;
+    int a = -1;
+    int b = -1;
+    minDiffInBST_root_temp = root->val;
+    if(root->left) a = minDiffInBST_root_temp - minDiffInBST_dfs(root->left);
+    if(root->right) b = minDiffInBST_dfs(root->right) - minDiffInBST_root_temp;
+    if(a > 0 && b > 0){
+        minDiffInBST_ans = min(minDiffInBST_ans,min(a, b));
+    }else if(a > 0){
+        minDiffInBST_ans = min(minDiffInBST_ans, a);
+    }else if(b > 0){
+        minDiffInBST_ans = min(minDiffInBST_ans, b);
+    }
+    return root->val;
+}
+
+int LeetCode::minDiffInBST(TreeNode *root){
+    minDiffInBST_dfs(root);
+    return minDiffInBST_ans;
+}
