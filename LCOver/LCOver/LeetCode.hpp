@@ -80,6 +80,8 @@ public:
     int nthUglyNumber(int n, int a, int b, int c);
     string largestNumber(vector<int>& nums);
     int minDiffInBST(TreeNode* root);
+    int arrangeCoins(int n);
+    int findInMountainArray(int target, vector<int> &mountainArr);
 };
 
 #endif /* LeetCode_hpp */

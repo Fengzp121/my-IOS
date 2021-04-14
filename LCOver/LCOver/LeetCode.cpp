@@ -1483,3 +1483,58 @@ int LeetCode::minDiffInBST(TreeNode *root){
     return ans;
 }
 
+int LeetCode::arrangeCoins(int n) {
+//    int ans = 0;
+//    while(n >= 1){
+//        n -= ans;
+//        ans++;
+//    }
+//    return ans;
+    
+    
+    return (int)(-0.5+sqrt(0.25+2*(long long)n));
+}
+// 2sum = n^2 + n;
+
+
+//这种方法不行，因为数组中最大值的位置是不稳定的，所以可能造成有一段数组还在山峰中，所以还是分类讨论
+int midSearch(bool flag, int low, int high, int target, vector<int> &mountainArr){
+    while(low <= high){
+        int mid = (low + high) / 2;
+        int mid_value = mountainArr[mid];
+        if(mid_value == target){
+            return mid;
+        }
+        if(flag){
+            if(mid_value < target){
+                low = mid + 1;
+            }else{
+                high = mid - 1;
+            }
+        }else{
+            if(mid_value > target){
+                high = mid - 1;
+            }else{
+                low = mid + 1;
+            }
+        }
+        
+    }
+    return -1;
+}
+
+int LeetCode::findInMountainArray(int target, vector<int> &mountainArr) {
+    int ans = -1;
+    //要分别找两边，可以先找左边的，如果左边存在就可以返回了
+    int mid_index = ((int)mountainArr.size() - 1) / 2;
+    int low = 0;
+    int high = mid_index;
+    //这是左边的循环
+    ans = midSearch(false,low,high,target,mountainArr);
+    if(ans != -1) return ans;
+    //这是右边的循环
+    low = mid_index + 1;
+    high = (int)mountainArr.size() - 1;
+    ans = midSearch(true,low,high,target,mountainArr);
+    return ans;
+}
