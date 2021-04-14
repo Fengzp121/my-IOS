@@ -75,28 +75,78 @@ public:
 
 
 class MinStack {
-public:
-    /** initialize your data structure here. */
-    int val;
-    MinStack *step;
+private:
+    std::vector<int> container;
+    //这里是选择使用空间换时间，多增加一个最小数的数组
+    int index;
+    //每次只压整个数组里最小的数，不管重复
+    std::vector<int> min_container;
     
-    MinStack():val(0),step(nullptr) {}
+public:
+    MinStack():index(0){}
     
     void push(int val) {
-        this->val = val;
-        
+        container.push_back(val);
+        if(index == 0){
+            min_container.push_back(val);
+        }else{
+            //与栈顶的值比较，如果栈顶还是比较小，就直接再存栈顶
+            min_container.push_back(fmin(min_container[index-1],val));
+        }
+        index++;
     }
     
     void pop() {
-
+        container.pop_back();
+        min_container.pop_back();
+        index--;
     }
     
     int top() {
-        return 0;
+        return container[index-1];
     }
     
     int getMin() {
-        return 0;
+        return min_container[index-1];
+    }
+};
+
+class Trie {
+private:
+    std::vector<Trie *> next;
+    bool isEnd;
+    
+    Trie * searchWord(std::string word){
+        Trie *p = this;
+        for (int i = 0; i < word.size() && p; i++) {
+            p = p->next[word[i] - 'a'];
+        }
+        return p;
+    }
+    
+public:
+    
+    
+    Trie():next(26),isEnd(false){}
+    
+    void insert(std::string word){
+        Trie *p = this;
+        for (int i = 0; i < word.size(); i++) {
+            if(p->next[word[i] - 'a'] == NULL){
+                p->next[word[i] - 'a'] = new Trie();
+            }
+            p = p->next[word[i] - 'a'];
+        }
+        p->isEnd = true;
+    }
+    
+    bool search(std::string word){
+        Trie *wordptr = this->searchWord(word);
+        return wordptr && wordptr->isEnd;
+    }
+    
+    bool startsWith(std::string prefix){
+        return this->searchWord(prefix);
     }
 };
 

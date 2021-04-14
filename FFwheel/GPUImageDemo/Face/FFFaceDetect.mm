@@ -22,8 +22,6 @@
 
 #import "FFFaceDetect.h"
 
-typedef void(^CompletionHandler) (VNRequest *request, NSError * _Nullable error);
-typedef void(^detectImageHandler) (id data);
 
 @interface FFFaceDetect()
 @property (nonatomic, strong) MGFacepp *markManager;
@@ -257,7 +255,7 @@ typedef void(^detectImageHandler) (id data);
             CGFloat boxY = observation.boundingBox.origin.y;
             CGFloat boxW = observation.boundingBox.size.width;
             CGFloat boxH = observation.boundingBox.size.height;
-            NSLog(@"begin");
+        
             for (int i = 0 ; i < observation.landmarks.allPoints.pointCount; i++) {
                 CGPoint point = observation.landmarks.allPoints.normalizedPoints[i];
                 CGPoint center = CGPointMake(boxX + boxW * point.x,
@@ -265,7 +263,7 @@ typedef void(^detectImageHandler) (id data);
                 [array addObject:[NSValue valueWithCGPoint:center]];
                 [FFFaceDetect defaultInstance].landmarks = [array copy];
             }
-            NSLog(@"end");
+        
 //        }
 //        if(detectRequest.results.count){
 //            *facePointCount = kVisionPointCount * faceCount;

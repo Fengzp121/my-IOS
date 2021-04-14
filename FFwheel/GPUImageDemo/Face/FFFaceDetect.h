@@ -35,8 +35,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (float *)detectWithSampleBuffer:(CMSampleBufferRef)sampleBuffer facePointCount:(int *)facePointCount isMirror:(BOOL)isMirror;
 
-- (void)visionDetectWithSampleBuffer:(CMSampleBufferRef)sampleBuffer completHandler:(void(^)(void))completHandler;
-
 @end
 
 NS_ASSUME_NONNULL_END

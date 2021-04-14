@@ -1,5 +1,5 @@
 //
-//  VisonBeautifyFaceFilter.h
+//  VisionBeautifyFaceFilter.h
 //  FFwheel
 //
 //  Created by 你吗 on 2021/4/13.
@@ -10,7 +10,7 @@
 #import "FFFaceDetect.h"
 NS_ASSUME_NONNULL_BEGIN
 
-@interface VisonBeautifyFaceFilter : GPUImageFilter
+@interface VisionBeautifyFaceFilter : GPUImageFilter
 
 @property(nonatomic, assign) CGFloat thinFaceDelta;
 @property(nonatomic, assign) CGFloat bigEyeDelta;

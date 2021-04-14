@@ -1482,3 +1482,4 @@ int LeetCode::minDiffInBST(TreeNode *root){
     minDiffInBST_dfs(root,ans,pre);
     return ans;
 }
+

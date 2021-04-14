@@ -1,12 +1,12 @@
 //
-//  VisonBeautifyFaceFilter.m
+//  VisionBeautifyFaceFilter.m
 //  FFwheel
 //
 //  Created by 你吗 on 2021/4/13.
 //  Copyright © 2021 ffzp. All rights reserved.
 //
 
-#import "VisonBeautifyFaceFilter.h"
+#import "VisionBeautifyFaceFilter.h"
 
 NSString *const kGPUImageThinFaceFragmentShaderString = SHADER_STRING
 (
@@ -119,7 +119,7 @@ NSString *const kGPUImageThinFaceFragmentShaderString = SHADER_STRING
 );
 
 
-@implementation VisonBeautifyFaceFilter
+@implementation VisionBeautifyFaceFilter
 {
     GLint aspectRatioUniform;
     GLint facePointsUniform;
@@ -148,8 +148,8 @@ NSString *const kGPUImageThinFaceFragmentShaderString = SHADER_STRING
 - (void)renderToTextureWithVertices:(const GLfloat *)vertices textureCoordinates:(const GLfloat *)textureCoordinates
 {
     //这里设置特征点
-//    NSArray *landmarks = [FaceBeautyFaceDetector shareInstance].landmarks;
-//    [self setUniformsWithLandmarks:landmarks];
+    NSArray *landmarks = [FFFaceDetect defaultInstance].landmarks;
+    [self setUniformsWithLandmarks:landmarks];
     [super renderToTextureWithVertices:vertices textureCoordinates:textureCoordinates];
 }
 
@@ -165,7 +165,7 @@ NSString *const kGPUImageThinFaceFragmentShaderString = SHADER_STRING
     [self setFloat:self.thinFaceDelta forUniform:thinFaceDeltaUniform program:filterProgram];
     [self setFloat:self.bigEyeDelta forUniform:bigEyeDeltaUniform program:filterProgram];
     
-    GLsizei size = 76 * 2;
+    GLsizei size = 74 * 2;
     GLfloat *facePoints = malloc(size*sizeof(GLfloat));
     
     int index = 0;
