@@ -30,80 +30,6 @@ typedef void(^detectImageHandler) (id data);
 @property (nonatomic, assign) BOOL kaiguan;
 @end
 
-@interface DSDetectFaceData : NSObject
-
-@property (nonatomic, strong)VNFaceObservation * _Nullable observation;
-
-@property (nonatomic, strong)NSMutableArray * _Nullable allPoints;
-
-// 脸部轮廊
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nonnull faceContour;
-// 左眼，右眼
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable leftEye;
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable rightEye;
-// 鼻子，鼻嵴
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable nose;
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable noseCrest;
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable medianLine;
-// 外唇，内唇
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable outerLips;
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable innerLips;
-// 左眉毛，右眉毛
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable leftEyebrow;
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable rightEyebrow;
-// 左瞳,右瞳
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable leftPupil;
-@property (nonatomic, strong) VNFaceLandmarkRegion2D * _Nullable rightPupil;
-
-@end
-
-
-@interface DSDetectData : NSObject
-
-// 所有识别的人脸坐标
-@property (nonatomic, strong)NSMutableArray * _Nonnull faceAllRect;
-
-// 所有识别的文本坐标
-@property (nonatomic, strong)NSMutableArray * _Nonnull textAllRect;
-
-// 所有识别的特征points
-@property (nonatomic, strong)NSMutableArray * _Nonnull facePoints;
-@end
-
-@implementation DSDetectData
-
-- (NSMutableArray *)textAllRect{
-    if (!_textAllRect) {
-        _textAllRect = @[].mutableCopy;
-    }
-    return _textAllRect;
-}
-- (NSMutableArray *)faceAllRect
-{
-    if (!_faceAllRect) {
-        _faceAllRect = @[].mutableCopy;
-    }
-    return _faceAllRect;
-}
-
-- (NSMutableArray *)facePoints{
-    if (!_facePoints) {
-        _facePoints = @[].mutableCopy;
-    }
-    return _facePoints;
-}
-@end
-
-@implementation DSDetectFaceData
-- (NSMutableArray *)allPoints
-{
-    if (!_allPoints) {
-        _allPoints = @[].mutableCopy;
-    }
-    return _allPoints;
-}
-@end
-
 
 @implementation FFFaceDetect
 
@@ -157,7 +83,7 @@ typedef void(^detectImageHandler) (id data);
     }else if(self.faceDetectType == FFFaceDetectType_FACEPP){
         return [self detectFaceppWithSampleBuffer:sampleBuffer facePointCount:facePointCount isMirror:isMirror];
     }else if(self.faceDetectType == FFFaceDetectType_VISION){
-        return [self detectVisionWithSampleBuffer:sampleBuffer facePointCount:facePointCount isMirror:isMirror];
+        [self detectVisionWithSampleBuffer:sampleBuffer facePointCount:facePointCount isMirror:isMirror];
     }
     return nil;
 }
@@ -183,6 +109,7 @@ typedef void(^detectImageHandler) (id data);
         NSInteger faceIndex = [faceArray indexOfObject:faceInfo];
 //        NSLog(@"facepp faceIndex:%li - faceInfo:%@", faceIndex,faceInfo);
         [self.markManager GetGetLandmark:faceInfo isSmooth:YES pointsNumber:kFaceppPointCount];
+        NSLog(@"begin");
         [faceInfo.points enumerateObjectsUsingBlock:^(NSValue *value, NSUInteger idx, BOOL *stop) {
             printf("facepp x:%f y:%f",value.CGPointValue.x,value.CGPointValue.y);
             float x = value.CGPointValue.y / self.sampleBufferSize.width;
@@ -191,6 +118,7 @@ typedef void(^detectImageHandler) (id data);
             landmarks[singleFaceLen * faceIndex + idx * 2] = x;
             landmarks[singleFaceLen * faceIndex + idx * 2 + 1] = y;
         }];
+        NSLog(@"end");
     }
     [self.markManager endDetectionFrame];
 
@@ -308,7 +236,7 @@ typedef void(^detectImageHandler) (id data);
 }
 
 #pragma mark - VISION
-- (float *)detectVisionWithSampleBuffer:(CMSampleBufferRef)sampleBuffer facePointCount:(int *)facePointCount isMirror:(BOOL)isMirror{
+- (void)detectVisionWithSampleBuffer:(CMSampleBufferRef)sampleBuffer facePointCount:(int *)facePointCount isMirror:(BOOL)isMirror{
     if(@available(iOS 14, *)){
         VNImageRequestHandler *faceRequestHandler = [[VNImageRequestHandler alloc] initWithCMSampleBuffer:sampleBuffer options:@{}];
         VNImageBasedRequest *detectRequest = [[VNImageBasedRequest alloc] init];
@@ -316,161 +244,38 @@ typedef void(^detectImageHandler) (id data);
         [faceRequestHandler performRequests:@[detectRequest] error:nil];
         
 //        NSLog(@"vision detect result:%@",[detectRequest results]);
-        int faceCount = (int)detectRequest.results.count;
-        int len = faceCount * 2 * kVisionPointCount;
-        float *landmarks = (float *)malloc(len * sizeof(float));
-        for(VNFaceObservation *observation in detectRequest.results){
-            NSInteger faceIndex = [detectRequest.results indexOfObject:observation];
-//            [observation.landmarks.allPoints.normalizedPoints ]
-//            NSLog(@"vision detect point:%@",observation.landmarks.allPoints);
-            //所以这里计算的公式可以。
+//        int faceCount = (int)detectRequest.results.count;
+//        int len = faceCount * 2 * kVisionPointCount;
+//        float *landmarks = (float *)malloc(len * sizeof(float));
+        
+        NSMutableArray *array = [NSMutableArray array];
+//        for(VNFaceObservation *observation in detectRequest.results){
+//            const CGPoint *arr = [observation.landmarks.allPoints pointsInImageOfSize:self.sampleBufferSize];
+//            NSInteger faceIndex = [detectRequest.results indexOfObject:observation];
+            VNFaceObservation *observation = detectRequest.results.firstObject;
+            CGFloat boxX = observation.boundingBox.origin.x;
+            CGFloat boxY = observation.boundingBox.origin.y;
+            CGFloat boxW = observation.boundingBox.size.width;
+            CGFloat boxH = observation.boundingBox.size.height;
+            NSLog(@"begin");
             for (int i = 0 ; i < observation.landmarks.allPoints.pointCount; i++) {
-                //这里只是转换了正常坐标,还是有点问题
                 CGPoint point = observation.landmarks.allPoints.normalizedPoints[i];
-                CGFloat rectWidth = self.sampleBufferSize.width * observation.boundingBox.size.width;
-                CGFloat rectHeight = self.sampleBufferSize.height * observation.boundingBox.size.height;
-                float frameX = point.x * rectWidth + observation.boundingBox.origin.x * self.sampleBufferSize.width;
-                float frameY = observation.boundingBox.origin.y * self.sampleBufferSize.height + point.y * rectHeight;
-                printf("vision x:%f y:%f",frameX,frameY);
-                //这里上面的还要进行一次facepp那样子的计算才可以
-                float x = frameY / self.sampleBufferSize.width;
-                x = (isMirror ? x : (1 - x))  * 2 - 1;
-                float y = frameX / self.sampleBufferSize.height * 2 - 1;
-
-                landmarks[2* kVisionPointCount * faceIndex + i * 2] = x;
-                landmarks[2* kVisionPointCount * faceIndex + i * 2 + 1] = y;
+                CGPoint center = CGPointMake(boxX + boxW * point.x,
+                                             1 - (boxY + boxH * point.y));
+                [array addObject:[NSValue valueWithCGPoint:center]];
+                [FFFaceDetect defaultInstance].landmarks = [array copy];
             }
-        }
-        if(detectRequest.results.count){
-            *facePointCount = kVisionPointCount * faceCount;
-            return landmarks;
-        }else{
-            free(landmarks);
-            return nil;
-        }
+            NSLog(@"end");
+//        }
+//        if(detectRequest.results.count){
+//            *facePointCount = kVisionPointCount * faceCount;
+//            return landmarks;
+//        }else{
+//            free(landmarks);
+//            return nil;
+//        }
         
     }
-    return nil;
+//    return nil;
 }
-//---------------------------------------
-
-+ (void)detectImageWithpixelBuffer:(CVPixelBufferRef)pixelBuffer complete:(detectImageHandler _Nullable )complete
-{
-    // 创建处理requestHandler
-    VNImageRequestHandler *detectFaceRequestHandler = [[VNImageRequestHandler alloc]initWithCVPixelBuffer:pixelBuffer orientation:kCGImagePropertyOrientationLeftMirrored options:@{}];
-    // 创建BaseRequest
-    VNImageBasedRequest *detectRequest = [[VNImageBasedRequest alloc]init];
-    
-    // 设置回调
-    CompletionHandler completionHandler = ^(VNRequest *request, NSError * _Nullable error) {
-        NSArray *observations = request.results;
-        //[self handleImageWithType:type image:nil observations:observations complete:complete];
-        [self faceRectangles:observations image:nil complete:complete];
-    };
-    detectRequest = [[VNDetectFaceLandmarksRequest alloc]initWithCompletionHandler:completionHandler];
-    // 发送识别请求
-    [detectFaceRequestHandler performRequests:@[detectRequest] error:nil];
-}
-
-// 处理人脸识别回调
-+ (void)faceRectangles:(NSArray *)observations image:(UIImage *_Nullable)image complete:(detectImageHandler _Nullable )complete{
-    
-    NSMutableArray *tempArray = @[].mutableCopy;
-    
-    DSDetectData *detectFaceData = [[DSDetectData alloc]init];
-    for (VNFaceObservation *observation  in observations) {
-        NSValue *ractValue = [NSValue valueWithCGRect:[self convertRect:observation.boundingBox imageSize:image.size]];
-        [tempArray addObject:ractValue];
-    }
-    
-    detectFaceData.faceAllRect = tempArray;
-    if (complete) {
-        complete(detectFaceData);
-    }
-}
-
-+ (CGRect)convertRect:(CGRect)oldRect imageSize:(CGSize)imageSize{
-    
-    CGFloat w = oldRect.size.width * imageSize.width;
-    CGFloat h = oldRect.size.height * imageSize.height;
-    CGFloat x = oldRect.origin.x * imageSize.width;
-    CGFloat y = imageSize.height - (oldRect.origin.y * imageSize.height) - h;
-    return CGRectMake(x, y, w, h);
-}
-
-
-- (void)handleFaceData:(DSDetectFaceData *)faceData{
-//
-//    while (self.gpuImageView.subviews.count) {
-//        [self.gpuImageView.subviews.lastObject removeFromSuperview];
-//    }
-    // 遍历位置信息
-    CGFloat faceRectWidth = FFScreenWidth * faceData.observation.boundingBox.size.width;
-    CGFloat faceRectHeight = FFScreenHeight * faceData.observation.boundingBox.size.height;
-    CGFloat faceRectX = faceData.observation.boundingBox.origin.x * FFScreenWidth;
-    // Y默认的位置是左下角
-    CGFloat faceRectY = faceData.observation.boundingBox.origin.y * FFScreenHeight;
-    
-    __block int index = 0;
-    NSMutableArray *array = [NSMutableArray array];
-    [faceData.allPoints enumerateObjectsUsingBlock:^(VNFaceLandmarkRegion2D *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        // VNFaceLandmarkRegion2D *obj 是一个对象. 表示当前的一个部位
-        // 遍历当前部分所有的点
-        for (int i=0; i<obj.pointCount; i++) {
-            // 取出点
-            CGPoint point = obj.normalizedPoints[i];
-
-        
-            // 计算出center
-            /*
-             * 这里的 point 的 x,y 表示也比例, 表示当前点在脸的比例值
-             * 因为Y点是在左下角， 所以我们需要转换成左上角
-             * 这里的center 关键点 可以根据需求保存起来
-             */
-            CGPoint center = CGPointMake(faceRectX + faceRectWidth * point.x,  FFScreenHeight -
-                                         (faceRectY + faceRectHeight * point.y));
-            
-            
-            [array addObject:[NSValue valueWithCGPoint:CGPointMake(center.x/FFScreenWidth, center.y/FFScreenHeight)]];
-            
-            // 将点显示出来
-            UIView *point_view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 3)];
-//            point_view.backgroundColor = UIColorRGBA(0xFF0000, 0.8);
-            point_view.center = center;
-            // 将点添加到imageView上即可 需要注意，当前image的bounds 应该和图片大小一样大
-//            [self.gpuImageView addSubview:point_view];
-            
-            UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 24, 12)];
-            label.font = [UIFont systemFontOfSize:8.0];
-//            label.textColor = UIColorRGBA(0x3333FF, 0.8);
-            label.center = CGPointMake(center.x, center.y+5);
-            label.text = [NSString stringWithFormat:@"%d",index];
-//            [self.gpuImageView addSubview:label];
-            index++;
-        }
-    }];
-//    [FaceDetector shareInstance].landmarks = [array copy];
-//    NSLog(@"index == %d",index);
-}
-
-- (void)setUniformsWithLandmarks:(NSArray <NSValue *>*)landmarks{
-    int32_t size = 74 * 2;
-    float *facePoints = (float *)malloc(size*sizeof(float));
-    
-    //这里只是单纯吧landMarks中的点放进float数组中
-    int index = 0;
-    for (NSValue *value in landmarks) {
-        CGPoint point = [value CGPointValue];
-        *(facePoints + index) = point.x;
-        *(facePoints + index + 1) = point.y;
-        index += 2;
-        if (index == size) {
-            break;
-        }
-    }
-//    [self setFloatArray:facePoints length:size forUniform:facePointsUniform program:filterProgram];
-    free(facePoints);
-}
-
-
 @end

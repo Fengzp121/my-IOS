@@ -47,10 +47,10 @@ int main(int argc, const char * argv[]) {
 //    ListNode* list = List::createList({0,1,0,3,12,0});
 
     /* 二叉树 */
-    int a[] = {96,12,null,null,13,null,52,29};
+    int a[] = {90,69,null,49,89,null,52};
 //    int b[] = {1,NULL,2,NULL,3};
-    TreeNode *tree1 = Tree::creatBTree(a, 0,8);
-//    TreeNode *tree2 = Tree::creatBTree(b, 0, 7);
+    TreeNode *tree1 = Tree::creatBTree(a, 0,sizeof(a)/sizeof(int));
+//    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
 //    string s = "{{{]()}}}";

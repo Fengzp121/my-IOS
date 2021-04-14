@@ -1444,6 +1444,7 @@ int LeetCode::nthUglyNumber(int n, int a, int b, int c) {
 
 string LeetCode::largestNumber(vector<int>& nums) {
     string ans = "";
+    //先来一个冒泡，其实可以先将数组转换成string数组，然后再进行冒泡排序了，减少to_string的耗时
     for (int i = 0; i < nums.size(); i++) {
         for (int j = i + 1; j < nums.size(); j++) {
             string a = to_string(nums[i]) + to_string(nums[j]);
@@ -1460,26 +1461,24 @@ string LeetCode::largestNumber(vector<int>& nums) {
     return ans;
 }
 
-int minDiffInBST_ans = INT32_MAX;
-int minDiffInBST_root_temp = 0;
-int minDiffInBST_dfs(TreeNode *root){
-    if(!root->left && !root->right) return root->val;
-    int a = -1;
-    int b = -1;
-    minDiffInBST_root_temp = root->val;
-    if(root->left) a = minDiffInBST_root_temp - minDiffInBST_dfs(root->left);
-    if(root->right) b = minDiffInBST_dfs(root->right) - minDiffInBST_root_temp;
-    if(a > 0 && b > 0){
-        minDiffInBST_ans = min(minDiffInBST_ans,min(a, b));
-    }else if(a > 0){
-        minDiffInBST_ans = min(minDiffInBST_ans, a);
-    }else if(b > 0){
-        minDiffInBST_ans = min(minDiffInBST_ans, b);
+
+//中序遍历啊，卧槽。唉还是太菜了。
+//每次关于二叉树的要想起dfs（深度优先、中后遍历），bfs（广度优先，前序遍历）
+void minDiffInBST_dfs(TreeNode *root,int &ans,int &pre){
+    //这里使用的是中序遍历
+    if(!root) return;
+    minDiffInBST_dfs(root->left,ans,pre);
+    if(pre == -1){
+        pre = root->val;
+    }else{
+        ans = min(ans,root->val - pre);
+        pre = root->val;
     }
-    return root->val;
+    minDiffInBST_dfs(root->right,ans, pre);
 }
 
 int LeetCode::minDiffInBST(TreeNode *root){
-    minDiffInBST_dfs(root);
-    return minDiffInBST_ans;
+    int ans = INT_MAX, pre = -1;
+    minDiffInBST_dfs(root,ans,pre);
+    return ans;
 }

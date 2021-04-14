@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) FFFaceDetectType faceDetectType;
 
+@property (nonatomic, copy) NSArray *landmarks;
+
 + (instancetype)defaultInstance;
 
 - (void)start;

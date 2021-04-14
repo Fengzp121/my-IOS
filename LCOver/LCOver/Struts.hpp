@@ -52,8 +52,10 @@ public:
                 return NULL;
             if(data[index] == NULL)
                 return NULL;
+            
+            //将二叉树按照层序遍历, 依次标序号, 从0开始
             pNode->val = data[index];
-            pNode->left = creatBTree(data, 2 * index + 1, n);  //将二叉树按照层序遍历, 依次标序号, 从0开始
+            pNode->left = creatBTree(data, 2 * index + 1, n);
             pNode->right = creatBTree(data, 2 * index + 2, n);
         }
         return pNode;

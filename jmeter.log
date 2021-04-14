@@ -1,0 +1,626 @@
+2021-04-13 16:38:40,080 INFO o.a.j.u.JMeterUtils: Setting Locale to en_EN
+2021-04-13 16:38:40,110 INFO o.a.j.JMeter: Loading user properties from: /usr/local/Cellar/jmeter/5.4.1/libexec/bin/user.properties
+2021-04-13 16:38:40,111 INFO o.a.j.JMeter: Loading system properties from: /usr/local/Cellar/jmeter/5.4.1/libexec/bin/system.properties
+2021-04-13 16:38:40,119 INFO o.a.j.JMeter: Copyright (c) 1998-2021 The Apache Software Foundation
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: Version 5.4.1
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: java.version=15.0.2
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: java.vm.name=OpenJDK 64-Bit Server VM
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: os.name=Mac OS X
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: os.arch=x86_64
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: os.version=10.15.4
+2021-04-13 16:38:40,120 INFO o.a.j.JMeter: file.encoding=UTF-8
+2021-04-13 16:38:40,121 INFO o.a.j.JMeter: java.awt.headless=null
+2021-04-13 16:38:40,121 INFO o.a.j.JMeter: Max memory     =1073741824
+2021-04-13 16:38:40,121 INFO o.a.j.JMeter: Available Processors =4
+2021-04-13 16:38:40,130 INFO o.a.j.JMeter: Default Locale=English (EN)
+2021-04-13 16:38:40,130 INFO o.a.j.JMeter: JMeter  Locale=English (EN)
+2021-04-13 16:38:40,130 INFO o.a.j.JMeter: JMeterHome=/usr/local/Cellar/jmeter/5.4.1/libexec
+2021-04-13 16:38:40,130 INFO o.a.j.JMeter: user.dir  =/Users/nima/Desktop/demo/my-IOS
+2021-04-13 16:38:40,131 INFO o.a.j.JMeter: PWD       =/Users/nima/Desktop/demo/my-IOS
+2021-04-13 16:38:40,132 INFO o.a.j.JMeter: IP: 127.0.0.1 Name: nimadeMacBook-Pro.local FullName: localhost
+2021-04-13 16:38:40,573 INFO o.a.j.JMeter: Setting LAF to: com.github.weisj.darklaf.DarkLaf:com.github.weisj.darklaf.theme.DarculaTheme
+2021-04-13 16:38:41,926 INFO o.a.j.JMeter: Loaded icon properties from org/apache/jmeter/images/icon.properties
+2021-04-13 16:38:43,363 INFO o.j.r.JARSourceHTTP: Found cached repo
+2021-04-13 16:38:43,566 INFO o.j.r.PluginManager: Plugins Status: [jpgc-plugins-manager=1.6, jmeter-core=5.4.1, jmeter-ftp=5.4.1, jmeter-http=5.4.1, jmeter-jdbc=5.4.1, jmeter-jms=5.4.1, jmeter-junit=5.4.1, jmeter-java=5.4.1, jmeter-ldap=5.4.1, jmeter-mail=5.4.1, jmeter-mongodb=5.4.1, jmeter-native=5.4.1, jmeter-tcp=5.4.1, jmeter-components=5.4.1]
+2021-04-13 16:38:51,932 INFO o.a.j.s.FileServer: Default base='/Users/nima/Desktop/demo/my-IOS'
+2021-04-13 16:38:51,937 INFO o.a.j.g.a.Load: Loading file: /Users/nima/Java Request.jmx
+2021-04-13 16:38:51,937 INFO o.a.j.s.FileServer: Set new base='/Users/nima'
+2021-04-13 16:38:52,168 INFO o.a.j.s.SaveService: Testplan (JMX) version: 2.2. Testlog (JTL) version: 2.2
+2021-04-13 16:38:52,195 INFO o.a.j.s.SaveService: Using SaveService properties version 5.0
+2021-04-13 16:38:52,199 INFO o.a.j.s.SaveService: Using SaveService properties file encoding UTF-8
+2021-04-13 16:38:52,206 INFO o.a.j.s.SaveService: Loading file: /Users/nima/Java Request.jmx
+2021-04-13 16:38:52,566 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error creating class:'com.liaoNing.shouYe.JmeterClass' in JavaSampler Java request, check for a missing jar in your jmeter 'search_paths' and 'plugin_dependency_paths' properties
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.classOk(JavaConfigGui.java:272) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:260) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addComponent(JMeterTreeModel.java:162) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:123) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.addSubTree(GuiPackage.java:554) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.insertLoadedTree(Load.java:199) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:130) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:101) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.doActionAfterCheck(Load.java:88) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.AbstractActionWithNoRunningTest.doAction(AbstractActionWithNoRunningTest.java:44) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:52,589 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.stateChanged(JavaConfigGui.java:180) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.notifyChangeListeners(JLabeledChoice.java:288) ~[jorphan.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.lambda$init$0(JLabeledChoice.java:145) ~[jorphan.jar:5.4.1]
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1227) ~[?:?]
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1288) ~[?:?]
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1335) ~[?:?]
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:123) ~[?:?]
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94) ~[?:?]
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:579) ~[?:?]
+	at org.apache.jorphan.gui.JLabeledChoice.setText(JLabeledChoice.java:188) ~[jorphan.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:261) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addComponent(JMeterTreeModel.java:162) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:123) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.addSubTree(GuiPackage.java:554) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.insertLoadedTree(Load.java:199) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:130) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:101) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.doActionAfterCheck(Load.java:88) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.AbstractActionWithNoRunningTest.doAction(AbstractActionWithNoRunningTest.java:44) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:52,595 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:262) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addComponent(JMeterTreeModel.java:162) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:131) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeModel.addSubTree(JMeterTreeModel.java:123) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.addSubTree(GuiPackage.java:554) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.insertLoadedTree(Load.java:199) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:130) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.loadProjectFile(Load.java:101) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.Load.doActionAfterCheck(Load.java:88) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.AbstractActionWithNoRunningTest.doAction(AbstractActionWithNoRunningTest.java:44) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:52,630 INFO o.a.j.s.SampleResult: Note: Sample TimeStamps are START times
+2021-04-13 16:38:52,633 INFO o.a.j.s.SampleResult: sampleresult.default.encoding is set to ISO-8859-1
+2021-04-13 16:38:52,634 INFO o.a.j.s.SampleResult: sampleresult.useNanoTime=true
+2021-04-13 16:38:52,634 INFO o.a.j.s.SampleResult: sampleresult.nanoThreadSleep=5000
+2021-04-13 16:38:53,009 INFO o.a.j.v.ViewResultsFullVisualizer: Add JavaFX to your Java installation if you want to use renderer: org.apache.jmeter.visualizers.RenderInBrowser
+2021-04-13 16:38:53,159 INFO o.a.j.s.FileServer: Set new base='/Users/nima'
+2021-04-13 16:38:55,035 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error creating class:'com.liaoNing.shouYe.JmeterClass' in JavaSampler Java request, check for a missing jar in your jmeter 'search_paths' and 'plugin_dependency_paths' properties
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.classOk(JavaConfigGui.java:272) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:260) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.refreshCurrentGui(GuiPackage.java:468) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.updateCurrentGui(GuiPackage.java:452) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:79) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,036 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:262) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.refreshCurrentGui(GuiPackage.java:468) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.updateCurrentGui(GuiPackage.java:452) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:79) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,040 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error creating class:'com.liaoNing.shouYe.JmeterClass' in JavaSampler Java request, check for a missing jar in your jmeter 'search_paths' and 'plugin_dependency_paths' properties
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.classOk(JavaConfigGui.java:272) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:260) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.getCurrentGui(GuiPackage.java:307) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:44) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,041 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.stateChanged(JavaConfigGui.java:180) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.notifyChangeListeners(JLabeledChoice.java:288) ~[jorphan.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.lambda$init$0(JLabeledChoice.java:145) ~[jorphan.jar:5.4.1]
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1227) ~[?:?]
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1288) ~[?:?]
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1335) ~[?:?]
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:123) ~[?:?]
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94) ~[?:?]
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:579) ~[?:?]
+	at org.apache.jorphan.gui.JLabeledChoice.setText(JLabeledChoice.java:188) ~[jorphan.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:261) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.getCurrentGui(GuiPackage.java:307) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:44) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,042 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:262) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.getCurrentGui(GuiPackage.java:307) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:44) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,067 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error creating class:'com.liaoNing.shouYe.JmeterClass' in JavaSampler Java request, check for a missing jar in your jmeter 'search_paths' and 'plugin_dependency_paths' properties
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.classOk(JavaConfigGui.java:272) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:260) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.getCurrentGui(GuiPackage.java:307) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.addFileMenu(MenuFactory.java:296) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.addFileMenu(MenuFactory.java:270) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.getDefaultSamplerMenu(MenuFactory.java:403) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.samplers.gui.AbstractSamplerGui.createPopupMenu(AbstractSamplerGui.java:48) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeNode.createPopupMenu(JMeterTreeNode.java:184) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:46) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,069 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.stateChanged(JavaConfigGui.java:180) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.notifyChangeListeners(JLabeledChoice.java:288) ~[jorphan.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.lambda$init$0(JLabeledChoice.java:145) ~[jorphan.jar:5.4.1]
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1227) ~[?:?]
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1288) ~[?:?]
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1335) ~[?:?]
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:123) ~[?:?]
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94) ~[?:?]
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:579) ~[?:?]
+	at org.apache.jorphan.gui.JLabeledChoice.setText(JLabeledChoice.java:188) ~[jorphan.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:261) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.getCurrentGui(GuiPackage.java:307) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.addFileMenu(MenuFactory.java:296) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.addFileMenu(MenuFactory.java:270) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.getDefaultSamplerMenu(MenuFactory.java:403) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.samplers.gui.AbstractSamplerGui.createPopupMenu(AbstractSamplerGui.java:48) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeNode.createPopupMenu(JMeterTreeNode.java:184) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:46) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:38:55,070 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configure(JavaConfigGui.java:262) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.control.gui.JavaTestSamplerGui.configure(JavaTestSamplerGui.java:89) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.gui.GuiPackage.getCurrentGui(GuiPackage.java:307) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.addFileMenu(MenuFactory.java:296) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.addFileMenu(MenuFactory.java:270) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.util.MenuFactory.getDefaultSamplerMenu(MenuFactory.java:403) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.samplers.gui.AbstractSamplerGui.createPopupMenu(AbstractSamplerGui.java:48) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.tree.JMeterTreeNode.createPopupMenu(JMeterTreeNode.java:184) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.EditCommand.doAction(EditCommand.java:46) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.performAction(ActionRouter.java:87) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.gui.action.ActionRouter.lambda$actionPerformed$0(ActionRouter.java:69) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.awt.event.InvocationEvent.dispatch(InvocationEvent.java:316) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:770) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:740) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:39:02,259 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.stateChanged(JavaConfigGui.java:180) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.notifyChangeListeners(JLabeledChoice.java:288) ~[jorphan.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.lambda$init$0(JLabeledChoice.java:145) ~[jorphan.jar:5.4.1]
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1227) ~[?:?]
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1288) ~[?:?]
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1335) ~[?:?]
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:123) ~[?:?]
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94) ~[?:?]
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:579) ~[?:?]
+	at javax.swing.JComboBox.setSelectedIndex(JComboBox.java:624) ~[?:?]
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:907) ~[?:?]
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:298) ~[?:?]
+	at java.awt.Component.processMouseEvent(Component.java:6614) ~[?:?]
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3342) ~[?:?]
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(BasicComboPopup.java:551) ~[?:?]
+	at java.awt.Component.processEvent(Component.java:6379) ~[?:?]
+	at java.awt.Container.processEvent(Container.java:2263) ~[?:?]
+	at java.awt.Component.dispatchEventImpl(Component.java:4990) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2321) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4822) ~[?:?]
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4919) ~[?:?]
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4548) ~[?:?]
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4489) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2307) ~[?:?]
+	at java.awt.Window.dispatchEventImpl(Window.java:2769) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4822) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:745) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:743) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:742) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]
+2021-04-13 16:39:09,121 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2021-04-13 16:39:09,124 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2021-04-13 16:39:09,124 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2021-04-13 16:39:09,128 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must contain the string: '.functions.'
+2021-04-13 16:39:09,129 INFO o.a.j.e.u.CompoundVariable: Note: Function class names must not contain the string: '.gui.'
+2021-04-13 16:39:09,171 INFO o.a.j.t.TestPlan: added /usr/local/Cellar/jmeter/5.4.1/libexec/lib/unnamed.jar to classpath
+2021-04-13 16:39:09,171 INFO o.a.j.p.j.s.JavaSampler: Created class: com.Jmeter.Tool.Liaoning. Uses tearDownTest: 
+2021-04-13 16:39:09,172 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2021-04-13 16:39:09,220 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : app模组
+2021-04-13 16:39:09,220 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group app模组.
+2021-04-13 16:39:09,221 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2021-04-13 16:39:09,221 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2021-04-13 16:39:09,226 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2021-04-13 16:39:09,226 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2021-04-13 16:39:09,229 INFO o.a.j.t.JMeterThread: Thread started: app模组 1-1
+2021-04-13 16:39:09,233 INFO o.a.j.s.FileServer: Stored: /Users/nima/Desktop/jmeterTestRequest.csv Alias: /Users/nima/Desktop/jmeterTestRequest.csv@1543227357
+2021-04-13 16:39:09,467 INFO o.a.j.t.JMeterThread: Thread finished: app模组 1-1
+2021-04-13 16:39:09,467 ERROR o.a.j.JMeter: Uncaught exception in thread Thread[app模组 1-1,6,main]
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at com.Utils.Methods.Requests(Methods.java:64) ~[Utils.jar:?]
+	at com.Jmeter.Tool.Liaoning.runTest(Liaoning.java:42) ~[LiaoNing.jar:?]
+	at org.apache.jmeter.protocol.java.sampler.JavaSampler.sample(JavaSampler.java:197) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:638) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:558) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:489) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:256) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+Caused by: java.lang.ClassNotFoundException: org.testng.Assert
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	... 8 more
+2021-04-13 16:39:09,469 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2021-04-13 16:39:09,469 INFO o.a.j.s.FileServer: Close: /Users/nima/Desktop/jmeterTestRequest.csv@1543227357
+2021-04-13 16:39:09,471 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2021-04-13 16:39:41,386 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2021-04-13 16:39:41,387 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2021-04-13 16:39:41,389 INFO o.a.j.t.TestPlan: added /usr/local/Cellar/jmeter/5.4.1/libexec/lib/unnamed.jar to classpath
+2021-04-13 16:39:41,389 INFO o.a.j.p.j.s.JavaSampler: Created class: com.Jmeter.Tool.Liaoning. Uses tearDownTest: 
+2021-04-13 16:39:41,390 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2021-04-13 16:39:41,440 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : app模组
+2021-04-13 16:39:41,441 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group app模组.
+2021-04-13 16:39:41,442 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2021-04-13 16:39:41,443 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2021-04-13 16:39:41,444 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2021-04-13 16:39:41,444 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2021-04-13 16:39:41,444 INFO o.a.j.t.JMeterThread: Thread started: app模组 1-1
+2021-04-13 16:39:41,447 INFO o.a.j.s.FileServer: Stored: /Users/nima/Desktop/jmeterTestRequest.csv Alias: /Users/nima/Desktop/jmeterTestRequest.csv@1733536525
+2021-04-13 16:39:41,592 INFO o.a.j.t.JMeterThread: Thread finished: app模组 1-1
+2021-04-13 16:39:41,593 ERROR o.a.j.JMeter: Uncaught exception in thread Thread[app模组 1-1,6,main]
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at com.Utils.Methods.Requests(Methods.java:64) ~[Utils.jar:?]
+	at com.Jmeter.Tool.Liaoning.runTest(Liaoning.java:42) ~[LiaoNing.jar:?]
+	at org.apache.jmeter.protocol.java.sampler.JavaSampler.sample(JavaSampler.java:197) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:638) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:558) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:489) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:256) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2021-04-13 16:39:41,593 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2021-04-13 16:39:41,594 INFO o.a.j.s.FileServer: Close: /Users/nima/Desktop/jmeterTestRequest.csv@1733536525
+2021-04-13 16:39:41,594 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2021-04-13 16:44:42,416 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2021-04-13 16:44:42,419 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2021-04-13 16:44:42,421 INFO o.a.j.p.j.s.JavaSampler: Created class: com.Jmeter.Tool.Liaoning. Uses tearDownTest: 
+2021-04-13 16:44:42,423 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2021-04-13 16:44:42,479 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : app模组
+2021-04-13 16:44:42,479 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group app模组.
+2021-04-13 16:44:42,479 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2021-04-13 16:44:42,480 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2021-04-13 16:44:42,481 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2021-04-13 16:44:42,481 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2021-04-13 16:44:42,481 INFO o.a.j.t.JMeterThread: Thread started: app模组 1-1
+2021-04-13 16:44:42,482 INFO o.a.j.s.FileServer: Stored: /Users/nima/Desktop/jmeterTestRequest.csv Alias: /Users/nima/Desktop/jmeterTestRequest.csv@176952512
+2021-04-13 16:44:58,449 INFO o.a.j.g.a.Start: Stopping test
+2021-04-13 16:44:58,474 INFO o.a.j.t.JMeterThread: Stopping: app模组 1-1
+2021-04-13 16:44:58,475 WARN o.a.j.t.JMeterThread: Interrupting: app模组 1-1 sampler: Java request
+2021-04-13 16:44:58,475 WARN o.a.j.t.JMeterThread: No operation pending
+2021-04-13 16:45:02,690 INFO o.a.j.g.a.Start: Shutting test down
+2021-04-13 16:45:03,486 WARN o.a.j.t.ThreadGroup: Thread won't exit: app模组 1-1
+2021-04-13 16:45:03,487 ERROR o.a.j.u.JMeterUtils: One or more test threads won't exit; see log file.
+2021-04-13 16:45:10,677 INFO o.a.j.t.JMeterThread: Thread finished: app模组 1-1
+2021-04-13 16:45:10,677 ERROR o.a.j.JMeter: Uncaught exception in thread Thread[app模组 1-1,6,main]
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at com.Utils.Methods.Requests(Methods.java:64) ~[Utils.jar:?]
+	at com.Jmeter.Tool.Liaoning.runTest(Liaoning.java:42) ~[LiaoNing.jar:?]
+	at org.apache.jmeter.protocol.java.sampler.JavaSampler.sample(JavaSampler.java:197) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:638) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:558) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:489) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:256) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2021-04-13 16:45:10,679 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2021-04-13 16:45:10,681 INFO o.a.j.s.FileServer: Close: /Users/nima/Desktop/jmeterTestRequest.csv@176952512
+2021-04-13 16:45:10,681 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2021-04-13 16:45:20,289 INFO o.a.j.e.StandardJMeterEngine: Running the test!
+2021-04-13 16:45:20,289 INFO o.a.j.s.SampleEvent: List of sample_variables: []
+2021-04-13 16:45:20,290 INFO o.a.j.p.j.s.JavaSampler: Created class: com.Jmeter.Tool.Liaoning. Uses tearDownTest: 
+2021-04-13 16:45:20,291 INFO o.a.j.g.u.JMeterMenuBar: setRunning(true, *local*)
+2021-04-13 16:45:20,353 INFO o.a.j.e.StandardJMeterEngine: Starting ThreadGroup: 1 : app模组
+2021-04-13 16:45:20,354 INFO o.a.j.e.StandardJMeterEngine: Starting 1 threads for group app模组.
+2021-04-13 16:45:20,354 INFO o.a.j.e.StandardJMeterEngine: Thread will continue on error
+2021-04-13 16:45:20,355 INFO o.a.j.t.ThreadGroup: Starting thread group... number=1 threads=1 ramp-up=1 delayedStart=false
+2021-04-13 16:45:20,355 INFO o.a.j.t.ThreadGroup: Started thread group number 1
+2021-04-13 16:45:20,356 INFO o.a.j.e.StandardJMeterEngine: All thread groups have been started
+2021-04-13 16:45:20,356 INFO o.a.j.t.JMeterThread: Thread started: app模组 1-1
+2021-04-13 16:45:20,357 INFO o.a.j.s.FileServer: Stored: /Users/nima/Desktop/jmeterTestRequest.csv Alias: /Users/nima/Desktop/jmeterTestRequest.csv@1925098761
+2021-04-13 16:45:24,484 INFO o.a.j.t.JMeterThread: Thread finished: app模组 1-1
+2021-04-13 16:45:24,484 ERROR o.a.j.JMeter: Uncaught exception in thread Thread[app模组 1-1,6,main]
+java.lang.NoClassDefFoundError: org/testng/Assert
+	at com.Utils.Methods.Requests(Methods.java:64) ~[Utils.jar:?]
+	at com.Jmeter.Tool.Liaoning.runTest(Liaoning.java:42) ~[LiaoNing.jar:?]
+	at org.apache.jmeter.protocol.java.sampler.JavaSampler.sample(JavaSampler.java:197) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.doSampling(JMeterThread.java:638) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.executeSamplePackage(JMeterThread.java:558) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.processSampler(JMeterThread.java:489) ~[ApacheJMeter_core.jar:5.4.1]
+	at org.apache.jmeter.threads.JMeterThread.run(JMeterThread.java:256) ~[ApacheJMeter_core.jar:5.4.1]
+	at java.lang.Thread.run(Thread.java:832) [?:?]
+2021-04-13 16:45:24,485 INFO o.a.j.e.StandardJMeterEngine: Notifying test listeners of end of test
+2021-04-13 16:45:24,486 INFO o.a.j.s.FileServer: Close: /Users/nima/Desktop/jmeterTestRequest.csv@1925098761
+2021-04-13 16:45:24,486 INFO o.a.j.g.u.JMeterMenuBar: setRunning(false, *local*)
+2021-04-13 16:50:32,432 ERROR o.a.j.p.j.c.g.JavaConfigGui: Error getting argument list for com.liaoNing.shouYe.JmeterClass
+java.lang.ClassNotFoundException: com.liaoNing.shouYe.JmeterClass
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:435) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:589) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:522) ~[?:?]
+	at java.lang.Class.forName0(Native Method) ~[?:?]
+	at java.lang.Class.forName(Class.java:468) ~[?:?]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.configureClassName(JavaConfigGui.java:190) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jmeter.protocol.java.config.gui.JavaConfigGui.stateChanged(JavaConfigGui.java:180) ~[ApacheJMeter_java.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.notifyChangeListeners(JLabeledChoice.java:288) ~[jorphan.jar:5.4.1]
+	at org.apache.jorphan.gui.JLabeledChoice.lambda$init$0(JLabeledChoice.java:145) ~[jorphan.jar:5.4.1]
+	at javax.swing.JComboBox.fireItemStateChanged(JComboBox.java:1227) ~[?:?]
+	at javax.swing.JComboBox.selectedItemChanged(JComboBox.java:1288) ~[?:?]
+	at javax.swing.JComboBox.contentsChanged(JComboBox.java:1335) ~[?:?]
+	at javax.swing.AbstractListModel.fireContentsChanged(AbstractListModel.java:123) ~[?:?]
+	at javax.swing.DefaultComboBoxModel.setSelectedItem(DefaultComboBoxModel.java:94) ~[?:?]
+	at javax.swing.JComboBox.setSelectedItem(JComboBox.java:579) ~[?:?]
+	at javax.swing.JComboBox.setSelectedIndex(JComboBox.java:624) ~[?:?]
+	at javax.swing.plaf.basic.BasicComboPopup$Handler.mouseReleased(BasicComboPopup.java:907) ~[?:?]
+	at java.awt.AWTEventMulticaster.mouseReleased(AWTEventMulticaster.java:298) ~[?:?]
+	at java.awt.Component.processMouseEvent(Component.java:6614) ~[?:?]
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3342) ~[?:?]
+	at javax.swing.plaf.basic.BasicComboPopup$1.processMouseEvent(BasicComboPopup.java:551) ~[?:?]
+	at java.awt.Component.processEvent(Component.java:6379) ~[?:?]
+	at java.awt.Container.processEvent(Container.java:2263) ~[?:?]
+	at java.awt.Component.dispatchEventImpl(Component.java:4990) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2321) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4822) ~[?:?]
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4919) ~[?:?]
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4548) ~[?:?]
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4489) ~[?:?]
+	at java.awt.Container.dispatchEventImpl(Container.java:2307) ~[?:?]
+	at java.awt.Window.dispatchEventImpl(Window.java:2769) ~[?:?]
+	at java.awt.Component.dispatchEvent(Component.java:4822) ~[?:?]
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:772) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:721) ~[?:?]
+	at java.awt.EventQueue$4.run(EventQueue.java:715) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) ~[?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:95) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:745) ~[?:?]
+	at java.awt.EventQueue$5.run(EventQueue.java:743) ~[?:?]
+	at java.security.AccessController.doPrivileged(AccessController.java:391) [?:?]
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:85) [?:?]
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:742) [?:?]
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:203) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:124) [?:?]
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:113) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:109) [?:?]
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101) [?:?]
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:90) [?:?]

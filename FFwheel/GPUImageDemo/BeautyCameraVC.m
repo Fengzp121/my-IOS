@@ -7,9 +7,11 @@
 //
 
 #import "BeautyCameraVC.h"
+#import <GPUImage/GPUImage.h>
+#import "FFFaceDetect.h"
 
-@interface BeautyCameraVC ()
-
+@interface BeautyCameraVC ()<GPUImageVideoCameraDelegate>
+@property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
 @end
 
 @implementation BeautyCameraVC

@@ -388,6 +388,7 @@
 		3C904354261573AE003DB34C /* NSMutableDictionary+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C904353261573AE003DB34C /* NSMutableDictionary+FFCrash.m */; };
 		3C90435A2615A648003DB34C /* NSString+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C9043592615A648003DB34C /* NSString+FFCrash.m */; };
 		3C9043602615A81B003DB34C /* NSMutableString+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C90435F2615A81B003DB34C /* NSMutableString+FFCrash.m */; };
+		3C93853926254225003B314A /* VisonBeautifyFaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C93853826254225003B314A /* VisonBeautifyFaceFilter.m */; };
 		3CA6DDBF2614197D00D66BA4 /* NSArray+FFCrash.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDBE2614197D00D66BA4 /* NSArray+FFCrash.m */; };
 		3CA6DDC526141BAB00D66BA4 /* FFCrashHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDC426141BAB00D66BA4 /* FFCrashHandler.m */; };
 		3CA6DDCC26144CA500D66BA4 /* BSBacktraceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 3CA6DDCB26144CA500D66BA4 /* BSBacktraceLogger.m */; };
@@ -984,6 +985,8 @@
 		3C9043592615A648003DB34C /* NSString+FFCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+FFCrash.m"; sourceTree = "<group>"; };
 		3C90435E2615A81B003DB34C /* NSMutableString+FFCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSMutableString+FFCrash.h"; sourceTree = "<group>"; };
 		3C90435F2615A81B003DB34C /* NSMutableString+FFCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableString+FFCrash.m"; sourceTree = "<group>"; };
+		3C93853726254225003B314A /* VisonBeautifyFaceFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VisonBeautifyFaceFilter.h; sourceTree = "<group>"; };
+		3C93853826254225003B314A /* VisonBeautifyFaceFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VisonBeautifyFaceFilter.m; sourceTree = "<group>"; };
 		3CA6DDB8261416CA00D66BA4 /* FFCrashTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FFCrashTool.h; sourceTree = "<group>"; };
 		3CA6DDBD2614197D00D66BA4 /* NSArray+FFCrash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSArray+FFCrash.h"; sourceTree = "<group>"; };
 		3CA6DDBE2614197D00D66BA4 /* NSArray+FFCrash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSArray+FFCrash.m"; sourceTree = "<group>"; };
@@ -1818,6 +1821,8 @@
 				3C77CB05261DAC8000851659 /* ChangeFaceFilter.m */,
 				3C65E404261EDA1F00E397AF /* FaceDetectPointFilter.h */,
 				3C65E405261EDA1F00E397AF /* FaceDetectPointFilter.m */,
+				3C93853726254225003B314A /* VisonBeautifyFaceFilter.h */,
+				3C93853826254225003B314A /* VisonBeautifyFaceFilter.m */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -3192,6 +3197,7 @@
 				467D3F3523026CB900986B0B /* YTKRequest.m in Sources */,
 				3C9043602615A81B003DB34C /* NSMutableString+FFCrash.m in Sources */,
 				467D3E9C2302637900986B0B /* NSString+tojson.m in Sources */,
+				3C93853926254225003B314A /* VisonBeautifyFaceFilter.m in Sources */,
 				3C21BDD326130B2A00234EFC /* FICImageTableChunk.m in Sources */,
 				467D3EDD2302640E00986B0B /* FFTableCellModel.m in Sources */,
 				467D3F3423026CB800986B0B /* YTKBatchRequestAgent.m in Sources */,
