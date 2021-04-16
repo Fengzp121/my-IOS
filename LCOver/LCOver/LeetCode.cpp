@@ -1497,7 +1497,7 @@ int LeetCode::arrangeCoins(int n) {
 // 2sum = n^2 + n;
 
 
-//这种方法不行，因为数组中最大值的位置是不稳定的，所以可能造成有一段数组还在山峰中，所以还是分类讨论
+//TODO:这种方法不行，因为数组中最大值的位置是不稳定的，所以可能造成有一段数组还在山峰中，所以还是分类讨论
 int midSearch(bool flag, int low, int high, int target, vector<int> &mountainArr){
     while(low <= high){
         int mid = (low + high) / 2;
@@ -1538,3 +1538,62 @@ int LeetCode::findInMountainArray(int target, vector<int> &mountainArr) {
     ans = midSearch(true,low,high,target,mountainArr);
     return ans;
 }
+
+
+int LeetCode::rob(vector<int>& nums) {
+    int length = (int)nums.size();
+    if (length == 1) {
+        return nums[0];
+    } else if (length == 2) {
+        return max(nums[0], nums[1]);
+    }
+    int first = nums[0],second = max(nums[0], nums[1]);
+    //这里可以从0或1开始取，取到都是n
+    for (int i = 2; i < nums.size(); i++) {
+        int t = second;
+        second = max(first + nums[i], second);
+        first = t;
+    }
+    return second;
+}
+
+int robIIRange(int start ,int end, vector<int> &nums){
+    //每隔一个偷一个,first是存第一个开始的，second是存第二个开始的。
+    //每一次都比较是fisrt 总和大还是 second的大
+    int first = nums[start];
+    int second = max(nums[start], nums[start + 1]);
+    for (int i = start + 2; i <= end; i++) {
+        int temp = second;
+        second = max(first + nums[i], second);
+        first = temp;
+    }
+    return second;
+}
+
+
+int LeetCode::robII(vector<int> &nums){
+    int length = (int)nums.size();
+    if (length == 1) {
+        return nums[0];
+    } else if (length == 2) {
+        return max(nums[0], nums[1]);
+    }
+    //0开始偷，偷到n - 2
+    //1开始偷，偷到n - 1
+    return max(robIIRange(0, length - 2, nums), robIIRange(1, length - 1,nums));
+}
+
+//int first = 0;
+//int secode = 0;
+//void robIII_dfs(TreeNode *root){
+//    if(!root)return;
+//    robIII_dfs(root->left);
+//    robIII_dfs(root->right);
+//    int first = root->val;
+//    
+//}
+//int LeetCode::robIII(TreeNode *root){
+//    //每隔一层取点
+//    robIII_dfs(root);
+//    return 0;
+//}

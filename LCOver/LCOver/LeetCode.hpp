@@ -82,6 +82,9 @@ public:
     int minDiffInBST(TreeNode* root);
     int arrangeCoins(int n);
     int findInMountainArray(int target, vector<int> &mountainArr);
+    int rob(vector<int> &nums);
+    int robII(vector<int>& nums);
+    //int robIII(TreeNode *root);
 };
 
 #endif /* LeetCode_hpp */

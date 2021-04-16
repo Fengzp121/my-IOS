@@ -131,6 +131,8 @@
     float * facePoint = [[FFFaceDetect defaultInstance] detectWithSampleBuffer:sampleBuffer facePointCount:&facePointCount isMirror:NO];
     faceFilter.facesPoints = facePoint;
     faceFilter.facesPointCount = facePointCount;
+    
+    
 }
 
 @end

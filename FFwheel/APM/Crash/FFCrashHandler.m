@@ -38,9 +38,9 @@
 }
 
 - (void)setCaughtCrashHandler{
-    [self setMachHandler];
-    [self setSignalHandler];
-    [self setExceptionHandler];
+//    [self setMachHandler];
+//    [self setSignalHandler];
+//    [self setExceptionHandler];
 }
 
 #pragma mark - mach_port crash catch

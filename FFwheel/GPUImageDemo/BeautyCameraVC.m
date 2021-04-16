@@ -149,5 +149,29 @@
 -(void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
     int a = 0;
     [[FFFaceDetect defaultInstance] detectWithSampleBuffer:sampleBuffer facePointCount:&a isMirror:YES];
+    NSArray *landmarks = [FFFaceDetect defaultInstance].landmarks;
+    if(landmarks.count){
+        static dispatch_once_t onceToken;
+        dispatch_once(&onceToken, ^{
+            dispatch_async(dispatch_get_main_queue(), ^{
+                for (int i=0; i< landmarks.count; i++) {
+                    UIView *pointview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 3)];
+                    pointview.backgroundColor = [UIColor yellowColor];
+                    NSValue *value = landmarks[i];
+                    CGPoint point = [value CGPointValue];
+                    pointview.center = CGPointMake(point.x * self.filterView.frame.size.width, point.y * self.filterView.frame.size.height);
+                    [self.filterView addSubview:pointview];
+                    
+                    UILabel *indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 24, 12)];
+                    indexLabel.font = [UIFont systemFontOfSize:8.0];
+                    indexLabel.textColor = [UIColor orangeColor];
+                    indexLabel.center = CGPointMake(point.x * self.filterView.frame.size.width, point.y * self.filterView.frame.size.height + 5);
+                    indexLabel.text = [NSString stringWithFormat:@"%d",i];
+                    [self.filterView addSubview:indexLabel];
+                }
+                
+            });
+        });
+    }
 }
 @end
