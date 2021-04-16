@@ -1597,3 +1597,67 @@ int LeetCode::robII(vector<int> &nums){
 //    robIII_dfs(root);
 //    return 0;
 //}
+
+
+
+// 记忆化搜索存储状态的数组
+// -1 表示 false，1 表示 true，0 表示未计算
+int isScramble_memo[30][30][31];
+string isScramble_s1, isScramble_s2;
+
+bool checkIfSimilar(int i1, int i2, int length) {
+    unordered_map<int, int> freq;
+    for (int i = i1; i < i1 + length; ++i) {
+        ++freq[isScramble_s1[i]];
+    }
+    for (int i = i2; i < i2 + length; ++i) {
+        --freq[isScramble_s2[i]];
+    }
+    if (any_of(freq.begin(), freq.end(), [](const auto& entry) {return entry.second != 0;})) {
+        return false;
+    }
+    return true;
+}
+
+// 第一个字符串从 i1 开始，第二个字符串从 i2 开始，子串的长度为 length，是否和谐
+bool isScramble_dfs(int i1, int i2, int length) {
+    if (isScramble_memo[i1][i2][length]) {
+        return isScramble_memo[i1][i2][length] == 1;
+    }
+    
+    // 判断两个子串是否相等
+    if (isScramble_s1.substr(i1, length) == isScramble_s2.substr(i2, length)) {
+        isScramble_memo[i1][i2][length] = 1;
+        return true;
+    }
+    
+    // 判断是否存在字符 c 在两个子串中出现的次数不同
+    if (!checkIfSimilar(i1, i2, length)) {
+        isScramble_memo[i1][i2][length] = -1;
+        return false;
+    }
+    
+    // 枚举分割位置
+    for (int i = 1; i < length; ++i) {
+        // 不交换的情况
+        if (isScramble_dfs(i1, i2, i) && isScramble_dfs(i1 + i, i2 + i, length - i)) {
+            isScramble_memo[i1][i2][length] = 1;
+            return true;
+        }
+        // 交换的情况
+        if (isScramble_dfs(i1, i2 + length - i, i) && isScramble_dfs(i1 + i, i2, length - i)) {
+            isScramble_memo[i1][i2][length] = 1;
+            return true;
+        }
+    }
+    
+    isScramble_memo[i1][i2][length] = -1;
+    return false;
+}
+
+bool LeetCode::isScramble(string s1, string s2) {
+    memset(isScramble_memo, 0, sizeof(isScramble_memo));
+    isScramble_s1 = s1;
+    isScramble_s2 = s2;
+    return isScramble_dfs(0, 0, (int)s1.size());
+}

@@ -18,16 +18,21 @@
 #define ThinFaceMaxValue   0.05
 #define BigEyeMaxValue 0.15
 
-@interface BeautyCameraVC ()<GPUImageVideoCameraDelegate>
+@interface BeautyCameraVC ()<GPUImageVideoCameraDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
 @property (nonatomic, strong) GPUImageView *filterView;
 
-@property (nonatomic, strong) UIButton *controlBtn;
-@property (nonatomic, strong) UISlider *thinFaceSlider;
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UIScrollView *scrollView; //滑动选择美颜效果的
+@property (nonatomic, strong) UIButton *controlBtn;     //现在是美颜开关的按钮，迟点会换成前后摄像头切换的按钮
+@property (nonatomic, strong) UISlider *thinFaceSlider; //现在只需要一个滑动
 @property (nonatomic, strong) UISlider *bigEyeSlider;
+
+@property (nonatomic, strong) NSArray *dataSrouce;      //美颜的数据源
 
 @property (nonatomic, strong) VisionBeautifyFaceFilter *faceAndEyeFilter;
 @property (nonatomic, strong) BeautifyFaceFilter *beautifyFilter;
+
 @end
 
 @implementation BeautyCameraVC
@@ -56,6 +61,9 @@
     [self.faceAndEyeFilter addTarget:self.filterView];
     [self.beautifyFilter addTarget:self.filterView];
     
+    self.collectionView.contentSize = CGSizeMake(1,0);
+    
+    self.collectionView.alwaysBounceHorizontal = NO;
     
     self.controlBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.controlBtn.backgroundColor = UIColor.whiteColor;
@@ -116,6 +124,29 @@
     
 
 }
+
+#pragma mark - CollectionView Delegate/DataSrouce
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    if(!cell){
+        cell = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
+        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.text = self.dataSrouce[indexPath.item];
+        [cell.contentView addSubview:titleLabel];
+        
+    }
+    return NULL;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //切换slider
+}
+
 
 #pragma mark - button action
 - (void)switchButtonAction:(UIButton *)sender{

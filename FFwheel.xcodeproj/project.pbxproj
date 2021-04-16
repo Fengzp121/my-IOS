@@ -381,6 +381,12 @@
 		3C65E455261EF13C00E397AF /* megviifacepp_0_5_2_model in Resources */ = {isa = PBXBuildFile; fileRef = 3C65E44B261EF13B00E397AF /* megviifacepp_0_5_2_model */; };
 		3C65E456261EF13C00E397AF /* MGFaceLicenseHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C65E44F261EF13B00E397AF /* MGFaceLicenseHandle.m */; };
 		3C65E457261EF13C00E397AF /* libMGLicMgrSDK-0.3.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C65E451261EF13C00E397AF /* libMGLicMgrSDK-0.3.1.a */; };
+		3C6B070926292BB5003AAF3C /* SoulOutFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B070826292BB5003AAF3C /* SoulOutFilter.m */; };
+		3C6B070F26292BE5003AAF3C /* ShakeFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B070E26292BE5003AAF3C /* ShakeFilter.m */; };
+		3C6B071526292C41003AAF3C /* ShineWhiteFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B071426292C41003AAF3C /* ShineWhiteFilter.m */; };
+		3C6B071B262930F4003AAF3C /* ScaleFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B071A262930F4003AAF3C /* ScaleFilter.m */; };
+		3C6B0721262931F1003AAF3C /* GlitchFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B0720262931F1003AAF3C /* GlitchFilter.m */; };
+		3C6B072726293273003AAF3C /* VertigoFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6B072626293273003AAF3C /* VertigoFilter.m */; };
 		3C77CB00261D90CB00851659 /* BeautifyFaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77CAFF261D90CB00851659 /* BeautifyFaceFilter.m */; };
 		3C77CB06261DAC8000851659 /* ChangeFaceFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C77CB05261DAC8000851659 /* ChangeFaceFilter.m */; };
 		3C78DDE6255D2FB900A083C3 /* FFViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C78DDE5255D2FB900A083C3 /* FFViewModel.m */; };
@@ -968,6 +974,18 @@
 		3C65E451261EF13C00E397AF /* libMGLicMgrSDK-0.3.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libMGLicMgrSDK-0.3.1.a"; sourceTree = "<group>"; };
 		3C65E452261EF13C00E397AF /* MGLicenseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseManager.h; sourceTree = "<group>"; };
 		3C65E453261EF13C00E397AF /* MGLicenseCommon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MGLicenseCommon.h; sourceTree = "<group>"; };
+		3C6B070726292BB5003AAF3C /* SoulOutFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SoulOutFilter.h; sourceTree = "<group>"; };
+		3C6B070826292BB5003AAF3C /* SoulOutFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SoulOutFilter.m; sourceTree = "<group>"; };
+		3C6B070D26292BE5003AAF3C /* ShakeFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShakeFilter.h; sourceTree = "<group>"; };
+		3C6B070E26292BE5003AAF3C /* ShakeFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShakeFilter.m; sourceTree = "<group>"; };
+		3C6B071326292C41003AAF3C /* ShineWhiteFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShineWhiteFilter.h; sourceTree = "<group>"; };
+		3C6B071426292C41003AAF3C /* ShineWhiteFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShineWhiteFilter.m; sourceTree = "<group>"; };
+		3C6B0719262930F4003AAF3C /* ScaleFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScaleFilter.h; sourceTree = "<group>"; };
+		3C6B071A262930F4003AAF3C /* ScaleFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScaleFilter.m; sourceTree = "<group>"; };
+		3C6B071F262931F0003AAF3C /* GlitchFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlitchFilter.h; sourceTree = "<group>"; };
+		3C6B0720262931F1003AAF3C /* GlitchFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GlitchFilter.m; sourceTree = "<group>"; };
+		3C6B072526293273003AAF3C /* VertigoFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VertigoFilter.h; sourceTree = "<group>"; };
+		3C6B072626293273003AAF3C /* VertigoFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VertigoFilter.m; sourceTree = "<group>"; };
 		3C749ACB260426750001D700 /* LCOver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LCOver; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C77CAFE261D90CB00851659 /* BeautifyFaceFilter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeautifyFaceFilter.h; sourceTree = "<group>"; };
 		3C77CAFF261D90CB00851659 /* BeautifyFaceFilter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BeautifyFaceFilter.m; sourceTree = "<group>"; };
@@ -1823,6 +1841,18 @@
 				3C65E405261EDA1F00E397AF /* FaceDetectPointFilter.m */,
 				3C93853726254225003B314A /* VisionBeautifyFaceFilter.h */,
 				3C93853826254225003B314A /* VisionBeautifyFaceFilter.m */,
+				3C6B0719262930F4003AAF3C /* ScaleFilter.h */,
+				3C6B071A262930F4003AAF3C /* ScaleFilter.m */,
+				3C6B070726292BB5003AAF3C /* SoulOutFilter.h */,
+				3C6B070826292BB5003AAF3C /* SoulOutFilter.m */,
+				3C6B070D26292BE5003AAF3C /* ShakeFilter.h */,
+				3C6B070E26292BE5003AAF3C /* ShakeFilter.m */,
+				3C6B071326292C41003AAF3C /* ShineWhiteFilter.h */,
+				3C6B071426292C41003AAF3C /* ShineWhiteFilter.m */,
+				3C6B071F262931F0003AAF3C /* GlitchFilter.h */,
+				3C6B0720262931F1003AAF3C /* GlitchFilter.m */,
+				3C6B072526293273003AAF3C /* VertigoFilter.h */,
+				3C6B072626293273003AAF3C /* VertigoFilter.m */,
 			);
 			path = Filters;
 			sourceTree = "<group>";
@@ -3175,6 +3205,7 @@
 				3C65E29A261EAA2600E397AF /* classicdesc.cpp in Sources */,
 				3C65E294261EAA2600E397AF /* pinstart.cpp in Sources */,
 				3C65E29F261EAA2600E397AF /* shapemod.cpp in Sources */,
+				3C6B072726293273003AAF3C /* VertigoFilter.m in Sources */,
 				3C65E29D261EAA2600E397AF /* hat.cpp in Sources */,
 				3C32D14225F0AEBC00082260 /* VideoEditorViewController.m in Sources */,
 				3C65E2A1261EAA2600E397AF /* asm.cpp in Sources */,
@@ -3202,6 +3233,7 @@
 				467D3EDD2302640E00986B0B /* FFTableCellModel.m in Sources */,
 				467D3F3423026CB800986B0B /* YTKBatchRequestAgent.m in Sources */,
 				467D3EDB2302640E00986B0B /* FFTabBarController.m in Sources */,
+				3C6B0721262931F1003AAF3C /* GlitchFilter.m in Sources */,
 				3C65E296261EAA2600E397AF /* eyedet.cpp in Sources */,
 				3CFE786A26044CF100010813 /* DmKEngine.m in Sources */,
 				467D3EBE230263C200986B0B /* HelloWorldVC.m in Sources */,
@@ -3226,6 +3258,7 @@
 				467D3F132302642D00986B0B /* VerificationView.m in Sources */,
 				3C65E2A0261EAA2600E397AF /* stasm_lib.cpp in Sources */,
 				467D3E9B2302637900986B0B /* NSString+FFstring.m in Sources */,
+				3C6B071B262930F4003AAF3C /* ScaleFilter.m in Sources */,
 				46D9928C250EF989009CB123 /* RequestMaker.m in Sources */,
 				46D4FA6F261F5AED005D0FB2 /* Protocols.swift in Sources */,
 				464AC25225314903001C319C /* PeopleClass.m in Sources */,
@@ -3235,6 +3268,7 @@
 				3C5E45FE2600A688008150A8 /* firstWidgetDemo.intentdefinition in Sources */,
 				467D3F102302642D00986B0B /* verificationcodeViewController.m in Sources */,
 				467D3EA72302637900986B0B /* FFRequestErrorHandle.m in Sources */,
+				3C6B071526292C41003AAF3C /* ShineWhiteFilter.m in Sources */,
 				467D3F3A2302ABF200986B0B /* getApiTest.m in Sources */,
 				464AC25125314903001C319C /* MemoryCheck.m in Sources */,
 				467D3F3223026CB800986B0B /* YTKNetworkAgent.m in Sources */,
@@ -3251,6 +3285,7 @@
 				3C65E299261EAA2600E397AF /* faceroi.cpp in Sources */,
 				464AC24125314903001C319C /* BitmapDemoVC.m in Sources */,
 				467D3F3323026CB800986B0B /* YTKChainRequestAgent.m in Sources */,
+				3C6B070926292BB5003AAF3C /* SoulOutFilter.m in Sources */,
 				467D3F2F23026CB800986B0B /* YTKNetworkPrivate.m in Sources */,
 				467D3EC2230263C200986B0B /* FFRefreshAutoFooter.m in Sources */,
 				464AC24925314903001C319C /* testModel.m in Sources */,
@@ -3261,6 +3296,7 @@
 				46D4FA6E261F5AED005D0FB2 /* PerformanceMonitor.swift in Sources */,
 				3C65E29C261EAA2600E397AF /* shapehacks.cpp in Sources */,
 				467D3E9E2302637900986B0B /* VTGeneralTool.m in Sources */,
+				3C6B070F26292BE5003AAF3C /* ShakeFilter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

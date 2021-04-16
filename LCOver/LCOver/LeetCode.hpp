@@ -18,6 +18,8 @@
 #include <stack>
 #include <deque>
 #include <unordered_map>
+//#include <cstdio>
+#include <string>
 #include "Struts.hpp"
 
 using namespace std;
@@ -85,6 +87,7 @@ public:
     int rob(vector<int> &nums);
     int robII(vector<int>& nums);
     //int robIII(TreeNode *root);
+    bool isScramble(string s1, string s2);
 };
 
 #endif /* LeetCode_hpp */
