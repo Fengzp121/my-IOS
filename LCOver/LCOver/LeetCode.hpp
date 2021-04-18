@@ -18,6 +18,7 @@
 #include <stack>
 #include <deque>
 #include <unordered_map>
+#include <unordered_set>
 //#include <cstdio>
 #include <string>
 #include "Struts.hpp"
@@ -72,7 +73,6 @@ public:
     ListNode* getKthFromEnd(ListNode* head, int k);
     //int trap(vector<int>& height);
     ListNode* swapPairs(ListNode* head);
-    int removeDuplicates(vector<int>& nums);
     int searchI(vector<int>& nums, int target);
     bool searchII(vector<int>& nums, int target);
     int findMinI(vector<int>& nums);
@@ -88,6 +88,10 @@ public:
     int robII(vector<int>& nums);
     //int robIII(TreeNode *root);
     bool isScramble(string s1, string s2);
+    int removeDuplicates(vector<int>& nums);
+    string truncateSentence(string s, int k);
+    vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k);
+    int minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2);
 };
 
 #endif /* LeetCode_hpp */

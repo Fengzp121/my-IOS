@@ -259,6 +259,7 @@
 		3C749AE9260426C60001D700 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T9X9D9CZV;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -271,6 +272,7 @@
 		3C749AEA260426C60001D700 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3T9X9D9CZV;
 				ENABLE_HARDENED_RUNTIME = YES;

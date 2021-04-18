@@ -1238,22 +1238,6 @@ ListNode* LeetCode::swapPairs(ListNode* head) {
     return ans;
 }
 
-int LeetCode::removeDuplicates(vector<int>& nums){
-    int len = (int)nums.size();
-    if(len < 2) return len;
-    //双指针指向
-    int slow = 2;
-    int fast = 2;
-    while (fast < len) {
-        if(nums[fast] != nums[slow - 2]){
-            nums[slow] = nums[fast];
-            slow++;
-        }
-        fast++;
-    }
-    return slow;
-}
-
 //这只能用在生序排序数组中，这种旋转数组还得加工一下
 //如果能找到一某段被旋转后的序列，就可以直接用这段
 //但是怎么找到旋转的序列呢
@@ -1660,4 +1644,71 @@ bool LeetCode::isScramble(string s1, string s2) {
     isScramble_s1 = s1;
     isScramble_s2 = s2;
     return isScramble_dfs(0, 0, (int)s1.size());
+}
+
+int LeetCode::removeDuplicates(vector<int>& nums) {
+    if(nums.empty()) return 0;
+    int slow = 0;
+    for (int fast = 1; fast < nums.size(); fast++){
+        if(nums[fast] != nums[slow]){
+            slow++;
+            nums[slow] = nums[fast];
+        }
+    }
+    return slow + 1;
+}
+
+string LeetCode::truncateSentence(string s, int k) {
+    int count = 0;
+    int i;
+    for(i = 0; i < s.size(); i++){
+        if(s[i] == ' '){
+            count++;
+            if(count == k){
+                return s.substr(0,i);
+            }
+        }
+    }
+    return s.substr(0,i+1);
+}
+
+vector<int> LeetCode::findingUsersActiveMinutes(vector<vector<int>>& logs, int k) {
+    //我感觉这个min的意思是在某个时分中进行操作。而不是操作了多少分钟的意思
+    //所以就是统计多少个不相同的分时。干。。。
+    //用hash_map的key存用户id，value用一个set进行去重
+    unordered_map<int,unordered_set<int>> umap;
+    vector<int> ans(k);
+    for (auto& log : logs) {
+        umap[log[0]].insert(log[1]);
+    }
+    for (auto iter = umap.begin(); iter != umap.end() ; ++iter) {
+        ans[iter->second.size() - 1] += 1;
+    }
+    return ans;
+    //{{0,5},{1,2},{0,2},{0,5},{1,3}}
+}
+
+//TODO:找到nums中与target最接近的值，这里要用贪心算法的。。
+int minAbsoluteSumDiff_search(vector<int>& nums, int target){
+    int low = 0, high = (int)nums.size() - 1;
+    int temp = INT32_MAX;
+    while (low <= high) {
+        //感觉这边用小的大的都可以啊
+        int mid = (low + high) / 2;
+        if(abs(target - nums[mid]) < temp){
+            
+        }
+    }
+    return low;
+}
+
+int LeetCode::minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2) {
+    //对第一个数组进行排序吧。。。然后进行二分查找。
+    sort(nums1.begin(), nums1.begin());
+//    sort(nums2.begin(), nums2.begin());
+    int ans = 0;
+    for (int i = 0; i < nums1.size(); i++) {
+        
+    }
+    return ans;
 }
