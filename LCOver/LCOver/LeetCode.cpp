@@ -1712,3 +1712,43 @@ int LeetCode::minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2) {
     }
     return ans;
 }
+
+int LeetCode::removeElement(vector<int>& nums, int val){
+    int slow = 0;
+    for (int fast = 0; fast < nums.size(); fast++) {
+        if(nums[fast] == val){
+            nums[slow] = nums[fast];
+            slow++;
+        }
+    }
+    return slow;
+}
+
+bool LeetCode::searchMatrix(vector<vector<int>>& matrix, int target){
+    if(matrix.empty()) return false;
+    vector<int> temp = matrix.front();
+    //先对矩阵第一个元素进行遍历
+    for(int i = 1; i < matrix.size(); i++){
+        //如果这行大于等于target。就代表，要么在该行首位，要么在上一行
+        if(matrix[i].front() >= target){
+            if(matrix[i].front() == target){
+                return true;
+            }
+            temp = matrix[i-1];
+            break;
+        }else{
+            //如果都不是就每一行都重新赋值，因为有可能在最后一行大的里面，上面的条件赋值不了
+            temp = matrix[i];
+        }
+    }
+    for(int i = 0; i < temp.size(); i++){
+        if(temp[i] == target) return true;
+    }
+    return false;
+}
+
+
+vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+    
+    return NULL;
+}

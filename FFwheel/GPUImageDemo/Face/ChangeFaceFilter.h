@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 //尝试下用opencv来获取人脸特征
 @interface ChangeFaceFilter : GPUImageFilter
 {
-    GLint faceArrayUniform,iResolutionUniform,havefaceUniform;
+    GLint faceArrayUniform,iResolutionUniform,haveFaceUniform;
 }
-@property (nonatomic, assign) BOOL hasFace;
+@property (nonatomic, assign) BOOL isHaveFace;
 
 @property (nonatomic, assign) float thinFaceParam;
 
@@ -25,7 +25,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 //人脸特征点+滤镜实时，有点耗电喔。。。
-- (void)setFaceArrayUniform:(NSArray *)pointArrays;
+- (void)setFacePointsArray:(NSArray *)pointArrays;
 
 - (void)setCaptureDevicePosition:(AVCaptureDevicePosition)captureDevicePosition;
 

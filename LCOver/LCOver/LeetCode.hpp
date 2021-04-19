@@ -92,6 +92,8 @@ public:
     string truncateSentence(string s, int k);
     vector<int> findingUsersActiveMinutes(vector<vector<int>>& logs, int k);
     int minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2);
+    int removeElement(vector<int>& nums, int val);
+    bool searchMatrix(vector<vector<int>>& matrix, int target);
 };
 
 #endif /* LeetCode_hpp */

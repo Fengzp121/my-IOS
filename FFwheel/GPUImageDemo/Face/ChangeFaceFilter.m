@@ -210,19 +210,76 @@ NSString *const kGLImageFaceChangeFragmentShaderString = SHADER_STRING
     if(self = [super initWithFragmentShaderFromString:kGLImageFaceChangeFragmentShaderString]){
         faceArrayUniform = [filterProgram uniformIndex:@"locArray"];
         iResolutionUniform = [filterProgram uniformIndex:@"resolution"];
-        havefaceUniform = [filterProgram uniformIndex:@"haveFaceBool"];
+        haveFaceUniform = [filterProgram uniformIndex:@"haveFaceBool"];
     }
     return self;
 }
 
 
 
--(void)setFaceArrayUniform:(NSArray *)pointArrays{
-    
+- (void)setIsHaveFace:(BOOL)isHaveFace{
+    _isHaveFace = isHaveFace;
+    int value = isHaveFace == YES ? 1:0;
+    [self setInteger:value forUniform:haveFaceUniform program:filterProgram];
 }
 
--(void)setCaptureDevicePosition:(AVCaptureDevicePosition)captureDevicePosition{
+
+- (void)setThinFaceParam:(float)thinFaceParam
+{
+    _thinFaceParam = thinFaceParam;
+    [self setFloat:thinFaceParam forUniformName:@"thin_face_param"];
+}
+
+- (void)setEyeParam:(float)eyeParam{
+    _eyeParam = eyeParam;
+    [self setFloat:eyeParam forUniformName:@"eye_param"];
+}
+
+- (void)setNoseParam:(float)noseParam{
+    _noseParam = noseParam;
+    [self setFloat:noseParam forUniformName:@"nose_param"];
+}
+
+- (void)setFacePointsArray:(NSArray *)pointArrays{
     
+    if (pointArrays.count==0) {
+        return;
+    }
+    
+    static GLfloat facePoints[FACE_POINTS_COUNT * 2] = {0};
+    
+    float width = _frameBufferSize.width;
+    float height = _frameBufferSize.height;
+    
+    for (int index = 0; index < FACE_POINTS_COUNT; index++)
+    {
+        CGPoint point = [pointArrays[index] CGPointValue];
+        
+        if (self.isFront) {
+            facePoints[2 * index + 0] = (point.y / width);
+        }else{
+            facePoints[2 * index + 0] = 1.0 - (point.y / width);
+        }
+        
+        facePoints[2 * index + 1] = (point.x / height);
+    }
+    [self setFloatArray:facePoints length:FACE_POINTS_COUNT*2 forUniform:faceArrayUniform program:filterProgram];
+}
+
+
+- (void)setupFilterForSize:(CGSize)filterFrameSize
+{
+    _frameBufferSize = filterFrameSize;
+    [self setSize:filterFrameSize forUniform:iResolutionUniform program:filterProgram];
+}
+
+- (void)setCaptureDevicePosition:(AVCaptureDevicePosition)captureDevicePosition{
+    
+    if (captureDevicePosition == AVCaptureDevicePositionBack) {
+        self.isFront = NO;
+    }else{
+        self.isFront = YES;
+    }
 }
 
 @end

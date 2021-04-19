@@ -12,27 +12,27 @@
 
 #import "VisionBeautifyFaceFilter.h"
 #import "BeautifyFaceFilter.h"
-
+#import "ChangeFaceFilter.h"
 
 #define FilterMinValue 0.00
 #define ThinFaceMaxValue   0.05
 #define BigEyeMaxValue 0.15
 
-@interface BeautyCameraVC ()<GPUImageVideoCameraDelegate,UICollectionViewDelegate,UICollectionViewDataSource>
+@interface BeautyCameraVC ()<GPUImageVideoCameraDelegate,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 @property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
 @property (nonatomic, strong) GPUImageView *filterView;
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UILabel *filterTitle;           //当前选择的滤镜的标题
 @property (nonatomic, strong) UIScrollView *scrollView; //滑动选择美颜效果的
 @property (nonatomic, strong) UIButton *controlBtn;     //现在是美颜开关的按钮，迟点会换成前后摄像头切换的按钮
-@property (nonatomic, strong) UISlider *thinFaceSlider; //现在只需要一个滑动
-@property (nonatomic, strong) UISlider *bigEyeSlider;
+@property (nonatomic, strong) UISlider *theSlider; //现在只需要一个滑动
 
-@property (nonatomic, strong) NSArray *dataSrouce;      //美颜的数据源
+@property (nonatomic, copy) NSArray *dataSrouce;      //美颜的数据源
 
 @property (nonatomic, strong) VisionBeautifyFaceFilter *faceAndEyeFilter;
 @property (nonatomic, strong) BeautifyFaceFilter *beautifyFilter;
-
+@property (nonatomic, strong) ChangeFaceFilter *changeFilter;
 @end
 
 @implementation BeautyCameraVC
@@ -40,30 +40,24 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.dataSrouce = @[@"瘦脸",@"大眼",@"美白",@"缩放",@"灵魂",@"震动",@"大灯",@"毛刺",@"眩晕"];
+    [self buildUI];
+    [self settingCamera];
+    [self createFilters];
+}
+
+-(void)buildUI{
     self.videoCamera = [[GPUImageVideoCamera alloc] initWithSessionPreset:AVCaptureSessionPreset1280x720 cameraPosition:AVCaptureDevicePositionFront];
     self.videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
     self.videoCamera.delegate = self;
     self.videoCamera.horizontallyMirrorRearFacingCamera = YES;
     self.videoCamera.frameRate = 25;
     self.videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
-//    [self.videoCamera addAudioInputsAndOutputs];
     self.filterView = [[GPUImageView alloc] initWithFrame:self.view.bounds];
     self.filterView.center = self.view.center;
     [self.view addSubview:self.filterView];
     [self.videoCamera addTarget:self.filterView];
     [self.videoCamera startCameraCapture];
-    
-    [FFFaceDetect defaultInstance].faceDetectType = FFFaceDetectType_VISION;
-    self.faceAndEyeFilter = [[VisionBeautifyFaceFilter alloc] init];
-    self.beautifyFilter   = [[BeautifyFaceFilter alloc] init];
-    [self.videoCamera addTarget:self.faceAndEyeFilter];
-    [self.videoCamera addTarget:self.beautifyFilter];
-    [self.faceAndEyeFilter addTarget:self.filterView];
-    [self.beautifyFilter addTarget:self.filterView];
-    
-    self.collectionView.contentSize = CGSizeMake(1,0);
-    
-    self.collectionView.alwaysBounceHorizontal = NO;
     
     self.controlBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.controlBtn.backgroundColor = UIColor.whiteColor;
@@ -80,71 +74,55 @@
         make.right.equalTo(self.view).offset(-10);
     }];
 
-    
-    UILabel *title1 = [[UILabel alloc] init];
-    title1.text = @"瘦脸";
-    [self.view addSubview:title1];
-    [title1 mas_makeConstraints:^(MASConstraintMaker *make) {
+    self.filterTitle = [[UILabel alloc] init];
+    self.filterTitle.textColor = UIColor.whiteColor;
+    self.filterTitle.text = @"瘦脸";              //默认廋脸
+    [self.view addSubview:self.filterTitle];
+    [self.filterTitle mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).offset(-(SafeAreaBottom + 50));
         make.left.equalTo(self.view).offset(10);
         make.width.offset(50);
         make.height.offset(20);
     }];
     
-    self.thinFaceSlider = [[UISlider alloc] init];
-    [self.thinFaceSlider addTarget:self action:@selector(moveThinFaceSlider:) forControlEvents:UIControlEventTouchDragInside];
-    [self.view addSubview:self.thinFaceSlider];
-    [self.thinFaceSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(title1);
-        make.left.equalTo(title1.mas_right).offset(10);
+    self.theSlider = [[UISlider alloc] init];
+    [self.theSlider addTarget:self action:@selector(moveTheSlider:) forControlEvents:UIControlEventTouchDragInside];
+    [self.view addSubview:self.theSlider];
+    [self.theSlider mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.centerY.equalTo(self.filterTitle);
+        make.left.equalTo(self.filterTitle.mas_right).offset(10);
         make.right.equalTo(self.controlBtn.mas_left).offset(-10);
         make.height.offset(25);
     }];
     
-    UILabel *title2 = [[UILabel alloc] init];
-    title2.text = @"大眼";
-    [self.view addSubview:title2];
-    [title2 mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.equalTo(self.view).offset(-(SafeAreaBottom + 25));
+    UICollectionViewFlowLayout *collectionViewFlowLayout = [[UICollectionViewFlowLayout alloc] init];
+    collectionViewFlowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    self.collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:collectionViewFlowLayout];
+    self.collectionView.backgroundColor = UIColor.clearColor;
+    self.collectionView.delegate = self;
+    self.collectionView.dataSource = self;
+    [self.view addSubview:self.collectionView];
+    [self.collectionView registerClass:NSClassFromString(@"UICollectionViewCell") forCellWithReuseIdentifier:@"UICollectionViewCell"];
+    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view).offset(10);
-        make.width.offset(50);
-        make.height.offset(20);
-    }];
-    
-    self.bigEyeSlider = [[UISlider alloc] init];
-    [self.bigEyeSlider addTarget:self action:@selector(moveBigEyeSlider:) forControlEvents:UIControlEventTouchDragInside];
-    [self.view addSubview:self.bigEyeSlider];
-    [self.bigEyeSlider mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerY.equalTo(title2);
-        make.left.equalTo(title2.mas_right).offset(10);
         make.right.equalTo(self.controlBtn.mas_left).offset(-10);
-        make.height.offset(25);
+        make.bottom.equalTo(self.view).offset(-SafeAreaBottom);
+        make.height.offset(45);
     }];
-    
-    
-
 }
 
-#pragma mark - CollectionView Delegate/DataSrouce
--(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
-    return 1;
+-(void)settingCamera{
+    [FFFaceDetect defaultInstance].faceDetectType = FFFaceDetectType_FACEPP;
+    self.faceAndEyeFilter = [[VisionBeautifyFaceFilter alloc] init];
+    self.beautifyFilter   = [[BeautifyFaceFilter alloc] init];
+    [self.videoCamera addTarget:self.faceAndEyeFilter];
+    [self.videoCamera addTarget:self.beautifyFilter];
+    [self.faceAndEyeFilter addTarget:self.filterView];
+    [self.beautifyFilter addTarget:self.filterView];
 }
 
--(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    if(!cell){
-        cell = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
-        UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
-        titleLabel.textAlignment = NSTextAlignmentCenter;
-        titleLabel.text = self.dataSrouce[indexPath.item];
-        [cell.contentView addSubview:titleLabel];
-        
-    }
-    return NULL;
-}
-
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    //切换slider
+-(void)createFilters{
+    self.
 }
 
 
@@ -166,43 +144,60 @@
 
 // 这里添加瘦脸和大眼的滤镜的slider控制器
 #pragma mark - slider action
--(void)moveThinFaceSlider:(id)sender{
+-(void)moveTheSlider:(id)sender{
+    //要识别当前数据源是什么类型的滤镜，然后再调整滤镜的参数
     CGFloat f = ((UISlider *)sender).value;
     self.faceAndEyeFilter.thinFaceDelta = (ThinFaceMaxValue - FilterMinValue) * f + FilterMinValue;
 }
 
--(void)moveBigEyeSlider:(id)sender{
-    CGFloat f = ((UISlider *)sender).value;
-    self.faceAndEyeFilter.bigEyeDelta = (BigEyeMaxValue - FilterMinValue) * f + FilterMinValue;
+#pragma mark - CollectionView Delegate/DataSrouce
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
 }
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.dataSrouce.count;
+}
+
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 60, 35)];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    titleLabel.text = self.dataSrouce[indexPath.item];
+    titleLabel.textColor = UIColor.whiteColor;
+    [cell.contentView addSubview:titleLabel];
+    return cell;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    [collectionView deselectItemAtIndexPath:indexPath animated:NO];
+    self.filterTitle.text = self.dataSrouce[indexPath.item];
+    //切换slider
+}
+
+#pragma mark -  UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
+    return CGSizeMake(60, 35);
+}
+//列间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section {
+    return 0;
+}
+//行间距
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 10;
+}
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 5, 0, 5);
+}
+
+
 
 #pragma mark - GPUCamera Delegate
 -(void)willOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer{
-    int a = 0;
-    [[FFFaceDetect defaultInstance] detectWithSampleBuffer:sampleBuffer facePointCount:&a isMirror:YES];
-    NSArray *landmarks = [FFFaceDetect defaultInstance].landmarks;
-    if(landmarks.count){
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            dispatch_async(dispatch_get_main_queue(), ^{
-                for (int i=0; i< landmarks.count; i++) {
-                    UIView *pointview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 3, 3)];
-                    pointview.backgroundColor = [UIColor yellowColor];
-                    NSValue *value = landmarks[i];
-                    CGPoint point = [value CGPointValue];
-                    pointview.center = CGPointMake(point.x * self.filterView.frame.size.width, point.y * self.filterView.frame.size.height);
-                    [self.filterView addSubview:pointview];
-                    
-                    UILabel *indexLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 24, 12)];
-                    indexLabel.font = [UIFont systemFontOfSize:8.0];
-                    indexLabel.textColor = [UIColor orangeColor];
-                    indexLabel.center = CGPointMake(point.x * self.filterView.frame.size.width, point.y * self.filterView.frame.size.height + 5);
-                    indexLabel.text = [NSString stringWithFormat:@"%d",i];
-                    [self.filterView addSubview:indexLabel];
-                }
-                
-            });
-        });
-    }
+    //只有开启瘦脸和大眼之类的脸部特效才需要启用这个来读取。
+    int facePointCount = 0;
+    float* lamdMarks = [[FFFaceDetect defaultInstance] detectWithSampleBuffer:sampleBuffer facePointCount:&facePointCount isMirror:YES];
+   
 }
 @end
