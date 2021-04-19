@@ -1747,8 +1747,57 @@ bool LeetCode::searchMatrix(vector<vector<int>>& matrix, int target){
     return false;
 }
 
-
-vector<double> calcEquation(vector<vector<string>>& equations, vector<double>& values, vector<vector<string>>& queries) {
+int LeetCode::subarraySum(vector<int>& nums, int k) {
+    int ans = 0;
     
-    return NULL;
+    //暴力法
+//    for(int i = 0; i < nums.size(); i++){
+//        int count = 0;
+//        for (int j = i; j < nums.size(); j++) {
+//            count += nums[j];
+//            if(count == k){
+//                ans++;
+//            }
+//        }
+//    }
+    // 1  1  1
+    // k = 2
+    // pre = 3
+    // ans = 2
+    // map = {0,1},{1,1},{2,1},{3,1}
+    //前缀和 + 哈希表
+    unordered_map<int, int> umap;
+    umap[0] = 1;
+    int pre = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        //记录前缀和
+        pre += nums[i];
+        //当某个 前缀和-k 的数已经出现过的时候，就代表有一个连续数组的和为k了
+        //所以要把ans加该 前缀和-k 的统计次数
+        if(umap[pre - k]){
+            ans += umap[pre - k];
+        }
+        //加入新的前缀和
+        umap[pre] += 1;
+    }
+    return ans;
+}
+
+bool isValidSudoku(vector<vector<char>>& board) {
+    //先遍历横的
+    
+    //再遍历竖的
+    
+    //再遍历九宫格的
+    
+    return false;
+}
+
+int strStr(string haystack, string needle) {
+    int ans = 0;
+    int count = (int)needle.size();
+    for (int i = 0; i < haystack.size(); i++) {
+        count--;
+    }
+    return ans;
 }

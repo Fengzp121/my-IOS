@@ -94,6 +94,7 @@ public:
     int minAbsoluteSumDiff(vector<int>& nums1, vector<int>& nums2);
     int removeElement(vector<int>& nums, int val);
     bool searchMatrix(vector<vector<int>>& matrix, int target);
+    int subarraySum(vector<int>& nums, int k);
 };
 
 #endif /* LeetCode_hpp */
