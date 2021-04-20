@@ -95,6 +95,9 @@ public:
     int removeElement(vector<int>& nums, int val);
     bool searchMatrix(vector<vector<int>>& matrix, int target);
     int subarraySum(vector<int>& nums, int k);
+    bool isValidSudoku(vector<vector<string>>& board);
+    int strStr(string haystack, string needle);
+    bool isPalindrome(ListNode *head);
 };
 
 #endif /* LeetCode_hpp */

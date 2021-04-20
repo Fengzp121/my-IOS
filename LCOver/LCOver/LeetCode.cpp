@@ -1783,21 +1783,94 @@ int LeetCode::subarraySum(vector<int>& nums, int k) {
     return ans;
 }
 
-bool isValidSudoku(vector<vector<char>>& board) {
+bool LeetCode::isValidSudoku(vector<vector<string>>& board) {
+    //这种是相对暴力的方法，可以使用一个两层for搞定的。
+    //但是需要三个hashmap
+    
     //先遍历横的
-    
+    unordered_map<string, int> row_map;
+    unordered_map<string, int> col_map;
+    unordered_map<string, int> umap;
+    for(int i = 0; i < 9; i++){
+        for (int j = 0; j < 9; j++) {
+            if(board[i][j] == "."){
+                continue;
+            }
+            if(umap[board[i][j]]) return false;
+            else umap[board[i][j]] = 1;
+        }
+        umap.clear();
+    }
+    umap.clear();
     //再遍历竖的
-    
+    for(int i = 0; i < 9; i++){
+        for (int j = 0; j < 9; j++) {
+            if(board[j][i] == "."){
+                continue;
+            }
+            if(umap[board[j][i]]) return false;
+            else umap[board[j][i]] = 1;
+        }
+        umap.clear();
+    }
+    umap.clear();
     //再遍历九宫格的
-    
-    return false;
+    for(int i = 0; i < 9; i++){
+        int c = i / 3;
+        int y = i % 3;
+        for (int j = c * 3; j < 3 + (c * 3); j++) {
+            for(int k = y * 3; k < 3 + (y * 3); k++){
+                if(board[j][k] == "."){
+                    continue;
+                }
+                if(umap[board[j][k]]) return false;
+                else umap[board[j][k]] = 1;
+            }
+        }
+        umap.clear();
+    }
+    return true;
 }
 
-int strStr(string haystack, string needle) {
-    int ans = 0;
-    int count = (int)needle.size();
-    for (int i = 0; i < haystack.size(); i++) {
-        count--;
+int LeetCode::strStr(string haystack, string needle) {
+    int h_count = (int)haystack.size();
+    int n_count = (int)needle.size();
+    if(n_count == 0) return 0;
+    vector<int> v(n_count);
+    for (int i = 1, j = 0; i < n_count; i++) {
+        while (j > 0 && needle[i] != needle[j]) {
+            j = v[j - 1];
+        }
+        if (needle[i] == needle [j]) {
+            j++;
+        }
     }
-    return ans;
+    for (int i = 0, j = 0; i < h_count; i++){
+        while (j > 0 && haystack[i] != needle[j]) {
+            j = v[j - 1];
+        }
+        if (haystack[i] == needle[j]) {
+            j++;
+        }
+        if (j == n_count) {
+            return i - n_count + 1;
+        }
+    }
+    return -1;
+}
+
+bool LeetCode::isPalindrome(ListNode *head){
+    
+    ListNode *t = head;
+    //求数总和？，但是中间如果只有一个数的情况呢
+    int count = 0;
+    while (head) {
+        count++;
+        head = head->next;
+    }
+    count /= 2;
+    while (t) {
+        
+    }
+    return count >= 0;
 }
