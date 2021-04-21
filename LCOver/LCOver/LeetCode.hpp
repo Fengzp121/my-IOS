@@ -98,6 +98,7 @@ public:
     bool isValidSudoku(vector<vector<string>>& board);
     int strStr(string haystack, string needle);
     bool isPalindrome(ListNode *head);
+    int numDecodings(string s);
 };
 
 #endif /* LeetCode_hpp */

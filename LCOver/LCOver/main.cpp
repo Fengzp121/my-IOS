@@ -44,7 +44,7 @@ int main(int argc, const char * argv[]) {
     
     //---------------leet---------------
     /* 链表 */
-    ListNode* list = List::createList({1,3,1,1});
+//    ListNode* list = List::createList({1,3,1,1});
 
     /* 二叉树 */
 //    int a[] = {4,1,null,2,null,3};
@@ -53,7 +53,8 @@ int main(int argc, const char * argv[]) {
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
-//    string s1 = "abcde";
+//    vector<string> s_v = {"06","226","122","3278","327","10","101","2101","1123"};
+    string s = "11223";
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
 //    cout << st1 << "," << st2 <<endl;
@@ -71,9 +72,11 @@ int main(int argc, const char * argv[]) {
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<int> v = {1,-1,0};
+  //  for (string s : s_v) {
+        auto ans = leetCode.numDecodings(s);
+        cout<< "ans:" << ans << endl;
+  //  }
 
-    auto ans = leetCode.isPalindrome(list);
-    cout<< "ans:" << ans << endl;
 
     
     //---------------排序---------------

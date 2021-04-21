@@ -1404,7 +1404,7 @@ int LeetCode::nthUglyNumber(int n) {
     return dp[n];
 }
 
-//TODO,这个比丑数2复杂
+//TODO:这个比丑数2复杂
 int LeetCode::nthUglyNumber(int n, int a, int b, int c) {
     vector<int> dp(n+1);
     dp[0] = 1;
@@ -1873,4 +1873,30 @@ bool LeetCode::isPalindrome(ListNode *head){
         
     }
     return count >= 0;
+}
+
+
+//和爬楼梯类似
+int LeetCode::numDecodings(string s) {
+    //这三个东西就是状态，
+    //a 是用两个数做解码时的状态，
+    //b 是单个数做解码时的状态，
+    //c 是总数当前i位的状态，就是总数
+    int a = 0, b = 1, c = 0;
+    int len = (int)s.size();
+    //要用状态转移啊。。。
+    
+    for (int i = 1; i <= len; i++) {
+        c = 0;
+        //当就是第第一位不是0⃣️的时候，就记录一次
+        if(s[i-1] != 48){
+            c += b;
+        }
+        // 当不超过26并且第二位不是0⃣️的时候也记录一次
+        if(i > 1 && s[i-2] != 48 && ((s[i-2] - 48) * 10 + (s[i-1]-48) <= 26)){
+            c += a;
+        }
+        tie(a,b) = {b,c};
+    }
+    return c;
 }
