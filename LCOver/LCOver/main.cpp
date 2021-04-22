@@ -44,8 +44,9 @@ int main(int argc, const char * argv[]) {
     
     //---------------leet---------------
     /* 链表 */
-//    ListNode* list = List::createList({1,3,1,1});
-
+    ListNode* list = List::createList({1,4,5});
+    ListNode* list2 = List::createList({1,3,4});
+    ListNode* list3 = List::createList({2,6});
     /* 二叉树 */
 //    int a[] = {4,1,null,2,null,3};
 //    int b[] = {1,NULL,2,NULL,3};
@@ -71,10 +72,11 @@ int main(int argc, const char * argv[]) {
 //        {".",".",".",".",".","2",".",".","."},
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
-//    vector<int> v = {1,-1,0};
+    vector<ListNode *> v = {list,list2,list3};
   //  for (string s : s_v) {
-        auto ans = leetCode.numDecodings(s);
-        cout<< "ans:" << ans << endl;
+    
+    auto ans = leetCode.mergeKLists(v);
+//        cout<< "ans:" << ans << endl;
   //  }
 
 

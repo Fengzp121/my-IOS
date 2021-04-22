@@ -321,23 +321,43 @@ int LeetCode::majorityElement(vector<int>& nums){
     return candidate;
 }
 
-//TODO:合并K个生序链表
+
 ListNode* LeetCode::mergeKLists(vector<ListNode*>& lists) {
-    //        if(lists.size() == 0) return nullptr;
-    //        ListNode *nlist = lists[0];
-    //        while (1) {
-    //            return nullptr;
-    //        }
-    //        for(int i = 0; i < lists.size(); ++i){
-    //            if(lists[i] == nullptr){
-    //                continue;
-    //            }
-    ////            if(nlist.val <= lists[i]->val){
-    ////                nlist.next = lists[i];
-    ////            }
-    //            lists[i] = lists[i]->next;
-    //        }
-    return nullptr;
+    if(lists.size() == 0) return nullptr;
+    ListNode *fastlist = NULL;
+    ListNode *slowlist = NULL;
+    int index = 0;
+    for (ListNode *list : lists) {
+        index++;
+        if(list){
+            fastlist = list->next;
+            slowlist = list;
+            break;
+        }
+    }
+    for(int i = index; i < lists.size(); ++i){
+        ListNode *currentList = lists[i];
+        if(currentList == nullptr){
+            continue;
+        }
+        ListNode *tflist = fastlist;
+        ListNode *tslist = slowlist;
+        while (currentList) {
+            if((!tflist || currentList->val <= tflist->val) && currentList->val >= tslist->val){
+                ListNode *temp = tslist->next;
+                tslist->next = new ListNode(currentList->val);
+                tslist->next->next = temp;
+                tflist = tslist->next;
+                currentList = currentList->next;
+            }else{
+                tflist = tflist->next;
+                tslist = tslist->next;
+            }
+            
+        }
+        fastlist = slowlist->next;
+    }
+    return slowlist;
 }
 
 int LeetCode::lengthOfLongestSubstring(string s) {
@@ -1860,19 +1880,27 @@ int LeetCode::strStr(string haystack, string needle) {
 }
 
 bool LeetCode::isPalindrome(ListNode *head){
-    
-    ListNode *t = head;
-    //求数总和？，但是中间如果只有一个数的情况呢
-    int count = 0;
-    while (head) {
-        count++;
+    ListNode *p = NULL, *fast = head, *slow = head;
+    //找到链表中间点
+    while (fast){//find mid node
+        slow = slow->next;
+        //这个三元表达式有点骚啊
+        fast = fast->next ? fast->next->next: fast->next;
+    }
+    while (slow) {
+        ListNode *temp = slow->next;
+        slow->next = p;
+        p = slow;
+        slow = temp;
+    }
+    while (p) {
+        if(p->val != head->val){
+            return false;
+        }
+        p = p->next;
         head = head->next;
     }
-    count /= 2;
-    while (t) {
-        
-    }
-    return count >= 0;
+    return true;
 }
 
 
