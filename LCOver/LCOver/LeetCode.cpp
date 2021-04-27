@@ -1057,6 +1057,14 @@ vector<vector<int>> levelOrderII(TreeNode* root) {
         if(tqueue.size() > 0)
             vvec.push_back(temp);
     }
+    //这是107的反转
+//    vector<vector<int>> ans;
+//    int v_size = (int)vvec.size();
+//    for(int i = 0; i < v_size; i++){
+//        ans.push_back(vvec.back());
+//        vvec.pop_back();
+//    }
+//    return ans;
     return vvec;
 }
 
@@ -1927,4 +1935,129 @@ int LeetCode::numDecodings(string s) {
         tie(a,b) = {b,c};
     }
     return c;
+}
+
+// 这一题也可以用一个数组存放中序遍历的结果，然后遍历数组组成一个答案
+// 这里使用了原地更改的方法
+void inorder(TreeNode *node, TreeNode*& ans) {
+        if (node == nullptr) return;
+    //先遍历右子树，因为搜索🌲右边比较大。
+        inorder(node->right, ans);
+    //这是为了吧根结点也弄进去
+        node->right = ans;
+        ans = node;
+    //然后遍历左子树
+        inorder(node->left, ans);
+    //遍历完之后就将左节点致空
+        node->left = nullptr;
+}
+
+TreeNode* LeetCode::increasingBST(TreeNode* root) {
+    TreeNode* ans = nullptr;
+    inorder(root, ans);
+    return ans;
+}
+
+int LeetCode::shipWithinDays(vector<int>& weights, int D) {
+    // 确定二分查找左右边界
+    int left = *max_element(weights.begin(), weights.end());    //找到包裹中最大的货
+    int right = accumulate(weights.begin(), weights.end(), 0);  //这是算的累加
+    //然后尝试在这个中找最大的载货量
+    while (left < right) {
+        int mid = (left + right) / 2;
+        // need 为需要运送的天数
+        // cur 为当前这一天已经运送的包裹重量之和
+        int need = 1, cur = 0;
+        for (int weight: weights) {
+            if (cur + weight > mid) {
+                ++need;
+                cur = 0;
+            }
+            cur += weight;
+        }
+        if (need <= D) {
+            right = mid;
+        }else {
+            left = mid + 1;
+        }
+    }
+    return left;
+}
+
+//TODO:今天太菜了
+double LeetCode::findMedianSortedArrays(vector<int>& a, vector<int>& b){
+    int a_len = (int)a.size();
+    int b_len = (int)b.size();
+    int len = a_len + b_len;
+    vector<int> ans_s;
+    int i = 0, j = 0;
+    while(i < a_len || j < b_len){
+        if(a[i] < b[j] && i < a_len){
+            ans_s.push_back(a[i]);
+            i++;
+            continue;
+        }else if(a[i] > b[j] && j < b_len){
+            ans_s.push_back(b[j]);
+            j++;
+            continue;
+        }else if(a[i] == b[j] && i < a_len && j < b_len){
+            ans_s.push_back(a[i]);
+            ans_s.push_back(b[j]);
+            i++;
+            j++;
+        }
+    }
+    double ans = 0;
+    if(len % 2 == 0){
+        ans = (double)ans_s[len/2] / (double)ans_s[len/2 + 1];
+    }else{
+        ans = ans_s[len/2];
+    }
+    return ans;
+}
+
+int LeetCode::rangeSumBST(TreeNode* root, int low, int high) {
+    //这题好像，bfs和dfs都可以，但是dfs还可以再优化，因为这是搜索树，如果小于或者大于范围了，可以不再递归
+    //BFS
+//    int ans = 0;
+//    queue<TreeNode *> queue;
+//    queue.push(root);
+//    while (!queue.empty()) {
+//        int size = (int)queue.size();
+//        for (int i = 0; i < size; i++) {
+//            TreeNode *temp = queue.front();
+//            if(temp->val >= low && high >= temp->val){
+//                ans += temp->val;
+//            }
+//            if(temp->left) queue.push(temp->left);
+//            if(temp->right)queue.push(temp->right);
+//            queue.pop();
+//        }
+//    }
+//    return ans;
+    
+    //DFS
+    if(!root) return 0;
+    if(root->val > high) return rangeSumBST(root->left, low, high);
+    if(root->val < low) return rangeSumBST(root->right, low, high);
+    return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
+}
+
+
+vector<double> averageOfLevels(TreeNode* root) {
+    vector<double> ans;
+    if(!root) return ans;
+    queue<TreeNode *> queue;
+    queue.push(root);
+    ans.push_back({(double)root->val});
+    while (!queue.empty()) {
+        int size = (int)queue.size();
+        for (int i = 0; i < size; i++) {
+            TreeNode *temp = queue.front();
+            if(temp->left) queue.push(temp->left);
+            if(temp->right)queue.push(temp->right);
+            queue.pop();
+        }
+    }
+    return ans;
 }

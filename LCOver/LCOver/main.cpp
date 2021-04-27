@@ -44,18 +44,18 @@ int main(int argc, const char * argv[]) {
     
     //---------------leet---------------
     /* 链表 */
-    ListNode* list = List::createList({1,4,5});
-    ListNode* list2 = List::createList({1,3,4});
-    ListNode* list3 = List::createList({2,6});
+//    ListNode* list = List::createList({1,4,5});
+//    ListNode* list2 = List::createList({1,3,4});
+//    ListNode* list3 = List::createList({2,6});
     /* 二叉树 */
-//    int a[] = {4,1,null,2,null,3};
+//    int a[] = {5,1,7};
 //    int b[] = {1,NULL,2,NULL,3};
 //    TreeNode *tree1 = Tree::creatBTree(a, 0,sizeof(a)/sizeof(int));
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
 //    vector<string> s_v = {"06","226","122","3278","327","10","101","2101","1123"};
-    string s = "11223";
+//    string s = "11223";
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
 //    cout << st1 << "," << st2 <<endl;
@@ -72,10 +72,11 @@ int main(int argc, const char * argv[]) {
 //        {".",".",".",".",".","2",".",".","."},
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
-    vector<ListNode *> v = {list,list2,list3};
+    vector<int> v = {1,3};
+    vector<int> vv = {2};
   //  for (string s : s_v) {
     
-    auto ans = leetCode.mergeKLists(v);
+    auto ans = leetCode.findMedianSortedArrays(v, vv);
 //        cout<< "ans:" << ans << endl;
   //  }
 
@@ -98,12 +99,12 @@ int main(int argc, const char * argv[]) {
     
     
     //---------------运气游戏---------------
-//    MotherFxxker fxxker;
-//    int x = 5;
-//    int m = 5;
-//    while(m--){
-//        fxxker.sixsixsixsixsixsix(x);
-//    }
+    MotherFxxker fxxker;
+    int x = 5;
+    int m = 5;
+    while(m--){
+        fxxker.sixsixsixsixsixsix(x);
+    }
     
     
     return 0;

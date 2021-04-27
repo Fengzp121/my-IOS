@@ -22,6 +22,7 @@
 //#include <cstdio>
 #include <string>
 #include "Struts.hpp"
+#include <numeric>
 
 using namespace std;
 
@@ -99,6 +100,10 @@ public:
     int strStr(string haystack, string needle);
     bool isPalindrome(ListNode *head);
     int numDecodings(string s);
+    TreeNode* increasingBST(TreeNode* root);
+    int shipWithinDays(vector<int>& weights, int D);
+    double findMedianSortedArrays(vector<int>& a, vector<int>& b);
+    int rangeSumBST(TreeNode* root, int low, int high);
 };
 
 #endif /* LeetCode_hpp */
