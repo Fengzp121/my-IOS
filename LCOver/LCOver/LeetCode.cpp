@@ -2061,3 +2061,32 @@ vector<double> averageOfLevels(TreeNode* root) {
     }
     return ans;
 }
+
+bool LeetCode::judgeSquareSum(int c) {
+    //先对sqrt(c), 然后从1 ^ 2 开始计算。
+    //将剩余的看看是否是整数，如果是的话，就直接返回。
+    //a 需要用long 类型，因为 a*a 可能会溢出
+    //b 是一个int 减 a*a 剩余的所以不会存在溢出的情况
+    long a = 0;
+    while(c >= (a*a)){
+        double b = sqrt(c - (a*a));
+        if(b - (int)b == 0){
+            return true;
+        }
+        a++;
+    }
+    return false;
+}
+
+int longestConsecutive(vector<int>& nums) {
+    
+    if(nums.empty())return 0;
+    
+    unordered_map<int, int> umap;
+//    sort(nums.begin(), nums.end());
+    int ans = 0;
+    for (int i = 0; i < nums.size(); i++) {
+       
+    }
+    return ans;
+}

@@ -72,13 +72,12 @@ int main(int argc, const char * argv[]) {
 //        {".",".",".",".",".","2",".",".","."},
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
-    vector<int> v = {1,3};
-    vector<int> vv = {2};
-  //  for (string s : s_v) {
-    
-    auto ans = leetCode.findMedianSortedArrays(v, vv);
-//        cout<< "ans:" << ans << endl;
-  //  }
+    vector<int> v = {1,2,3,5,6,7,8,2147482647};
+//    vector<int> vv = {2};
+    for (int s : v) {
+    auto ans = leetCode.judgeSquareSum(s);
+    cout<< "ans:" << ans << endl;
+    }
 
 
     
@@ -99,13 +98,13 @@ int main(int argc, const char * argv[]) {
     
     
     //---------------运气游戏---------------
-    MotherFxxker fxxker;
-    int x = 5;
-    int m = 5;
-    while(m--){
-        fxxker.sixsixsixsixsixsix(x);
-    }
-    
+//    MotherFxxker fxxker;
+//    int x = 5;
+//    int m = 5;
+//    while(m--){
+//        fxxker.sixsixsixsixsixsix(x);
+//    }
+//
     
     return 0;
 }
