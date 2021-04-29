@@ -75,8 +75,8 @@ int main(int argc, const char * argv[]) {
     vector<int> v = {1,2,3,5,6,7,8,2147482647};
 //    vector<int> vv = {2};
     for (int s : v) {
-    auto ans = leetCode.judgeSquareSum(s);
-    cout<< "ans:" << ans << endl;
+        auto ans = leetCode.judgeSquareSum(s);
+        cout<< "ans:" << ans << endl;
     }
 
 

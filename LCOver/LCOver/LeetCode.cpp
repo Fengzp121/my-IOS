@@ -2044,20 +2044,23 @@ int LeetCode::rangeSumBST(TreeNode* root, int low, int high) {
 }
 
 
-vector<double> averageOfLevels(TreeNode* root) {
+vector<double> LeetCode::averageOfLevels(TreeNode* root) {
     vector<double> ans;
     if(!root) return ans;
     queue<TreeNode *> queue;
     queue.push(root);
-    ans.push_back({(double)root->val});
     while (!queue.empty()) {
         int size = (int)queue.size();
+        double temp_sum = 0.0;
         for (int i = 0; i < size; i++) {
             TreeNode *temp = queue.front();
+            temp_sum += temp->val;
             if(temp->left) queue.push(temp->left);
             if(temp->right)queue.push(temp->right);
             queue.pop();
         }
+        temp_sum /= (double)size;
+        ans.push_back(temp_sum);
     }
     return ans;
 }
@@ -2078,15 +2081,8 @@ bool LeetCode::judgeSquareSum(int c) {
     return false;
 }
 
-int longestConsecutive(vector<int>& nums) {
-    
-    if(nums.empty())return 0;
-    
-    unordered_map<int, int> umap;
-//    sort(nums.begin(), nums.end());
-    int ans = 0;
-    for (int i = 0; i < nums.size(); i++) {
-       
-    }
-    return ans;
+bool canCross(vector<int>& stones) {
+    //🐸会游泳。跳你个锤子
+
+    return false;
 }

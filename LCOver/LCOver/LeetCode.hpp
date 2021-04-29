@@ -104,6 +104,7 @@ public:
     int shipWithinDays(vector<int>& weights, int D);
     double findMedianSortedArrays(vector<int>& a, vector<int>& b);
     int rangeSumBST(TreeNode* root, int low, int high);
+    vector<double> averageOfLevels(TreeNode* root);
     bool judgeSquareSum(int c);
 };
 
