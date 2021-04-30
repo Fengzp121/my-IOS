@@ -72,12 +72,13 @@ int main(int argc, const char * argv[]) {
 //        {".",".",".",".",".","2",".",".","."},
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
-    vector<int> v = {1,2,3,5,6,7,8,2147482647};
+    //
+    vector<int> v = {0,1,1,3};
 //    vector<int> vv = {2};
-    for (int s : v) {
-        auto ans = leetCode.judgeSquareSum(s);
-        cout<< "ans:" << ans << endl;
-    }
+//    for (int s : v) {
+        auto ans = leetCode.getMaximumXor(v,2);
+//        cout<< "ans:" << ans << endl;
+//    }
 
 
     

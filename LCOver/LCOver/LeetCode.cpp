@@ -2016,6 +2016,8 @@ double LeetCode::findMedianSortedArrays(vector<int>& a, vector<int>& b){
     return ans;
 }
 
+
+
 int LeetCode::rangeSumBST(TreeNode* root, int low, int high) {
     //这题好像，bfs和dfs都可以，但是dfs还可以再优化，因为这是搜索树，如果小于或者大于范围了，可以不再递归
     //BFS
@@ -2042,6 +2044,8 @@ int LeetCode::rangeSumBST(TreeNode* root, int low, int high) {
     if(root->val < low) return rangeSumBST(root->right, low, high);
     return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
 }
+
+
 
 
 vector<double> LeetCode::averageOfLevels(TreeNode* root) {
@@ -2081,8 +2085,84 @@ bool LeetCode::judgeSquareSum(int c) {
     return false;
 }
 
-bool canCross(vector<int>& stones) {
-    //🐸会游泳。跳你个锤子
 
-    return false;
+int LeetCode::singleNumber(vector<int>& nums) {
+    int a = 0, b = 0;
+    for (auto x : nums) {
+        b = (b ^ x) & ~a;
+        a = (a ^ x) & ~b;
+    }
+    return b;
+}
+
+int LeetCode::minOperations(vector<int>& nums) {
+    int ans = 0;
+    for(int i = 1; i < nums.size(); i++){
+        if(nums[i] > nums[i-1]){
+            continue;
+        }
+        ans = ans + nums[i-1] - nums[i] + 1;
+        nums[i] = nums[i - 1] + 1;
+    }
+    return ans;
+}
+
+vector<int> LeetCode::countPoints(vector<vector<int>>& points, vector<vector<int>>& queries) {
+    vector<int> ans;
+    for (int i = 0; i < queries.size(); i++) {
+        int sum_point = 0;
+        for (int j = 0; j < points.size(); j++) {
+            //(x-a)^2 + (y-b)^2 = r^2;
+            if((((queries[i][0] - points[j][0]) * (queries[i][0] - points[j][0])) + ((queries[i][1] - points[j][1]) * (queries[i][1] - points[j][1]))) <= (queries[i][2] * queries[i][2])){
+                sum_point++;
+            }
+        }
+        ans.push_back(sum_point);
+    }
+    return ans;
+}
+
+int xor_builder(int x,int max){
+    int ans = 0;
+    while (max >= 0) {
+        //直接用最大的与数组中异或结果相异或，如果存在一个ans比max小的就返回
+        ans = x ^ max;
+        if(ans <= max)break;
+        //如果没有就继续找是否有比max再小一点的，直到0
+        max--;
+    }
+    return ans;
+}
+
+// 数组内每个元素进行异或，得出一个可以让异或结果最大的数，这个数就是答案
+vector<int> LeetCode::getMaximumXor(vector<int>& nums, int maximumBit) {
+    vector<int> ans;
+    //用一个stack倒着装全部异或的结果，最后再遍历一次放到vector中
+    stack<int> xor_stack;
+    int max_k = (2 << (maximumBit - 1)) - 1;
+    //这里抽取了第一个数出来所以要先对这个数计算一下。
+    int first = nums[0];
+    xor_stack.push(xor_builder(first,max_k));
+    for (int i = 1; i < nums.size(); i++) {
+        first ^= nums[i];
+        //我在这里就可以算了啊
+        xor_stack.push(xor_builder(first,max_k));
+    }
+    
+    for(int i = 0; i < nums.size(); i++){
+        ans.push_back(xor_stack.top());
+        xor_stack.pop();
+    }
+    return ans;
+}
+
+int LeetCode::numberOfMatches(int n) {
+    if(n <= 1) return 0;
+    int ans = 0;
+    while (n > 2) {
+        int t = n / 2;
+        ans += t;
+        n -= t;
+    }
+    return ans + 1;
 }

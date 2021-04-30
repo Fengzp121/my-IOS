@@ -106,6 +106,11 @@ public:
     int rangeSumBST(TreeNode* root, int low, int high);
     vector<double> averageOfLevels(TreeNode* root);
     bool judgeSquareSum(int c);
+    int singleNumber(vector<int>& nums);
+    int minOperations(vector<int>& nums);
+    vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries);
+    vector<int> getMaximumXor(vector<int>& nums, int maximumBit);
+    int numberOfMatches(int n);
 };
 
 #endif /* LeetCode_hpp */
