@@ -434,28 +434,17 @@ bool LeetCode::hasCycle(ListNode *head) {
     }
     return true;
 }
-
-//TODO:股票最大收益
+//7,1,5,3,6,4
 int LeetCode::maxProfit(vector<int>& prices) {
-    int len = (int)prices.size();
-    vector<int> nums;
-    int ans = 0;
-    int count = 0;
-    //只能买卖一次
-    for (int i = 1; i < len; i++) {
-        nums.push_back(prices[i] - prices[i-1]);
-        count += nums[i-1];
+    int inf = 1e9;
+    int minprice = inf, maxprofit = 0;
+    for (int price: prices) {
+        //最高点卖出
+        maxprofit = max(maxprofit, price - minprice);
+        //最低点买入
+        minprice = min(price, minprice);
     }
-    if(count <= 0) return 0;
-    int l = 0,r = (int)nums.size() - 1;
-    while (l < r) {
-        if(nums[l] > 0){
-            
-        }
-        int x = nums[l] > 0 ? count - nums[l] : count + nums[l];
-    }
-    
-    return ans;
+    return maxprofit;
 }
 
 void LeetCode::rotate(vector<vector<int>>& matrix) {
@@ -2166,3 +2155,77 @@ int LeetCode::numberOfMatches(int n) {
     }
     return ans + 1;
 }
+
+
+vector<int> LeetCode::decode(vector<int>& encoded, int first) {
+    vector<int> ans;
+    ans.push_back(first);
+    for (int i = 0; i < encoded.size(); i++) {
+        int t = first ^ encoded[i];
+        ans.push_back(t);
+        first = t;
+    }
+    return ans;
+}
+
+unordered_map<int, Employee*> getImportance_umap;
+int getImportance_dfs(int id){
+    if(!getImportance_umap[id]) return 0;
+    Employee* father = getImportance_umap[id];
+    int sum = father->importance;
+    for (int sub_id : father->subordinates) {
+        sum += getImportance_dfs(sub_id);
+    }
+    return sum;
+}
+
+int LeetCode::getImportance(vector<Employee*> employees, int id) {
+    int ans = 0;
+    //先将每个员工弄到哈希表
+    for (auto employee : employees) {
+        getImportance_umap[employee->id] = employee;
+    }
+    Employee* father = getImportance_umap[id];
+    ans += father->importance;
+    //遍历这个人以下的sub_id
+    for (int sub_id : father->subordinates) {
+        ans += getImportance_dfs(sub_id);
+    }
+    return ans;
+}
+
+//[[1,2,2,1],[3,1,2],[1,3,2],[2,4],[3,1,2],[1,3,1,1]]
+int LeetCode::leastBricks(vector<vector<int>>& wall) {
+    unordered_map<int, int> umap;
+    for (int i = 0; i < wall.size(); i++) {
+        //墙的大小是有区别的。有的砖会大一点。
+        int width = 0;
+        for (int j = 0; j < wall[i].size() - 1; j++) {
+            //看看第几个位置有洞，插进去
+            //第一个位置最后一个位置可能有空隙的
+            width += wall[i][j];
+            //让width后面的位置+1
+            umap[width]++;
+        }
+    }
+    if(umap.empty()) return (int)wall.size();
+    int ans = umap.begin()->second;
+    for (auto iter = umap.begin(); iter != umap.end() ; ++iter) {
+        ans = max(ans, iter->second);
+    }
+    return (int)wall.size() - ans;
+}
+
+int LeetCode::reverse(int x) {
+    int ans = 0;
+    while(x){
+        if(ans < INT_MIN / 10 || ans > INT_MAX / 10){
+            return 0;
+        }
+        ans = ans * 10 + x % 10;
+        x /= 10;
+    }
+    return ans;
+}
+
+

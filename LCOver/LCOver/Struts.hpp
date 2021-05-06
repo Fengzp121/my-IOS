@@ -150,6 +150,12 @@ public:
     }
 };
 
+class Employee {
+public:
+    int id;
+    int importance;
+    std::vector<int> subordinates;
+};
 
 
 #endif /* Struts_h */

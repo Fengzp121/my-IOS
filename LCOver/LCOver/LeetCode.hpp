@@ -111,6 +111,10 @@ public:
     vector<int> countPoints(vector<vector<int>>& points, vector<vector<int>>& queries);
     vector<int> getMaximumXor(vector<int>& nums, int maximumBit);
     int numberOfMatches(int n);
+    vector<int> decode(vector<int>& encoded, int first);
+    int getImportance(vector<Employee*> employees, int id);
+    int leastBricks(vector<vector<int>>& wall);
+    int reverse(int x);
 };
 
 #endif /* LeetCode_hpp */
