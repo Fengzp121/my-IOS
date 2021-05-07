@@ -72,14 +72,21 @@ int main(int argc, const char * argv[]) {
 //        {".",".",".",".",".","2",".",".","."},
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
-    //
 //    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
-    vector<int> vv = {7,1,5,3,6,4};
+//    vector<int> vv = {7,1,5,3,6,4};
+    
+    
 //    for (int s : v) {
-    auto ans = leetCode.maxProfit(vv);
-        cout<< "ans:" << ans << endl;
+    auto ans = leetCode.generateParenthesis(3);
+//    cout<< "ans:" << ans << endl;
 //    }
-
+    
+    
+    cout << "ans :";
+    for(auto a : ans){
+        cout << a << ",";
+    }
+    cout << endl;
 
     
     //---------------排序---------------

@@ -499,14 +499,31 @@ int LeetCode::maxDepth(TreeNode* root) {
     return max;
 }
 
-//TODO:生成括号
+string generateParenthesis_dfs(){
+    
+    return "";
+}
+
 vector<string> LeetCode::generateParenthesis(int n) {
-    string s;
-    for (int i = 0; i < n; ++i) {
-        s.append("(");
-        s.append(")");
+    vector<string> ans;
+    string s = "()";
+    ans.push_back(s);
+    int sum = 2;
+    for(int i = 1; i < n; i++){
+        vector<string> temp_ans = ans;
+        ans.clear();
+        for(string temp_s : temp_ans){
+            int j = 0;
+            for (int k = 0; k < sum; k++) {
+                string t = temp_s;
+                t.insert(j, "()");
+                ans.push_back(t);
+                j++;
+            }
+        }
+        sum++;
     }
-    return {};
+    return ans;
 }
 
 vector<vector<int>> LeetCode::subsets(vector<int>& nums) {
@@ -2229,3 +2246,28 @@ int LeetCode::reverse(int x) {
 }
 
 
+int LeetCode::xorOperation(int n, int start) {
+    int ans = start;
+    for(int i = 1; i < n; i++){
+        ans = ans ^ (start + 2 * i);
+    }
+    return ans;
+}
+
+int LeetCode::getMinDistance(vector<int>& nums, int target, int start) {
+    int ans = INT_MAX;
+    for(int i = 0; i < nums.size(); i++){
+        if(nums[i] == target){
+            ans = min(ans,abs(i - start));
+        }
+    }
+    return ans;
+}
+
+vector<int> LeetCode::countBits(int num) {
+    vector<int> ans;
+    for (int i = 0; i <= num; i++) {
+        ans.push_back(__builtin_popcount(i));
+    }
+    return ans;
+}

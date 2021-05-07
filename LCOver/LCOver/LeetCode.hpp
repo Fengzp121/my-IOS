@@ -115,6 +115,9 @@ public:
     int getImportance(vector<Employee*> employees, int id);
     int leastBricks(vector<vector<int>>& wall);
     int reverse(int x);
+    int xorOperation(int n, int start);
+    int getMinDistance(vector<int>& nums, int target, int start);
+    vector<int> countBits(int num);
 };
 
 #endif /* LeetCode_hpp */
