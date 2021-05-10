@@ -118,6 +118,8 @@ public:
     int xorOperation(int n, int start);
     int getMinDistance(vector<int>& nums, int target, int start);
     vector<int> countBits(int num);
+    int minDays(vector<int>& bloomDay, int m, int k);
+    bool leafSimilar(TreeNode* root1, TreeNode* root2);
 };
 
 #endif /* LeetCode_hpp */

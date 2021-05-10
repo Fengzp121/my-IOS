@@ -2271,3 +2271,68 @@ vector<int> LeetCode::countBits(int num) {
     }
     return ans;
 }
+
+bool minDays_canMake(vector<int>& bloomDay, int days, int m, int k) {
+    int bouquets = 0;
+    int flowers = 0;
+    int length = (int)bloomDay.size();
+    for (int i = 0; i < length && bouquets < m; i++) {
+        if (bloomDay[i] <= days) {
+            flowers++;
+            if (flowers == k) {
+                bouquets++;
+                flowers = 0;
+            }
+        } else {
+            flowers = 0;
+        }
+    }
+    return bouquets >= m;
+}
+int LeetCode::minDays(vector<int>& bloomDay, int m, int k) {
+    if (m > bloomDay.size() / k) {
+        return -1;
+    }
+    int low = INT_MAX, high = 0;
+    int length = (int)bloomDay.size();
+    for (int i = 0; i < length; i++) {
+        low = min(low, bloomDay[i]);
+        high = max(high, bloomDay[i]);
+    }
+    while (low < high) {
+        int days = (high - low) / 2 + low;
+        if (minDays_canMake(bloomDay, days, m, k)) {
+            high = days;
+        } else {
+            low = days + 1;
+        }
+    }
+    return low;
+}
+
+
+queue<int> leafSimilar_que;
+void leafSimilar_dfs(TreeNode *root, bool popOrpush){
+    if(!root) return;
+    if(!root->left && !root->right){
+        if(popOrpush){
+            leafSimilar_que.push(root->val);
+        }else{
+            if(root->val == leafSimilar_que.front() && !leafSimilar_que.empty()){
+                leafSimilar_que.pop();
+            }else{
+                leafSimilar_que.push(root->val);
+            }
+        }
+        return;
+    }
+    leafSimilar_dfs(root->left,popOrpush);
+    leafSimilar_dfs(root->right,popOrpush);
+}
+bool LeetCode::leafSimilar(TreeNode* root1, TreeNode* root2) {
+    leafSimilar_dfs(root1, true);
+    leafSimilar_dfs(root2, false);
+    return leafSimilar_que.size() == 0;
+}
+
+
