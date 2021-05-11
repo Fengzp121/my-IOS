@@ -120,6 +120,8 @@ public:
     vector<int> countBits(int num);
     int minDays(vector<int>& bloomDay, int m, int k);
     bool leafSimilar(TreeNode* root1, TreeNode* root2);
+    vector<int> decode(vector<int>& encoded);
+    bool findNumberIn2DArray(vector<vector<int>>& matrix, int target);
 };
 
 #endif /* LeetCode_hpp */

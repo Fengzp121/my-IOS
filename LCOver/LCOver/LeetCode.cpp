@@ -1990,32 +1990,47 @@ int LeetCode::shipWithinDays(vector<int>& weights, int D) {
     return left;
 }
 
-//TODO:今天太菜了
-double LeetCode::findMedianSortedArrays(vector<int>& a, vector<int>& b){
-    int a_len = (int)a.size();
-    int b_len = (int)b.size();
+//我是🐷
+double LeetCode::findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2){
+    int a_len = (int)nums1.size();
+    int b_len = (int)nums2.size();
     int len = a_len + b_len;
     vector<int> ans_s;
     int i = 0, j = 0;
+    //😂合并数组
     while(i < a_len || j < b_len){
-        if(a[i] < b[j] && i < a_len){
-            ans_s.push_back(a[i]);
+        if(i < a_len && j == b_len){
+            ans_s.push_back(nums1[i]);
             i++;
             continue;
-        }else if(a[i] > b[j] && j < b_len){
-            ans_s.push_back(b[j]);
+        }
+        if(j < b_len && i == a_len){
+            ans_s.push_back(nums2[j]);
             j++;
             continue;
-        }else if(a[i] == b[j] && i < a_len && j < b_len){
-            ans_s.push_back(a[i]);
-            ans_s.push_back(b[j]);
+        }
+        if(nums1[i] < nums2[j]){
+            ans_s.push_back(nums1[i]);
+            i++;
+            continue;
+        }
+        if(nums1[i] > nums2[j]){
+            ans_s.push_back(nums2[j]);
+            j++;
+            continue;
+        }
+        if(nums1[i] == nums2[j] && i < a_len && j < b_len){
+            ans_s.push_back(nums1[i]);
+            ans_s.push_back(nums2[j]);
             i++;
             j++;
         }
     }
+    //取中位数
     double ans = 0;
     if(len % 2 == 0){
-        ans = (double)ans_s[len/2] / (double)ans_s[len/2 + 1];
+        ans = (double)ans_s[len/2 - 1] + (double)ans_s[len/2];
+        ans /= 2;
     }else{
         ans = ans_s[len/2];
     }
@@ -2334,5 +2349,71 @@ bool LeetCode::leafSimilar(TreeNode* root1, TreeNode* root2) {
     leafSimilar_dfs(root2, false);
     return leafSimilar_que.size() == 0;
 }
+// 3 ， 1
+// 1， 2， 3
+//encoded[i] = prem[i] ^ prem[i+1]
 
+//n个数 encoded后生成的encoded数组
+//prem中还不是重复的数
+vector<int> LeetCode::decode(vector<int>& encoded) {
+    int n = (int)encoded.size() + 1;
+    int a = 0;
+    for (int i = 1; i <= n; i++){
+        a ^= i;
+    }
+    for (int i = n - 2; i >= 0; i-=2) {
+        a ^= encoded[i];
+    }
+    vector<int> prem(n);
+    prem[0] = a;
+    for (int i = 0; i < n - 1; i++) {
+        prem[i + 1] = prem[i] ^ encoded[i];
+    }
+    return prem;
+}
 
+//[
+//  [1,   4,  7, 11, 15],
+//  [2,   5,  8, 12, 19],
+//  [3,   6,  9, 16, 22],
+//  [10, 13, 14, 17, 24],
+//  [18, 21, 23, 26, 30]
+//]
+
+bool LeetCode::findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
+    //这种是O(nlogn)
+//    for (auto v : matrix) {
+//        if(v.empty()) return false;
+//        if(v.front() <= target && target <= v.back()){
+//            //这里要用二分法
+//            int low = 0, high = (int)v.size() - 1;
+//            while (low <= high) {
+//                int mid = (low+high) / 2;
+//                if(v[mid] == target) return true;
+//                if(v[mid] < target){
+//                    low = mid + 1;
+//                }else{
+//                    high = mid - 1;
+//                }
+//            }
+//        }
+//    }
+//    return false;
+    
+    //这种方法比较屌 O(m+n)
+    if(matrix.empty() || matrix[0].empty()){
+        return false;
+    }
+    int col = (int)matrix.size();
+    int row_len = (int)matrix[0].size();
+    int row = 0;
+    while (col >= 0 && row < row_len) {
+        if(matrix[row][col] == target) return true;
+        if(matrix[row][col] > target){
+            col--;
+        }else{
+            row++;
+        }
+    }
+    return false;
+}

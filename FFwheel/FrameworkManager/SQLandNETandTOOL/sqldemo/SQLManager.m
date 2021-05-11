@@ -14,8 +14,9 @@ static NSString *_dbName = @"demoDB";
 @property (nonatomic, strong) NSMutableArray *tableArr;
 @end
 @implementation SQLManager
-static id _instance = nil;
+
 +(instancetype)shareInstance{
+    static id _instance;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (!_instance) {

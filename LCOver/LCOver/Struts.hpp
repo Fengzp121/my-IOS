@@ -158,4 +158,23 @@ public:
 };
 
 
+class CQueue {
+private:
+    std::stack<int> s1;
+    std::stack<int> s2;
+public:
+    CQueue() {
+
+    }
+    
+    void appendTail(int value) {
+        s1.push(value);
+        
+    }
+    
+    int deleteHead() {
+        return 1;
+    }
+};
+
 #endif /* Struts_h */
