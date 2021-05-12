@@ -73,12 +73,12 @@ int main(int argc, const char * argv[]) {
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
-//    vector<int> v1 = {1,3};
+    vector<int> v1 = {1,3,4,8};
 //    vector<int> v2 = {2};
-    vector<vector<int>> null_v = {{-1,3}};
+    vector<vector<int>> null_v = {{0,1},{1,2},{2,3},{3,3}};
 //    for (int s : v) {
-    auto ans = leetCode.findNumberIn2DArray(null_v,3);
-    cout<< "ans:" << ans << endl;
+    auto ans = leetCode.xorQueries(v1,null_v);
+//    cout<< "ans:" << ans << endl;
 //    }
     
     

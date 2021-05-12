@@ -2417,3 +2417,43 @@ bool LeetCode::findNumberIn2DArray(vector<vector<int>>& matrix, int target) {
     }
     return false;
 }
+
+
+vector<int> LeetCode::xorQueries(vector<int>& arr, vector<vector<int>>& queries) {
+    //arr是最大三千个，所以设置一个少一个的数组装全部异或的结果
+    int temp[arr.size() - 1];
+    int t = arr.front();
+    for(int i = 1; i < arr.size(); i++){
+        t ^= arr[i];
+        temp[i-1] = t;
+    }
+    //如果L从0开始，就直接获取temp中R - 1的index的值
+    //如果不是从0开始，就将arr中0-L的index的数，从新异或temp中 R - 1的数得出结果
+    vector<int> ans;
+    for(auto v : queries){
+        if(v[0] == v[1]){
+            ans.push_back(arr[v[0]]);
+            continue;
+        }
+        int b = temp[v[1] - 1];
+        if(v[0] > 0){
+            int a;
+            if(v[0] == 1){
+                a = arr[0];
+            }else{
+                a = temp[v[0] - 2];
+            }
+            ans.push_back(a^b);
+        }else{
+            ans.push_back(b);
+        }
+    }
+    return ans;
+}
+
+bool validateStackSequences(vector<int>& pushed, vector<int>& popped){
+    for (int i = 0; i < pushed.size(); i++) {
+        
+    }
+    return true;
+}

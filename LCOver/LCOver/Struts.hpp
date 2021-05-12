@@ -169,11 +169,22 @@ public:
     
     void appendTail(int value) {
         s1.push(value);
-        
     }
     
     int deleteHead() {
-        return 1;
+        if(!s2.empty()){
+            int pop = s2.top();
+            s2.pop();
+            return pop;
+        }
+        if(s1.empty()) return -1;
+        while(!s1.empty()){
+            s2.push(s1.top());
+            s1.pop();
+        }
+        int pop = s2.top();
+        s2.pop();
+        return pop;
     }
 };
 
