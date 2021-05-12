@@ -123,6 +123,7 @@ public:
     vector<int> decode(vector<int>& encoded);
     bool findNumberIn2DArray(vector<vector<int>>& matrix, int target);
     vector<int> xorQueries(vector<int>& arr, vector<vector<int>>& queries);
+    bool validateStackSequences(vector<int>& pushed, vector<int>& popped);
 };
 
 #endif /* LeetCode_hpp */
