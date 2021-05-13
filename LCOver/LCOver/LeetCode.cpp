@@ -2463,3 +2463,66 @@ bool LeetCode::validateStackSequences(vector<int>& pushed, vector<int>& popped){
     }
     return stack.empty();
 }
+
+//字符          数值
+//I             1
+//V             5
+//X             10
+//L             50
+//C             100
+//D             500
+//M             1000
+//    I 可以放在 V (5) 和 X (10) 的左边，来表示 4 和 9。
+//    X 可以放在 L (50) 和 C (100) 的左边，来表示 40 和 90。
+//    C 可以放在 D (500) 和 M (1000) 的左边，来表示 400 和 900。
+string intToRoman_extern(string a, int count){
+    string s = "";
+    for (int i = 0; i < count; i++) {
+        s.append(a);
+    }
+    return s;
+}
+
+string LeetCode::intToRoman(int num) {
+    string ans = "";
+    //这里吧4百40之类的枚举出来会更快，但是算了
+    unordered_map<int,string> umap = {{1,"I"},{5,"V"},{10,"X"},{50,"L"},{100,"C"},{500,"D"},{1000,"M"}};
+
+    int y = 1;
+    while (num) {
+        int t = num % 10;
+        if(t){
+            if(t < 4){
+                ans.insert(0, intToRoman_extern(umap[y], t));
+            }else if(t == 4){
+                ans.insert(0, umap[y * 5]);
+                ans.insert(0, umap[y]);
+            }else if(t > 4 && t < 9){
+                ans.insert(0,intToRoman_extern(umap[y], t - 5));
+                ans.insert(0, umap[y * 5]);
+            }else{
+                ans.insert(0, umap[y * 10]);
+                ans.insert(0, umap[y]);
+            }
+        }
+        num /= 10;
+        y *= 10;
+    }
+    
+
+    return ans;
+}
+
+char LeetCode::firstUniqChar(string s) {
+    if(s.size() == 0) return ' ';
+    unordered_map<char,int> umap;
+    for(int i = (int)s.size() - 1; i >= 0; i--){
+        umap[s[i]]++;
+    }
+    for(auto iter = umap.begin(); iter != umap.end(); ++iter){
+        if(iter->second == 1){
+            return iter->first;
+        }
+    }
+    return ' ';
+}

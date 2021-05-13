@@ -55,7 +55,7 @@ int main(int argc, const char * argv[]) {
     
     /* 字符串 */
 //    vector<string> s_v = {"06","226","122","3278","327","10","101","2101","1123"};
-//    string s = "11223";
+    string s = "leetcode";
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
 //    cout << st1 << "," << st2 <<endl;
@@ -73,16 +73,12 @@ int main(int argc, const char * argv[]) {
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
-//    vector<int> v1 = {1,0,2};
+//    vector<int> v1 = {3,4,9,58,1994};
 //    vector<int> v2 = {2,1,0};
-//    vector<int> v1 = {0,2,1};
-//    vector<int> v2 = {0,1,2};
-    vector<int> v1 = {2,1,0};
-    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
-//    for (int s : v) {
-    auto ans = leetCode.validateStackSequences(v1,v2);
-    cout<< "ans:" << ans << endl;
+//    for (int s : v1) {
+        auto ans = leetCode.firstUniqChar(s);
+        cout<< "ans:" << ans << endl;
 //    }
     
     
