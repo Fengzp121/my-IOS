@@ -2526,3 +2526,41 @@ char LeetCode::firstUniqChar(string s) {
     }
     return ' ';
 }
+
+//正常情况
+//输入：s = "42"
+//输出：42
+
+//这个是截取到‘ ’就停止，要之前有数字才能停止
+//如果一开始没遇到数字就停止，当然遇到‘ ’，一下三种情况结合
+//输入：s = "4193 with words"
+//输出：4193
+//输入：s = "words and 987"
+//输出：0
+
+//还要弄负数
+//输入：s = "   -42"
+//输出：-42
+
+//要防止溢出的判断
+//输入：s = "-91283472332"
+//输出：-2147483648
+int LeetCode::myAtoi(string s) {
+    int ans = 0;
+    int flag = 1;
+    for(char c : s){
+        if(ans != 0 && c == ' ') return ans;
+        if(c == '-' && flag == -1) return ans;
+        if(c > '9' || c == '.') return ans;
+        
+        if(c == '-' && flag == 1) flag = -1;
+        if(c >= '0' && c <= '9'){
+            if(ans > INT32_MAX / 10) return INT32_MAX;
+            if(ans < INT32_MIN / 10) return INT32_MIN;
+            int temp = (c - '0') * flag;
+            ans *= 10;
+            ans += temp;
+        }
+    }
+    return ans;
+}

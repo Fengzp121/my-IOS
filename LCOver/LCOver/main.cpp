@@ -54,8 +54,8 @@ int main(int argc, const char * argv[]) {
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
-//    vector<string> s_v = {"06","226","122","3278","327","10","101","2101","1123"};
-    string s = "leetcode";
+    vector<string> s_v = {"06","words and 987","225","-42","-91283472332","91283472332","    123","        -32","3.123","-3.123","+-3.2","+3"};
+//    string s = "";
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
 //    cout << st1 << "," << st2 <<endl;
@@ -76,10 +76,10 @@ int main(int argc, const char * argv[]) {
 //    vector<int> v1 = {3,4,9,58,1994};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
-//    for (int s : v1) {
-        auto ans = leetCode.firstUniqChar(s);
+    for (string s : s_v) {
+        auto ans = leetCode.myAtoi(s);
         cout<< "ans:" << ans << endl;
-//    }
+    }
     
     
 //    cout << "ans :";

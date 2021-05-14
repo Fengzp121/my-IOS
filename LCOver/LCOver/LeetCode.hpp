@@ -126,6 +126,7 @@ public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped);
     string intToRoman(int num);
     char firstUniqChar(string s);
+    int myAtoi(string s);
 };
 
 #endif /* LeetCode_hpp */
