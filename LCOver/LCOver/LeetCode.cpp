@@ -2564,3 +2564,36 @@ int LeetCode::myAtoi(string s) {
     }
     return ans;
 }
+
+
+bool LeetCode::isCousins(TreeNode* root, int x, int y) {
+    if(!root) return false;
+    queue<TreeNode *> que;
+    que.push(root);
+    while (!que.empty()) {
+        int size = (int)que.size();
+        bool xf = false, yf = false;
+        for (int i = 0; i < size; i++) {
+            TreeNode *t = que.front();
+            if(t->left){
+                que.push(t->left);
+                if(!xf)xf = x == t->left->val;
+                if(!yf)yf = y == t->left->val;
+            }
+            if(t->right){
+                que.push(t->right);
+                if(!xf)xf = x == t->right->val;
+                if(!yf)yf = y == t->right->val;
+            }
+            //判断同一表亲
+            if(t->left && t->right && ((t->left->val == x && t->right->val == y )|| (t->left->val == y && t->right->val == x))){
+                return false;
+            }else{
+                //同一深度
+                if(xf && yf) return true;
+            }
+            que.pop();
+        }
+    }
+    return false;
+}

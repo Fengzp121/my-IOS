@@ -126,7 +126,8 @@ public:
     bool validateStackSequences(vector<int>& pushed, vector<int>& popped);
     string intToRoman(int num);
     char firstUniqChar(string s);
-    int myAtoi(string s);
+    int myAtoi(string s);//TODO
+    bool isCousins(TreeNode* root, int x, int y);
 };
 
 #endif /* LeetCode_hpp */
