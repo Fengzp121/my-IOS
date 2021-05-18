@@ -2597,3 +2597,24 @@ bool LeetCode::isCousins(TreeNode* root, int x, int y) {
     }
     return false;
 }
+
+//2,3,1,6,7
+//输出：4
+//解释：满足题意的三元组分别是 (0,1,2), (0,2,2), (2,3,4) 以及 (2,4,4)
+// i,j,k arr[i] ^ arr[j] == arr[j] ^ arr[k]
+
+int LeetCode::countTriplets(vector<int>& arr) {
+    vector<int> v(arr.size() + 1);
+    for (int i = 0; i < arr.size(); i++) {
+        v[i + 1] = v[i] ^ arr[i];
+    }
+    int ans = 0;
+    for (int i = 0; i < arr.size(); i++) {
+        for (int j = i + 1; j < arr.size(); j++) {
+            for(int k = j; k < arr.size(); k++){
+                if(v[i] == v[k+1]) ans++;
+            }
+        }
+    }
+    return ans;
+}

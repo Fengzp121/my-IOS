@@ -54,7 +54,7 @@ int main(int argc, const char * argv[]) {
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
-    vector<string> s_v = {"06","words and 987","225","-42","-91283472332","91283472332","    123","        -32","3.123","-3.123","+-3.2","+3"};
+//    vector<string> s_v = {"06","words and 987","225","-42","-91283472332","91283472332","    123","        -32","3.123","-3.123","+-3.2","+3"};
 //    string s = "";
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
@@ -73,13 +73,13 @@ int main(int argc, const char * argv[]) {
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
-//    vector<int> v1 = {3,4,9,58,1994};
+    vector<int> v1 = {7,11,12,9,5,2,7,17,22};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
-    for (string s : s_v) {
-        auto ans = leetCode.myAtoi(s);
+//    for (string s : s_v) {
+        auto ans = leetCode.countTriplets(v1);
         cout<< "ans:" << ans << endl;
-    }
+//    }
     
     
 //    cout << "ans :";

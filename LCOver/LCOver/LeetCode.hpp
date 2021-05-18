@@ -128,6 +128,7 @@ public:
     char firstUniqChar(string s);
     int myAtoi(string s);//TODO
     bool isCousins(TreeNode* root, int x, int y);
+    int countTriplets(vector<int>& arr);
 };
 
 #endif /* LeetCode_hpp */
