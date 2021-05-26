@@ -129,6 +129,7 @@ public:
     int myAtoi(string s);//TODO
     bool isCousins(TreeNode* root, int x, int y);
     int countTriplets(vector<int>& arr);
+    string reverseParentheses(string s);
 };
 
 #endif /* LeetCode_hpp */

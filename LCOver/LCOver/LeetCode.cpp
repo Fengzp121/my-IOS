@@ -2618,3 +2618,31 @@ int LeetCode::countTriplets(vector<int>& arr) {
     }
     return ans;
 }
+
+//N🐎SL
+
+//"(abcd)"
+//"(u(love)i)"
+//"(ed(et(oc))el)"
+//"a(bcdefghijkl(mno)p)q"
+string LeetCode::reverseParentheses(string s) {
+    string ans = "";
+    stack<char> stack;
+    bool flag = false;
+    for (int i = 0; i < s.size(); i++) {
+        stack.push(s[i]);
+        if (s[i] == '(') {
+            flag = !flag;
+        }
+        if (flag) {
+            int j = 0;
+            for(j = i + 1; j < s.size() && s[j] != ')'; j++){
+                s.push_back(s[j]);
+            }
+            i = j+1;
+        }else{
+            stack.push(s[i]);
+        }
+    }
+    return ans;
+}

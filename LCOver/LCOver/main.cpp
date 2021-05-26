@@ -39,6 +39,29 @@ void p(string s,int a[],int len){
     cout << endl;
 }
 
+
+int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+    int ans = 0;
+    int j = 0;
+    for(int i = 0; i < nums1.size(); i++){
+        int n1 = nums1[i];
+        bool flag = false;
+        int temp_j = j;
+        while (j < nums2.size()) {
+            if(n1 == nums2[j]){
+                ans++;
+                j++;
+                flag = true;
+                break;
+            }else{
+                j++;
+            }
+        }
+        if(!flag) j = temp_j;
+    }
+    return ans;
+}
+
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
     
@@ -73,12 +96,12 @@ int main(int argc, const char * argv[]) {
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
-    vector<int> v1 = {7,11,12,9,5,2,7,17,22};
+    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
 //    for (string s : s_v) {
-        auto ans = leetCode.countTriplets(v1);
-        cout<< "ans:" << ans << endl;
+        auto ans = topKFrequent(v1,2);
+//        cout<< "ans:" << ans << endl;
 //    }
     
     
