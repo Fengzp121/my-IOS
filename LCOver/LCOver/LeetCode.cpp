@@ -2626,23 +2626,73 @@ int LeetCode::countTriplets(vector<int>& arr) {
 //"(ed(et(oc))el)"
 //"a(bcdefghijkl(mno)p)q"
 string LeetCode::reverseParentheses(string s) {
-    string ans = "";
-    stack<char> stack;
-    bool flag = false;
-    for (int i = 0; i < s.size(); i++) {
-        stack.push(s[i]);
-        if (s[i] == '(') {
-            flag = !flag;
+    stack<string> mystack;//储存字母的栈
+    string mys = "";//储存当前未遇到括号的串
+    int l = (int)s.size();
+    for(int i=0; i < l; i++){
+        if(s[i]=='('){
+            mystack.push(mys);
+            mys = "";
         }
-        if (flag) {
-            int j = 0;
-            for(j = i + 1; j < s.size() && s[j] != ')'; j++){
-                s.push_back(s[j]);
+        else if(s[i]==')'){
+            std::reverse(mys.begin(),mys.end());
+            string p = mystack.top();
+            mystack.pop();
+            mys = p + mys;
+        }
+        else mys.push_back(s[i]);
+    }
+    return mys;
+}
+
+int LeetCode::maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
+    int ans = 0;
+    int j = 0;
+    for(int i = 0; i < nums1.size(); i++){
+        int n1 = nums1[i];
+        bool flag = false;
+        int temp_j = j;
+        while (j < nums2.size()) {
+            if(n1 == nums2[j]){
+                ans++;
+                j++;
+                flag = true;
+                break;
+            }else{
+                j++;
             }
-            i = j+1;
-        }else{
-            stack.push(s[i]);
         }
+        if(!flag) j = temp_j;
     }
     return ans;
 }
+
+
+
+ListNode* LeetCode::removeElements(ListNode* head, int val) {
+    ListNode *ans = new ListNode(-1,head);
+    ListNode *temp = ans;
+    while(temp->next){
+        if(temp->next->val == val){
+            temp->next = temp->next->next;
+        }else{
+            temp = temp->next;
+        }
+    }
+    return ans->next;
+}
+
+vector<vector<string>> groupAnagrams(vector<string>& strs) {
+    unordered_map<string,vector<string>> mp;
+    for(int i = 0; i < strs.size(); i++){
+        string s = strs[i];
+        sort(s.begin(), s.end());
+        mp[s].emplace_back(s);
+    }
+    vector<vector<string>> ans;
+    for (auto it = mp.begin(); it != mp.end(); ++it) {
+        ans.emplace_back(it->second);
+    }
+    return ans;
+}
+

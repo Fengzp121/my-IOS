@@ -130,6 +130,8 @@ public:
     bool isCousins(TreeNode* root, int x, int y);
     int countTriplets(vector<int>& arr);
     string reverseParentheses(string s);
+    int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2);
+    ListNode* removeElements(ListNode* head, int val);
 };
 
 #endif /* LeetCode_hpp */

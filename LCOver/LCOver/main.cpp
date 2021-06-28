@@ -39,35 +39,21 @@ void p(string s,int a[],int len){
     cout << endl;
 }
 
-
-int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2) {
-    int ans = 0;
-    int j = 0;
-    for(int i = 0; i < nums1.size(); i++){
-        int n1 = nums1[i];
-        bool flag = false;
-        int temp_j = j;
-        while (j < nums2.size()) {
-            if(n1 == nums2[j]){
-                ans++;
-                j++;
-                flag = true;
-                break;
-            }else{
-                j++;
-            }
-        }
-        if(!flag) j = temp_j;
+void pList(ListNode *list){
+    while(list){
+        cout << list->val << ",";
+        list = list->next;
     }
-    return ans;
+    cout << endl;
 }
+
 
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
     
     //---------------leet---------------
     /* 链表 */
-//    ListNode* list = List::createList({1,4,5});
+    ListNode* list = List::createList({7,2,7,7});
 //    ListNode* list2 = List::createList({1,3,4});
 //    ListNode* list3 = List::createList({2,6});
     /* 二叉树 */
@@ -96,14 +82,16 @@ int main(int argc, const char * argv[]) {
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
-    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
+//    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
+    
+    
 //    for (string s : s_v) {
-        auto ans = topKFrequent(v1,2);
+        auto ans = leetCode.removeElements(list,7);
+    pList(ans);
 //        cout<< "ans:" << ans << endl;
 //    }
-    
     
 //    cout << "ans :";
 //    for(auto a : ans){
