@@ -253,12 +253,13 @@ private:
                 TreeNode *t = que.front();
                 s += t?std::to_string(t->val) + ",":"null,";
                 if(t){
-                    que.push(t->left);
-                    que.push(t->right);
+                    if(t->left)que.push(t->left);
+                    if(t->right)que.push(t->right);
                 }
                 que.pop();
             }
         }
+        std::cout << s << std::endl;
     }
 
     TreeNode *bfs_createTree(std::vector<int>& data, int len){
@@ -285,43 +286,12 @@ private:
 
 public:
     // Encodes a tree to a single string.
-//    std::string serialize(TreeNode* root) {
-//        std::string ans = "";
-//        dfs(root,ans);
-//        return ans;
-//    }
-
     std::string serialize(TreeNode* root) {
-        if (root == nullptr)
-            return "[]";
-        
-        std::queue<TreeNode*> s;
-        std::string sb = "[";
-        int cnt = 1;    // 表示队列中非空结点的数量
-        
-        s.push(root);
-        
-        while (true) {
-            TreeNode* cur = s.front();
-            s.pop();
-            if (cur == nullptr)
-                sb += "null";
-            else {
-                --cnt;
-                sb += to_string(cur->val);
-                s.push(cur->left);
-                s.push(cur->right);
-                if (cur->left != nullptr)
-                    ++cnt;
-                if (cur->right != nullptr)
-                    ++cnt;
-            }
-            if (cnt == 0 || s.empty())
-                return sb + ']';
-            sb += ',';
-        }
+        std::string ans = "";
+        bfs(root,ans);
+        return ans;
     }
-    
+
     // Decodes your encoded data to tree.
     TreeNode* deserialize(std::string data) {
         std::vector<int> v;
@@ -343,58 +313,5 @@ public:
         return bfs_createTree(v, (int)v.size());
     }
 };
-
-//class Codec {
-//public:
-//    void rserialize(TreeNode* root, std::string& str) {
-//        if (root == nullptr) {
-//            str += "null,";
-//        } else {
-//            str += std::to_string(root->val) + ",";
-//            rserialize(root->left, str);
-//            rserialize(root->right, str);
-//        }
-//    }
-//
-//    std::string serialize(TreeNode* root) {
-//        std::string ret;
-//        rserialize(root, ret);
-//        return ret;
-//    }
-//
-//    TreeNode* rdeserialize(std::list<int>& dataArray) {
-//        if (dataArray.front() == -1001) {
-//            dataArray.erase(dataArray.begin());
-//            return nullptr;
-//        }
-//
-//        TreeNode* root = new TreeNode(dataArray.front());
-//        dataArray.erase(dataArray.begin());
-//        if(dataArray.empty()) return nullptr;
-//        root->left = rdeserialize(dataArray);
-//        root->right = rdeserialize(dataArray);
-//        return root;
-//    }
-//
-//
-//
-//    TreeNode* deserialize(std::string data) {
-//        std::list<int> dataArray;
-//        std::string str;
-//        for (auto& ch : data) {
-//            if (ch == ',') {
-//                dataArray.push_back(str == "null"?-1001:std::atoi(str.c_str()));
-//                str.clear();
-//            } else {
-//                str.push_back(ch);
-//            }
-//        }
-//        if (!str.empty()) {
-//            dataArray.push_back(std::atoi(str.c_str()));
-//            str.clear();
-//        }
-//        return rdeserialize(dataArray);
-//    }
-//};
 
 #endif /* Struts_h */
