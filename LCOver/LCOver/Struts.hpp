@@ -41,7 +41,7 @@ public:
 
 class Tree {
 public:
-    static TreeNode * creatBTree(int data[], int index, int n)
+    static TreeNode * dfs_creatTree(int data[], int index, int n)
     {
         TreeNode * pNode = NULL;
         
@@ -50,13 +50,57 @@ public:
             pNode = (TreeNode *)malloc(sizeof(TreeNode));
             if(pNode == NULL)
                 return NULL;
-            if(data[index] == NULL)
+            if(data[index] == -1)
                 return NULL;
             
             //将二叉树按照层序遍历, 依次标序号, 从0开始
             pNode->val = data[index];
-            pNode->left = creatBTree(data, 2 * index + 1, n);
-            pNode->right = creatBTree(data, 2 * index + 2, n);
+            pNode->left = dfs_creatTree(data, 2 * index + 1, n);
+            pNode->right = dfs_creatTree(data, 2 * index + 2, n);
+        }
+        return pNode;
+    }
+    
+    static TreeNode *bfs_createTree(int data[], int len){
+        TreeNode * pNode = new TreeNode(data[0]);
+        std::queue<TreeNode *> que;
+        que.push(pNode);
+        int i = 0;
+        while (!que.empty()) {
+            int size = (int)que.size();
+            for (int j = 0; j < size; j++) {
+                TreeNode *t = que.front();
+                if(2 * i + 1 < len && t){
+                    t->left = data[2 * i + 1] != -1 ? new TreeNode(data[2 * i + 1]):NULL;
+                    if(t->left)que.push(t->left);
+                }
+                if(2 * i + 2 < len && t){
+                    t->right = data[2 * i + 2] != -1 ? new TreeNode(data[2 * i + 2]):NULL;
+                    if(t->right)que.push(t->right);
+                }
+                i++;
+                que.pop();
+            }
+        }
+        return pNode;
+    }
+    
+    static TreeNode *bfs_createTree(std::vector<int>& data, int len){
+        TreeNode * pNode = new TreeNode(data[0]);
+        std::queue<TreeNode *> que;
+        que.push(pNode);
+        int i = 1;
+        while(i < len){
+            TreeNode *t = que.front();
+            que.pop();
+            if(data[i++] != -1){
+                t->left = new TreeNode(data[i-1]);
+                que.push(t->left);
+            }
+            if(i < len && data[i++] != -1){
+                t->right = new TreeNode(data[i-1]);
+                que.push(t->right);
+            }
         }
         return pNode;
     }
@@ -187,5 +231,170 @@ public:
         return pop;
     }
 };
+
+class Codec {
+private:
+    void dfs(TreeNode* root, std::string& s) {
+        if(!root){
+            s += "null,";
+        }else{
+            s += std::to_string(root->val)+",";
+            dfs(root->left,s);
+            dfs(root->right,s);
+        }
+    }
+
+    void bfs(TreeNode *root, std::string& s){
+        std::queue<TreeNode *> que;
+        que.push(root);
+        while(!que.empty()){
+            int size = (int)que.size();
+            for (int i = 0; i < size; i++) {
+                TreeNode *t = que.front();
+                s += t?std::to_string(t->val) + ",":"null,";
+                if(t){
+                    que.push(t->left);
+                    que.push(t->right);
+                }
+                que.pop();
+            }
+        }
+    }
+
+    TreeNode *bfs_createTree(std::vector<int>& data, int len){
+        TreeNode * pNode = new TreeNode(data[0]);
+        std::queue<TreeNode *> que;
+        que.push(pNode);
+        int i = 1;
+        while(i < len){
+            TreeNode *t = que.front();
+            if(data[i++] != -1001){
+                t->left = new TreeNode(data[i-1]);
+                que.push(t->left);
+            }
+            if(i < len && data[i++] != -1001){
+                t->right = new TreeNode(data[i-1]);
+                que.push(t->right);
+            }
+            que.pop();
+        }
+        return pNode;
+    }
+
+
+
+public:
+    // Encodes a tree to a single string.
+//    std::string serialize(TreeNode* root) {
+//        std::string ans = "";
+//        dfs(root,ans);
+//        return ans;
+//    }
+
+    std::string serialize(TreeNode* root) {
+        if (root == nullptr)
+            return "[]";
+        
+        std::queue<TreeNode*> s;
+        std::string sb = "[";
+        int cnt = 1;    // 表示队列中非空结点的数量
+        
+        s.push(root);
+        
+        while (true) {
+            TreeNode* cur = s.front();
+            s.pop();
+            if (cur == nullptr)
+                sb += "null";
+            else {
+                --cnt;
+                sb += to_string(cur->val);
+                s.push(cur->left);
+                s.push(cur->right);
+                if (cur->left != nullptr)
+                    ++cnt;
+                if (cur->right != nullptr)
+                    ++cnt;
+            }
+            if (cnt == 0 || s.empty())
+                return sb + ']';
+            sb += ',';
+        }
+    }
+    
+    // Decodes your encoded data to tree.
+    TreeNode* deserialize(std::string data) {
+        std::vector<int> v;
+        std::string temp = "";
+        for(int i = 0; i < data.size(); i++){
+            if(data[i] == ','){
+                if(temp == "null"){
+                    v.push_back(-1001);
+                }else{
+                    v.push_back(std::atoi(temp.c_str()));
+                }
+                temp = "";
+            }else{
+                temp.push_back(data[i]);
+            }
+        }
+        v.push_back(std::atoi(temp.c_str()));
+
+        return bfs_createTree(v, (int)v.size());
+    }
+};
+
+//class Codec {
+//public:
+//    void rserialize(TreeNode* root, std::string& str) {
+//        if (root == nullptr) {
+//            str += "null,";
+//        } else {
+//            str += std::to_string(root->val) + ",";
+//            rserialize(root->left, str);
+//            rserialize(root->right, str);
+//        }
+//    }
+//
+//    std::string serialize(TreeNode* root) {
+//        std::string ret;
+//        rserialize(root, ret);
+//        return ret;
+//    }
+//
+//    TreeNode* rdeserialize(std::list<int>& dataArray) {
+//        if (dataArray.front() == -1001) {
+//            dataArray.erase(dataArray.begin());
+//            return nullptr;
+//        }
+//
+//        TreeNode* root = new TreeNode(dataArray.front());
+//        dataArray.erase(dataArray.begin());
+//        if(dataArray.empty()) return nullptr;
+//        root->left = rdeserialize(dataArray);
+//        root->right = rdeserialize(dataArray);
+//        return root;
+//    }
+//
+//
+//
+//    TreeNode* deserialize(std::string data) {
+//        std::list<int> dataArray;
+//        std::string str;
+//        for (auto& ch : data) {
+//            if (ch == ',') {
+//                dataArray.push_back(str == "null"?-1001:std::atoi(str.c_str()));
+//                str.clear();
+//            } else {
+//                str.push_back(ch);
+//            }
+//        }
+//        if (!str.empty()) {
+//            dataArray.push_back(std::atoi(str.c_str()));
+//            str.clear();
+//        }
+//        return rdeserialize(dataArray);
+//    }
+//};
 
 #endif /* Struts_h */

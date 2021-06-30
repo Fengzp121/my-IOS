@@ -35,51 +35,6 @@ vector<vector<int>> LeetCode::threeSum(vector<int> &nums){
         }
     }
     return ans;
-    
-    
-    //        //用hashmap的方法，但是一开始不进行排序，时间复杂度太高了
-    //        vector<vector<int>> ans;
-    //        if (nums.size() < 3 || nums.empty()){
-    //            return ans;
-    //        }
-    //        int size = (int)nums.size();
-    ////        sort(nums.begin(), nums.end());
-    //        //用来区别组合数组的
-    //        map<string,unsigned int> sumArrMap;
-    //        map<unsigned int,unsigned int> nusMap;
-    ////        vector<int> temp = {0,0,0};
-    //        int i,j,n1,minx,maxx,xxd;
-    //        //第一次两数之和
-    //
-    //        for ( i = 0; i < size - 2; i++) {
-    //            n1 = nums[i];   //第一个数
-    //            nusMap.clear();
-    //            //第二次两数之和
-    //            for ( j = i + 1; j < size; j++) {
-    //                xxd = -n1 - nums[j];
-    //                if(nusMap.count(xxd) > 0){ //第二个数
-    ////                    auto start = std::chrono::steady_clock::now();
-    //                    minx = min(n1, min(nums[j], xxd));
-    //                    maxx = max(n1,max(nums[j], xxd));
-    //                    string key = to_string(minx).append(to_string(maxx));
-    ////                    auto end = std::chrono::steady_clock::now();
-    ////                    std::chrono::duration<double, std::micro> elapsed = end - start; // std::micro 表示以微秒为时间单位
-    ////                    std::cout<< "time: "  << elapsed.count() << "us" << std::endl;
-    //
-    //                    if(sumArrMap[key] > 0){
-    //                        continue;
-    //                    }
-    //                    sumArrMap[key] = 1;
-    //                    ans.push_back({n1,nums[j],xxd});
-    //
-    //                }else{
-    //                    nusMap[nums[j]] = j;    //第三个数
-    //
-    //                }
-    //            }
-    //        }
-    //
-    //        return ans;
 }
 
 
@@ -110,7 +65,6 @@ vector<vector<int>> LeetCode::fourSum(vector<int>& nums, int target) {
                 }
             }
         }
-        
     }
     return ans;
 }
@@ -2682,7 +2636,7 @@ ListNode* LeetCode::removeElements(ListNode* head, int val) {
     return ans->next;
 }
 
-vector<vector<string>> groupAnagrams(vector<string>& strs) {
+vector<vector<string>> LeetCode::groupAnagrams(vector<string>& strs) {
     unordered_map<string,vector<string>> mp;
     for(int i = 0; i < strs.size(); i++){
         string s = strs[i];
@@ -2695,4 +2649,39 @@ vector<vector<string>> groupAnagrams(vector<string>& strs) {
     }
     return ans;
 }
+
+string LeetCode::convertToTitle(int columnNumber) {
+    string ans;
+    while (columnNumber > 0) {
+        --columnNumber;
+        ans += columnNumber % 26 + 'A';
+        columnNumber /= 26;
+    }
+    ::reverse(ans.begin(), ans.end());
+    return ans;
+}
+
+
+int numTrees(int n) {
+//    int a[19]= {1,2,5,14,42,132,429,1430,4862,16796,58786,208012,742900,2674440,9694845,35357670,129644790,477638700,1767263190};
+//    return a[n-1];
+    
+//    vector<int> G(n + 1, 0);
+//    G[0] = 1;
+//    G[1] = 1;
+//    for (int i = 2; i <= n; ++i) {
+//        for (int j = 1; j <= i; ++j) {
+//            G[i] += G[j - 1] * G[i - j];
+//        }
+//    }
+//    return G[n];
+    
+    
+    long long C = 1;
+    for (int i = 0; i < n; ++i) {
+        C = C * 2 * (2 * i + 1) / (i + 2);
+    }
+    return (int)C;
+}
+
 

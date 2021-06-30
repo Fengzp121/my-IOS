@@ -18,7 +18,7 @@
 #include "LeetCode.hpp"
 #include "FFAlgorithm.hpp"
 
-#define null NULL
+#define null -1
 
 using namespace std;
 
@@ -49,17 +49,17 @@ void pList(ListNode *list){
 
 
 int main(int argc, const char * argv[]) {
-    LeetCode leetCode = LeetCode();
-    
+//    LeetCode leetCode = LeetCode();
+    Codec codec = Codec();
     //---------------leet---------------
     /* 链表 */
-    ListNode* list = List::createList({7,2,7,7});
+//    ListNode* list = List::createList({7,2,7,7});
 //    ListNode* list2 = List::createList({1,3,4});
 //    ListNode* list3 = List::createList({2,6});
     /* 二叉树 */
-//    int a[] = {5,1,7};
-//    int b[] = {1,NULL,2,NULL,3};
-//    TreeNode *tree1 = Tree::creatBTree(a, 0,sizeof(a)/sizeof(int));
+//    int a[] = {1,2,3,null,null,4,5,6};
+//    int b[] = {1,NULL,2,NULL,3};1,2,3,null,null,4,5,6
+    TreeNode *tree1 = codec.deserialize("1,2,3,null,null,4,5,6");
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
@@ -87,11 +87,13 @@ int main(int argc, const char * argv[]) {
 //    vector<vector<int>> null_v = {2,1,0};
     
     
+//    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-        auto ans = leetCode.removeElements(list,7);
-    pList(ans);
+//        auto ans = leetCode.convertToTitle(701);
+//    pList(ans);
 //        cout<< "ans:" << ans << endl;
 //    }
+    Tree::pTree(tree1);
     
 //    cout << "ans :";
 //    for(auto a : ans){
@@ -110,7 +112,7 @@ int main(int argc, const char * argv[]) {
 //    sortList = randomList;
 //    SortAlgorithms sortMath;
 //    p("原数组：", a);
-//    sortMath.shellSort(a);
+//    sortMath.heapSort(a);
 //    p("排序结果：",a);
 
     

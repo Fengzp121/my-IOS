@@ -15,6 +15,7 @@
 #import "BulletScreenVC.h"
 #import "FFCrashDemoVC.h"
 #import "GUIImageDemoVC.h"
+#import "ClientWKWeb.h"
 
 #import "getApiTest.h"
 #import "getDynamicApi.h"
@@ -24,6 +25,7 @@
 
 #import "FFwheel-Swift.h"
 
+static void *QCloudHTTPRequestSerializerObserverContext = &QCloudHTTPRequestSerializerObserverContext;
 
 @interface HelloWorldVC ()<UINavigationControllerDelegate,UIImagePickerControllerDelegate,UIVideoEditorControllerDelegate>
 
@@ -32,9 +34,9 @@
 @property (nonatomic,strong)UIButton *Button1,*Button2;
 @property (nonatomic,strong)UIButton *Buuton3,*Button4;
 
-
+//@property (nonatomic,strong)
 //fuck you
-
+@property (nonatomic, copy)NSString *testStr;
 @end
 
 @implementation HelloWorldVC
@@ -43,7 +45,13 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    ClientWKWeb *web = [[ClientWKWeb alloc] init];
+//    [web loadrequestWithStr:@"https://www.baidu.com"];//
+    [self.navigationController pushViewController:web animated:YES];
     [self setUI];
+    self.testStr = @"1";
+    [self addObserver:self forKeyPath:@"testStr" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
     
     //swift 混编
     TestSwift *s = [TestSwift new];
@@ -97,7 +105,11 @@
     }
 }
 
-
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
+    if ([keyPath isEqualToString:@"testStr"] && ![change[@"old"] isEqualToString:change[@"new"]]) {
+        NSLog(@"%@",[object valueForKey:@"testStr"]);
+    }
+}
 
 
 #pragma mark -action
@@ -120,16 +132,18 @@
 }
 
 -(void)clickpushtableVC{
+    self.testStr = self.testStr;
 //    FFTabBarController * vc = [[FFTabBarController alloc] init];
 //    [self presentViewController:vc animated:YES completion:nil];
-    GUIImageDemoVC * vc = [[GUIImageDemoVC alloc] init];
+//    GUIImageDemoVC * vc = [[GUIImageDemoVC alloc] init];
 //    vc.modalPresentationStyle = 0;
-    [self.navigationController pushViewController:vc animated:YES];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)clickPushImageVC{
-    ImageApiTestViewController * vc = [ImageApiTestViewController new];
-    [self.navigationController pushViewController:vc animated:YES];
+    self.testStr = [NSString stringWithFormat:@"%@%@",self.testStr,@"1"];
+//    ImageApiTestViewController * vc = [ImageApiTestViewController new];
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 -(void)clickHttpApiTestBtn{

@@ -30,23 +30,41 @@ void SortAlgorithms::bubbleSort(vector<int> &list){
 }
 
 void SortAlgorithms::selectSort(vector<int> &a){
+//    int size = (int)a.size();
+//    for (int i = 0; i < size; i++) {
+//        //先设定一个初始的最小下标
+//        int min = i;
+//        for (int j = i + 1; j < size; j++) {
+//            //找出这里面最小的，从i + 1开始找
+//            if(a[min] > a[j]){
+//                //找到之后就交换一下下标
+//                min = j;
+//            }
+//        }
+//        //一次循环结束后获得最小的下标，如果min不等于当前下标（因为交换也没意义）
+//        if (min != i) {
+//            //交换一下
+//            swap(a[min], a[i]);
+//        }
+//    }
+    
     int size = (int)a.size();
-    for (int i = 0; i < size; i++) {
-        //先设定一个初始的最小下标
-        int min = i;
-        for (int j = i + 1; j < size; j++) {
-            //找出这里面最小的，从i + 1开始找
-            if(a[min] > a[j]){
+    for (int i = size - 1; i > 0; i--) {
+        //先设定一个初始的最大下标
+        int max = i;
+        for (int j = 0; j < i; j++) {
+            //找出这里面最大的，从0开始找到i
+            if(a[max] < a[j]){
                 //找到之后就交换一下下标
-                min = j;
+                max = j;
             }
         }
-        //一次循环结束后获得最小的下标，如果min不等于当前下表（因为交换也没意义）
-        if (min != i) {
-            //交换一下
-            swap(a[min], a[i]);
+        //一次循环结束后获得最打的下标，如果max不等于当前下标（因为交换也没意义）
+        if (max != i) {
+            swap(a[max], a[i]);
         }
     }
+    
 }
 
 void SortAlgorithms::insertSort(vector<int> &a){

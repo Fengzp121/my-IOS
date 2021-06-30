@@ -16,9 +16,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSURL *htmlURL = [[NSBundle mainBundle] URLForResource:@"httpDemo.html" withExtension:nil];
-    NSURLRequest *request = [NSURLRequest requestWithURL:htmlURL];
-    [self.wkWeb loadRequest:request];
+//    NSURL *htmlURL = [[NSBundle mainBundle] URLForResource:@"httpDemo.html" withExtension:nil];
+//    NSURLRequest *request = [NSURLRequest requestWithURL:htmlURL];
+    [self loadrequestWithStr:@"https://yljapp.jstxb.com"];
+    
     self.isHideProcessView = NO;
     NSArray *arr = @[@"messgaeToOC"];
     [self addJSMsgWithArray:arr];

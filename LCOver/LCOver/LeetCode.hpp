@@ -132,6 +132,8 @@ public:
     string reverseParentheses(string s);
     int maxUncrossedLines(vector<int>& nums1, vector<int>& nums2);
     ListNode* removeElements(ListNode* head, int val);
+    vector<vector<string>> groupAnagrams(vector<string>& strs);
+    string convertToTitle(int columnNumber);
 };
 
 #endif /* LeetCode_hpp */
