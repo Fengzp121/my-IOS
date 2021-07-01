@@ -49,7 +49,7 @@ void pList(ListNode *list){
 
 
 int main(int argc, const char * argv[]) {
-//    LeetCode leetCode = LeetCode();
+    LeetCode leetCode = LeetCode();
     Codec codec = Codec();
     //---------------leet---------------
     /* 链表 */
@@ -85,11 +85,15 @@ int main(int argc, const char * argv[]) {
 //    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
-    
+    vector<vector<int>> v = {{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}};
+    //5
+    //{{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}}
+    //3
+
     
 //    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-//        auto ans = leetCode.convertToTitle(701);
+        auto ans = leetCode.numWays(5, v, 3);
 //    pList(ans);
 //        cout<< "ans:" << ans << endl;
 //    }

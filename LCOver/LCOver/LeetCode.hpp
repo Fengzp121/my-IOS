@@ -134,6 +134,9 @@ public:
     ListNode* removeElements(ListNode* head, int val);
     vector<vector<string>> groupAnagrams(vector<string>& strs);
     string convertToTitle(int columnNumber);
+    int numWays(int n, vector<vector<int>>& relation, int k);
+    int game(vector<int>& guess, vector<int>& answer);
+    int minCount(vector<int>& coins);
 };
 
 #endif /* LeetCode_hpp */

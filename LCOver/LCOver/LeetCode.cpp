@@ -540,7 +540,7 @@ vector<vector<int>> subsetsWithDup2(vector<int>& nums){
         bool flag = true;
         for (int j = 0; j < len; j++) {
             if(i & (1<<j)){
-                if(j>0 && nums[j] == nums[j-1] && (i >> (j-1)) & 1 == 0 ){
+                if(j>0 && nums[j] == nums[j-1] && ((i >> (j-1)) & 1) == 0 ){
                     flag = false;
                     break;
                 }
@@ -1096,15 +1096,15 @@ int LeetCode::clumsy(int N){
     }
     return ans;
     
-    //分类找规律
-    if(N == 1) return 1;
-    else if(N == 2) return 2;
-    else if(N == 3) return 6;
-    else if(N == 4) return 7;
-    
-    if(N % 4 == 0)return N;
-    else if (N % 4 <= 2) return N + 2;
-    else return N-1;
+//    //分类找规律
+//    if(N == 1) return 1;
+//    else if(N == 2) return 2;
+//    else if(N == 3) return 6;
+//    else if(N == 4) return 7;
+//
+//    if(N % 4 == 0)return N;
+//    else if (N % 4 <= 2) return N + 2;
+//    else return N-1;
 
 }
 //
@@ -2684,4 +2684,81 @@ int numTrees(int n) {
     return (int)C;
 }
 
+//示例 1：
+//
+//输入：n = 5, relation = [[0,2],[2,1],[3,4],[2,3],[1,4],[2,0],[0,4]], k = 3
+//0 -> [2,4]
+//2 -> [1,3,0] ,4 -> []
+//1 -> [4] ,3 -> [4] ,0 -> [2,4] 2 -> [1,3,0]
+//输出：3
+//
+//解释：信息从小 A 编号 0 处开始，经 3 轮传递，到达编号 4。共有 3 种方案，分别是 0->2->0->4， 0->2->1->4， 0->2->3->4。
+//
+//示例 2：
+//
+//输入：n = 3, relation = [[0,2],[2,1]], k = 2
+//
+//输出：0
+//
+//解释：信息不能从小 A 处经过 2 轮传递到编号 2
 
+int LeetCode::numWays(int n, vector<vector<int>>& relation, int k) {
+//    unordered_map<int, vector<int>> mp;
+//    for (auto v : relation) {
+//        mp[v[0]].push_back(v[1]);
+//    }
+//    list<int> dp;
+//    for (int i = 0; i < mp[0].size(); i++) {
+//        dp.push_back(mp[0][i]);
+//    }
+//    for (int i = 1; i < k; i++) {
+//        if(dp.size()){
+//            int size = (int)dp.size();
+//            for (int x = 0; x < size; x++) {
+//                for (int j = 0; j < mp[dp.front()].size(); j++) {
+//                    dp.push_back(mp[dp.front()][j]);
+//                }
+//                dp.pop_front();
+//            }
+//
+//        }else{
+//            return 0;
+//        }
+//    }
+//    int ans = 0;
+//    int size = (int)dp.size();
+//    for (int i = 0; i < size; i++) {
+//        ans += dp.front() == n-1 ? 1:0;
+//        dp.pop_front();
+//    }
+//    return ans;
+    
+    
+    vector<vector<int>> dp(k + 1, vector<int>(n));
+    dp[0][0] = 1;
+    for (int i = 0; i < k; i++) {
+        for (auto& edge : relation) {
+            int src = edge[0], dst = edge[1];
+            dp[i + 1][dst] += dp[i][src];
+        }
+    }
+    return dp[k][n - 1];
+}
+
+int LeetCode::game(vector<int>& guess, vector<int>& answer) {
+    int ans = 0;
+    ans += guess[0] == answer[0]?1:0;
+    ans += guess[1] == answer[1]?1:0;
+    ans += guess[2] == answer[2]?1:0;
+
+    return ans;
+}
+
+int LeetCode::minCount(vector<int>& coins) {
+    int ans = 0;
+    for (auto coin : coins) {
+        ans += coin % 2;
+        ans += coin / 2;
+    }
+    return ans;
+}
