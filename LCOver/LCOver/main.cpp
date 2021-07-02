@@ -50,7 +50,6 @@ void pList(ListNode *list){
 
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
-    Codec codec = Codec();
     //---------------leet---------------
     /* 链表 */
 //    ListNode* list = List::createList({7,2,7,7});
@@ -59,7 +58,7 @@ int main(int argc, const char * argv[]) {
     /* 二叉树 */
 //    int a[] = {1,2,3,null,null,4,5,6};
 //    int b[] = {1,NULL,2,NULL,3};1,2,3,null,null,4,5,6
-    TreeNode *tree1 = codec.deserialize("1,2,3,null,null,4,5,6");
+//    TreeNode *tree1 = codec.deserialize("1,2,3,null,null,4,5,6");
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
@@ -85,7 +84,7 @@ int main(int argc, const char * argv[]) {
 //    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
-    vector<vector<int>> v = {{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}};
+//    vector<vector<int>> v = {{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}};
     //5
     //{{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}}
     //3
@@ -93,11 +92,11 @@ int main(int argc, const char * argv[]) {
     
 //    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-        auto ans = leetCode.numWays(5, v, 3);
+        auto ans = leetCode.generateMatrix(3);
 //    pList(ans);
 //        cout<< "ans:" << ans << endl;
 //    }
-    Tree::pTree(tree1);
+//    Tree::pTree(tree1);
     
 //    cout << "ans :";
 //    for(auto a : ans){
