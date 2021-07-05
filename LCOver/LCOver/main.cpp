@@ -50,7 +50,7 @@ void pList(ListNode *list){
 
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
-    Codec codec = Codec();
+//    Codec codec = Codec();
     //---------------leet---------------
     /* 链表 */
 //    ListNode* list = List::createList({7,2,7,7});
@@ -59,12 +59,13 @@ int main(int argc, const char * argv[]) {
     /* 二叉树 */
 //    int a[] = {1,2,3,null,null,4,5,6};
 //    int b[] = {1,NULL,2,NULL,3};1,2,3,null,null,4,5,6
-    TreeNode *tree1 = codec.deserialize("1,2,3,null,null,4,5,6");
+//    TreeNode *tree1 = codec.deserialize("1,2,3,null,null,4,5,6");
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
 //    vector<string> s_v = {"06","words and 987","225","-42","-91283472332","91283472332","    123","        -32","3.123","-3.123","+-3.2","+3"};
-//    string s = "";
+    string s = "K4(ON(SO3)2)2";
+//    vector<string> s_v = {"H2O","K4(ON(SO3)2)2","Mg(OH)2","Be32","H111He49NO35B7N46Li20"};
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
 //    cout << st1 << "," << st2 <<endl;
@@ -85,7 +86,7 @@ int main(int argc, const char * argv[]) {
 //    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
-    vector<vector<int>> v = {{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}};
+//    vector<vector<int>> v = {{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
     //5
     //{{0,2},{2,1},{3,4},{2,3},{1,4},{2,0},{0,4}}
     //3
@@ -93,11 +94,11 @@ int main(int argc, const char * argv[]) {
     
 //    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-        auto ans = leetCode.numWays(5, v, 3);
+        auto ans = leetCode.countOfAtoms(s);
 //    pList(ans);
-//        cout<< "ans:" << ans << endl;
+        cout<< "ans:" << ans << endl;
 //    }
-    Tree::pTree(tree1);
+//    Tree::pTree(tree1);
     
 //    cout << "ans :";
 //    for(auto a : ans){

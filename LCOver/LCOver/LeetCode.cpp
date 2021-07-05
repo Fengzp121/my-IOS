@@ -2762,3 +2762,110 @@ int LeetCode::minCount(vector<int>& coins) {
     }
     return ans;
 }
+
+
+//输入：people = [[7,0],[4,4],[7,1],[5,0],[6,1],[5,2]]
+//输出：[[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]]
+//解释：
+//编号为 0 的人身高为 5 ，没有身高更高或者相同的人排在他前面。
+//编号为 1 的人身高为 7 ，没有身高更高或者相同的人排在他前面。
+//编号为 2 的人身高为 5 ，有 2 个身高更高或者相同的人排在他前面，即编号为 0 和 1 的人。
+//编号为 3 的人身高为 6 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。
+//编号为 4 的人身高为 4 ，有 4 个身高更高或者相同的人排在他前面，即编号为 0、1、2、3 的人。
+//编号为 5 的人身高为 7 ，有 1 个身高更高或者相同的人排在他前面，即编号为 1 的人。
+//因此 [[5,0],[7,0],[5,2],[6,1],[4,4],[7,1]] 是重新构造后的队列。
+
+vector<vector<int>> LeetCode::reconstructQueue(vector<vector<int>>& people) {
+    sort(people.begin(), people.end(), [](const vector<int>& u, const vector<int>& v) {
+             return u[0] > v[0] || (u[0] == v[0] && u[1] < v[1]);
+         });
+
+    vector<vector<int>> ans((int)people.size(),vector<int>(2));
+    int minIndex = 0;
+    int min = INT_MIN;
+    for (int j = 0 ; j < people.size(); j++) {
+        int i = 0;
+        int max = INT_MAX;
+        while (i < people.size()) {
+            if(max > people[i][0] && people[i][0] > min){
+                minIndex = i;
+                max = people[i][0];
+            }
+            i++;
+        }
+        ans[people[minIndex][1]][0] = people[minIndex][0];
+        ans[people[minIndex][1]][1] = people[minIndex][1];
+        min = people[minIndex][0];
+    }
+    return ans;
+}
+
+
+unordered_map<string, int> atoms_mp;
+void dfs_atoms(stack<char>& stack, int times){
+    int t_times = 1;
+    int k = 1;
+    string temp = "";
+    while (!stack.empty()) {
+        char c = stack.top();
+        if(c == ')'){
+            stack.pop();
+            dfs_atoms(stack, times * t_times);
+            t_times = 1;
+            k = 1;
+            continue;
+        }
+        if(c == '('){
+            stack.pop();
+            return;
+        }
+        if(c <= 'Z' && c >= 'A'){
+            if(temp != ""){
+                temp += c;
+                reverse(temp.begin(),temp.end());
+                atoms_mp[temp] += times * t_times;
+                temp.clear();
+            }else{
+                temp += c;
+                atoms_mp[temp] += times * t_times;
+                temp.clear();
+            }
+            t_times = 1;
+        }
+        if(c <= 'z' && c >= 'a'){
+            temp += c;
+        }
+        if('0' <= c && c <= '9'){
+            int a = c - '0';
+            //当k != 1的时候代表需要进位
+            if(k != 1){
+                t_times += a * k;
+            }else{
+                t_times = a;
+            }
+            k *= 10;
+        }else{
+            k = 1;
+        }
+        stack.pop();
+    }
+}
+
+string LeetCode::countOfAtoms(string formula) {
+    stack<char> stack;
+    for (char c : formula) {
+        stack.push(c);
+    }
+    dfs_atoms(stack, 1);
+    vector<string> ans_v;
+    for (auto it = atoms_mp.begin(); it != atoms_mp.end(); ++it) {
+        ans_v.push_back(it->first);
+    }
+    sort(ans_v.begin(),ans_v.end());
+    string ans = "";
+    for(auto ss : ans_v){
+        ans += ss;
+        if(atoms_mp[ss] != 1)ans += to_string(atoms_mp[ss]);
+    }
+    return ans;
+}

@@ -137,6 +137,8 @@ public:
     int numWays(int n, vector<vector<int>>& relation, int k);
     int game(vector<int>& guess, vector<int>& answer);
     int minCount(vector<int>& coins);
+    vector<vector<int>> reconstructQueue(vector<vector<int>>& people);
+    string countOfAtoms(string formula);
 };
 
 #endif /* LeetCode_hpp */
