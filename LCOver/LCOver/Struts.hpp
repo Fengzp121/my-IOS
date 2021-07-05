@@ -314,4 +314,64 @@ public:
     }
 };
 
+class MedianFinder {
+private:
+    std::deque<int> _nums;
+    int maxValue;
+    int minValue;
+    //记录下中位数？好像不可取
+    //多用一个数据结构来作为存储
+    
+    // 最大堆，存储左边一半的数据，堆顶为最大值
+    std::priority_queue<int, std::vector<int>, std::less<int>> maxHeap;
+    // 最小堆， 存储右边一半的数据，堆顶为最小值
+    std::priority_queue<int, std::vector<int>, std::greater<int>> minHeap;
+    
+public:
+    /** initialize your data structure here. */
+    MedianFinder() {
+        
+    }
+    
+    void addNum(int num) {
+        if(_nums.empty()){
+            _nums.push_back(num);
+            minValue = num;
+            maxValue = num;
+            return;
+        }
+        if(num <= minValue){
+            minValue = num;
+            _nums.push_front(num);
+            return;
+        }else if(num > maxValue){
+            maxValue = num;
+            _nums.push_back(num);
+            return;
+        }
+        for (auto it = _nums.begin(); it != _nums.end(); ++it) {
+            if(*it >= num){
+                _nums.insert(it, num);
+                break;
+            }
+        }
+        
+    }
+    
+    double findMedian() {
+        int size = (int)_nums.size();
+        double median = 0;
+        if(size % 2 == 0){
+            if(size == 2)return (minValue + maxValue)/2.0;
+            int val1 = _nums.at(size/2);
+            int val2 = _nums.at(size/2 - 1);
+            median = (val1 + val2)/2.0;
+        }else{
+            if(size == 1)return minValue;
+            median = _nums.at(size/2);
+        }
+        return median;
+    }
+};
+
 #endif /* Struts_h */
