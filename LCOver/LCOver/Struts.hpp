@@ -374,23 +374,33 @@ public:
     }
 };
 
+//["LRUCache","put","put","get","put","get","put","get","get","get"]
+//[[2],[1,1],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]
+//["LRUCache","put","put","get","put","get","put","get","get","get"]
+//[[2],[1,0],[2,2],[1],[3,3],[2],[4,4],[1],[3],[4]]
+//["LRUCache","put","put","get","put","get","get"]
+//[[2],[2,1],[1,1],[2],[4,1],[1],[2]]
+//["LRUCache","put","put","put","put","get","get"]
+//[[2],[2,1],[1,1],[2,3],[4,1],[1],[2]]
 class LRUCache {
 private:
-    std::unordered_map<int,std::deque<int>::iterator> _obj;//存放key-value
-    std::deque<int> _deq;//存放key
-    int _capacity;      //缓存的最大容量
+    std::unordered_map<int,std::deque<std::vector<int>>::iterator> _objMap;//存放key-value
+    std::deque<std::vector<int>> _deq;  //存放key-value
+    int _capacity;         //缓存的最大容量
     int _sum;              //总量，每次put的时候都要
 public:
     LRUCache(int capacity) {
         _capacity = capacity;
+        _sum = 0;
     }
     
     int get(int key) {
         int value = 0;
-        if(_obj[key] != _deq.end()){
-            value = *_obj[key];
-            _deq.erase(_obj[key]);
-            _deq.push_front(value);
+        if(_objMap.count(key)){
+            value = (*_objMap[key])[1];
+            _deq.erase(_objMap[key]);
+            _deq.push_front({key,value});
+            _objMap[key] = _deq.begin();
         }else{
             value = -1;
         }
@@ -399,7 +409,21 @@ public:
     
     void put(int key, int value) {
         
-        //if(value + this->_capacity)
+        if(_objMap.count(key)){
+            _deq.erase(_objMap[key]);
+            _deq.push_front({key,value});
+            _objMap[key] = _deq.begin();
+        }else{
+            _deq.push_front({key,value});
+            _objMap[key] = _deq.begin();
+            sum++;
+        }
+        if(_sum > _capacity){
+            _sum--;
+            int t_key = _deq.back()[0];
+            _deq.pop_back();
+            _objMap.erase(t_key);
+        }
     }
 };
 

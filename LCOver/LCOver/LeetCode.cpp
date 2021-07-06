@@ -2937,5 +2937,5 @@ string LeetCode::reverseWords(string s) {
         }
     }
     
-    return ans;
+    return s;
 }

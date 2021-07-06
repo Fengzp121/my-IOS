@@ -50,7 +50,7 @@ void pList(ListNode *list){
 
 int main(int argc, const char * argv[]) {
     LeetCode leetCode = LeetCode();
-//    Codec codec = Codec();
+//    LRUCache lru = LRUCache(2);
     //---------------leet---------------
     /* 链表 */
 //    ListNode* list = List::createList({7,2,7,7});
@@ -65,7 +65,7 @@ int main(int argc, const char * argv[]) {
     /* 字符串 */
     
 //    vector<string> s_v = {"06","words and 987","225","-42","-91283472332","91283472332","    123","        -32","3.123","-3.123","+-3.2","+3"};
-    string s = "Let's take LeetCode contest";
+//    string s = "Let's take LeetCode contest";
 //    vector<string> s_v = {"H2O","K4(ON(SO3)2)2","Mg(OH)2","Be32","H111He49NO35B7N46Li20"};
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
@@ -95,9 +95,9 @@ int main(int argc, const char * argv[]) {
     
 //    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-        auto ans = leetCode.reverseWords(s);
+//        auto ans = leetCode.reverseWords(s);
 //    pList(ans);
-        cout<< "ans:" << ans << endl;
+//        cout<< "ans:" << ans << endl;
 //    }
 //    Tree::pTree(tree1);
     
@@ -107,6 +107,29 @@ int main(int argc, const char * argv[]) {
 //    }
 //    cout << endl;
 
+    LRUCache lRUCache = LRUCache(3);
+    lRUCache.put(1, 1); // 缓存是 {1=1}
+    lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}
+    lRUCache.put(3, 3); // 缓存是 {1=1, 2=2}
+    lRUCache.put(4, 4); // 缓存是 {1=1, 2=2}
+
+//    int a = lRUCache.get(2);    // 返回 1
+//    lRUCache.put(4, 1); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+    int a = lRUCache.get(4);    // 返回 -1 (未找到)
+    a = lRUCache.get(3);    // 返回 -1 (未找到)
+    a = lRUCache.get(2);    // 返回 -1 (未找到)
+    a = lRUCache.get(1);    // 返回 -1 (未找到)
+    lRUCache.put(5, 5); // 缓存是 {1=1, 2=2}
+    a = lRUCache.get(1);    // 返回 -1 (未找到)
+    a = lRUCache.get(2);    // 返回 -1 (未找到)
+    a = lRUCache.get(3);    // 返回 -1 (未找到)
+    a = lRUCache.get(4);    // 返回 -1 (未找到)
+    a = lRUCache.get(5);    // 返回 -1 (未找到)
+
+//    a = lRUCache.get(3);    // 返回 3
+//    a = lRUCache.get(4);    // 返回 4
+
+    
     
     //---------------排序---------------
 //    vector<int> a = {3,5,2,4,1,6,7};
