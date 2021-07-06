@@ -63,8 +63,9 @@ int main(int argc, const char * argv[]) {
 //    TreeNode *tree2 = Tree::creatBTree(b, 0, sizeof(b)/sizeof(int));
     
     /* 字符串 */
+    
 //    vector<string> s_v = {"06","words and 987","225","-42","-91283472332","91283472332","    123","        -32","3.123","-3.123","+-3.2","+3"};
-    string s = "K4(ON(SO3)2)2";
+    string s = "Let's take LeetCode contest";
 //    vector<string> s_v = {"H2O","K4(ON(SO3)2)2","Mg(OH)2","Be32","H111He49NO35B7N46Li20"};
 //    string st1 = s1.substr(0,4);
 //    string st2 = s1.substr(4,s1.length() - 4);
@@ -82,7 +83,7 @@ int main(int argc, const char * argv[]) {
 //        {".",".",".",".",".","2",".",".","."},
 //        {".","2",".","9",".",".",".",".","."},
 //        {".",".","4",".",".",".",".",".","."}};
-//    vector<vector<int>> v = {{1,2,2,1},{3,1,2},{1,3,2},{2,4},{3,1,2},{1,3,1,1}};
+//    vector<vector<string>> v = {{"David","3","Ceviche"},{"Corina","10","Beef Burrito"},{"David","3","Fried Chicken"},{"Carla","5","Water"},{"Carla","5","Ceviche"},{"Rous","3","Ceviche"}};
 //    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
 //    vector<int> v2 = {2,1,0};
 //    vector<vector<int>> null_v = {2,1,0};
@@ -94,7 +95,7 @@ int main(int argc, const char * argv[]) {
     
 //    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-        auto ans = leetCode.countOfAtoms(s);
+        auto ans = leetCode.reverseWords(s);
 //    pList(ans);
         cout<< "ans:" << ans << endl;
 //    }

@@ -7,6 +7,16 @@
 
 #include "LeetCode.hpp"
 
+typedef signed long long ll;
+#undef _P
+#define _P(...) (void)printf(__VA_ARGS__)
+#define FOR(x,to) for(x=0;x<(to);x++)
+#define FORR(x,arr) for(auto& x:arr)
+#define ITR(x,c) for(__typeof(c.begin()) x=c.begin();x!=c.end();x++)
+#define ALL(a) (a.begin()),(a.end())
+#define ZERO(a) memset(a,0,sizeof(a))
+#define MINUS(a) memset(a,0xff,sizeof(a))
+
 vector<vector<int>> LeetCode::threeSum(vector<int> &nums){
     vector<vector<int>> ans;
     int size = (int)nums.size();
@@ -2867,5 +2877,65 @@ string LeetCode::countOfAtoms(string formula) {
         ans += ss;
         if(atoms_mp[ss] != 1)ans += to_string(atoms_mp[ss]);
     }
+    return ans;
+}
+
+
+vector<vector<string>> LeetCode::displayTable(vector<vector<string>>& orders) {
+    //统计菜的出现,这里使用set，同样是为了后面不用排序
+    set<string> foodItem_set;
+    
+    //桌子作为hashmap的key，然后里面存每个桌子的菜单,菜单用菜名作为key，value作统计
+    //这里使用map就是方便后面不用排序了
+    map<int,unordered_map<string, int>> table_food_mp;
+    
+    for(int i = 0; i < orders.size(); i++){
+        vector<string> temp = orders[i];
+        foodItem_set.insert(temp[2]);
+        table_food_mp[atoi(temp[1].c_str())][temp[2]]++;
+    }
+    vector<vector<string>> ans((int)table_food_mp.size()+1,vector<string>((int)foodItem_set.size()+1,"0"));
+    //现将菜单加入到第一维数组中，用作下面的hashMap的索引
+    ans[0][0] = "Table";
+    int foodIndex = 1;
+    for (auto it = foodItem_set.begin(); it != foodItem_set.end(); ++it) {
+        ans[0][foodIndex] = *it;
+        foodIndex++;
+    }
+    //这时候遍历每桌子的菜
+    int tableIndex = 1;
+    for (auto it = table_food_mp.begin(); it != table_food_mp.end(); ++it) {
+        ans[tableIndex][0] = to_string(it->first);
+        unordered_map<string, int> temp_table_food_mp = it->second;
+        for (int i = 1; i < ans[0].size(); i++) {
+            int food_count = temp_table_food_mp[ans[0][i]];
+            ans[tableIndex][i] = to_string(food_count);
+        }
+        tableIndex++;
+    }
+    return ans;
+}
+
+string LeetCode::reverseWords(string s) {
+    int size = (int)s.size();
+    int i = 0;
+    int start = 0;
+    while(i < size){
+        start = i;
+        while (i < size && i != ' ') {
+            i++;
+        }
+        int left = start;
+        int right = i - 1;
+        while (left < right) {
+            swap(s[left], s[right]);
+            left++;
+            right--;
+        }
+        while (i < size && i == ' ') {
+            i++;
+        }
+    }
+    
     return ans;
 }

@@ -374,4 +374,35 @@ public:
     }
 };
 
+class LRUCache {
+private:
+    std::unordered_map<int,std::deque<int>::iterator> _obj;//存放key-value
+    std::deque<int> _deq;//存放key
+    int _capacity;      //缓存的最大容量
+    int _sum;              //总量，每次put的时候都要
+public:
+    LRUCache(int capacity) {
+        _capacity = capacity;
+    }
+    
+    int get(int key) {
+        int value = 0;
+        if(_obj[key] != _deq.end()){
+            value = *_obj[key];
+            _deq.erase(_obj[key]);
+            _deq.push_front(value);
+        }else{
+            value = -1;
+        }
+        return value;
+    }
+    
+    void put(int key, int value) {
+        
+        //if(value + this->_capacity)
+    }
+};
+
+
+
 #endif /* Struts_h */

@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <vector>
 #include <map>
+#include <set>
 #include <algorithm>
 #include <list>
 #include <queue>
@@ -139,6 +140,8 @@ public:
     int minCount(vector<int>& coins);
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people);
     string countOfAtoms(string formula);
+    vector<vector<string>> displayTable(vector<vector<string>>& orders);
+    string reverseWords(string s);
 };
 
 #endif /* LeetCode_hpp */
