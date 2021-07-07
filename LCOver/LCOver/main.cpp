@@ -85,7 +85,7 @@ int main(int argc, const char * argv[]) {
 //        {".",".","4",".",".",".",".",".","."}};
 //    vector<vector<string>> v = {{"David","3","Ceviche"},{"Corina","10","Beef Burrito"},{"David","3","Fried Chicken"},{"Carla","5","Water"},{"Carla","5","Ceviche"},{"Rous","3","Ceviche"}};
 //    vector<string> v1 = {"i", "love", "leetcode", "i", "love", "coding"};
-//    vector<int> v2 = {2,1,0};
+//    vector<int> v2 = {0,1,1};
 //    vector<vector<int>> null_v = {2,1,0};
 //    vector<vector<int>> v = {{7,0},{4,4},{7,1},{5,0},{6,1},{5,2}};
     //5
@@ -95,7 +95,7 @@ int main(int argc, const char * argv[]) {
     
 //    TreeNode * ans = codec.deserialize(codec.serialize(tree1));
 //    for (string s : s_v) {
-//        auto ans = leetCode.reverseWords(s);
+//        auto ans = leetCode.countPairs(v2);
 //    pList(ans);
 //        cout<< "ans:" << ans << endl;
 //    }
@@ -107,27 +107,39 @@ int main(int argc, const char * argv[]) {
 //    }
 //    cout << endl;
 
-    LRUCache lRUCache = LRUCache(3);
-    lRUCache.put(1, 1); // 缓存是 {1=1}
-    lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}
-    lRUCache.put(3, 3); // 缓存是 {1=1, 2=2}
-    lRUCache.put(4, 4); // 缓存是 {1=1, 2=2}
-
-//    int a = lRUCache.get(2);    // 返回 1
-//    lRUCache.put(4, 1); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
-    int a = lRUCache.get(4);    // 返回 -1 (未找到)
-    a = lRUCache.get(3);    // 返回 -1 (未找到)
-    a = lRUCache.get(2);    // 返回 -1 (未找到)
-    a = lRUCache.get(1);    // 返回 -1 (未找到)
-    lRUCache.put(5, 5); // 缓存是 {1=1, 2=2}
-    a = lRUCache.get(1);    // 返回 -1 (未找到)
-    a = lRUCache.get(2);    // 返回 -1 (未找到)
-    a = lRUCache.get(3);    // 返回 -1 (未找到)
-    a = lRUCache.get(4);    // 返回 -1 (未找到)
-    a = lRUCache.get(5);    // 返回 -1 (未找到)
-
+//    LRUCache lRUCache = LRUCache(3);
+//    lRUCache.put(1, 1); // 缓存是 {1=1}
+//    lRUCache.put(2, 2); // 缓存是 {1=1, 2=2}
+//    lRUCache.put(3, 3); // 缓存是 {1=1, 2=2}
+//    lRUCache.put(4, 4); // 缓存是 {1=1, 2=2}
+////
+////    int a = lRUCache.get(2);    // 返回 1
+////    lRUCache.put(4, 1); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+//    int a = lRUCache.get(4);    // 返回 -1 (未找到)
+//    a = lRUCache.get(3);    // 返回 -1 (未找到)
+//    a = lRUCache.get(2);    // 返回 -1 (未找到)
+//    a = lRUCache.get(1);    // 返回 -1 (未找到)
+//    lRUCache.put(5, 5); // 缓存是 {1=1, 2=2}
+//    a = lRUCache.get(1);    // 返回 -1 (未找到)
+//    a = lRUCache.get(2);    // 返回 -1 (未找到)
+//    a = lRUCache.get(3);    // 返回 -1 (未找到)
+//    a = lRUCache.get(4);    // 返回 -1 (未找到)
+//    a = lRUCache.get(5);    // 返回 -1 (未找到)
+//
 //    a = lRUCache.get(3);    // 返回 3
 //    a = lRUCache.get(4);    // 返回 4
+    
+    LRUCache lRUCache = LRUCache(2);
+    lRUCache.put(2, 1); // 缓存是 {1=1}
+    lRUCache.put(1, 1); // 缓存是 {1=1, 2=2}
+//    lRUCache.get(1);    // 返回 1
+    lRUCache.put(2, 3); // 该操作会使得关键字 2 作废，缓存是 {1=1, 3=3}
+//    lRUCache.get(2);    // 返回 -1 (未找到)
+    lRUCache.put(4, 1); // 该操作会使得关键字 1 作废，缓存是 {4=4, 3=3}
+    lRUCache.get(1);    // 返回 -1 (未找到)
+    lRUCache.get(2);    // 返回 3
+//    lRUCache.get(4);    // 返回 4
+
 
     
     

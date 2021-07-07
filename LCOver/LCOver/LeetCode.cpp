@@ -2939,3 +2939,48 @@ string LeetCode::reverseWords(string s) {
     
     return s;
 }
+
+
+bool isPowerOfTwo(int n){
+    if(n==0)return false;
+    long x = n;
+    return (x & (x-1))==0;
+}
+
+int LeetCode::countPairs(vector<int>& deliciousness) {
+    
+    unordered_map<int, int> mp;
+    for (int val : deliciousness) {
+        mp[val]++;
+    }
+    int ans = 0;
+    while (!mp.empty()) {
+        int currentKey = mp.begin()->first;
+        int currentVal = mp.begin()->second;
+        if(isPowerOfTwo(currentKey * 2))
+            ans += ((currentVal-1)*currentVal)/2;
+        mp.erase(currentKey);
+        cout << "currentKey:" << currentKey << "-hit keys:";
+        for (auto it = mp.begin(); it != mp.end(); ++it) {
+            if(!isPowerOfTwo(currentKey + it->first)) continue;
+            cout << it->first;
+            ans += (currentVal * it->second);
+        }
+        cout<<endl;
+    }
+    return ans %= 1000000007;
+    
+//    int maxVal = *max_element(deliciousness.begin(), deliciousness.end());
+//    int maxSum = maxVal * 2;
+//    int pairs = 0;
+//    unordered_map<int, int> mp;
+//    for (auto& val : deliciousness) {
+//        for (int sum = 1; sum <= maxSum; sum <<= 1) {
+//            int count = mp.count(sum - val) ? mp[sum - val] : 0;
+//            pairs = (pairs + count) % 1000000007;
+//        }
+//        mp[val]++;
+//    }
+//    return pairs;
+
+}

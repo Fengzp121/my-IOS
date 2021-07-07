@@ -16,15 +16,6 @@ struct ListNode {
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
-struct TreeNode {
-    int val;
-    TreeNode *left;
-    TreeNode *right;
-    TreeNode() : val(0), left(nullptr), right(nullptr) {}
-    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
-    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
-};
-
 class List {
 public:
     static ListNode *createList(std::vector<int> data){
@@ -37,6 +28,144 @@ public:
         }
         return head->next;
     }
+};
+
+struct LinkedMapNode {
+    int key;
+    int value;
+    LinkedMapNode *prev;
+    LinkedMapNode *next;
+    LinkedMapNode() : key(0),value(0), prev(nullptr), next(nullptr) {}
+    LinkedMapNode(int key, int value = 0) : key(key), value(value), prev(nullptr), next(nullptr) {}
+};
+
+class LinkedMap {
+public:
+    std::unordered_map<int, LinkedMapNode *> mp;
+    
+    LinkedMapNode *head;
+    LinkedMapNode *tail;
+    
+    LinkedMap(){
+        _countLimit = 1000;
+        _totalCount = 0;
+        head = nullptr;
+        tail = nullptr;
+    }
+    LinkedMap(int countLimit){
+        _countLimit = countLimit;
+        _totalCount = 0;
+        head = nullptr;
+        tail = nullptr;
+    }
+    ~LinkedMap(){}
+
+private:
+    int _countLimit;
+    int _totalCount;
+    void _push_front(int key,int value){
+        _totalCount++;
+        if(head){
+            LinkedMapNode *node = new LinkedMapNode(key,value);
+            head->prev = node;
+            node->next = head;
+            head = node;
+        }else{
+            head = new LinkedMapNode(key,value);
+            tail = head;
+        }
+        mp[key] = head;
+        if(_totalCount > _countLimit) _pop_back();
+    }
+    
+    void _move_front(int key){
+        LinkedMapNode *node = mp[key];
+        if(head == node) return;
+        if(tail == node){
+            tail = node->prev;
+            tail->next = nullptr;
+        }else{
+            node->next->prev = node->prev;
+            node->prev->next = node->next;
+        }
+        node->next = head;
+        node->prev = nullptr;
+        head->prev = node;
+        head = node;
+    }
+    
+    void _pop_back(){
+        if(!tail) return;
+        int key = tail->key;
+        LinkedMapNode *node = mp[key];
+        _totalCount--;
+        if(tail == head){
+            tail = nullptr;
+            head = nullptr;
+        }else{
+            tail = tail->prev;
+            tail->next = nullptr;
+        }
+        delete node;
+        node = nullptr;
+        mp.erase(key);
+    }
+    
+    void _remove(int key){
+        LinkedMapNode *node = mp[key];
+        if(node->prev) node->next->prev = node->prev;
+        if(node->next) node->prev->next = node->next;
+        if(node == head) head = node->next;
+        if(node == tail) tail = node->prev;
+        _totalCount--;
+        delete node;
+        node = nullptr;
+        mp.erase(key);
+    }
+    
+    void _removeAll(){
+        while (head) {
+            LinkedMapNode *node = head;
+            head = head->next;
+            delete node;
+            node = nullptr;
+        }
+        _totalCount = 0;
+        mp.clear();
+    }
+    
+    
+public:
+    void put(int key,int value){
+        if(mp.count(key)){
+            LinkedMapNode *node = mp[key];
+            node->value = value;
+            _move_front(key);
+        }else{
+            _push_front(key, value);
+        }
+        
+    }
+    
+    int  get(int key){
+        if(mp.count(key)){
+            _move_front(key);
+            return mp[key]->value;
+        }
+        return -1;
+    }
+};
+
+
+
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
 };
 
 class Tree {
@@ -382,48 +511,52 @@ public:
 //[[2],[2,1],[1,1],[2],[4,1],[1],[2]]
 //["LRUCache","put","put","put","put","get","get"]
 //[[2],[2,1],[1,1],[2,3],[4,1],[1],[2]]
+
+
 class LRUCache {
 private:
-    std::unordered_map<int,std::deque<std::vector<int>>::iterator> _objMap;//存放key-value
-    std::deque<std::vector<int>> _deq;  //存放key-value
-    int _capacity;         //缓存的最大容量
-    int _sum;              //总量，每次put的时候都要
+//    std::unordered_map<int,std::deque<std::vector<int>>::iterator> _objMap;//存放key-value
+//    std::deque<std::vector<int>> _deq;  //存放key-value
+//    int _capacity;         //缓存的最大容量
+//    int _sum;              //总量，每次put的时候都要
+    LinkedMap lru;
 public:
     LRUCache(int capacity) {
-        _capacity = capacity;
-        _sum = 0;
+        lru = LinkedMap(capacity);
     }
     
     int get(int key) {
-        int value = 0;
-        if(_objMap.count(key)){
-            value = (*_objMap[key])[1];
-            _deq.erase(_objMap[key]);
-            _deq.push_front({key,value});
-            _objMap[key] = _deq.begin();
-        }else{
-            value = -1;
-        }
-        return value;
+//        int value = 0;
+//        if(_objMap.count(key)){
+//            value = (*_objMap[key])[1];
+//            _deq.erase(_objMap[key]);
+//            std::vector<int> v = {key,value};
+//
+//            _deq.push_front({key,value});
+//            _objMap[key] = _deq.begin();
+//        }else{
+//            value = -1;
+//        }
+        return lru.get(key);
     }
     
     void put(int key, int value) {
-        
-        if(_objMap.count(key)){
-            _deq.erase(_objMap[key]);
-            _deq.push_front({key,value});
-            _objMap[key] = _deq.begin();
-        }else{
-            _deq.push_front({key,value});
-            _objMap[key] = _deq.begin();
-            sum++;
-        }
-        if(_sum > _capacity){
-            _sum--;
-            int t_key = _deq.back()[0];
-            _deq.pop_back();
-            _objMap.erase(t_key);
-        }
+        lru.put(key,value);
+//        if(_objMap.count(key)){
+//            _deq.erase(_objMap[key]);
+//            _deq.push_front({key,value});
+//            _objMap[key] = _deq.begin();
+//        }else{
+//            _deq.push_front({key,value});
+//            _objMap[key] = _deq.begin();
+//            _sum++;
+//        }
+//        if(_sum > _capacity){
+//            _sum--;
+//            int t_key = _deq.back()[0];
+//            _deq.pop_back();
+//            _objMap.erase(t_key);
+//        }
     }
 };
 

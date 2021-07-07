@@ -142,6 +142,7 @@ public:
     string countOfAtoms(string formula);
     vector<vector<string>> displayTable(vector<vector<string>>& orders);
     string reverseWords(string s);
+    int countPairs(vector<int>& deliciousness);
 };
 
 #endif /* LeetCode_hpp */
